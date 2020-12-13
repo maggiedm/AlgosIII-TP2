@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/github/maggiedm/AlgosIII-TP2)](https://travis-ci.com/github/maggiedm/AlgosIII-TP2) [![codecov](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2/branch/master/graph/badge.svg)]()
+[![Build Status](https://travis-ci.org/fiuba/algo3_proyecto_base_tp2)](https://travis-ci.com/github/maggiedm/AlgosIII-TP2) [![codecov](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2/branch/master/graph/badge.svg)]()
 
 
 
