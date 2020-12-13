@@ -2,7 +2,7 @@
 
 
 
-# TP2 Algoritmos 3: {nombre}
+# TP2 Algoritmos 3: {AlgoBlocks}
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
@@ -11,7 +11,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 1** - [integrante1](https://github.com/integrante1)
 * **Integrante 2** - [integrante2](https://github.com/integrante2)
 * **Integrante 3** - [integrante3](https://github.com/integrante3)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Magdalena de Montmollin** - [integrante4](https://github.com/maggiedm)
 
 Corrector: **{Corrector}**
 
