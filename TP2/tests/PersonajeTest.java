@@ -91,4 +91,23 @@ public class PersonajeTest {
         assertEquals(-1, personaje.getPosicion().getY());
     }
 
+    @Test
+    public void test11PersonajeMoverADerechaConLapizAbajoAgregaLineaAlDibujo() {
+        Personaje personaje = new Personaje();
+
+        personaje.bajarLapiz();
+        personaje.mover(new Derecha());
+
+        assertEquals(1, personaje.getDibujo().getLineas().size());
+    }
+
+    @Test
+    public void test12PersonajeMoverADerechaConLapizArribaNoAgregaLineaAlDibujo() {
+        Personaje personaje = new Personaje();
+
+        personaje.mover(new Derecha());
+
+        assertEquals(0, personaje.getDibujo().getLineas().size());
+    }
+
 }
