@@ -1,6 +1,7 @@
 package tp2;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Algoritmo {
@@ -14,4 +15,7 @@ public class Algoritmo {
     public void agregarBloque(Bloque unBloque) {
         secuenciaDeBloques.add(unBloque);
     }
+
+    public List<Bloque> getSecuenciaDeBloques() { return secuenciaDeBloques; }
+
 }

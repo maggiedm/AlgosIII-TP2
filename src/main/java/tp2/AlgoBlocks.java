@@ -15,4 +15,7 @@ public class AlgoBlocks {
         algoritmo.agregarBloque(unBloque);
     }
 
+    public Personaje getPersonaje() { return personaje; }
+
+    public Algoritmo getAlgoritmo() { return algoritmo; }
 }
