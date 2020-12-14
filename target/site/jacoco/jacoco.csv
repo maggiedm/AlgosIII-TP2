@@ -1,0 +1,14 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+tp2,tp2,Dibujo,0,21,0,0,0,5,0,3,0,3
+tp2,tp2,Derecha,0,5,0,0,0,1,0,1,0,1
+tp2,tp2,Personaje,0,54,0,0,0,16,0,7,0,7
+tp2,tp2,Linea,0,9,0,0,0,4,0,1,0,1
+tp2,tp2,Posicion,0,31,0,0,0,7,0,4,0,4
+tp2,tp2,Izquierda,0,5,0,0,0,1,0,1,0,1
+tp2,tp2,Coordenada,0,29,0,0,0,7,0,4,0,4
+tp2,tp2,LapizAbajo,0,8,0,0,0,3,0,2,0,2
+tp2,tp2,LapizArriba,0,4,0,0,0,2,0,2,0,2
+tp2,tp2,Lapiz,0,30,0,0,0,9,0,5,0,5
+tp2,tp2,Arriba,0,5,0,0,0,1,0,1,0,1
+tp2,tp2,Abajo,0,5,0,0,0,1,0,1,0,1
+tp2,tp2,Direccion,0,13,0,0,0,4,0,2,0,2
