@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.com/maggiedm/AlgosIII-TP2.svg?token=Axp7KLtzgAP6AxZdwq1E&branch=main)](https://travis-ci.com/github/maggiedm/AlgosIII-TP2) [![codecov](https://codecov.io/gh/maggiedm/AlgosIII-TP2/branch/main/graph/badge.svg?token=WCGOG7KXE6)](https://codecov.io/gh/maggiedm/AlgosIII-TP2)(https://codecov.io/gh/maggiedm/AlgosIII-TP2)
-
+[![Build Status](https://travis-ci.com/maggiedm/AlgosIII-TP2.svg?token=Axp7KLtzgAP6AxZdwq1E&branch=main)](https://travis-ci.com/github/maggiedm/AlgosIII-TP2) [![codecov](https://codecov.io/gh/maggiedm/AlgosIII-TP2/branch/main/graph/badge.svg?token=WCGOG7KXE6)](https://codecov.io/gh/maggiedm/AlgosIII-TP2)
 
 # TP2 Algoritmos 3: AlgoBlocks
 
