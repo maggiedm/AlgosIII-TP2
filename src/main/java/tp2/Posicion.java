@@ -2,20 +2,20 @@ package tp2;
 
 public class Posicion {
 
-    private Coordenada coordenada = new Coordenada(0, 0);
+    private Coordenadas coordenadas = new Coordenadas(0, 0);
 
     public int getX() {
-        return coordenada.getX();
+        return coordenadas.getX();
     }
 
     public int getY() {
-        return coordenada.getY();
+        return coordenadas.getY();
     }
 
     public Posicion obtenerSiguiente(Direccion unaDireccion) {
 
         Posicion posicion = new Posicion();
-        posicion.coordenada = this.coordenada.sumar(unaDireccion.getCoordenada());
+        posicion.coordenadas = this.coordenadas.sumar(unaDireccion.getCoordenada());
         return posicion;
     }
 }
