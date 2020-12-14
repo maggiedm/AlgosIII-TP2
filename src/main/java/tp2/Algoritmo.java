@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Algoritmo {
 
-    private List<Bloque> secuenciaDeBloques = new ArrayList<>;
+    private List<Bloque> secuenciaDeBloques = new ArrayList();
 
     public void ejecutar(Personaje personaje) {
         for (Bloque unBloque : secuenciaDeBloques) unBloque.ejecutar(personaje);
