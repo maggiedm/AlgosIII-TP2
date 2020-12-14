@@ -2,9 +2,6 @@ package tp2;
 
 public class Derecha extends Direccion{
 
-    @Override
-    public int desplazarHorizontal(int PosHorizontal) {
-        return (PosHorizontal + 1);
-    }
+    public Derecha(){ super (1, 0); }
 
 }

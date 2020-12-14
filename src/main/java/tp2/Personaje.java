@@ -2,7 +2,7 @@ package tp2;
 
 public class Personaje {
 
-    private Posicion posicion = new Posicion(0, 0);
+    private Posicion posicion = new Posicion();
     private final Lapiz lapiz = new Lapiz();
     private final Dibujo dibujo = new Dibujo();
 
@@ -25,10 +25,10 @@ public class Personaje {
     }
 
     public void mover(Direccion unaDireccion) {
-        Posicion pos_vieja = posicion;
-        Posicion pos_nueva = posicion.obtenerSiguiente(unaDireccion);
-        lapiz.dibujarLinea(pos_vieja, pos_nueva, dibujo);
-        posicion = posicion.obtenerSiguiente(unaDireccion);
+        Posicion posVieja = posicion;
+        Posicion posNueva = posicion.obtenerSiguiente(unaDireccion);
+        lapiz.dibujarLinea(posVieja, posNueva, dibujo);
+        posicion = posNueva;
     }
 
 }

@@ -2,11 +2,11 @@ package tp2;
 
 public abstract class Direccion {
 
-    public int desplazarHorizontal (int PosHorizontal){
-        return PosHorizontal;
+    protected Coordenada coordenada;
+
+    public Direccion(int dirHorizontal, int dirVertical){
+        coordenada = new Coordenada(dirHorizontal, dirVertical);
     }
 
-    public int desplazarVertical (int PosVertical){
-        return PosVertical;
-    }
+    public Coordenada getCoordenada() { return coordenada; }
 }

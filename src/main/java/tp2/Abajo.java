@@ -2,7 +2,5 @@ package tp2;
 
 public class Abajo extends Direccion {
 
-    public int desplazarVertical(int PosVertical) {
-        return PosVertical - 1;
-    }
+    public Abajo(){ super (0, -1); }
 }
