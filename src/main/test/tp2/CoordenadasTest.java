@@ -11,16 +11,16 @@ public class CoordenadasTest {
     public void test01CrearCoordenadaEnElOrigen() {
         Coordenadas coordenadas = new Coordenadas(0, 0);
 
-        assertEquals(coordenadas.getX(), 0);
-        assertEquals(coordenadas.getY(), 0);
+        assertEquals(0, coordenadas.getX());
+        assertEquals(0, coordenadas.getY());
     }
 
     @Test
     public void test02CrearCoordenadaPosHorizontal2PosVertical4(){
         Coordenadas coordenadas = new Coordenadas(2, 4);
 
-        assertEquals(coordenadas.getX(), 2);
-        assertEquals(coordenadas.getY(), 4);
+        assertEquals(2, coordenadas.getX());
+        assertEquals(4, coordenadas.getY());
     }
 
     @Test
@@ -29,8 +29,9 @@ public class CoordenadasTest {
         Coordenadas otrasCoordenadas = new Coordenadas(0, 0);
         Coordenadas suma = unasCoordenadas.sumar(otrasCoordenadas);
 
-        assertEquals(suma.getX(), 0);
-        assertEquals(suma.getY(), 0);
+        assertEquals(0, suma.getX());
+        assertEquals(0, suma.getY());
+
     }
 
     @Test
@@ -39,8 +40,8 @@ public class CoordenadasTest {
         Coordenadas otrasCoordenadas = new Coordenadas(1, -7);
         Coordenadas suma = unasCoordenadas.sumar(otrasCoordenadas);
 
-        assertEquals(suma.getX(), 0);
-        assertEquals(suma.getY(), 0);
+        assertEquals(0, suma.getX());
+        assertEquals(0, suma.getY());
     }
 
     @Test
@@ -49,8 +50,8 @@ public class CoordenadasTest {
         Coordenadas otrasCoordenadas = new Coordenadas(19, -6);
         Coordenadas suma = unasCoordenadas.sumar(otrasCoordenadas);
 
-        assertEquals(suma.getX(), 18);
-        assertEquals(suma.getY(), 1);
+        assertEquals(18, suma.getX());
+        assertEquals(1, suma.getY());
     }
 
 }
