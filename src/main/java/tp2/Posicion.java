@@ -15,7 +15,7 @@ public class Posicion {
     public Posicion obtenerSiguiente(Direccion unaDireccion) {
 
         Posicion posicion = new Posicion();
-        posicion.coordenadas = this.coordenadas.sumar(unaDireccion.getCoordenada());
+        posicion.coordenadas = this.coordenadas.sumar(unaDireccion.getCoordenadas());
         return posicion;
     }
 }

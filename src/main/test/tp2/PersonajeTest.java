@@ -12,8 +12,8 @@ public class PersonajeTest {
     public void test01PersonajeNuevoTienePosicion00() {
         Personaje personaje = new Personaje();
 
-        assertEquals(personaje.getPosicion().getX(), 0);
-        assertEquals(personaje.getPosicion().getY(), 0);
+        assertEquals(0, personaje.getPosicion().getX());
+        assertEquals(0, personaje.getPosicion().getY());
     }
 
     @Test

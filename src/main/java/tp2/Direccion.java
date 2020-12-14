@@ -8,5 +8,5 @@ public abstract class Direccion {
         coordenadas = new Coordenadas(dirHorizontal, dirVertical);
     }
 
-    public Coordenadas getCoordenada() { return coordenadas; }
+    public Coordenadas getCoordenadas() { return coordenadas; }
 }
