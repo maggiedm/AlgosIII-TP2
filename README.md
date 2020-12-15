@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.com/maggiedm/AlgosIII-TP2.svg?token=Axp7KLtzgAP6AxZdwq1E&branch=main)](https://travis-ci.com/github/maggiedm/AlgosIII-TP2) [![codecov](https://codecov.io/gh/maggiedm/AlgosIII-TP2/branch/main/graph/badge.svg?token=WCGOG7KXE6)](https://codecov.io/gh/maggiedm/AlgosIII-TP2)
+[![Build Status](https://travis-ci.com/maggiedm/AlgosIII-TP2.svg?token=Axp7KLtzgAP6AxZdwq1E&branch=main)](https://travis-ci.com/github/maggiedm/AlgosIII-TP2)
 
 # TP2 Algoritmos 3: AlgoBlocks
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo 10
+## Grupo T10
 
 * **Guido Bergman** - [GBergman](https://github.com/GuidoBergman)
 * **Camilo Fábregas** - [CFabregas](https://github.com/MiloGNR)
@@ -12,6 +12,8 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Magdalena de Montmollin** - [MdeMontmollin](https://github.com/maggiedm)
 
 Corrector: **Martin Picco**
+
+## [Informe Overleaf](https://www.overleaf.com/2546196393jwjhnnbyqqhk)  
 
 ### Pre-requisitos
 
