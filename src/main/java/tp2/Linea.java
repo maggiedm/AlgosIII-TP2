@@ -9,6 +9,7 @@ public class Linea {
         origen = inicioLinea;
         destino = finLinea;
     }
+
     public boolean esIgual(Posicion inicioLinea, Posicion finLinea) {
         return ((origen.esMisma(inicioLinea) && destino.esMisma(finLinea)) || (origen.esMisma(finLinea) && destino.esMisma(inicioLinea)));
     }
