@@ -51,6 +51,4 @@ public class LapizTest {
 
         assertTrue(dibujo.getLineas().isEmpty());
     }
-
-
 }

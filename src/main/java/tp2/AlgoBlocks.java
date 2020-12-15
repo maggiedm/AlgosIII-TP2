@@ -1,13 +1,11 @@
 package tp2;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AlgoBlocks {
     private Personaje personaje = new Personaje();
     private Algoritmo algoritmo = new Algoritmo();
 
     public void ejecutar() {
+        // personaje = new Personaje();
         algoritmo.ejecutar(personaje);
     }
 

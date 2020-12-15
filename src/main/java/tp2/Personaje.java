@@ -10,10 +10,6 @@ public class Personaje {
         return posicion;
     }
 
-    public Lapiz getLapiz() {
-        return lapiz;
-    }
-
     public Dibujo getDibujo() { return dibujo; }
 
     public void bajarLapiz() {
@@ -26,9 +22,8 @@ public class Personaje {
 
     public void mover(Direccion unaDireccion) {
         Posicion posVieja = posicion;
-        Posicion posNueva = posicion.obtenerSiguiente(unaDireccion);
-        lapiz.dibujarLinea(posVieja, posNueva, dibujo);
-        posicion = posNueva;
+        posicion = posicion.obtenerSiguiente(unaDireccion);
+        lapiz.dibujarLinea(posVieja, posicion, dibujo);
     }
 
 }

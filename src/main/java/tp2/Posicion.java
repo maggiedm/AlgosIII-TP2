@@ -18,4 +18,8 @@ public class Posicion {
         posicion.coordenadas = this.coordenadas.sumar(unaDireccion.getCoordenadas());
         return posicion;
     }
+
+    public boolean esMisma(Posicion unaPosicion) {
+        return (this.getX() == unaPosicion.getX() && this.getY() == unaPosicion.getY());
+    }
 }

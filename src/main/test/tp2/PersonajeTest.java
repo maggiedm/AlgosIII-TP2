@@ -1,9 +1,6 @@
 package tp2;
 
 import org.junit.jupiter.api.Test;
-
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PersonajeTest {
@@ -17,48 +14,7 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test02PersonajeNuevoTieneLapizArriba() {
-        Personaje personaje = new Personaje();
-
-        assertThat(personaje.getLapiz().getCondicion(), instanceOf(LapizArriba.class));
-    }
-
-    @Test
-    public void test03PersonajeBajaLapizTieneLapizAbajo() {
-        Personaje personaje = new Personaje();
-
-        personaje.bajarLapiz();
-        assertThat(personaje.getLapiz().getCondicion(), instanceOf(LapizAbajo.class));
-    }
-
-    @Test
-    public void test04PersonajeBajaYSubeLapizTieneLapizArriba() {
-        Personaje personaje = new Personaje();
-
-        personaje.bajarLapiz();
-        personaje.subirLapiz();
-        assertThat(personaje.getLapiz().getCondicion(), instanceOf(LapizArriba.class));
-    }
-
-    @Test
-    public void test05PersonajeConLapizArribaSubeLapizTieneLapizArriba() {
-        Personaje personaje = new Personaje();
-
-        personaje.subirLapiz();
-        assertThat(personaje.getLapiz().getCondicion(), instanceOf(LapizArriba.class));
-    }
-
-    @Test
-    public void test06PersonajeConLapizAbajoBajaLapizTieneLapizAbajo() {
-        Personaje personaje = new Personaje();
-
-        personaje.bajarLapiz();
-        personaje.bajarLapiz();
-        assertThat(personaje.getLapiz().getCondicion(), instanceOf(LapizAbajo.class));
-    }
-
-    @Test
-    public void test07PersonajeMoverADerechaMueveElPersonajeUnaPosicionADerecha() {
+    public void test02PersonajeMoverADerechaMueveElPersonajeUnaPosicionADerecha() {
         Personaje personaje = new Personaje();
 
         personaje.mover(new Derecha());
@@ -67,7 +23,7 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test08PersonajeMoverAIzquierdaMueveElPersonajeUnaPosicionAIzquierda() {
+    public void test03PersonajeMoverAIzquierdaMueveElPersonajeUnaPosicionAIzquierda() {
         Personaje personaje = new Personaje();
 
         personaje.mover(new Izquierda());
@@ -76,7 +32,7 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test09PersonajeMoverArribaMueveElPersonajeUnaPosicionArriba() {
+    public void test04PersonajeMoverArribaMueveElPersonajeUnaPosicionArriba() {
         Personaje personaje = new Personaje();
 
         personaje.mover(new Arriba());
@@ -85,7 +41,7 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test10PersonajeMoverAbajoMueveElPersonajeUnaPosicionAbajo() {
+    public void test05PersonajeMoverAbajoMueveElPersonajeUnaPosicionAbajo() {
         Personaje personaje = new Personaje();
 
         personaje.mover(new Abajo());
@@ -94,7 +50,46 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test11PersonajeMoverADerechaConLapizAbajoAgregaLineaAlDibujo() {
+    public void test06PersonajeMoverDosPosicionesEnDireccionesDistintasActualizaPosicionPersonaje() {
+        Personaje personaje = new Personaje();
+
+        personaje.mover(new Abajo());
+        personaje.mover(new Izquierda());
+        assertEquals(-1, personaje.getPosicion().getX());
+        assertEquals(-1, personaje.getPosicion().getY());
+    }
+
+    @Test
+    public void test07PersonajeMoverDosPosicionesEnMismaDireccionActualizaPosicionPersonaje() {
+        Personaje personaje = new Personaje();
+
+        personaje.mover(new Derecha());
+        personaje.mover(new Derecha());
+        assertEquals(2, personaje.getPosicion().getX());
+        assertEquals(0, personaje.getPosicion().getY());
+    }
+
+    @Test
+    public void test08PersonajeMoverDosPosicionesEnDireccionesOpuestasPosicionPersonajeOriginal() {
+        Personaje personaje = new Personaje();
+
+        personaje.mover(new Derecha());
+        personaje.mover(new Izquierda());
+        assertEquals(0, personaje.getPosicion().getX());
+        assertEquals(0, personaje.getPosicion().getY());
+    }
+
+    @Test
+    public void test09PersonajeNuevoMoverADerechaNoAgregaLineaAlDibujo() {
+        Personaje personaje = new Personaje();
+
+        personaje.mover(new Derecha());
+
+        assertEquals(0, personaje.getDibujo().getLineas().size());
+    }
+
+    @Test
+    public void test10PersonajeMoverADerechaConLapizAbajoAgregaLineaAlDibujo() {
         Personaje personaje = new Personaje();
 
         personaje.bajarLapiz();
@@ -104,12 +99,48 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test12PersonajeMoverADerechaConLapizArribaNoAgregaLineaAlDibujo() {
+    public void test11PersonajeMoverYVolverAPosicionAnteriorConLapizAbajoAgregaUnaLineaAlDibujo() {
+        Personaje personaje = new Personaje();
+
+        personaje.bajarLapiz();
+        personaje.mover(new Derecha());
+        personaje.mover(new Izquierda());
+
+        assertEquals(1, personaje.getDibujo().getLineas().size());
+    }
+
+    @Test
+    public void test12PersonajeMoverUnaPosicionConLapizArribaBajarLapizYMoverOtraPosicionAgregaUnaLineaAlDibujo() {
         Personaje personaje = new Personaje();
 
         personaje.mover(new Derecha());
+        personaje.bajarLapiz();
+        personaje.mover(new Arriba());
 
-        assertEquals(0, personaje.getDibujo().getLineas().size());
+        assertEquals(1, personaje.getDibujo().getLineas().size());
+    }
+
+    @Test
+    public void test13PersonajeMoverUnaPosicionConLapizAbajoSubirLapizYMoverOtraPosicionAgregaUnaLineaAlDibujo() {
+        Personaje personaje = new Personaje();
+
+        personaje.bajarLapiz();
+        personaje.mover(new Derecha());
+        personaje.subirLapiz();
+        personaje.mover(new Arriba());
+
+        assertEquals(1, personaje.getDibujo().getLineas().size());
+    }
+
+    @Test
+    public void test14PersonajeMoverDosPosicionesConLapizAbajoAgregaDosLineasAlDibujo() {
+        Personaje personaje = new Personaje();
+
+        personaje.bajarLapiz();
+        personaje.mover(new Derecha());
+        personaje.mover(new Arriba());
+
+        assertEquals(2, personaje.getDibujo().getLineas().size());
     }
 
 }

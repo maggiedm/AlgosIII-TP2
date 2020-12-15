@@ -22,4 +22,15 @@ public class AlgoritmoTest {
         assertEquals(2, algoritmo.getSecuenciaDeBloques().size());
     }
 
+    @Test
+    public void test03DTrasEjecutarAlgoritmoCon2BloquesAlgoritmoTiene2Bloques() {
+        Algoritmo algoritmo = new Algoritmo();
+
+        algoritmo.agregarBloque(new BloqueArriba());
+        algoritmo.agregarBloque(new BloqueAbajo());
+        algoritmo.ejecutar(new Personaje());
+
+        assertEquals(2, algoritmo.getSecuenciaDeBloques().size());
+    }
+
 }
