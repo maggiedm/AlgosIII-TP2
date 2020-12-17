@@ -10,7 +10,7 @@ public class Linea {
         destino = finLinea;
     }
 
-    public boolean esIgual(Posicion inicioLinea, Posicion finLinea) {
-        return ((origen.esIgualA(inicioLinea) && destino.esIgualA(finLinea)) || (origen.esIgualA(finLinea) && destino.esIgualA(inicioLinea)));
+    public boolean esIgual(Linea linea) {
+        return ((origen.esIgualA(linea.origen) && destino.esIgualA(linea.destino)) || (origen.esIgualA(linea.destino) && destino.esIgualA(linea.origen)));
     }
 }

@@ -15,7 +15,7 @@ public class PersonajeTest {
     public void test01PersonajeNuevoTienePosicion00() {
         Personaje personaje = new Personaje();
 
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.setPosicion(0, 0)));
+        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 0))));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.mover(new Derecha());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.setPosicion(1, 0)));
+        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(1, 0))));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.mover(new Izquierda());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.setPosicion(-1, 0)));
+        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(-1, 0))));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.mover(new Arriba());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.setPosicion(0, 1)));
+        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 1))));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.mover(new Abajo());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.setPosicion(0, -1)));
+        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, -1))));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class PersonajeTest {
 
         personaje.mover(new Abajo());
         personaje.mover(new Izquierda());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.setPosicion(-1, -1)));
+        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(-1, -1))));
     }
 
     @Test
@@ -65,7 +65,7 @@ public class PersonajeTest {
 
         personaje.mover(new Derecha());
         personaje.mover(new Derecha());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.setPosicion(2, 0)));
+        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(2, 0))));
     }
 
     @Test
@@ -74,7 +74,7 @@ public class PersonajeTest {
 
         personaje.mover(new Derecha());
         personaje.mover(new Izquierda());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.setPosicion(0, 0)));
+        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 0))));
     }
 
     @Test

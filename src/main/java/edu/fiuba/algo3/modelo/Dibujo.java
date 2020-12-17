@@ -7,14 +7,15 @@ public class Dibujo {
     List<Linea> lineas = new ArrayList<>();
 
     public void dibujarLinea(Posicion origen, Posicion destino) {
-        if(!this.lineaYaExiste(origen, destino)){
-            lineas.add(new Linea(origen, destino));
+        Linea linea = new Linea(origen, destino);
+        if(!this.lineaYaExiste(linea)){
+            lineas.add(linea);
         }
     }
 
-    private boolean lineaYaExiste(Posicion origen, Posicion destino){
+    private boolean lineaYaExiste(Linea nLinea){
 
-        return lineas.stream().anyMatch(linea -> linea.esIgual(origen, destino));
+        return lineas.stream().anyMatch(linea -> linea.esIgual(nLinea));
     }
 
     public List<Linea> getLineas() { return lineas; }

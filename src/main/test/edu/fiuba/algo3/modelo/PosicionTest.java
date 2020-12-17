@@ -14,42 +14,42 @@ public class PosicionTest {
     public void test01PosicionNuevaEstaEnOrigen() {
         Posicion posicion = new Posicion();
 
-        assertTrue(posicion.esIgualA(Posicion.setPosicion(0, 0)));
+        assertTrue(posicion.esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 0))));
     }
 
     @Test
-    public void test02PosicionObtenerSiguienteConMovimientoADerechaCreaNuevaPosicion() {
+    public void test02PosicionObtenerSiguienteConMovimientoADerecha() {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(new Derecha());
 
-        assertTrue(posicion.esIgualA(Posicion.setPosicion(0, 0)));
-        assertTrue(nuevaPos.esIgualA(Posicion.setPosicion(1, 0)));
+        assertTrue(posicion.esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 0))));
+        assertTrue(nuevaPos.esIgualA(Posicion.crearConCoordenadas(new Coordenadas(1, 0))));
     }
 
     @Test
-    public void test03PosicionObtenerSiguienteConMovimientoAIzquierdaCreaNuevaPosicion() {
+    public void test03PosicionObtenerSiguienteConMovimientoAIzquierda() {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(new Izquierda());
 
-        assertTrue(posicion.esIgualA(Posicion.setPosicion(0, 0)));
-        assertTrue(nuevaPos.esIgualA(Posicion.setPosicion(-1, 0)));
+        assertTrue(posicion.esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 0))));
+        assertTrue(nuevaPos.esIgualA(Posicion.crearConCoordenadas(new Coordenadas(-1, 0))));
     }
 
     @Test
-    public void test04PosicionObtenerSiguienteConMovimientoArribaCreaNuevaPosicion() {
+    public void test04PosicionObtenerSiguienteConMovimientoArriba() {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(new Arriba());
 
-        assertTrue(posicion.esIgualA(Posicion.setPosicion(0, 0)));
-        assertTrue(nuevaPos.esIgualA(Posicion.setPosicion(0, 1)));
+        assertTrue(posicion.esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 0))));
+        assertTrue(nuevaPos.esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 1))));
     }
 
     @Test
-    public void test05PosicionObtenerSiguienteConMovimientoAbajoCreaNuevaPosicion() {
+    public void test05PosicionObtenerSiguienteConMovimientoAbajo() {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(new Abajo());
 
-        assertTrue(posicion.esIgualA(Posicion.setPosicion(0, 0)));
-        assertTrue(nuevaPos.esIgualA(Posicion.setPosicion(0, -1)));
+        assertTrue(posicion.esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 0))));
+        assertTrue(nuevaPos.esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, -1))));
     }
 }

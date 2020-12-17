@@ -12,7 +12,8 @@ public class LineaTest {
         Posicion posicion = new Posicion();
         posicion.obtenerSiguiente(new Derecha());
         Linea linea = new Linea(new Posicion(), posicion);
-        assertTrue(linea.esIgual(new Posicion(), posicion));
+        Linea linea2 = new Linea(new Posicion(), posicion);
+        assertTrue(linea.esIgual(linea2));
     }
 
     @Test
@@ -20,7 +21,8 @@ public class LineaTest {
         Posicion posicion = new Posicion();
         posicion.obtenerSiguiente(new Derecha());
         Linea linea = new Linea(new Posicion(), posicion);
-        assertTrue(linea.esIgual(posicion,new Posicion()));
+        Linea linea2 = new Linea(posicion, new Posicion());
+        assertTrue(linea.esIgual(linea2));
     }
 }
 
