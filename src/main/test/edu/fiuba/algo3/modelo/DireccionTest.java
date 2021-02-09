@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.direccion.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -11,29 +10,29 @@ public class DireccionTest {
 
     @Test
     public void test01DireccionDerechaCoordenadasDireccionCorrectas() {
-        Direccion dir = new Derecha();
+        Direccion dir = Direccion.derecha();
 
-        Assertions.assertTrue(dir.getCoordenadas().sonIgualesA(new Coordenadas(1,0)));
+        Assertions.assertTrue();
     }
 
     @Test
     public void test02DireccionIzquierdaCoordenadasDireccionCorrectas() {
-        Direccion dir = new Izquierda();
+        Direccion dir = Direccion.izquierda();
 
-        Assertions.assertTrue(dir.getCoordenadas().sonIgualesA(new Coordenadas(-1,0)));
+        Assertions.assertTrue();
     }
 
     @Test
     public void test03DireccionArribaCoordenadasDireccionCorrectas() {
-        Direccion dir = new Arriba();
+        Direccion dir = Direccion.arriba();
 
-        Assertions.assertTrue(dir.getCoordenadas().sonIgualesA(new Coordenadas(0,1)));
+        Assertions.assertTrue();
     }
 
     @Test
     public void test04DireccionAbajoCoordenadasDireccionCorrectas() {
-        Direccion dir = new Abajo();
+        Direccion dir = Direccion.abajo();
 
-        Assertions.assertTrue(dir.getCoordenadas().sonIgualesA(new Coordenadas(0,-1)));
+        Assertions.assertTrue();
     }
 }

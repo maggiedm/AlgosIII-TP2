@@ -1,9 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.direccion.Abajo;
-import edu.fiuba.algo3.modelo.direccion.Arriba;
-import edu.fiuba.algo3.modelo.direccion.Derecha;
-import edu.fiuba.algo3.modelo.direccion.Izquierda;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,73 +11,73 @@ public class PersonajeTest {
     public void test01PersonajeNuevoTienePosicion00() {
         Personaje personaje = new Personaje();
 
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 0))));
+        assertTrue(personaje.getPosicion().esIgualA());
     }
 
     @Test
     public void test02PersonajeMoverADerechaMueveElPersonajeUnaPosicionADerecha() {
         Personaje personaje = new Personaje();
 
-        personaje.mover(new Derecha());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(1, 0))));
+        personaje.mover(Direccion.derecha());
+        assertTrue(personaje.getPosicion().esIgualA());
     }
 
     @Test
     public void test03PersonajeMoverAIzquierdaMueveElPersonajeUnaPosicionAIzquierda() {
         Personaje personaje = new Personaje();
 
-        personaje.mover(new Izquierda());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(-1, 0))));
+        personaje.mover(Direccion.izquierda());
+        assertTrue(personaje.getPosicion().esIgualA());
     }
 
     @Test
     public void test04PersonajeMoverArribaMueveElPersonajeUnaPosicionArriba() {
         Personaje personaje = new Personaje();
 
-        personaje.mover(new Arriba());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 1))));
+        personaje.mover(Direccion.arriba());
+        assertTrue(personaje.getPosicion().esIgualA());
     }
 
     @Test
     public void test05PersonajeMoverAbajoMueveElPersonajeUnaPosicionAbajo() {
         Personaje personaje = new Personaje();
 
-        personaje.mover(new Abajo());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, -1))));
+        personaje.mover(Direccion.abajo());
+        assertTrue(personaje.getPosicion().esIgualA());
     }
 
     @Test
     public void test06PersonajeMoverDosPosicionesEnDireccionesDistintasActualizaPosicionPersonaje() {
         Personaje personaje = new Personaje();
 
-        personaje.mover(new Abajo());
-        personaje.mover(new Izquierda());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(-1, -1))));
+        personaje.mover(Direccion.abajo());
+        personaje.mover(Direccion.izquierda());
+        assertTrue(personaje.getPosicion().esIgualA());
     }
 
     @Test
     public void test07PersonajeMoverDosPosicionesEnMismaDireccionActualizaPosicionPersonaje() {
         Personaje personaje = new Personaje();
 
-        personaje.mover(new Derecha());
-        personaje.mover(new Derecha());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(2, 0))));
+        personaje.mover(Direccion.derecha());
+        personaje.mover(Direccion.derecha());
+        assertTrue(personaje.getPosicion().esIgualA());
     }
 
     @Test
     public void test08PersonajeMoverDosPosicionesEnDireccionesOpuestasPosicionPersonajeOriginal() {
         Personaje personaje = new Personaje();
 
-        personaje.mover(new Derecha());
-        personaje.mover(new Izquierda());
-        assertTrue(personaje.getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(0, 0))));
+        personaje.mover(Direccion.derecha());
+        personaje.mover(Direccion.izquierda());
+        assertTrue(personaje.getPosicion().esIgualA());
     }
 
     @Test
     public void test09PersonajeNuevoMoverADerechaNoAgregaLineaAlDibujo() {
         Personaje personaje = new Personaje();
 
-        personaje.mover(new Derecha());
+        personaje.mover(Direccion.derecha());
 
         assertEquals(0, personaje.getDibujo().getLineas().size());
     }
@@ -91,7 +87,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.bajarLapiz();
-        personaje.mover(new Derecha());
+        personaje.mover(Direccion.derecha());
 
         assertEquals(1, personaje.getDibujo().getLineas().size());
     }
@@ -101,8 +97,8 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.bajarLapiz();
-        personaje.mover(new Derecha());
-        personaje.mover(new Izquierda());
+        personaje.mover(Direccion.derecha());
+        personaje.mover(Direccion.izquierda());
 
         assertEquals(1, personaje.getDibujo().getLineas().size());
     }
@@ -111,9 +107,9 @@ public class PersonajeTest {
     public void test12PersonajeMoverUnaPosicionConLapizArribaBajarLapizYMoverOtraPosicionAgregaUnaLineaAlDibujo() {
         Personaje personaje = new Personaje();
 
-        personaje.mover(new Derecha());
+        personaje.mover(Direccion.derecha());
         personaje.bajarLapiz();
-        personaje.mover(new Arriba());
+        personaje.mover(Direccion.arriba());
 
         assertEquals(1, personaje.getDibujo().getLineas().size());
     }
@@ -123,9 +119,9 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.bajarLapiz();
-        personaje.mover(new Derecha());
+        personaje.mover(Direccion.derecha());
         personaje.subirLapiz();
-        personaje.mover(new Arriba());
+        personaje.mover(Direccion.arriba());
 
         assertEquals(1, personaje.getDibujo().getLineas().size());
     }
@@ -135,8 +131,8 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.bajarLapiz();
-        personaje.mover(new Derecha());
-        personaje.mover(new Arriba());
+        personaje.mover(Direccion.derecha());
+        personaje.mover(Direccion.arriba());
 
         assertEquals(2, personaje.getDibujo().getLineas().size());
     }

@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 public class Linea {
 
-    private Posicion origen;
-    private Posicion destino;
+    private final Posicion origen;
+    private final Posicion destino;
 
     public Linea (Posicion inicioLinea, Posicion finLinea) {
         origen = inicioLinea;

@@ -1,13 +1,31 @@
 package edu.fiuba.algo3.modelo.bloque;
 
-import edu.fiuba.algo3.modelo.direccion.Direccion;
+import edu.fiuba.algo3.modelo.Direccion;
 import edu.fiuba.algo3.modelo.Personaje;
 
-public abstract class BloqueMovimiento implements Bloque {
+public class BloqueMovimiento implements Bloque {
 
         protected Direccion direccion;
 
-        public BloqueMovimiento(Direccion unaDireccion){ direccion = unaDireccion;}
+        private BloqueMovimiento(Direccion unaDireccion){ direccion = unaDireccion;}
 
-        public void ejecutar (Personaje unPersonaje){ unPersonaje.mover(direccion);}
+        public static BloqueMovimiento bloqueDerecha(){
+                return new BloqueMovimiento(Direccion.derecha());
+        }
+
+        public static BloqueMovimiento bloqueIzquierda(){
+                return new BloqueMovimiento(Direccion.izquierda());
+        }
+
+        public static BloqueMovimiento bloqueArriba(){
+                return new BloqueMovimiento(Direccion.arriba());
+        }
+
+        public static BloqueMovimiento bloqueAbajo(){
+                return new BloqueMovimiento(Direccion.abajo());
+        }
+
+        public void ejecutar(Personaje unPersonaje) {
+                unPersonaje.mover(direccion);
+        }
 }

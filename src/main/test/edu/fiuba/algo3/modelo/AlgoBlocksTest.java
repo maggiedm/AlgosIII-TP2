@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.bloque.BloqueAbajo;
-import edu.fiuba.algo3.modelo.bloque.BloqueBajarLapiz;
-import edu.fiuba.algo3.modelo.bloque.BloqueDerecha;
+import edu.fiuba.algo3.modelo.bloque.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,7 +26,7 @@ public class AlgoBlocksTest {
     public void test03AlgoBlocksAgregarBloqueAlgoritmoTieneUnBloque() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
-        algoBlocks.agregarBloque(new BloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
 
         assertEquals(1, algoBlocks.getAlgoritmo().getSecuenciaDeBloques().size());
     }
@@ -37,7 +35,7 @@ public class AlgoBlocksTest {
     public void test04AlgoBlocksAgregarBloqueMovimientoAlgoritmoSinEjecutarPosicionPersonajeNoCambia() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
-        algoBlocks.agregarBloque(new BloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
 
         assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(new Posicion()));
     }
@@ -46,7 +44,7 @@ public class AlgoBlocksTest {
     public void test05AlgoBlocksAgregarBloqueYEjecutarAlgoritmoTieneUnBloque() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
-        algoBlocks.agregarBloque(new BloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
         algoBlocks.ejecutarAlgoritmo();
 
         assertEquals(1, algoBlocks.getAlgoritmo().getSecuenciaDeBloques().size());
@@ -56,7 +54,7 @@ public class AlgoBlocksTest {
     public void test06AlgoBlocksAgregarBloqueMovimientoYEjecutarAlgoritmoPosicionPersonajeSeActualiza() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
-        algoBlocks.agregarBloque(new BloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
         algoBlocks.ejecutarAlgoritmo();
 
         assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(1, 0))));
@@ -65,7 +63,7 @@ public class AlgoBlocksTest {
     public void test07AlgoBlocksEjecutarMovimientoEnPersonajeNuevoNoDibujaLinea() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
-        algoBlocks.agregarBloque(new BloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
         algoBlocks.ejecutarAlgoritmo();
 
         assertTrue(algoBlocks.getPersonaje().getDibujo().getLineas().isEmpty());
@@ -76,7 +74,7 @@ public class AlgoBlocksTest {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
         algoBlocks.agregarBloque(new BloqueBajarLapiz());
-        algoBlocks.agregarBloque(new BloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
         algoBlocks.ejecutarAlgoritmo();
 
         assertEquals(1, algoBlocks.getPersonaje().getDibujo().getLineas().size());
@@ -86,7 +84,7 @@ public class AlgoBlocksTest {
     public void test09AlgoBlocksEjecutarSecuenciaMoverPersonajeNuevoYBajarLapizNoDibujaLinea() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
-        algoBlocks.agregarBloque(new BloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
         algoBlocks.agregarBloque(new BloqueBajarLapiz());
         algoBlocks.ejecutarAlgoritmo();
 
@@ -110,9 +108,9 @@ public class AlgoBlocksTest {
     public void test10AlgoBlocksAgregar3BloquesAlgoritmoTiene3Bloques() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
-        algoBlocks.agregarBloque(new BloqueDerecha());
-        algoBlocks.agregarBloque(new BloqueDerecha());
-        algoBlocks.agregarBloque(new BloqueAbajo());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
 
         assertEquals(3, algoBlocks.getAlgoritmo().getSecuenciaDeBloques().size());
     }
@@ -121,9 +119,9 @@ public class AlgoBlocksTest {
     public void test11AlgoBlocksEjecutarSecuenciaDe3BloquesMueveAlPersonaje() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
-        algoBlocks.agregarBloque(new BloqueDerecha());
-        algoBlocks.agregarBloque(new BloqueDerecha());
-        algoBlocks.agregarBloque(new BloqueAbajo());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
         algoBlocks.ejecutarAlgoritmo();
 
         assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(2, -1))));
@@ -134,8 +132,8 @@ public class AlgoBlocksTest {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
         algoBlocks.agregarBloque(new BloqueBajarLapiz());
-        algoBlocks.agregarBloque(new BloqueDerecha());
-        algoBlocks.agregarBloque(new BloqueAbajo());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
         algoBlocks.ejecutarAlgoritmo();
 
         assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(1, -1))));
@@ -146,8 +144,8 @@ public class AlgoBlocksTest {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
         algoBlocks.agregarBloque(new BloqueBajarLapiz());
-        algoBlocks.agregarBloque(new BloqueDerecha());
-        algoBlocks.agregarBloque(new BloqueAbajo());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
         algoBlocks.ejecutarAlgoritmo();
 
         assertEquals(2, algoBlocks.getPersonaje().getDibujo().getLineas().size());

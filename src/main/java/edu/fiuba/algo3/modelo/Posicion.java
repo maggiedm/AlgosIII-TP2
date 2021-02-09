@@ -1,26 +1,30 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.direccion.Direccion;
-
 public class Posicion {
 
-    private Coordenadas coordenadas = new Coordenadas(0, 0);
+    private final int x;
+    private final int y;
 
-    public static Posicion crearConCoordenadas(Coordenadas unasCoordenadas){
-        Posicion pos = new Posicion();
-        pos.coordenadas.desplazar(unasCoordenadas);
+    public Posicion(){
+        x = 0;
+        y = 0;
+    }
 
-        return pos;
+    private Posicion (int posX, int posY){
+        x = posX;
+        y = posY;
     }
 
     public Posicion obtenerSiguiente(Direccion unaDireccion) {
 
-        Posicion posicion = Posicion.crearConCoordenadas(coordenadas);
-        posicion.coordenadas.desplazar(unaDireccion.getCoordenadas());
-        return posicion;
+        return unaDireccion.desplazar(this);
+    }
+
+    public Posicion desplazar(int dirHorz, int dirVert){
+        return new Posicion(x + dirHorz, y + dirVert);
     }
 
     public boolean esIgualA(Posicion unaPosicion) {
-        return (coordenadas.sonIgualesA(unaPosicion.coordenadas));
+        return ((unaPosicion.x == x) && (unaPosicion.y == y));
     }
 }

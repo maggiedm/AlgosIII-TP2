@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.bloque.BloqueAbajo;
-import edu.fiuba.algo3.modelo.bloque.BloqueArriba;
 import org.junit.jupiter.api.Test;
+import edu.fiuba.algo3.modelo.bloque.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,8 +18,8 @@ public class AlgoritmoTest {
     public void test02AlgoritmoAgregar2BloquesTieneSecuenciaDeLargo2() {
         Algoritmo algoritmo = new Algoritmo();
 
-        algoritmo.agregarBloque(new BloqueArriba());
-        algoritmo.agregarBloque(new BloqueAbajo());
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueArriba());
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueAbajo());
 
         assertEquals(2, algoritmo.getSecuenciaDeBloques().size());
     }
@@ -29,8 +28,8 @@ public class AlgoritmoTest {
     public void test03DTrasEjecutarAlgoritmoCon2BloquesAlgoritmoTiene2Bloques() {
         Algoritmo algoritmo = new Algoritmo();
 
-        algoritmo.agregarBloque(new BloqueArriba());
-        algoritmo.agregarBloque(new BloqueAbajo());
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueArriba());
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueAbajo());
         algoritmo.ejecutar(new Personaje());
 
         assertEquals(2, algoritmo.getSecuenciaDeBloques().size());
