@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Personaje;
 
 public class BloqueMovimiento implements Bloque {
 
-        protected Direccion direccion;
+        private Direccion direccion;
 
         private BloqueMovimiento(Direccion unaDireccion){ direccion = unaDireccion;}
 
