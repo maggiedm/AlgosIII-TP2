@@ -19,7 +19,7 @@ public class BloqueRepeticionTest {
     }
 
     @Test
-    public void test02BloqueRepeticion2Con2Movimiento(){
+    public void test02BloqueRepeticion2Con2Movimientos(){
         Personaje personaje = new Personaje();
         BloqueRepeticion bloque = BloqueRepeticion.repetirDosVeces();
 
@@ -31,7 +31,7 @@ public class BloqueRepeticionTest {
     }
 
     @Test
-    public void test03BloqueRepeticion3Con2Movimiento(){
+    public void test03BloqueRepeticion3Con2Movimientos(){
         Personaje personaje = new Personaje();
         BloqueRepeticion bloque = BloqueRepeticion.repetirTresVeces();
 

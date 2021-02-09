@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class DireccionTest {
 
     @Test
-    public void test01DireccionDerechaCoordenadasDireccionCorrectas() {
+    public void test01DesplazarDireccionDerechaPosicionCorrecta() {
         Direccion dir = Direccion.derecha();
         Posicion pos = new Posicion();
 
@@ -19,7 +19,7 @@ public class DireccionTest {
     }
 
     @Test
-    public void test02DireccionIzquierdaCoordenadasDireccionCorrectas() {
+    public void test02DesplazarDireccionIzquierdaPosicionCorrecta() {
         Direccion dir = Direccion.izquierda();
         Posicion pos = new Posicion();
 
@@ -29,7 +29,7 @@ public class DireccionTest {
     }
 
     @Test
-    public void test03DireccionArribaCoordenadasDireccionCorrectas() {
+    public void test03DesplazarDireccionArribaPosicionCorrecta() {
         Direccion dir = Direccion.arriba();
         Posicion pos = new Posicion();
 
@@ -39,7 +39,7 @@ public class DireccionTest {
     }
 
     @Test
-    public void test04DireccionAbajoCoordenadasDireccionCorrectas() {
+    public void test04DesplazarDireccionAbajoPosicionCorrecta() {
         Direccion dir = Direccion.abajo();
         Posicion pos = new Posicion();
 
