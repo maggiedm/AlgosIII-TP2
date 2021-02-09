@@ -57,7 +57,7 @@ public class AlgoBlocksTest {
         algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
         algoBlocks.ejecutarAlgoritmo();
 
-        assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(1, 0))));
+        assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(new Posicion(1, 0)));
     }
     @Test
     public void test07AlgoBlocksEjecutarMovimientoEnPersonajeNuevoNoDibujaLinea() {
@@ -124,7 +124,7 @@ public class AlgoBlocksTest {
         algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
         algoBlocks.ejecutarAlgoritmo();
 
-        assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(2, -1))));
+        assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(new Posicion(2, -1)));
     }
 
     @Test
@@ -136,7 +136,7 @@ public class AlgoBlocksTest {
         algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
         algoBlocks.ejecutarAlgoritmo();
 
-        assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(Posicion.crearConCoordenadas(new Coordenadas(1, -1))));
+        assertTrue(algoBlocks.getPersonaje().getPosicion().esIgualA(new Posicion(1, -1)));
     }
 
     @Test

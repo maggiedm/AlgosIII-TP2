@@ -11,7 +11,7 @@ public class PersonajeTest {
     public void test01PersonajeNuevoTienePosicion00() {
         Personaje personaje = new Personaje();
 
-        assertTrue(personaje.getPosicion().esIgualA());
+        assertTrue(personaje.getPosicion().esIgualA(new Posicion(0,0)));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.mover(Direccion.derecha());
-        assertTrue(personaje.getPosicion().esIgualA());
+        assertTrue(personaje.getPosicion().esIgualA(new Posicion(1,0)));
     }
 
     @Test
@@ -27,7 +27,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.mover(Direccion.izquierda());
-        assertTrue(personaje.getPosicion().esIgualA());
+        assertTrue(personaje.getPosicion().esIgualA(new Posicion(-1,0)));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.mover(Direccion.arriba());
-        assertTrue(personaje.getPosicion().esIgualA());
+        assertTrue(personaje.getPosicion().esIgualA(new Posicion(0,1)));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje();
 
         personaje.mover(Direccion.abajo());
-        assertTrue(personaje.getPosicion().esIgualA());
+        assertTrue(personaje.getPosicion().esIgualA(new Posicion(0,-1)));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class PersonajeTest {
 
         personaje.mover(Direccion.abajo());
         personaje.mover(Direccion.izquierda());
-        assertTrue(personaje.getPosicion().esIgualA());
+        assertTrue(personaje.getPosicion().esIgualA(new Posicion(-1,-1)));
     }
 
     @Test
@@ -61,7 +61,7 @@ public class PersonajeTest {
 
         personaje.mover(Direccion.derecha());
         personaje.mover(Direccion.derecha());
-        assertTrue(personaje.getPosicion().esIgualA());
+        assertTrue(personaje.getPosicion().esIgualA(new Posicion(2,0)));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class PersonajeTest {
 
         personaje.mover(Direccion.derecha());
         personaje.mover(Direccion.izquierda());
-        assertTrue(personaje.getPosicion().esIgualA());
+        assertTrue(personaje.getPosicion().esIgualA(new Posicion(0,0)));
     }
 
     @Test

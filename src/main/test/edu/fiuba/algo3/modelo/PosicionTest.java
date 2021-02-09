@@ -10,7 +10,7 @@ public class PosicionTest {
     public void test01PosicionNuevaEstaEnOrigen() {
         Posicion posicion = new Posicion();
 
-        assertTrue(posicion.esIgualA(Posicion));
+        assertTrue(posicion.esIgualA(new Posicion(0,0)));
     }
 
     @Test
@@ -18,8 +18,7 @@ public class PosicionTest {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(Direccion.derecha());
 
-        assertTrue(posicion.esIgualA());
-        assertTrue(nuevaPos.esIgualA());
+        assertTrue(nuevaPos.esIgualA(new Posicion(1,0)));
     }
 
     @Test
@@ -27,8 +26,7 @@ public class PosicionTest {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(Direccion.izquierda());
 
-        assertTrue(posicion.esIgualA());
-        assertTrue(nuevaPos.esIgualA());
+        assertTrue(nuevaPos.esIgualA(new Posicion(-1,0)));
     }
 
     @Test
@@ -36,8 +34,7 @@ public class PosicionTest {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(Direccion.arriba());
 
-        assertTrue(posicion.esIgualA());
-        assertTrue(nuevaPos.esIgualA());
+        assertTrue(nuevaPos.esIgualA(new Posicion(0,1)));
     }
 
     @Test
@@ -45,7 +42,6 @@ public class PosicionTest {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(Direccion.abajo());
 
-        assertTrue(posicion.esIgualA());
-        assertTrue(nuevaPos.esIgualA());
+        assertTrue(nuevaPos.esIgualA(new Posicion(0,-1)));
     }
 }

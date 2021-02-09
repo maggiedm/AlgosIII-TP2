@@ -10,7 +10,7 @@ public class Posicion {
         y = 0;
     }
 
-    private Posicion (int posX, int posY){
+    public Posicion (int posX, int posY){
         x = posX;
         y = posY;
     }

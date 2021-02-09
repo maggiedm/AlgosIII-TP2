@@ -25,7 +25,5 @@ public class Direccion {
         return new Direccion(0,-1);
     }
 
-    public Posicion desplazar(Posicion posicion){
-        return posicion.desplazar(dx, dy);
-    }
+    public Posicion desplazar(Posicion posicion) { return posicion.desplazar(dx, dy); }
 }
