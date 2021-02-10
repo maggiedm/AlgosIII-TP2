@@ -9,13 +9,9 @@ public class Algoritmo {
 
     private List<Bloque> secuenciaDeBloques = new ArrayList();
 
-    public void ejecutar(Personaje personaje) {
-        secuenciaDeBloques.forEach(bloque -> bloque.ejecutar(personaje));
-    }
+    public void ejecutar(Personaje personaje) { secuenciaDeBloques.forEach(bloque -> bloque.ejecutar(personaje)); }
 
-    public void agregarBloque(Bloque unBloque) {
-        secuenciaDeBloques.add(unBloque);
-    }
+    public void agregarBloque(Bloque unBloque) { secuenciaDeBloques.add(unBloque); }
 
     public int getCantidadDeBloques() { return secuenciaDeBloques.size(); }
 

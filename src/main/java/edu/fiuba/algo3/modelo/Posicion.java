@@ -16,13 +16,10 @@ public class Posicion {
     }
 
     public Posicion obtenerSiguiente(Direccion unaDireccion) {
-
         return unaDireccion.desplazar(this);
     }
 
-    public Posicion desplazar(int dirHorz, int dirVert){
-        return new Posicion(x + dirHorz, y + dirVert);
-    }
+    public Posicion desplazar(int dirHorz, int dirVert){ return new Posicion(x + dirHorz, y + dirVert); }
 
     public boolean esIgualA(Posicion unaPosicion) {
         return ((unaPosicion.x == x) && (unaPosicion.y == y));

@@ -9,15 +9,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BloqueMovimientoTest {
 
-        @Test
-        public void test01EjecutarMovimientoALaDerecha(){
-            Personaje personaje = new Personaje();
-            BloqueMovimiento movimiento = BloqueMovimiento.bloqueDerecha();
+    @Test
+    public void test01EjecutarMovimientoALaDerecha(){
+        Personaje personaje = new Personaje();
+        BloqueMovimiento movimiento = BloqueMovimiento.bloqueDerecha();
 
-            movimiento.ejecutar(personaje);
+        movimiento.ejecutar(personaje);
 
-            assertTrue(personaje.estaEnPosicion(new Posicion(1, 0)));
-        }
+        assertTrue(personaje.estaEnPosicion(new Posicion(1, 0)));
+    }
 
     @Test
     public void test02EjecutarMovimientoALaIzquierda(){

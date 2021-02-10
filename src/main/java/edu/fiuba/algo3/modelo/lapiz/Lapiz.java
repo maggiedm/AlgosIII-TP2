@@ -14,7 +14,7 @@ public class Lapiz {
         condicion = new LapizArriba();
     }
 
-    public void dibujarLinea(Posicion origen, Posicion destino, Dibujo dibujo) {
+    public void dibujarLinea(Posicion origen, Posicion destino, Dibujo dibujo){
         condicion.dibujarLinea(origen, destino, dibujo);
     }
 }

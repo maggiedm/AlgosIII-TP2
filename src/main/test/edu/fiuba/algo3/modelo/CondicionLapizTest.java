@@ -12,7 +12,6 @@ public class CondicionLapizTest {
 
     @Test
     public void test01LapizArribaNoDibujaLinea(){
-
         CondicionLapiz condicion = new LapizArriba();
         Dibujo dibujo = new Dibujo();
 
@@ -23,7 +22,6 @@ public class CondicionLapizTest {
 
     @Test
     public void test02LapizAbajoDibujaUnaLinea(){
-
         CondicionLapiz condicion = new LapizAbajo();
         Dibujo dibujo = new Dibujo();
 

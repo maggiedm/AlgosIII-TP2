@@ -28,4 +28,5 @@ public class BloqueMovimiento implements Bloque {
         public void ejecutar(Personaje unPersonaje) {
                 unPersonaje.mover(direccion);
         }
+
 }

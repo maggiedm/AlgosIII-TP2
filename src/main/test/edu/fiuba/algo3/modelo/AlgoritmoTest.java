@@ -34,5 +34,4 @@ public class AlgoritmoTest {
 
         assertEquals(2, algoritmo.getCantidadDeBloques());
     }
-
 }

@@ -9,6 +9,7 @@ public class Direccion {
         dx = dirHorizontal;
         dy = dirVertical;
     }
+
     public static Direccion derecha(){
         return new Direccion(1,0);
     }

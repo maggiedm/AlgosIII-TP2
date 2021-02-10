@@ -6,7 +6,7 @@ public class AlgoBlocks {
     private Personaje personaje = new Personaje();
     private Algoritmo algoritmo = new Algoritmo();
 
-    public void ejecutarAlgoritmo() {
+    public void ejecutarAlgoritmo(){
         // personaje = new Personaje();
         algoritmo.ejecutar(personaje);
     }
@@ -15,7 +15,15 @@ public class AlgoBlocks {
         algoritmo.agregarBloque(unBloque);
     }
 
-    public Personaje getPersonaje() { return personaje; }
+    public Boolean personajeEstaEnPosicion(Posicion unaPosicion){
+        return personaje.estaEnPosicion(unaPosicion);
+    }
 
-    public Algoritmo getAlgoritmo() { return algoritmo; }
+    public int cantidadLineasDibujadas(){
+        return personaje.cantidadLineas();
+    }
+
+    public int cantidadDeBloquesEnAlgoritmo(){
+        return algoritmo.getCantidadDeBloques();
+    }
 }

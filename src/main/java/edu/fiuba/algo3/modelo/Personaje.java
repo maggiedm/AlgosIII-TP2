@@ -8,9 +8,9 @@ public class Personaje {
     private final Lapiz lapiz = new Lapiz();
     private final Dibujo dibujo = new Dibujo();
 
-    public Boolean estaEnPosicion(Posicion unaPosicion) { return posicion.esIgualA(unaPosicion);}
+    public Boolean estaEnPosicion(Posicion unaPosicion) { return posicion.esIgualA(unaPosicion); }
 
-    public Dibujo getDibujo() { return dibujo; }
+    public int cantidadLineas() { return dibujo.getCantidadLineas(); }
 
     public void bajarLapiz() {
         lapiz.bajar();
@@ -25,5 +25,4 @@ public class Personaje {
         posicion = posicion.obtenerSiguiente(unaDireccion);
         lapiz.dibujarLinea(posVieja, posicion, dibujo);
     }
-
 }

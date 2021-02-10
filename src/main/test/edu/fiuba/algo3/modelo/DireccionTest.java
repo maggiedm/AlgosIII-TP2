@@ -13,9 +13,9 @@ public class DireccionTest {
         Direccion dir = Direccion.derecha();
         Posicion pos = new Posicion();
 
-        Posicion posDesplazada = dir.desplazar(pos);
+        pos = dir.desplazar(pos);
 
-        Assertions.assertTrue(posDesplazada.esIgualA(new Posicion(1,0)));
+        Assertions.assertTrue(pos.esIgualA(new Posicion(1,0)));
     }
 
     @Test
@@ -23,9 +23,9 @@ public class DireccionTest {
         Direccion dir = Direccion.izquierda();
         Posicion pos = new Posicion();
 
-        Posicion posDesplazada = dir.desplazar(pos);
+        pos = dir.desplazar(pos);
 
-        Assertions.assertTrue(posDesplazada.esIgualA(new Posicion(-1,0)));
+        Assertions.assertTrue(pos.esIgualA(new Posicion(-1,0)));
     }
 
     @Test
@@ -33,9 +33,9 @@ public class DireccionTest {
         Direccion dir = Direccion.arriba();
         Posicion pos = new Posicion();
 
-        Posicion posDesplazada = dir.desplazar(pos);
+        pos = dir.desplazar(pos);
 
-        Assertions.assertTrue(posDesplazada.esIgualA(new Posicion(0,1)));
+        Assertions.assertTrue(pos.esIgualA(new Posicion(0,1)));
     }
 
     @Test
@@ -43,8 +43,20 @@ public class DireccionTest {
         Direccion dir = Direccion.abajo();
         Posicion pos = new Posicion();
 
-        Posicion posDesplazada = dir.desplazar(pos);
+        pos = dir.desplazar(pos);
 
-        Assertions.assertTrue(posDesplazada.esIgualA(new Posicion(0,-1)));
+        Assertions.assertTrue(pos.esIgualA(new Posicion(0,-1)));
+    }
+
+    @Test
+    public void test05DesplazarDireccionAbajoYLuegoDerechaPosicionCorrecta() {
+        Direccion dirAbajo = Direccion.abajo();
+        Direccion dirDerecha = Direccion.derecha();
+        Posicion pos = new Posicion();
+
+        pos = dirAbajo.desplazar(pos);
+        pos = dirDerecha.desplazar(pos);
+
+        Assertions.assertTrue(pos.esIgualA(new Posicion(1,-1)));
     }
 }

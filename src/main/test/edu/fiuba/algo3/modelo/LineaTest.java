@@ -8,19 +8,23 @@ public class LineaTest {
 
     @Test
     public void test01DosLineasConMismoOrigenYDestinoSonIguales() {
-        Posicion posicion = new Posicion();
-        posicion.obtenerSiguiente(Direccion.derecha());
-        Linea linea = new Linea(new Posicion(), posicion);
-        Linea linea2 = new Linea(new Posicion(), posicion);
+        Posicion posicion1 = new Posicion();
+        Posicion posicion2 = new Posicion(0,1);
+
+        Linea linea = new Linea(posicion1, posicion2);
+        Linea linea2 = new Linea(posicion1, posicion2);
+
         assertTrue(linea.esIgual(linea2));
     }
 
     @Test
     public void test02DosLineasConOrigenYDestinoInvertidosSonIguales() {
-        Posicion posicion = new Posicion();
-        posicion.obtenerSiguiente(Direccion.derecha());
-        Linea linea = new Linea(new Posicion(), posicion);
-        Linea linea2 = new Linea(posicion, new Posicion());
+        Posicion posicion1 = new Posicion();
+        Posicion posicion2 = new Posicion(0,-1);
+
+        Linea linea = new Linea(posicion1, posicion2);
+        Linea linea2 = new Linea(posicion2, posicion1);
+
         assertTrue(linea.esIgual(linea2));
     }
 }

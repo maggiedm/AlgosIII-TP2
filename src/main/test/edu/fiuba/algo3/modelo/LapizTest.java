@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.lapiz.Lapiz;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class LapizTest {
@@ -14,7 +13,7 @@ public class LapizTest {
         Lapiz lapiz = new Lapiz();
         Dibujo dibujo = new Dibujo();
 
-        lapiz.dibujarLinea(new Posicion(), new Posicion(), dibujo);
+        lapiz.dibujarLinea(new Posicion(), new Posicion(1,0), dibujo);
 
         assertEquals(0, dibujo.getCantidadLineas());
     }
@@ -25,7 +24,7 @@ public class LapizTest {
         Dibujo dibujo = new Dibujo();
 
         lapiz.bajar();
-        lapiz.dibujarLinea(new Posicion(), new Posicion(), dibujo);
+        lapiz.dibujarLinea(new Posicion(), new Posicion(0,1), dibujo);
 
         assertEquals(1, dibujo.getCantidadLineas());
     }

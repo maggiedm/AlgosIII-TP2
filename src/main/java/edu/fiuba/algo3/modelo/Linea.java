@@ -5,12 +5,12 @@ public class Linea {
     private final Posicion origen;
     private final Posicion destino;
 
-    public Linea (Posicion inicioLinea, Posicion finLinea) {
+    public Linea (Posicion inicioLinea, Posicion finLinea){
         origen = inicioLinea;
         destino = finLinea;
     }
 
-    public boolean esIgual(Linea linea) {
+    public boolean esIgual(Linea linea){
         return ((origen.esIgualA(linea.origen) && destino.esIgualA(linea.destino)) || (origen.esIgualA(linea.destino) && destino.esIgualA(linea.origen)));
     }
 }

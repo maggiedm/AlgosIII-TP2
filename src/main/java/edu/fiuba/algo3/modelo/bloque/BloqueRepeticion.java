@@ -25,8 +25,8 @@ public class BloqueRepeticion implements Bloque {
         bloques.add(unBloque);
     }
 
-    public void ejecutar(Personaje unPersonaje) {
-        for (int i = 0; i < cantidad; i++) {
+    public void ejecutar(Personaje unPersonaje){
+        for (int i = 0; i < cantidad; i++){
             bloques.forEach(bloque -> bloque.ejecutar(unPersonaje));
         }
     }
