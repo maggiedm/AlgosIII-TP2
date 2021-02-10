@@ -18,7 +18,7 @@ public class Dibujo {
         }
     }
 
-    private boolean tieneLinea(Linea unaLinea){
+    public boolean tieneLinea(Linea unaLinea){
         return lineas.stream().anyMatch(linea -> linea.esIgual(unaLinea));
     }
 

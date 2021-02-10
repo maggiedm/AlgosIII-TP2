@@ -25,4 +25,6 @@ public class Personaje {
         posicion = posicion.obtenerSiguiente(unaDireccion);
         lapiz.dibujarLinea(posVieja, posicion, dibujo);
     }
+
+    public boolean dibujoTieneLinea(Linea unaLinea){ return dibujo.tieneLinea(unaLinea);};
 }

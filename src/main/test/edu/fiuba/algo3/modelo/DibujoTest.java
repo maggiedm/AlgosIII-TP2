@@ -43,4 +43,22 @@ public class DibujoTest {
 
         assertEquals(0, dibujo.getCantidadLineas());
     }
+
+    @Test
+    public void test05DibujoUnaLineaYElDibujoLaTiene(){
+        Dibujo dibujo = new Dibujo();
+        dibujo.dibujarLinea(new Posicion(3,2), new Posicion(2,2));
+        Linea linea = new Linea(new Posicion(3,2), new Posicion(2,2));
+
+        assertTrue(dibujo.tieneLinea(linea));
+    }
+
+    @Test
+    public void test06DibujoUnaLineaYElDibujoNoTieneOtraDistinta(){
+        Dibujo dibujo = new Dibujo();
+        dibujo.dibujarLinea(new Posicion(3,2), new Posicion(2,2));
+        Linea linea = new Linea(new Posicion(3,2), new Posicion(0,2));
+
+        assertFalse(dibujo.tieneLinea(linea));
+    }
 }

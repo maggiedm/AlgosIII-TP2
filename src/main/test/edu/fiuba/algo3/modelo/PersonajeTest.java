@@ -2,8 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonajeTest {
 
@@ -135,5 +134,27 @@ public class PersonajeTest {
         personaje.mover(Direccion.arriba());
 
         assertEquals(2, personaje.cantidadLineas());
+    }
+
+    @Test
+    public void test15MoverALaDerechasConLapizAbajoYElDibujoTieneEsaLinea() {
+        Personaje personaje = new Personaje();
+        personaje.bajarLapiz();
+        personaje.mover(Direccion.derecha());
+
+        Linea linea = new Linea(new Posicion(1,0), new Posicion(0,0) );
+
+        assertTrue(personaje.dibujoTieneLinea(linea));
+    }
+
+    @Test
+    public void test16MoverALaDerechaConLapizArribaYElDibujoNoTieneEsaLinea() {
+        Personaje personaje = new Personaje();
+        personaje.subirLapiz();
+        personaje.mover(Direccion.derecha());
+
+        Linea linea = new Linea(new Posicion(1,0), new Posicion(0,0) );
+
+        assertFalse(personaje.dibujoTieneLinea(linea));
     }
 }
