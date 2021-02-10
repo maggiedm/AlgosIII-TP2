@@ -6,6 +6,9 @@ public class Linea {
     private final Posicion destino;
 
     public Linea (Posicion inicioLinea, Posicion finLinea){
+        if(inicioLinea.esIgualA(finLinea)){
+            throw new LineaInvalidaException();
+        }
         origen = inicioLinea;
         destino = finLinea;
     }

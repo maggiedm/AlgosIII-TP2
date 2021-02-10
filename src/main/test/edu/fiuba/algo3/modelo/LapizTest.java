@@ -35,7 +35,7 @@ public class LapizTest {
         Dibujo dibujo = new Dibujo();
 
         lapiz.subir();
-        lapiz.dibujarLinea(new Posicion(), new Posicion(), dibujo);
+        lapiz.dibujarLinea(new Posicion(), new Posicion(0,1), dibujo);
 
         assertEquals(0, dibujo.getCantidadLineas());
     }
@@ -47,7 +47,7 @@ public class LapizTest {
 
         lapiz.bajar();
         lapiz.subir();
-        lapiz.dibujarLinea(new Posicion(), new Posicion(), dibujo);
+        lapiz.dibujarLinea(new Posicion(), new Posicion(0, 1), dibujo);
 
         assertEquals(0, dibujo.getCantidadLineas());
     }

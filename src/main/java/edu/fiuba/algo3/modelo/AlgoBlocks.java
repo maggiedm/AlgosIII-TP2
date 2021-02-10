@@ -3,8 +3,8 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 
 public class AlgoBlocks {
-    private Personaje personaje = new Personaje();
-    private Algoritmo algoritmo = new Algoritmo();
+    private final Personaje personaje = new Personaje();
+    private final Algoritmo algoritmo = new Algoritmo();
 
     public void ejecutarAlgoritmo(){
         // personaje = new Personaje();

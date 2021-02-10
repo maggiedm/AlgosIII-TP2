@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 public class Direccion {
 
-    private int dx;
-    private int dy;
+    private final int dx;
+    private final int dy;
 
     private Direccion(int dirHorizontal, int dirVertical){
         dx = dirHorizontal;

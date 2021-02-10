@@ -4,11 +4,22 @@ import edu.fiuba.algo3.modelo.bloque.BloqueMovimiento;
 import edu.fiuba.algo3.modelo.bloque.BloqueRepeticion;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BloqueRepeticionTest {
+
     @Test
-    public void test01BloqueRepeticion2Con1MovimientoDerechaPosicionCorrecta(){
+    public void test01BloqueRepeticionVacio(){
+        Personaje personaje = new Personaje();
+        BloqueRepeticion bloque = BloqueRepeticion.repetirDosVeces();
+        bloque.ejecutar(personaje);
+
+        assertTrue(personaje.estaEnPosicion((new Posicion(0,0))));
+    }
+
+    @Test
+    public void test02BloqueRepeticion2Con1MovimientoPosicionCorrecta(){
         Personaje personaje = new Personaje();
         BloqueRepeticion bloque = BloqueRepeticion.repetirDosVeces();
 
@@ -19,7 +30,7 @@ public class BloqueRepeticionTest {
     }
 
     @Test
-    public void test02BloqueRepeticion2ConMovimientoDerechaYArribaPosicionCorrecta(){
+    public void test03BloqueRepeticion2Con2MovimientosPosicionCorrecta(){
         Personaje personaje = new Personaje();
         BloqueRepeticion bloque = BloqueRepeticion.repetirDosVeces();
 
@@ -31,7 +42,7 @@ public class BloqueRepeticionTest {
     }
 
     @Test
-    public void test03BloqueRepeticion3ConMovimientoDerechaYAbajoPosicionCorrecta(){
+    public void test04BloqueRepeticion3ConMovimiento2MovimientosPosicionCorrecta(){
         Personaje personaje = new Personaje();
         BloqueRepeticion bloque = BloqueRepeticion.repetirTresVeces();
 
@@ -43,7 +54,7 @@ public class BloqueRepeticionTest {
     }
 
     @Test
-    public void test04BloqueRepeticion3DentroDeBloqueRepeticion2ConMovimientoDerechaYAbajoPosicionCorrecta(){
+    public void test05BloquesRepeticionAnidadosPosicionCorrecta(){
         Personaje personaje = new Personaje();
         BloqueRepeticion bloqueExterno = BloqueRepeticion.repetirDosVeces();
         BloqueRepeticion bloqueInterno = BloqueRepeticion.repetirTresVeces();
@@ -55,4 +66,18 @@ public class BloqueRepeticionTest {
 
         assertTrue(personaje.estaEnPosicion((new Posicion(6,-6))));
     }
+
+    @Test
+    public void test06BloqueRepeticionConLapizAbajoCantidadLineasCorrecta(){
+        Personaje personaje = new Personaje();
+        BloqueRepeticion bloque = BloqueRepeticion.repetirTresVeces();
+
+        personaje.bajarLapiz();
+        bloque.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        bloque.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        bloque.ejecutar(personaje);
+
+        assertEquals(6,personaje.cantidadLineas());
+    }
+
 }

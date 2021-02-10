@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Algoritmo {
 
-    private List<Bloque> secuenciaDeBloques = new ArrayList();
+    private final List<Bloque> secuenciaDeBloques = new ArrayList();
 
     public void ejecutar(Personaje personaje) { secuenciaDeBloques.forEach(bloque -> bloque.ejecutar(personaje)); }
 

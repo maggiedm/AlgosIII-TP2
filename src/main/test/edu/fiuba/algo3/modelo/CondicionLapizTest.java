@@ -15,7 +15,7 @@ public class CondicionLapizTest {
         CondicionLapiz condicion = new LapizArriba();
         Dibujo dibujo = new Dibujo();
 
-        condicion.dibujarLinea(new Posicion(), new Posicion(), dibujo);
+        condicion.dibujarLinea(new Posicion(0, 0), new Posicion(0, 1), dibujo);
 
         assertEquals(0, dibujo.getCantidadLineas());
     }
@@ -25,7 +25,7 @@ public class CondicionLapizTest {
         CondicionLapiz condicion = new LapizAbajo();
         Dibujo dibujo = new Dibujo();
 
-        condicion.dibujarLinea(new Posicion(), new Posicion(), dibujo);
+        condicion.dibujarLinea(new Posicion(0, 0), new Posicion(0, 1), dibujo);
 
         assertEquals(1, dibujo.getCantidadLineas());
     }
