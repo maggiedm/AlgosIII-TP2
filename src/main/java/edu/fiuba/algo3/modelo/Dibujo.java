@@ -8,15 +8,15 @@ public class Dibujo {
 
     public void dibujarLinea(Posicion origen, Posicion destino) {
         Linea linea = new Linea(origen, destino);
-        if(!this.lineaYaExiste(linea)){
+        if(!this.tieneLinea(linea)){
             lineas.add(linea);
         }
     }
 
-    private boolean lineaYaExiste(Linea nLinea){
+    private boolean tieneLinea(Linea unaLinea){
 
-        return lineas.stream().anyMatch(linea -> linea.esIgual(nLinea));
+        return lineas.stream().anyMatch(linea -> linea.esIgual(unaLinea));
     }
 
-    public List<Linea> getLineas() { return lineas; }
+    public int getCantidadLineas() { return lineas.size(); }
 }

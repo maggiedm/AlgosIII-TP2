@@ -18,7 +18,7 @@ public class CondicionLapizTest {
 
         condicion.dibujarLinea(new Posicion(), new Posicion(), dibujo);
 
-        assertTrue(dibujo.getLineas().isEmpty());
+        assertEquals(0, dibujo.getCantidadLineas());
     }
 
     @Test
@@ -29,6 +29,6 @@ public class CondicionLapizTest {
 
         condicion.dibujarLinea(new Posicion(), new Posicion(), dibujo);
 
-        assertEquals(1, dibujo.getLineas().size());
+        assertEquals(1, dibujo.getCantidadLineas());
     }
 }

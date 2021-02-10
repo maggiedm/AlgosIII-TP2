@@ -16,7 +16,7 @@ public class BloqueMovimientoTest {
 
             movimiento.ejecutar(personaje);
 
-            assertTrue(personaje.getPosicion().esIgualA(new Posicion(1, 0)));
+            assertTrue(personaje.estaEnPosicion(new Posicion(1, 0)));
         }
 
     @Test
@@ -26,7 +26,7 @@ public class BloqueMovimientoTest {
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(personaje.getPosicion().esIgualA(new Posicion(-1, 0)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(-1, 0)));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class BloqueMovimientoTest {
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(personaje.getPosicion().esIgualA(new Posicion(0, -1)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(0, -1)));
     }
 
     @Test
@@ -46,6 +46,6 @@ public class BloqueMovimientoTest {
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(personaje.getPosicion().esIgualA(new Posicion(0, 1)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(0, 1)));
     }
 }

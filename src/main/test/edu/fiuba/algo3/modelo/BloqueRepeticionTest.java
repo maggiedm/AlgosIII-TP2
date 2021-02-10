@@ -15,7 +15,7 @@ public class BloqueRepeticionTest {
         bloque.agregarBloque(BloqueMovimiento.bloqueDerecha());
         bloque.ejecutar(personaje);
 
-        assertTrue(personaje.getPosicion().esIgualA((new Posicion(2,0))));
+        assertTrue(personaje.estaEnPosicion((new Posicion(2,0))));
     }
 
     @Test
@@ -27,7 +27,7 @@ public class BloqueRepeticionTest {
         bloque.agregarBloque(BloqueMovimiento.bloqueArriba());
         bloque.ejecutar(personaje);
 
-        assertTrue(personaje.getPosicion().esIgualA((new Posicion(2,2))));
+        assertTrue(personaje.estaEnPosicion((new Posicion(2,2))));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class BloqueRepeticionTest {
         bloque.agregarBloque(BloqueMovimiento.bloqueAbajo());
         bloque.ejecutar(personaje);
 
-        assertTrue(personaje.getPosicion().esIgualA((new Posicion(3,-3))));
+        assertTrue(personaje.estaEnPosicion((new Posicion(3,-3))));
     }
 
 }

@@ -11,17 +11,17 @@ public class AlgoritmoTest {
     public void test01AlgoritmoNuevoNoTieneBloques() {
         Algoritmo algoritmo = new Algoritmo();
 
-        assertEquals(0, algoritmo.getSecuenciaDeBloques().size());
+        assertEquals(0, algoritmo.getCantidadDeBloques());
     }
 
     @Test
-    public void test02AlgoritmoAgregar2BloquesTieneSecuenciaDeLargo2() {
+    public void test02AlgoritmoAgregar2BloquesTiene2Bloques() {
         Algoritmo algoritmo = new Algoritmo();
 
         algoritmo.agregarBloque(BloqueMovimiento.bloqueArriba());
         algoritmo.agregarBloque(BloqueMovimiento.bloqueAbajo());
 
-        assertEquals(2, algoritmo.getSecuenciaDeBloques().size());
+        assertEquals(2, algoritmo.getCantidadDeBloques());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class AlgoritmoTest {
         algoritmo.agregarBloque(BloqueMovimiento.bloqueAbajo());
         algoritmo.ejecutar(new Personaje());
 
-        assertEquals(2, algoritmo.getSecuenciaDeBloques().size());
+        assertEquals(2, algoritmo.getCantidadDeBloques());
     }
 
 }

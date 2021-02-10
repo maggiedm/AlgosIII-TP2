@@ -17,6 +17,6 @@ public class Algoritmo {
         secuenciaDeBloques.add(unBloque);
     }
 
-    public List<Bloque> getSecuenciaDeBloques() { return secuenciaDeBloques; }
+    public int getCantidadDeBloques() { return secuenciaDeBloques.size(); }
 
 }

@@ -8,9 +8,7 @@ public class Personaje {
     private final Lapiz lapiz = new Lapiz();
     private final Dibujo dibujo = new Dibujo();
 
-    public Posicion getPosicion() {
-        return posicion;
-    }
+    public Boolean estaEnPosicion(Posicion unaPosicion) { return posicion.esIgualA(unaPosicion);}
 
     public Dibujo getDibujo() { return dibujo; }
 
