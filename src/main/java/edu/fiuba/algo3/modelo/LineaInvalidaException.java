@@ -1,4 +1,4 @@
 package edu.fiuba.algo3.modelo;
 
-public class LineaInvalidaException extends RuntimeException{
+public class LineaInvalidaException extends Exception{
 }
