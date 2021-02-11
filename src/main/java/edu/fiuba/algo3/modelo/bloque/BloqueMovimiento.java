@@ -29,4 +29,8 @@ public class BloqueMovimiento implements Bloque {
                 unPersonaje.mover(direccion);
         }
 
+        public Bloque invertir(){
+                return new BloqueMovimiento(direccion.invertir());
+        }
+
 }

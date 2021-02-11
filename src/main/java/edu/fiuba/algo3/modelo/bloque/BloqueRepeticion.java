@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.modelo.bloque;
 
 import edu.fiuba.algo3.modelo.Personaje;
+import edu.fiuba.algo3.modelo.SecuenciaBloques;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BloqueRepeticion implements Bloque {
+public class BloqueRepeticion extends SecuenciaBloques implements Bloque{
     private final int cantidad;
-    private final List<Bloque> bloques = new ArrayList<>();
 
     private BloqueRepeticion(int cant){
         cantidad = cant;
@@ -21,13 +21,13 @@ public class BloqueRepeticion implements Bloque {
         return new BloqueRepeticion(3);
     }
 
-    public void agregarBloque(Bloque unBloque){
-        bloques.add(unBloque);
-    }
-
     public void ejecutar(Personaje unPersonaje){
         for (int i = 0; i < cantidad; i++){
-            bloques.forEach(bloque -> bloque.ejecutar(unPersonaje));
+            super.ejecutar(unPersonaje);
         }
+    }
+
+    public Bloque invertir(){
+        return null;
     }
 }

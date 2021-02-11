@@ -5,7 +5,7 @@ public class Linea {
     private final Posicion origen;
     private final Posicion destino;
 
-    public Linea (Posicion inicioLinea, Posicion finLinea) throws LineaInvalidaException{
+    public Linea (Posicion inicioLinea, Posicion finLinea){
         if(inicioLinea.esIgualA(finLinea)){
             throw new LineaInvalidaException();
         }

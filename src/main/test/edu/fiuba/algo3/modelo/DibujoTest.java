@@ -37,11 +37,10 @@ public class DibujoTest {
     }
 
     @Test
-    public void test04DibujoNoGuardaLineaConOrigenYFinIguales(){
+    public void test04ExcepcionDibujarLineaConInicioYFinIguales(){
         Dibujo dibujo = new Dibujo();
-        dibujo.dibujarLinea(new Posicion(2,2), new Posicion(2,2));
 
-        assertEquals(0, dibujo.getCantidadLineas());
+        assertThrows(LineaInvalidaException.class, () -> dibujo.dibujarLinea(new Posicion(0, 0), new Posicion(0, 0)));
     }
 
     @Test

@@ -6,4 +6,8 @@ public class BloqueBajarLapiz implements Bloque {
 
     public void ejecutar(Personaje unPersonaje) { unPersonaje.bajarLapiz(); }
 
+    public Bloque invertir(){
+        return new BloqueSubirLapiz();
+    }
+
 }

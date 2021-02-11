@@ -30,7 +30,7 @@ public class AlgoritmoTest {
 
         algoritmo.agregarBloque(BloqueMovimiento.bloqueArriba());
         algoritmo.agregarBloque(BloqueMovimiento.bloqueAbajo());
-        algoritmo.ejecutar(new Personaje());
+        algoritmo.ejecutar(new Personaje(new Dibujo()));
 
         assertEquals(2, algoritmo.getCantidadDeBloques());
     }

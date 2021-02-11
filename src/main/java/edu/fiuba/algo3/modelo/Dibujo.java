@@ -7,12 +7,7 @@ public class Dibujo {
     List<Linea> lineas = new ArrayList<>();
 
     public void dibujarLinea(Posicion origen, Posicion destino) {
-        Linea linea;
-        try {
-            linea = new Linea(origen, destino);
-        } catch (LineaInvalidaException e){
-            return;
-        }
+        Linea linea = new Linea(origen, destino);
         if(!this.tieneLinea(linea)){
             lineas.add(linea);
         }

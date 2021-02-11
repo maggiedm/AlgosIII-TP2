@@ -11,7 +11,7 @@ public class BloqueRepeticionTest {
 
     @Test
     public void test01BloqueRepeticionVacio(){
-        Personaje personaje = new Personaje();
+        Personaje personaje = new Personaje(new Dibujo());
         BloqueRepeticion bloque = BloqueRepeticion.repetirDosVeces();
         bloque.ejecutar(personaje);
 
@@ -20,7 +20,7 @@ public class BloqueRepeticionTest {
 
     @Test
     public void test02BloqueRepeticion2Con1MovimientoPosicionCorrecta(){
-        Personaje personaje = new Personaje();
+        Personaje personaje = new Personaje(new Dibujo());
         BloqueRepeticion bloque = BloqueRepeticion.repetirDosVeces();
 
         bloque.agregarBloque(BloqueMovimiento.bloqueDerecha());
@@ -31,7 +31,7 @@ public class BloqueRepeticionTest {
 
     @Test
     public void test03BloqueRepeticion2Con2MovimientosPosicionCorrecta(){
-        Personaje personaje = new Personaje();
+        Personaje personaje = new Personaje(new Dibujo());
         BloqueRepeticion bloque = BloqueRepeticion.repetirDosVeces();
 
         bloque.agregarBloque(BloqueMovimiento.bloqueDerecha());
@@ -43,7 +43,7 @@ public class BloqueRepeticionTest {
 
     @Test
     public void test04BloqueRepeticion3ConMovimiento2MovimientosPosicionCorrecta(){
-        Personaje personaje = new Personaje();
+        Personaje personaje = new Personaje(new Dibujo());
         BloqueRepeticion bloque = BloqueRepeticion.repetirTresVeces();
 
         bloque.agregarBloque(BloqueMovimiento.bloqueDerecha());
@@ -55,7 +55,7 @@ public class BloqueRepeticionTest {
 
     @Test
     public void test05BloquesRepeticionAnidadosPosicionCorrecta(){
-        Personaje personaje = new Personaje();
+        Personaje personaje = new Personaje(new Dibujo());
         BloqueRepeticion bloqueExterno = BloqueRepeticion.repetirDosVeces();
         BloqueRepeticion bloqueInterno = BloqueRepeticion.repetirTresVeces();
 
@@ -69,7 +69,8 @@ public class BloqueRepeticionTest {
 
     @Test
     public void test06BloqueRepeticionConLapizAbajoCantidadLineasCorrecta(){
-        Personaje personaje = new Personaje();
+        Dibujo dibujo = new Dibujo();
+        Personaje personaje = new Personaje(dibujo);
         BloqueRepeticion bloque = BloqueRepeticion.repetirTresVeces();
 
         personaje.bajarLapiz();
@@ -77,7 +78,7 @@ public class BloqueRepeticionTest {
         bloque.agregarBloque(BloqueMovimiento.bloqueAbajo());
         bloque.ejecutar(personaje);
 
-        assertEquals(6,personaje.cantidadLineas());
+        assertEquals(6,dibujo.getCantidadLineas());
     }
 
 }
