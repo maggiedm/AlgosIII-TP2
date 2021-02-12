@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.bloque.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AlgoritmoTest {
 
@@ -33,5 +34,11 @@ public class AlgoritmoTest {
         algoritmo.ejecutar(new Personaje(new Dibujo()));
 
         assertEquals(2, algoritmo.getCantidadDeBloques());
+    }
+
+    @Test
+    public void test04NoSePuedeGuardarUnAlgoritmoVacio() {
+
+        assertThrows(GuardarAlgoritmoVacioException.class, () -> new Algoritmo().guardar("test"));
     }
 }
