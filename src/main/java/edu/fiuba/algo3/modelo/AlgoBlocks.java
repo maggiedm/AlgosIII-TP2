@@ -15,6 +15,7 @@ public class AlgoBlocks {
     private final VBox layout;
 
     public AlgoBlocks(VBox unLayout){ layout = unLayout; }
+    public AlgoBlocks(){ layout = null; }
 
     public void ejecutarAlgoritmo(){
         // personaje = new Personaje();
