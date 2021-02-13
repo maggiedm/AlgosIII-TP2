@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo.bloque;
 
+import edu.fiuba.algo3.MostradorBloqueSimple;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
-
-import java.util.ArrayList;
-import java.util.List;
+import javafx.scene.layout.VBox;
 
 public class BloqueRepeticion extends SecuenciaBloques implements Bloque{
     private final int cantidad;
@@ -30,4 +29,12 @@ public class BloqueRepeticion extends SecuenciaBloques implements Bloque{
     public Bloque invertir(){
         return null;
     }
+
+    @Override
+    public void mostrar(VBox layout) {
+        new MostradorBloqueSimple("Repeticion " + cantidad, layout);
+    }
+
+    @Override
+    public String getDescripcion(){ return "Repeticion " + cantidad;}
 }

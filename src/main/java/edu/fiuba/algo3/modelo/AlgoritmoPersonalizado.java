@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.MostradorBloqueSimple;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,4 +26,12 @@ public class AlgoritmoPersonalizado implements Bloque {
         bloques.forEach(bloque -> aux.add(bloque.invertir()));
         return new AlgoritmoPersonalizado(nombre, aux);
     }
+
+    @Override
+    public void mostrar(VBox layout) {
+        new MostradorBloqueSimple(nombre, layout);
+    }
+
+    @Override
+    public String getDescripcion(){ return nombre;}
 }
