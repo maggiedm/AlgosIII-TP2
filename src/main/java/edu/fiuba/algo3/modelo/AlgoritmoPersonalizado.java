@@ -14,7 +14,7 @@ public class AlgoritmoPersonalizado implements Bloque {
 
     public AlgoritmoPersonalizado (String nom, List<Bloque> lBloques){
         nombre = nom;
-        bloques = new ArrayList<>(lBloques);
+        bloques = new ArrayList(lBloques);
     }
 
     public void ejecutar(Personaje unPersonaje){
@@ -22,7 +22,7 @@ public class AlgoritmoPersonalizado implements Bloque {
     }
 
     public Bloque invertir(){
-        List<Bloque> aux = new ArrayList<>();
+        List<Bloque> aux = new ArrayList();
         bloques.forEach(bloque -> aux.add(bloque.invertir()));
         return new AlgoritmoPersonalizado(nombre, aux);
     }

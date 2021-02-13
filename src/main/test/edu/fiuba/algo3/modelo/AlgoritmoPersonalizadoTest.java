@@ -16,7 +16,7 @@ public class AlgoritmoPersonalizadoTest {
     @Test
     public void test01EjecutarAlgoritoPersonalizadoConUnBloquePosicionEsCorrecta(){
         Personaje personaje = new Personaje(new Dibujo());
-        List<Bloque> lista = new ArrayList<>();
+        List<Bloque> lista = new ArrayList();
         lista.add(BloqueMovimiento.bloqueDerecha());
         AlgoritmoPersonalizado algoP = new AlgoritmoPersonalizado("test", lista);
 
@@ -28,7 +28,7 @@ public class AlgoritmoPersonalizadoTest {
     @Test
     public void test02EjecutarAlgoritmoPersonalizadoConVariosBloquesPosicionEsCorrecta(){
         Personaje personaje = new Personaje(new Dibujo());
-        List<Bloque> lista = new ArrayList<>();
+        List<Bloque> lista = new ArrayList();
 
         lista.add(BloqueMovimiento.bloqueDerecha());
         lista.add(BloqueMovimiento.bloqueDerecha());
@@ -43,7 +43,7 @@ public class AlgoritmoPersonalizadoTest {
     @Test
     public void test03EjecutarInvertirAlgoritmoPersonalizadoConVariosBloquesPosicionEsCorrecta(){
         Personaje personaje = new Personaje(new Dibujo());
-        List<Bloque> lista = new ArrayList<>();
+        List<Bloque> lista = new ArrayList();
 
         lista.add(BloqueMovimiento.bloqueDerecha());
         lista.add(BloqueMovimiento.bloqueDerecha());
@@ -58,7 +58,7 @@ public class AlgoritmoPersonalizadoTest {
     @Test
     public void test04AgregarOtroElementoALaListaOriginalNoAfectaAlgoritmoPersonalizado(){
         Personaje personaje = new Personaje(new Dibujo());
-        List<Bloque> lista = new ArrayList<>();
+        List<Bloque> lista = new ArrayList();
 
         lista.add(BloqueMovimiento.bloqueDerecha());
         lista.add(BloqueMovimiento.bloqueDerecha());
@@ -74,7 +74,7 @@ public class AlgoritmoPersonalizadoTest {
     public void test05EjecutarAlgoritmoPersonalizadoConLapizAbajoDibujaLineas(){
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
-        List<Bloque> lista = new ArrayList<>();
+        List<Bloque> lista = new ArrayList();
 
         lista.add(new BloqueBajarLapiz());
         lista.add(BloqueMovimiento.bloqueDerecha());

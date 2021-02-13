@@ -76,7 +76,7 @@ public class BloqueInvertirTest {
     }
 
     @Test
-    public void test06BloquesInversionAnidadosInvierteBloquesSimplementeInvertidos(){
+    public void test06BloquesInversionAnidadosInvierteBloquesTriplementeInvertidos(){
         BloqueInvertir b1 = new BloqueInvertir();
         BloqueInvertir b2 = new BloqueInvertir();
         BloqueInvertir b3 = new BloqueInvertir();

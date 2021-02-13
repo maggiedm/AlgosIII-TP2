@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class SecuenciaBloques {
 
-    protected final List<Bloque> bloques = new ArrayList<>();
+    protected final List<Bloque> bloques = new ArrayList();
 
     public void agregarBloque(Bloque unBloque) { bloques.add(unBloque); }
 
