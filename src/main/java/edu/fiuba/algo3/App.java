@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -18,31 +19,19 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        AlgoBlocks algoBlocks = new AlgoBlocks();
 
-        VBox layoutBloques = new VBox();
-        Scene scene = new Scene(layoutBloques);
+        VBox layoutAlgoritmo = new VBox();
+        AlgoBlocks algoBlocks = new AlgoBlocks(layoutAlgoritmo);
+        VBox layoutBloques = LayoutBloques.crear(algoBlocks);
+
+        HBox root = new HBox();
+        root.setSpacing(100);
+        root.getChildren().addAll(layoutBloques,layoutAlgoritmo);
+
+        Scene scene = new Scene(root);
         stage.setScene(scene);
-
-        Label etiquetaBloques = new Label();
-        etiquetaBloques.setText("Bloques");
-        etiquetaBloques.setFont(Font.font(20));
-        layoutBloques.getChildren().add(etiquetaBloques);
-
-
-        Button botonAgregarBloqueMomientoDerecha = new BotonAgregarBloque(
-                BloqueMovimiento.bloqueDerecha(),
-                "Mover a la Derecha",
-                layoutBloques,
-                algoBlocks);
-
-        Button botonAgregarBloqueMomientoIzquierda = new BotonAgregarBloque(
-                BloqueMovimiento.bloqueIzquierda(),
-                "Mover a la Izquierda",
-                layoutBloques,
-                algoBlocks);
-
-
+        stage.setHeight(1000);
+        stage.setWidth(1000);
         stage.show();
     }
 

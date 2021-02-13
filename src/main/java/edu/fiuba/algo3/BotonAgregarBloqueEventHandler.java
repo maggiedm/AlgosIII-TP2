@@ -18,6 +18,6 @@ public class BotonAgregarBloqueEventHandler implements EventHandler<ActionEvent>
     @Override
     public void handle(ActionEvent actionEvent) {
         algoBlocks.agregarBloque(bloque);
-
+        algoBlocks.mostrarAlgoritmo();
     }
 }
