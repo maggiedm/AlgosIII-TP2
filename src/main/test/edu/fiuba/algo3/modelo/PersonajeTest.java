@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
 
+import static edu.fiuba.algo3.modelo.Direccion.PASO;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonajeTest {
@@ -18,7 +19,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje(new Dibujo());
 
         personaje.mover(Direccion.derecha());
-        assertTrue(personaje.estaEnPosicion(new Posicion(1,0)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(PASO,0)));
     }
 
     @Test
@@ -26,7 +27,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje(new Dibujo());
 
         personaje.mover(Direccion.izquierda());
-        assertTrue(personaje.estaEnPosicion(new Posicion(-1,0)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(-PASO,0)));
     }
 
     @Test
@@ -34,7 +35,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje(new Dibujo());
 
         personaje.mover(Direccion.arriba());
-        assertTrue(personaje.estaEnPosicion(new Posicion(0,1)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(0,-PASO)));
     }
 
     @Test
@@ -42,7 +43,7 @@ public class PersonajeTest {
         Personaje personaje = new Personaje(new Dibujo());
 
         personaje.mover(Direccion.abajo());
-        assertTrue(personaje.estaEnPosicion(new Posicion(0,-1)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(0,PASO)));
     }
 
     @Test
@@ -51,7 +52,7 @@ public class PersonajeTest {
 
         personaje.mover(Direccion.abajo());
         personaje.mover(Direccion.izquierda());
-        assertTrue(personaje.estaEnPosicion(new Posicion(-1,-1)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(-PASO,PASO)));
     }
 
     @Test
@@ -60,7 +61,7 @@ public class PersonajeTest {
 
         personaje.mover(Direccion.derecha());
         personaje.mover(Direccion.derecha());
-        assertTrue(personaje.estaEnPosicion(new Posicion(2,0)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(2 * PASO,0)));
     }
 
     @Test
@@ -73,28 +74,28 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test09MoverADerechaAUnPersonajeNuevoNoAgregaLineaAlDibujo() {
+    public void test09MoverADerechaAUnPersonajeNuevoAgregaLineaNoVisibleAlDibujo() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 
         personaje.mover(Direccion.derecha());
 
-        assertEquals(0, dibujo.getCantidadLineas());
+        assertFalse(dibujo.lineaEsVisible(0));
     }
 
     @Test
-    public void test10MoverADerechaConLapizAbajoAgregaLineaAlDibujo() {
+    public void test10MoverADerechaConLapizAbajoAgregaLineaVisibleAlDibujo() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 
         personaje.bajarLapiz();
         personaje.mover(Direccion.derecha());
 
-        assertEquals(1, dibujo.getCantidadLineas());
+        assertTrue(dibujo.lineaEsVisible(0));
     }
 
     @Test
-    public void test11MoverAUnPersonajeConLapizAbajoPorElMismoCaminoMasDeUnaVezAgregaSoloUnaLineaAlDibujo() {
+    public void test11MoverAUnPersonajeConLapizAbajoPorElMismoCaminoMasDeUnaVezVuelveAAgregarLinea() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 
@@ -102,68 +103,41 @@ public class PersonajeTest {
         personaje.mover(Direccion.derecha());
         personaje.mover(Direccion.izquierda());
 
-        assertEquals(1, dibujo.getCantidadLineas());
+        assertEquals(2, dibujo.getCantidadLineas());
     }
 
     @Test
-    public void test12MoverUnaPosicionConLapizArribaYLuegoMoverOtraPosicionConLapizAbajoAgregaSoloUnaLineaAlDibujo() {
+    public void test12MoverUnaPosicionConLapizArribaYLuegoMoverOtraPosicionConLapizAbajoAgregaAgregaAmbasLineas() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 
         personaje.mover(Direccion.derecha());
         personaje.bajarLapiz();
-        personaje.mover(Direccion.arriba());
-
-        assertEquals(1, dibujo.getCantidadLineas());
-    }
-
-    @Test
-    public void test13MoverUnaPosicionConLapizAbajoYLuegoMoverOtraPosicionConLapizArribaAgregaSoloUnaLineaAlDibujo() {
-        Dibujo dibujo = new Dibujo();
-        Personaje personaje = new Personaje(dibujo);
-
-        personaje.bajarLapiz();
-        personaje.mover(Direccion.derecha());
-        personaje.subirLapiz();
-        personaje.mover(Direccion.arriba());
-
-        assertEquals(1, dibujo.getCantidadLineas());
-    }
-
-    @Test
-    public void test14MoverDosPosicionesConLapizAbajoAgregaDosLineasAlDibujo() {
-        Dibujo dibujo = new Dibujo();
-        Personaje personaje = new Personaje(dibujo);
-
-        personaje.bajarLapiz();
-        personaje.mover(Direccion.derecha());
         personaje.mover(Direccion.arriba());
 
         assertEquals(2, dibujo.getCantidadLineas());
     }
 
     @Test
-    public void test15MoverALaDerechasConLapizAbajoYElDibujoTieneEsaLinea() {
+    public void test13MoverConLapizAbajoElDibujoTieneEsaLinea() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 
         personaje.bajarLapiz();
         personaje.mover(Direccion.derecha());
-        Linea linea = new Linea(new Posicion(1,0), new Posicion(0,0) );
+        Linea linea = new Linea(new Posicion(0,0), new Posicion(PASO,0) , true);
 
         assertTrue(dibujo.tieneLinea(linea));
     }
 
     @Test
-    public void test16MoverALaDerechaConLapizArribaYElDibujoNoTieneEsaLinea() {
+    public void test14MoverConLapizArribaElDibujoTieneEsaLinea() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 
-        personaje.subirLapiz();
         personaje.mover(Direccion.derecha());
+        Linea linea = new Linea(new Posicion(0,0), new Posicion(PASO,0) , false);
 
-        Linea linea = new Linea(new Posicion(1,0), new Posicion(0,0) );
-
-        assertFalse(dibujo.tieneLinea(linea));
+        assertTrue(dibujo.tieneLinea(linea));
     }
 }

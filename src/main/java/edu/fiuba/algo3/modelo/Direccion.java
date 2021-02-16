@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 public class Direccion {
 
+    static int PASO = 30;
+
     private final int dx;
     private final int dy;
 
@@ -11,19 +13,19 @@ public class Direccion {
     }
 
     public static Direccion derecha(){
-        return new Direccion(1,0);
+        return new Direccion(PASO,0);
     }
 
     public static Direccion izquierda(){
-        return new Direccion(-1,0);
+        return new Direccion(-PASO,0);
     }
 
     public static Direccion arriba(){
-        return new Direccion(0,1);
+        return new Direccion(0,-PASO);
     }
 
     public static Direccion abajo(){
-        return new Direccion(0,-1);
+        return new Direccion(0,PASO);
     }
 
     public Posicion desplazar(Posicion posicion) { return posicion.desplazar(dx, dy); }

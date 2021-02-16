@@ -27,14 +27,10 @@ public class BloqueRepeticion extends SecuenciaBloques implements Bloque{
     }
 
     public Bloque invertir(){
-        return null;
+        BloqueRepeticion nBloque =new BloqueRepeticion(cantidad);
+        for (int i = bloques.size() - 1; i >= 0 ; i--) {
+            nBloque.agregarBloque(bloques.get(i).invertir());
+        }
+        return nBloque;
     }
-
-    @Override
-    public void mostrar(VBox layout) {
-        new MostradorBloqueSimple("Repeticion " + cantidad, layout);
-    }
-
-    @Override
-    public String getDescripcion(){ return "Repeticion " + cantidad;}
 }

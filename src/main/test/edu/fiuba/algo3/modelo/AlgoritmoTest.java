@@ -39,6 +39,8 @@ public class AlgoritmoTest {
     @Test
     public void test04NoSePuedeGuardarUnAlgoritmoVacio() {
 
-        assertThrows(GuardarAlgoritmoVacioException.class, () -> new Algoritmo().guardar("test"));
+        assertThrows(GuardarAlgoritmoVacioException.class, () -> new Algoritmo().guardar());
     }
+
+    //Ver de agregar tests tieneLinea,agregar distintos Bloques y ejecutar
 }

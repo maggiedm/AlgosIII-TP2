@@ -16,5 +16,4 @@ public abstract class SecuenciaBloques {
         bloques.forEach(bloque -> bloque.ejecutar(unPersonaje));
     }
 
-    public void mostrar(VBox layout){ bloques.forEach(bloque -> bloque.mostrar(layout)); }
 }

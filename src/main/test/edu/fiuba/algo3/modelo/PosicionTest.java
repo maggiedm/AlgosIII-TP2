@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
 
+import static edu.fiuba.algo3.modelo.Direccion.PASO;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -35,7 +36,7 @@ public class PosicionTest {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(Direccion.derecha());
 
-        assertTrue(nuevaPos.esIgualA(new Posicion(1,0)));
+        assertTrue(nuevaPos.esIgualA(new Posicion(PASO,0)));
     }
 
     @Test
@@ -43,7 +44,7 @@ public class PosicionTest {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(Direccion.izquierda());
 
-        assertTrue(nuevaPos.esIgualA(new Posicion(-1,0)));
+        assertTrue(nuevaPos.esIgualA(new Posicion(-PASO,0)));
     }
 
     @Test
@@ -51,7 +52,7 @@ public class PosicionTest {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(Direccion.arriba());
 
-        assertTrue(nuevaPos.esIgualA(new Posicion(0,1)));
+        assertTrue(nuevaPos.esIgualA(new Posicion(0,-PASO)));
     }
 
     @Test
@@ -59,7 +60,7 @@ public class PosicionTest {
         Posicion posicion = new Posicion();
         Posicion nuevaPos = posicion.obtenerSiguiente(Direccion.abajo());
 
-        assertTrue(nuevaPos.esIgualA(new Posicion(0,-1)));
+        assertTrue(nuevaPos.esIgualA(new Posicion(0,PASO)));
     }
 
     @Test

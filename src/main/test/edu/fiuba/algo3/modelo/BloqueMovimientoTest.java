@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.bloque.*;
 import org.junit.jupiter.api.Test;
 
 
+import static edu.fiuba.algo3.modelo.Direccion.PASO;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -16,36 +17,80 @@ public class BloqueMovimientoTest {
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(personaje.estaEnPosicion(new Posicion(1, 0)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(PASO, 0)));
     }
 
     @Test
-    public void test02EjecutarMovimientoALaIzquierda(){
+    public void test02EjecutarMovimientoALaDerechaDibujoTieneLineaCorrecta(){
+        Dibujo dibujo = new Dibujo();
+        Personaje personaje = new Personaje(dibujo);
+        BloqueMovimiento movimiento = BloqueMovimiento.bloqueDerecha();
+
+        movimiento.ejecutar(personaje);
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(PASO, 0), false)));
+    }
+
+    @Test
+    public void test03EjecutarMovimientoALaIzquierda(){
         Personaje personaje = new Personaje(new Dibujo());
         BloqueMovimiento movimiento = BloqueMovimiento.bloqueIzquierda();
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(personaje.estaEnPosicion(new Posicion(-1, 0)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(-PASO, 0)));
     }
 
     @Test
-    public void test03EjecutarMovimientoAbajo(){
+    public void test04EjecutarMovimientoALaIzquierdaDibujoTieneLineaCorrecta(){
+        Dibujo dibujo = new Dibujo();
+        Personaje personaje = new Personaje(dibujo);
+        BloqueMovimiento movimiento = BloqueMovimiento.bloqueIzquierda();
+
+        movimiento.ejecutar(personaje);
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(-PASO, 0), false)));
+    }
+
+    @Test
+    public void test05EjecutarMovimientoAbajo(){
         Personaje personaje = new Personaje(new Dibujo());
         BloqueMovimiento movimiento = BloqueMovimiento.bloqueAbajo();
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(personaje.estaEnPosicion(new Posicion(0, -1)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(0, PASO)));
     }
 
     @Test
-    public void test04EjecutarMovimientoArriba(){
+    public void test06EjecutarMovimientoAbajoDibujoTieneLineaCorrecta(){
+        Dibujo dibujo = new Dibujo();
+        Personaje personaje = new Personaje(dibujo);
+        BloqueMovimiento movimiento = BloqueMovimiento.bloqueAbajo();
+
+        movimiento.ejecutar(personaje);
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, PASO), false)));
+    }
+
+    @Test
+    public void test07EjecutarMovimientoArriba(){
         Personaje personaje = new Personaje(new Dibujo());
         BloqueMovimiento movimiento = BloqueMovimiento.bloqueArriba();
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(personaje.estaEnPosicion(new Posicion(0, 1)));
+        assertTrue(personaje.estaEnPosicion(new Posicion(0, -PASO)));
+    }
+
+    @Test
+    public void test08EjecutarMovimientoALaDerechaDibujoTieneLineaCorrecta(){
+        Dibujo dibujo = new Dibujo();
+        Personaje personaje = new Personaje(dibujo);
+        BloqueMovimiento movimiento = BloqueMovimiento.bloqueArriba();
+
+        movimiento.ejecutar(personaje);
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, -PASO), false)));
     }
 }

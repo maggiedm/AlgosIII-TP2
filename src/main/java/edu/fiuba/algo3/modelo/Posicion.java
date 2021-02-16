@@ -21,6 +21,14 @@ public class Posicion {
 
     public Posicion desplazar(int dirHorz, int dirVert){ return new Posicion(x + dirHorz, y + dirVert); }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public boolean esIgualA(Posicion unaPosicion) {
         return ((unaPosicion.x == x) && (unaPosicion.y == y));
     }

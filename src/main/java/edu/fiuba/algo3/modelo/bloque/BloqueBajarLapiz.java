@@ -6,17 +6,10 @@ import javafx.scene.layout.VBox;
 
 public class BloqueBajarLapiz implements Bloque {
 
-    private String descripcion = "Bajar Lapiz";
-
     public void ejecutar(Personaje unPersonaje) { unPersonaje.bajarLapiz(); }
 
     public Bloque invertir(){
         return new BloqueSubirLapiz();
     }
-
-    @Override
-    public void mostrar(VBox layout) { new MostradorBloqueSimple(descripcion, layout); }
-
-    public String getDescripcion(){return descripcion;}
 
 }

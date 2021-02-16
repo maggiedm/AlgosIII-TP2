@@ -8,11 +8,11 @@ import javafx.scene.layout.VBox;
 
 public class BotonAgregarBloque extends Button{
 
-    public BotonAgregarBloque(Bloque bloque, AlgoBlocks algoBlocks, VBox layoutBloques){
+    public BotonAgregarBloque(Bloque bloque, String descripcion, AlgoBlocks algoBlocks, VBox  algoritmo, VBox layoutBloques){
 
         Button botonAgregarBloque = new Button();
-        botonAgregarBloque.setText(bloque.getDescripcion());
-        botonAgregarBloque.setOnAction(new BotonAgregarBloqueEventHandler(bloque, algoBlocks));
+        botonAgregarBloque.setText(descripcion);
+        botonAgregarBloque.setOnAction(new BotonAgregarBloqueEventHandler(bloque, algoBlocks, descripcion, algoritmo));
         layoutBloques.getChildren().add(botonAgregarBloque);
     }
 }

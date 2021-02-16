@@ -17,46 +17,53 @@ public class DibujoTest {
     public void test02DibujoGuardaVariasLineas() {
         Dibujo dibujo = new Dibujo();
 
-        dibujo.dibujarLinea(new Posicion(), new Posicion(0, 1));
-        dibujo.dibujarLinea(new Posicion(0, 1), new Posicion(1, 2));
-        dibujo.dibujarLinea(new Posicion(2, 3), new Posicion(2, 5));
+        dibujo.dibujarLinea(new Posicion(), new Posicion(0, 1), true);
+        dibujo.dibujarLinea(new Posicion(0, 1), new Posicion(1, 2), true);
+        dibujo.dibujarLinea(new Posicion(2, 3), new Posicion(2, 5), false);
 
         assertEquals(3, dibujo.getCantidadLineas());
     }
 
     @Test
-    public void test03DibujoNoGuardaDosLineasIguales() {
+    public void test03DibujoGuardaDosLineasIguales() {
         Dibujo dibujo = new Dibujo();
         Posicion posicion1 = new Posicion();
         Posicion posicion2 = new Posicion(0,1);
 
-        dibujo.dibujarLinea(posicion1, posicion2);
-        dibujo.dibujarLinea(posicion2, posicion1);
+        dibujo.dibujarLinea(posicion1, posicion2, true);
+        dibujo.dibujarLinea(posicion2, posicion1, true);
 
-        assertEquals(1, dibujo.getCantidadLineas());
+        assertEquals(2, dibujo.getCantidadLineas());
     }
 
     @Test
     public void test04ExcepcionDibujarLineaConInicioYFinIguales(){
         Dibujo dibujo = new Dibujo();
 
-        assertThrows(LineaInvalidaException.class, () -> dibujo.dibujarLinea(new Posicion(0, 0), new Posicion(0, 0)));
+        assertThrows(LineaInvalidaException.class, () -> dibujo.dibujarLinea(new Posicion(0, 0), new Posicion(0, 0), true));
     }
 
     @Test
     public void test05DibujoUnaLineaYElDibujoLaTiene(){
         Dibujo dibujo = new Dibujo();
-        dibujo.dibujarLinea(new Posicion(3,2), new Posicion(2,2));
-        Linea linea = new Linea(new Posicion(3,2), new Posicion(2,2));
+        dibujo.dibujarLinea(new Posicion(3,2), new Posicion(2,2), true);
 
-        assertTrue(dibujo.tieneLinea(linea));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(3,2), new Posicion(2,2), true)));
     }
 
     @Test
     public void test06DibujoUnaLineaYElDibujoNoTieneOtraDistinta(){
         Dibujo dibujo = new Dibujo();
-        dibujo.dibujarLinea(new Posicion(3,2), new Posicion(2,2));
-        Linea linea = new Linea(new Posicion(3,2), new Posicion(0,2));
+        dibujo.dibujarLinea(new Posicion(3,2), new Posicion(2,2), true);
+        Linea linea = new Linea(new Posicion(3,2), new Posicion(0,2), true);
+
+        assertFalse(dibujo.tieneLinea(linea));
+    }
+    @Test
+    public void test07DibujoUnaLineaYElDibujoNoTieneUnaConMismosExtremosPeroVisibilidadDistinta(){
+        Dibujo dibujo = new Dibujo();
+        dibujo.dibujarLinea(new Posicion(3,2), new Posicion(2,2), true);
+        Linea linea = new Linea(new Posicion(3,2), new Posicion(0,2), false);
 
         assertFalse(dibujo.tieneLinea(linea));
     }
