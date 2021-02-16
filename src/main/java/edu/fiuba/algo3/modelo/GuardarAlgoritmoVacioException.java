@@ -1,4 +1,4 @@
 package edu.fiuba.algo3.modelo;
 
-public class GuardarAlgoritmoVacioException extends Exception{
+public class GuardarAlgoritmoVacioException extends RuntimeException{
 }

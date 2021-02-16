@@ -1,16 +1,17 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.modelo.AlgoBlocks;
+import edu.fiuba.algo3.modelo.Dibujo;
+import edu.fiuba.algo3.modelo.bloque.Bloque;
+import edu.fiuba.algo3.modelo.bloque.BloqueBajarLapiz;
 import edu.fiuba.algo3.modelo.bloque.BloqueMovimiento;
+import edu.fiuba.algo3.modelo.bloque.BloqueSubirLapiz;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import edu.fiuba.algo3.modelo.AlgoBlocks;
 
 /**
  * JavaFX App
@@ -20,15 +21,36 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
 
-        VBox layoutAlgoritmo = new VBox();
-        AlgoBlocks algoBlocks = new AlgoBlocks(layoutAlgoritmo);
-        VBox layoutBloques = LayoutBloques.crear(algoBlocks);
+        Dibujo dib = new Dibujo();
+        AlgoBlocks algoBlocks = new AlgoBlocks(dib);
 
-        HBox root = new HBox();
-        root.setSpacing(100);
-        root.getChildren().addAll(layoutBloques,layoutAlgoritmo);
+        //esto es solo para probar dibujarCamino
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoBlocks.agregarBloque(new BloqueBajarLapiz());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueArriba());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueIzquierda());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(new BloqueSubirLapiz());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoBlocks.ejecutarAlgoritmo();
 
-        Scene scene = new Scene(root);
+        SplitPane splitPane = new SplitPane();
+
+        LayoutDibujo dibujo = new LayoutDibujo(500,500);
+        VBox algoritmo = new VBox(new Label("Algoritmo"));
+        VBox bloques  = LayoutBloques.crear(algoBlocks, algoritmo);
+
+        dibujo.graficarMovimientos(dib);
+
+
+        splitPane.getItems().addAll(bloques, dibujo, algoritmo);
+
+        Scene scene = new Scene(splitPane);
+
         stage.setScene(scene);
         stage.setHeight(1000);
         stage.setWidth(1000);
@@ -40,3 +62,4 @@ public class App extends Application {
     }
 
 }
+

@@ -1,53 +1,33 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.bloque.Bloque;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-
-import java.util.ArrayList;
-import java.util.List;
+import edu.fiuba.algo3.modelo.bloque.BloquePersonalizado;
 
 public class AlgoBlocks {
-    private final Dibujo dibujo = new Dibujo();
-    private final Personaje personaje = new Personaje(dibujo);
+    private final Dibujo dibujo;
+    private final Personaje personaje;
     private final Algoritmo algoritmo = new Algoritmo();
-    private final VBox layout;
-
-    public AlgoBlocks(VBox unLayout){ layout = unLayout; }
-    public AlgoBlocks(){ layout = null; }
 
     public void ejecutarAlgoritmo(){
         // personaje = new Personaje();
         algoritmo.ejecutar(personaje);
     }
 
+    public AlgoBlocks(Dibujo unDibujo){
+        dibujo = unDibujo;
+        personaje = new Personaje(unDibujo);
+    }
+
     public void agregarBloque(Bloque unBloque) {
         algoritmo.agregarBloque(unBloque);
     }
 
-    public void guardarAlgoritmo(String nombre){
-        try{
-            algoritmo.guardar(nombre);
-        }catch (GuardarAlgoritmoVacioException e){
-            System.out.println("No puede guardar un Algoritmo vacio");
-        }
-        //donde guardamos los algoritmos personalizados?
+    public BloquePersonalizado guardarAlgoritmo(){
+            return algoritmo.guardar();
     }
 
     public Boolean personajeEstaEnPosicion(Posicion unaPosicion){
         return personaje.estaEnPosicion(unaPosicion);
-    }
-
-    public void mostrarAlgoritmo(){
-        layout.getChildren().clear();
-        layout.setSpacing(10);
-
-        Label etiqueta = new Label("Algoritmo");
-        etiqueta.setFont(Font.font(20));
-        layout.getChildren().add(etiqueta);
-        
-        algoritmo.mostrar(layout);
     }
 
     public int cantidadLineasDibujadas() { return dibujo.getCantidadLineas();}

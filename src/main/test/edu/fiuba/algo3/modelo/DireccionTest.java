@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
+import static edu.fiuba.algo3.modelo.Direccion.PASO;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DireccionTest {
@@ -15,7 +16,7 @@ public class DireccionTest {
 
         pos = dir.desplazar(pos);
 
-        Assertions.assertTrue(pos.esIgualA(new Posicion(1,0)));
+        Assertions.assertTrue(pos.esIgualA(new Posicion(PASO,0)));
     }
 
     @Test
@@ -25,7 +26,7 @@ public class DireccionTest {
 
         pos = dir.desplazar(pos);
 
-        Assertions.assertTrue(pos.esIgualA(new Posicion(-1,0)));
+        Assertions.assertTrue(pos.esIgualA(new Posicion(-PASO,0)));
     }
 
     @Test
@@ -35,7 +36,7 @@ public class DireccionTest {
 
         pos = dir.desplazar(pos);
 
-        Assertions.assertTrue(pos.esIgualA(new Posicion(0,1)));
+        Assertions.assertTrue(pos.esIgualA(new Posicion(0,-PASO)));
     }
 
     @Test
@@ -45,7 +46,7 @@ public class DireccionTest {
 
         pos = dir.desplazar(pos);
 
-        Assertions.assertTrue(pos.esIgualA(new Posicion(0,-1)));
+        Assertions.assertTrue(pos.esIgualA(new Posicion(0,PASO)));
     }
 
     @Test
@@ -57,6 +58,6 @@ public class DireccionTest {
         pos = dirAbajo.desplazar(pos);
         pos = dirDerecha.desplazar(pos);
 
-        Assertions.assertTrue(pos.esIgualA(new Posicion(1,-1)));
+        Assertions.assertTrue(pos.esIgualA(new Posicion(PASO,PASO)));
     }
 }
