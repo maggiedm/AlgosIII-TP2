@@ -6,16 +6,23 @@ import edu.fiuba.algo3.modelo.bloque.BloquePersonalizado;
 public class AlgoBlocks {
     private final Dibujo dibujo;
     private final Personaje personaje;
-    private final Algoritmo algoritmo = new Algoritmo();
+    private final Algoritmo algoritmo;
+
+    //Solucionar tema de constructores
+    public AlgoBlocks(Dibujo unDibujo){
+        dibujo = unDibujo;
+        personaje = new Personaje(unDibujo);
+        algoritmo = new Algoritmo();
+    }
+    public AlgoBlocks(Algoritmo unAlgoritmo){
+        dibujo = new Dibujo();
+        personaje = new Personaje(dibujo);
+        algoritmo = unAlgoritmo;
+    }
 
     public void ejecutarAlgoritmo(){
         // personaje = new Personaje();
         algoritmo.ejecutar(personaje);
-    }
-
-    public AlgoBlocks(Dibujo unDibujo){
-        dibujo = unDibujo;
-        personaje = new Personaje(unDibujo);
     }
 
     public void agregarBloque(Bloque unBloque) {

@@ -35,4 +35,11 @@ public class BloqueMovimiento implements Bloque {
                 return new BloqueMovimiento(direccion.invertir());
         }
 
+        @Override
+        public void mostrar(VBox layout) {
+                new MostradorBloqueSimple("Mover " + direccion.getDescripcion(), layout);
+        }
+
+        @Override
+        public String getDescripcion() { return "Mover " + direccion.getDescripcion(); }
 }

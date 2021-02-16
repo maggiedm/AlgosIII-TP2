@@ -10,12 +10,11 @@ public class MostradorBloqueSimple {
     public MostradorBloqueSimple(String descripcion, VBox layout){
         Rectangle rectangulo = new Rectangle(200, 80);
         rectangulo.setFill(Color.CYAN);
-
         Label etiqueta = new Label(descripcion);
 
         StackPane mostrador = new StackPane();
         mostrador.getChildren().addAll(rectangulo, etiqueta);
 
-        layout.getChildren().add(mostrador);
+        layout.getChildren().add((layout.getChildren().size() - 1), mostrador);//Agregar antes del marcador
     }
 }

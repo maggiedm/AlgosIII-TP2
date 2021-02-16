@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
@@ -38,16 +39,17 @@ public class App extends Application {
         algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
         algoBlocks.ejecutarAlgoritmo();
 
-        SplitPane splitPane = new SplitPane();
-
         LayoutDibujo dibujo = new LayoutDibujo(500,500);
-        VBox algoritmo = new VBox(new Label("Algoritmo"));
-        VBox bloques  = LayoutBloques.crear(algoBlocks, algoritmo);
-
         dibujo.graficarMovimientos(dib);
 
+        SplitPane splitPane = new SplitPane();
 
-        splitPane.getItems().addAll(bloques, dibujo, algoritmo);
+        HBox root = new HBox();
+        root.setSpacing(100);
+
+        Layout.crear(root);
+
+        splitPane.getItems().addAll(root, dibujo);//principal
 
         Scene scene = new Scene(splitPane);
 
