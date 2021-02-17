@@ -1,0 +1,40 @@
+package edu.fiuba.algo3;
+
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+
+public class Vista {
+    public static void agregarTitulo(VBox layout, String descripcion){
+        layout.setSpacing(10);
+
+        Label etiqueta = new Label(descripcion);
+        etiqueta.setFont(Font.font(20));
+        layout.getChildren().add(etiqueta);
+    }
+    public static void agregarMarcadorFinal(VBox layout, String descripcion) {
+        Rectangle rectangulo = new Rectangle(200, 40);
+        rectangulo.setFill(Color.GREY);
+
+        Label etiqueta = new Label(descripcion);
+
+        StackPane mostrador = new StackPane();
+        mostrador.getChildren().addAll(rectangulo, etiqueta);
+
+        layout.getChildren().add(mostrador);
+    }
+
+    public static HBox crearLayoutContenedorDeBloques(VBox layoutSecuenciaNueva, String descripcion) {
+        HBox layoutContenedor = new HBox();
+
+        StackPane mostrador = new StackPane();
+        mostrador.getChildren().add(new Label(descripcion));
+
+        layoutContenedor.getChildren().addAll(mostrador, layoutSecuenciaNueva);
+        return layoutContenedor;
+    }
+}

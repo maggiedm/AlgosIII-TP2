@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Dibujo;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 
@@ -23,17 +24,15 @@ public class App extends Application {
         AlgoBlocks algoBlocks = new AlgoBlocks(dibujo);
 
         LayoutDibujo layoutDibujo = new LayoutDibujo(SCREEN_WIDTH/2,SCREEN_HEIGHT);
-
-        HBox layoutPpal = new HBox();
+        VBox layoutAlgoritmo = LayoutAlgoritmo.crear();
+        VBox layoutBotonesAgregarBloques = LayoutBotonesAgregarBloques.crear();
 
         HBox root = new HBox();
         root.setSpacing(100);
 
-        Layout.crear(root);
+        root.getChildren().addAll(layoutBotonesAgregarBloques, layoutAlgoritmo, layoutDibujo);
 
-        layoutPpal.getChildren().addAll(root, layoutDibujo);//principal
-
-        Scene scene = new Scene(layoutPpal);
+        Scene scene = new Scene(root);
 
         stage.setScene(scene);
         stage.setResizable(false);
