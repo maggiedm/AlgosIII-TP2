@@ -22,7 +22,7 @@ public class LayoutDibujo extends Pane {
     Canvas canvas;
 
     public LayoutDibujo(int w, int h){
-        super.setMinSize(w, h);
+        super.setMinSize(w, h-30);
         Label titulo = new Label("Dibujo");
         titulo.setFont(Font.font(20));
         this.getChildren().add(titulo);
@@ -33,7 +33,7 @@ public class LayoutDibujo extends Pane {
         canvas = new Canvas(this.getMinWidth()*2,this.getMinHeight()*2);
 
         Circle personaje = new Circle(0, 0, 4, RED); //ROJO == Lapiz esta arriba
-        // VERDE == Lapiz esta abajo
+                                                                        // VERDE == Lapiz esta abajo
         List<Tramo> tramos = crearTramos(dib);
 
         SequentialTransition secDibujo = new SequentialTransition();
@@ -91,7 +91,7 @@ public class LayoutDibujo extends Pane {
         Circle lapiz = new Circle(0, 0, 2);
 
         PathTransition transicionCamino = new PathTransition( duration, camino, lapiz);
-        transicionCamino.currentTimeProperty().addListener( new ChangeListener<Duration>() {
+        transicionCamino.currentTimeProperty().addListener( new ChangeListener<>() {
 
             Posicion origen = null;
 
