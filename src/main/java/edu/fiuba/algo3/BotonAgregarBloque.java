@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
@@ -13,10 +15,11 @@ import java.util.List;
 
 public class BotonAgregarBloque extends Button{
 
-    public BotonAgregarBloque(Bloque bloque, VBox layoutBloques, EventHandler<ActionEvent> handler){
+    public BotonAgregarBloque(ImageView logo, Tooltip descripcion, VBox layoutBloques, EventHandler<ActionEvent> handler){
 
-        Button botonAgregarBloque = new Button();
-        botonAgregarBloque.setText(bloque.getDescripcion());
+        Button botonAgregarBloque = new Button("", logo);
+        botonAgregarBloque.setTooltip(descripcion);
+        botonAgregarBloque.setTooltip(descripcion);
         botonAgregarBloque.setOnAction(handler);
         layoutBloques.getChildren().add(botonAgregarBloque);
     }
