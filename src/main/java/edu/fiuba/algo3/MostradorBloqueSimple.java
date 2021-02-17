@@ -15,6 +15,6 @@ public class MostradorBloqueSimple {
         StackPane mostrador = new StackPane();
         mostrador.getChildren().addAll(rectangulo, etiqueta);
 
-        layout.getChildren().add((layout.getChildren().size() - 1), mostrador);//Agregar antes del marcador
+        layout.getChildren().add((layout.getChildren().size() - 1), mostrador); //Agregar antes del marcador y checkbox
     }
 }

@@ -15,9 +15,9 @@ public class LayoutAlgoritmo {
 
         Vista.agregarTitulo(layoutAlgoritmo,"Algoritmo");
 
-        Vista.agregarMarcadorFinal(layoutAlgoritmo,"Algoritmo");//Puntero final de Algoritmo
-
         new SeleccionadorBloqueCompuesto(algoritmo, layoutAlgoritmo);
+
+        Vista.agregarMarcadorFinal(layoutAlgoritmo,"Algoritmo");//Puntero final de Algoritmo
 
         return layoutAlgoritmo;
     }

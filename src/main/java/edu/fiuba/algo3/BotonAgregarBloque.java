@@ -19,7 +19,6 @@ public class BotonAgregarBloque extends Button{
 
         Button botonAgregarBloque = new Button("", logo);
         botonAgregarBloque.setTooltip(descripcion);
-        botonAgregarBloque.setTooltip(descripcion);
         botonAgregarBloque.setOnAction(handler);
         layoutBloques.getChildren().add(botonAgregarBloque);
     }
