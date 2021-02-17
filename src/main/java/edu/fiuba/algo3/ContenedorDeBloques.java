@@ -24,8 +24,9 @@ public class ContenedorDeBloques {
         bloqueCompuesto.agregarBloque(bloque);
         bloque.mostrar(layout);
     }
-    public void agregarBloqueContenedor(SecuenciaBloques bloque, HBox layoutContenedor) {
-        this.agregarBloque((Bloque) bloque);
+
+    public void agregarBloqueContenedor(Bloque bloque, HBox layoutContenedor) {
+        this.agregarBloque(bloque);
         layout.getChildren().add((layout.getChildren().size() - 1), layoutContenedor);//Agregar antes del marcador
     }
 }

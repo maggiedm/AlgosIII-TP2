@@ -79,12 +79,13 @@ public class LayoutBotonesAgregarBloques {
 
     }
 
-    /*public static void reiniciarBloquesCompuestos(VBox layoutBloques) {
+
+    public static void reiniciarBloquesCompuestos(VBox layoutBloques) {
         //Eliminar los 2 botones de BloquesCompuestos y volverlos a iniciar
         layoutBloques.getChildren().remove(layoutBloques.getChildren().size()-1);
         layoutBloques.getChildren().remove(layoutBloques.getChildren().size()-1);
 
         LayoutBotonesAgregarBloques.agregarBotonesBloquesCompuestos(layoutBloques);
 
-    }*/
+    }
 }

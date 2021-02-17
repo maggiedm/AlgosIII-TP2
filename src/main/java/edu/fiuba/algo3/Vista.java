@@ -35,6 +35,14 @@ public class Vista {
         mostrador.getChildren().add(new Label(descripcion));
 
         layoutContenedor.getChildren().addAll(mostrador, layoutSecuenciaNueva);
+
+        //Borde para separar secuencias de bloques
+        layoutContenedor.setStyle("-fx-padding: 10;" +
+                "-fx-border-style: solid inside;" +
+                "-fx-border-width: 1;" +
+                "-fx-border-insets: 5;" +
+                "-fx-border-radius: 5;" +
+                "-fx-border-color: black;");
         return layoutContenedor;
     }
 }
