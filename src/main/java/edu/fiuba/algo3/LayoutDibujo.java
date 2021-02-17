@@ -30,13 +30,10 @@ public class LayoutDibujo extends Pane {
 
     public void graficarMovimientos(Dibujo dib) { //Por ahora no grafica movimientos de lapiz solos
 
-        canvas = new Canvas(this.getMinWidth(),this.getMinHeight());
-        canvas.setLayoutX(this.getMinWidth()/2);
-        canvas.setLayoutY(this.getMinHeight()/2);
-        Circle personaje = new Circle(0, 0, 4, RED); //ROJO == Lapiz esta arriba
-        personaje.setLayoutX(this.getMinWidth()/2);                      //VERDE == Lapiz esta abajo
-        personaje.setLayoutY(this.getMinHeight()/2);
+        canvas = new Canvas(this.getMinWidth()*2,this.getMinHeight()*2);
 
+        Circle personaje = new Circle(0, 0, 4, RED); //ROJO == Lapiz esta arriba
+        // VERDE == Lapiz esta abajo
         List<Tramo> tramos = crearTramos(dib);
 
         SequentialTransition secDibujo = new SequentialTransition();
@@ -77,9 +74,9 @@ public class LayoutDibujo extends Pane {
                 tam = 0;
             }
             if(camino.getElements().isEmpty()){
-                camino.getElements().add(new MoveTo(linea.getOrigen().getX(), linea.getOrigen().getY()));
+                camino.getElements().add(new MoveTo(linea.getOrigen().getX()+this.getMinWidth()/2, linea.getOrigen().getY()+this.getMinHeight()/2));
             }
-            camino.getElements().add(new LineTo(linea.getDestino().getX(), linea.getDestino().getY()));
+            camino.getElements().add(new LineTo(linea.getDestino().getX()+this.getMinWidth()/2, linea.getDestino().getY()+this.getMinHeight()/2));
             tam++;
         }
         tramos.add(new Tramo(camino, visibilidad, tam));
