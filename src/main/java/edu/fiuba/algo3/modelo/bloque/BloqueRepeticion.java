@@ -40,7 +40,7 @@ public class BloqueRepeticion extends SecuenciaBloques implements Bloque{
     @Override
     public void mostrar(VBox layout) {
         new MostradorBloqueSimple(descripcion, layout);
-        bloques.forEach(bloque -> bloque.mostrar(layout));
+        //bloques.forEach(bloque -> bloque.mostrar(layout));
     }
 
     @Override
