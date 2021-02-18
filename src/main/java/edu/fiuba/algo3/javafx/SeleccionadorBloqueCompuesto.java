@@ -1,4 +1,4 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.javafx;
 
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;

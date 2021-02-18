@@ -1,10 +1,13 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.javafx.layouts.LayoutAlgoritmo;
+import edu.fiuba.algo3.javafx.layouts.LayoutBotonesAgregarBloques;
+import edu.fiuba.algo3.javafx.layouts.LayoutDibujo;
+import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReinciar;
 import edu.fiuba.algo3.modelo.Dibujo;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -31,7 +34,7 @@ public class App extends Application {
         HBox panelSuperior = new HBox();
         ImageView banner = new ImageView("https://i.ibb.co/Ht7ysNy/New-Project-2.png");
         VBox layoutAlgoritmo = LayoutAlgoritmo.crear();
-        HBox layoutEjecutarReinciar = LayoutEjecutarReinciar.crear(layoutAlgoritmo);
+        HBox layoutEjecutarReinciar = LayoutEjecutarReinciar.crear();
         layoutEjecutarReinciar.setAlignment(Pos.CENTER_LEFT);
         panelSuperior.getChildren().addAll(banner, layoutEjecutarReinciar);
 

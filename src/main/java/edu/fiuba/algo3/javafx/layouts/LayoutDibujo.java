@@ -1,5 +1,6 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.javafx.layouts;
 
+import edu.fiuba.algo3.javafx.Tramo;
 import edu.fiuba.algo3.modelo.*;
 import javafx.animation.*;
 import javafx.beans.value.ChangeListener;

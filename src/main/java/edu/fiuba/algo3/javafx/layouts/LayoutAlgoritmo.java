@@ -1,5 +1,7 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.javafx.layouts;
 
+import edu.fiuba.algo3.javafx.SeleccionadorBloqueCompuesto;
+import edu.fiuba.algo3.javafx.Vista;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.Algoritmo;
 import javafx.scene.layout.VBox;

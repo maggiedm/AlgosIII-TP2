@@ -1,4 +1,4 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.javafx;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.bloque;
 
-import edu.fiuba.algo3.MostradorBloqueSimple;
+import edu.fiuba.algo3.javafx.MostradorBloqueSimple;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
 import javafx.scene.layout.VBox;

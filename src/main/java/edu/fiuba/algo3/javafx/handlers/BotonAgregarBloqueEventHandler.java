@@ -1,5 +1,6 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.javafx.handlers;
 
+import edu.fiuba.algo3.javafx.SeleccionadorBloqueCompuesto;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
