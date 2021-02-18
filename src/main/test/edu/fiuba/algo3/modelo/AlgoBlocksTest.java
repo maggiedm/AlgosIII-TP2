@@ -66,7 +66,7 @@ public class AlgoBlocksTest {
         algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
         algoBlocks.ejecutarAlgoritmo();
 
-        assertEquals(1, algoBlocks.getDibujo().getCantidadLineas());
+        assertEquals(1, algoBlocks.cantidadLineasDibujadas());
     }
 
     @Test
