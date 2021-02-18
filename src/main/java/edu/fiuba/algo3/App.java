@@ -1,17 +1,18 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.javafx.layouts.LayoutAlgoritmo;
-import edu.fiuba.algo3.javafx.layouts.LayoutBotonesAgregarBloques;
+import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.javafx.layouts.LayoutDibujo;
 import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReiniciar;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 
@@ -40,9 +41,24 @@ public class App extends Application {
         // PANEL INFERIOR: BLOQUES + ALGORITMO + DIBUJO
         HBox panelInferior = new HBox();
         panelInferior.setSpacing(10);
-        VBox layoutBotonesAgregarBloques = LayoutBotonesAgregarBloques.crear(SCREEN_HEIGHT);
+        LayoutBloques layoutBloques = new LayoutBloques(SCREEN_HEIGHT);
         VBox layoutAlgoritmo = LayoutAlgoritmo.crear(algoBlocks, SCREEN_HEIGHT);
-        panelInferior.getChildren().addAll(layoutBotonesAgregarBloques, layoutAlgoritmo, layoutDibujo);
+        //Esto habría que sacarlo de aca. Además hay que manejar la desaparición del boton cuando está vacío el algoritmo
+        Button btn = new Button("Guardar");
+        btn.setOnAction(event -> {
+            TextField nombre = new TextField();
+            Label nombreAlgoritmo = new Label("Guardar como:");
+            Button ingresar = new Button("Ingresar");
+            Stage stage2 = new Stage();
+            stage2.setScene(new Scene(new VBox(new HBox(nombreAlgoritmo, nombre), ingresar)));
+            stage2.show();
+            ingresar.setOnAction(internalEvent -> {
+                stage2.close();
+                layoutBloques.agregarBotonBloque("https://i.ibb.co/yV22Q76/BTN-Algo-Guardado.png", nombre.getText(), algoBlocks.guardarAlgoritmo());
+            });
+        });
+        VBox aux = new VBox(layoutAlgoritmo, btn);
+        panelInferior.getChildren().addAll(layoutBloques, aux, layoutDibujo);
 
 
         // PANEL PRINCIPAL: CONTIENE A panelInferior Y panelSuperior
