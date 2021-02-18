@@ -88,21 +88,8 @@ public class AlgoBlocksTest {
         algoBlocks.agregarBloque(new BloqueBajarLapiz());
         algoBlocks.ejecutarAlgoritmo();
 
-        //assertTrue(algoBlocks);
+        assertFalse(algoBlocks.getDibujo().lineaEsVisible(0));
     }
-
-/*    @Test
-    public void test07AlgoBlocksAgregarBloqueMovimientoYEjecutar2VecesAlgoritmoPosicionPersonajeEsMismaQueEjecutarUnaVezElAlgoritmo() {
-        AlgoBlocks algoBlocks = new AlgoBlocks();
-        Posicion posicion;
-
-        algoBlocks.agregarBloque(new BloqueDerecha());
-        algoBlocks.ejecutarAlgoritmo();
-        posicion = algoBlocks.getPersonaje().getPosicion();
-        algoBlocks.ejecutarAlgoritmo();
-
-        assertTrue(algoBlocks.getPersonaje().estaEnPosicion(posicion));
-    }*/
 
     @Test
     public void test10AlgoBlocksAgregar3BloquesAlgoritmoTiene3Bloques() {
@@ -235,5 +222,43 @@ public class AlgoBlocksTest {
                 algoBlocks.getDibujo().tieneLinea(new Linea(new Posicion(PASO,0), new Posicion(PASO, PASO), true)));
     }
 
-    //Test de Invertir y de BloquePersonalizado
+    @Test
+    public void test20AlgoBlocksReiniciarPersonajeEnPosicionInicial() {
+        AlgoBlocks algoBlocks = new AlgoBlocks();
+
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(new BloqueBajarLapiz());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoBlocks.ejecutarAlgoritmo();
+        algoBlocks.reiniciar();
+
+        assertTrue(algoBlocks.personajeEstaEnPosicion(new Posicion()));
+    }
+
+    @Test
+    public void test21AlgoBlocksReiniciarAlgoritmoEstaVacio() {
+        AlgoBlocks algoBlocks = new AlgoBlocks();
+
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(new BloqueBajarLapiz());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoBlocks.ejecutarAlgoritmo();
+        algoBlocks.reiniciar();
+
+        assertEquals(0, algoBlocks.cantidadDeBloquesEnAlgoritmo());
+    }
+
+    @Test
+    public void test19AlgoBlocksReiniciarDibujoEstaVacio() {
+        AlgoBlocks algoBlocks = new AlgoBlocks();
+
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(new BloqueBajarLapiz());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoBlocks.ejecutarAlgoritmo();
+        algoBlocks.reiniciar();
+
+        assertEquals(0, algoBlocks.cantidadLineasDibujadas());
+    }
+
 }

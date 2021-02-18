@@ -7,9 +7,11 @@ import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReiniciar;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 
@@ -19,8 +21,8 @@ import edu.fiuba.algo3.modelo.AlgoBlocks;
  */
 public class App extends Application {
 
-    static int SCREEN_WIDTH = 1000;
-    static int SCREEN_HEIGHT = 1000;
+    static double SCREEN_WIDTH = 1000;
+    static double SCREEN_HEIGHT = 1000;
 
     @Override
     public void start(Stage stage) {
@@ -30,20 +32,22 @@ public class App extends Application {
         // PANEL SUPERIOR: BANNER + BOTONES DE EJECUTAR Y REINICIAR
         HBox panelSuperior = new HBox();
         ImageView banner = new ImageView("https://i.ibb.co/Ht7ysNy/New-Project-2.png");
-        LayoutDibujo layoutDibujo = new LayoutDibujo(SCREEN_WIDTH/2,SCREEN_HEIGHT);
+        LayoutDibujo layoutDibujo = new LayoutDibujo(SCREEN_WIDTH/2,SCREEN_HEIGHT-panelSuperior.getHeight());
         HBox layoutEjecutarReiniciar = LayoutEjecutarReiniciar.crear(algoBlocks, layoutDibujo);
         layoutEjecutarReiniciar.setAlignment(Pos.CENTER_LEFT);
         panelSuperior.getChildren().addAll(banner, layoutEjecutarReiniciar);
 
         // PANEL INFERIOR: BLOQUES + ALGORITMO + DIBUJO
         HBox panelInferior = new HBox();
-        panelInferior.setSpacing(100);
-        VBox layoutBotonesAgregarBloques = LayoutBotonesAgregarBloques.crear();
-        VBox layoutAlgoritmo = LayoutAlgoritmo.crear(algoBlocks);
+        panelInferior.setSpacing(10);
+        VBox layoutBotonesAgregarBloques = LayoutBotonesAgregarBloques.crear(SCREEN_HEIGHT);
+        VBox layoutAlgoritmo = LayoutAlgoritmo.crear(algoBlocks, SCREEN_HEIGHT);
         panelInferior.getChildren().addAll(layoutBotonesAgregarBloques, layoutAlgoritmo, layoutDibujo);
+
 
         // PANEL PRINCIPAL: CONTIENE A panelInferior Y panelSuperior
         VBox panelPrincipal = new VBox();
+        panelPrincipal.setMaxSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         panelPrincipal.setSpacing(20);
         panelPrincipal.getChildren().addAll(panelSuperior, panelInferior);
 

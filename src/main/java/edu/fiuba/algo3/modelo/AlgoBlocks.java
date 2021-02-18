@@ -8,14 +8,11 @@ public class AlgoBlocks {
     private final Personaje personaje = new Personaje(dibujo);
     private final Algoritmo algoritmo = new Algoritmo();
 
-    //Solucionar tema de constructores
-
     public Algoritmo getAlgoritmo(){ return algoritmo; }
 
     public Dibujo getDibujo(){ return dibujo; }
 
     public void ejecutarAlgoritmo(){
-        // personaje = new Personaje();
         algoritmo.ejecutar(personaje);
     }
 
@@ -34,5 +31,6 @@ public class AlgoBlocks {
     public void reiniciar(){
         dibujo.reiniciar();
         algoritmo.reiniciar();
+        personaje.reiniciar();
     }
 }

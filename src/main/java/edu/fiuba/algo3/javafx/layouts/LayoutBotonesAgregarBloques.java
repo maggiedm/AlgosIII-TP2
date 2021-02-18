@@ -5,22 +5,31 @@ import edu.fiuba.algo3.javafx.botones.BotonSimple;
 import edu.fiuba.algo3.javafx.handlers.BotonAgregarBloqueCompuestoEventHandler;
 import edu.fiuba.algo3.javafx.handlers.BotonAgregarBloqueEventHandler;
 import edu.fiuba.algo3.modelo.bloque.*;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 public class LayoutBotonesAgregarBloques {
 
     static int CANTIDAD_BLOQUES_COMPUESTOS = 3;
+    VBox contenido;
 
-    public static VBox crear() {
+    public static VBox crear(double altura) {
 
+        VBox contenido = new VBox(10);
+        ScrollPane sP = new ScrollPane(contenido);
+        sP.setPrefViewportHeight(altura*3/4);
+        sP.setMinViewportWidth(150);
         VBox layoutBloques = new VBox();
 
-        Vista.agregarTitulo(layoutBloques, "Bloques");
 
-        LayoutBotonesAgregarBloques.agregarBotonesBloquesSimples(layoutBloques);
-        LayoutBotonesAgregarBloques.agregarBotonesBloquesCompuestos(layoutBloques);
+        Vista.agregarTitulo(layoutBloques, "Bloques");
+        layoutBloques.getChildren().add(sP);
+
+        LayoutBotonesAgregarBloques.agregarBotonesBloquesSimples(contenido);
+        LayoutBotonesAgregarBloques.agregarBotonesBloquesCompuestos(contenido);
 
         return layoutBloques;
     }

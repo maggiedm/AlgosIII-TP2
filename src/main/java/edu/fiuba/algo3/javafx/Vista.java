@@ -2,6 +2,7 @@ package edu.fiuba.algo3.javafx;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -9,8 +10,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
 public class Vista {
-    public static void agregarTitulo(VBox layout, String descripcion){
-        layout.setSpacing(10);
+    public static void agregarTitulo(Pane layout, String descripcion){
 
         Label etiqueta = new Label(descripcion);
         etiqueta.setFont(Font.font(20));

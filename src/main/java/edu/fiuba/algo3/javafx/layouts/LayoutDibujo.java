@@ -1,17 +1,16 @@
 package edu.fiuba.algo3.javafx.layouts;
 
 import edu.fiuba.algo3.javafx.Tramo;
+import edu.fiuba.algo3.javafx.Vista;
 import edu.fiuba.algo3.modelo.*;
 import javafx.animation.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -22,11 +21,9 @@ import static javafx.scene.paint.Color.*;
 public class LayoutDibujo extends Pane {
     Canvas canvas;
 
-    public LayoutDibujo(int w, int h){
+    public LayoutDibujo(double w, double h){
         super.setMinSize(w, h-30);
-        Label titulo = new Label("Dibujo");
-        titulo.setFont(Font.font(20));
-        this.getChildren().add(titulo);
+        Vista.agregarTitulo(this, "Dibujo");
     }
 
     public void graficarMovimientos(Dibujo dib) { //Por ahora no grafica movimientos de lapiz solos
@@ -63,7 +60,10 @@ public class LayoutDibujo extends Pane {
 
         camino.setStroke(RED);
         camino.setStrokeWidth(5);
-        boolean visibilidad = dib.lineaEsVisible(0);
+        boolean visibilidad = false;
+        if(!dib.getLineas().isEmpty()){
+            visibilidad = dib.lineaEsVisible(0);
+        }
         int tam = 0;
 
         for (Linea linea: dib.getLineas()) {
@@ -108,7 +108,7 @@ public class LayoutDibujo extends Pane {
                     origen = new Posicion(x, y);
                     return;
                 }
-                gc.setStroke(Color.BLACK);
+                gc.setStroke(LIGHTSLATEGREY);
                 gc.setFill(Color.BLUE);
                 gc.setLineWidth(2);
                 gc.strokeLine(origen.getX(), origen.getY(), x, y);
@@ -119,5 +119,6 @@ public class LayoutDibujo extends Pane {
 
         return transicionCamino;
     }
-    public void reiniciar(){  }
+
+    public void reiniciar(){ this.getChildren().clear();}
 }

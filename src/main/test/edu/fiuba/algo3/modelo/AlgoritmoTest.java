@@ -42,5 +42,17 @@ public class AlgoritmoTest {
         assertThrows(GuardarAlgoritmoVacioException.class, () -> new Algoritmo().guardar());
     }
 
+    @Test
+    public void test05ReiniciarAlgoritmoAlgoritmoEstaVacio() {
+
+        Algoritmo algoritmo = new Algoritmo();
+
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueArriba());
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoritmo.reiniciar();
+
+        assertEquals(0, algoritmo.getCantidadDeBloques());
+    }
+
     //Ver de agregar tests tieneLinea,agregar distintos Bloques y ejecutar
 }

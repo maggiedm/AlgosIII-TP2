@@ -140,4 +140,28 @@ public class PersonajeTest {
 
         assertTrue(dibujo.tieneLinea(linea));
     }
+
+    @Test
+    public void test15ReiniciarPersonajePosicionInicial() {
+        Dibujo dibujo = new Dibujo();
+        Personaje personaje = new Personaje(dibujo);
+
+        personaje.mover(Direccion.derecha());
+        personaje.reiniciar();
+
+        assertTrue(personaje.estaEnPosicion(new Posicion()));
+    }
+
+    @Test
+    public void test16ReiniciarPersonajeYMoverDibujaLineaInvisible() {
+        Dibujo dibujo = new Dibujo();
+        Personaje personaje = new Personaje(dibujo);
+
+        personaje.bajarLapiz();
+        personaje.mover(Direccion.derecha());
+        personaje.reiniciar();
+        personaje.mover(Direccion.derecha());
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(PASO, 0), false)));
+    }
 }

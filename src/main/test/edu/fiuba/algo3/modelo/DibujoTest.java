@@ -59,6 +59,7 @@ public class DibujoTest {
 
         assertFalse(dibujo.tieneLinea(linea));
     }
+
     @Test
     public void test07DibujoUnaLineaYElDibujoNoTieneUnaConMismosExtremosPeroVisibilidadDistinta(){
         Dibujo dibujo = new Dibujo();
@@ -66,5 +67,14 @@ public class DibujoTest {
         Linea linea = new Linea(new Posicion(3,2), new Posicion(0,2), false);
 
         assertFalse(dibujo.tieneLinea(linea));
+    }
+
+    @Test
+    public void test08ReiniciarDibujoDibujoEstaVacio(){
+        Dibujo dibujo = new Dibujo();
+        dibujo.dibujarLinea(new Posicion(3,2), new Posicion(2,2), true);
+        dibujo.reiniciar();
+
+        assertEquals(0, dibujo.getCantidadLineas());
     }
 }

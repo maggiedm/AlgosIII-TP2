@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.lapiz.Lapiz;
 public class Personaje {
 
     private Posicion posicion = new Posicion();
-    private final Lapiz lapiz = new Lapiz();
+    private Lapiz lapiz = new Lapiz();
     private final Dibujo dibujo;
 
     public Personaje(Dibujo dib){
@@ -26,5 +26,10 @@ public class Personaje {
         Posicion posVieja = posicion;
         posicion = posicion.obtenerSiguiente(unaDireccion);
         lapiz.dibujarLinea(posVieja, posicion, dibujo);
+    }
+
+    public void reiniciar(){
+        posicion = new Posicion();
+        lapiz = new Lapiz();
     }
 }
