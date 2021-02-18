@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 public class LayoutEjecutarReiniciar {
     public static HBox crear(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo){

@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo.bloque;
 
-import edu.fiuba.algo3.javafx.MostradorBloqueSimple;
 import edu.fiuba.algo3.modelo.Personaje;
-import javafx.scene.layout.VBox;
 
 public class BloqueSubirLapiz implements Bloque {
 

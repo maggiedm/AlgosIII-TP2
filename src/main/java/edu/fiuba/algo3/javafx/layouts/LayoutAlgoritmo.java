@@ -2,23 +2,10 @@ package edu.fiuba.algo3.javafx.layouts;
 
 import edu.fiuba.algo3.javafx.SeleccionadorBloqueCompuesto;
 import edu.fiuba.algo3.javafx.Vista;
-import edu.fiuba.algo3.javafx.botones.BotonSimple;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.Algoritmo;
-import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class LayoutAlgoritmo {
 

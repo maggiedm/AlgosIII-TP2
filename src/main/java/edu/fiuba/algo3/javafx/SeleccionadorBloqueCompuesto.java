@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.javafx;
 
-import edu.fiuba.algo3.javafx.layouts.LayoutBotonesAgregarBloques;
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.scene.control.ChoiceBox;
@@ -62,7 +61,7 @@ public class SeleccionadorBloqueCompuesto {
 
         choiceBox.getItems().add(descripcion);
 
-        LayoutBotonesAgregarBloques.reiniciarBloquesCompuestos(layoutBloques);
+        //LayoutBloques.reiniciarBloquesCompuestos(layoutBloques);
     }
 
 }

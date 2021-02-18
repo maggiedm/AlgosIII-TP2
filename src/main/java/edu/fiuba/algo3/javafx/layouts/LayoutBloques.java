@@ -10,30 +10,36 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
-public class LayoutBotonesAgregarBloques{
+public class LayoutBloques extends VBox{
 
     static int CANTIDAD_BLOQUES_COMPUESTOS = 3;
     static VBox contenido;
 
-    public static VBox crear(double altura) {
+    public LayoutBloques(double altura) {
 
         contenido = new VBox(10);
         ScrollPane sP = new ScrollPane(contenido);
         sP.setPrefViewportHeight(altura*3/4);
         sP.setMinViewportWidth(150);
-        VBox layoutBloques = new VBox();
 
 
-        Vista.agregarTitulo(layoutBloques, "Bloques");
-        layoutBloques.getChildren().add(sP);
+        Vista.agregarTitulo(this, "Bloques");
+        this.getChildren().add(sP);
 
-        LayoutBotonesAgregarBloques.agregarBotonesBloquesSimples();
-        LayoutBotonesAgregarBloques.agregarBotonesBloquesCompuestos();
-
-        return layoutBloques;
+        this.agregarBotonesBloquesSimples();
+        this.agregarBotonesBloquesCompuestos();
     }
 
-    public static void agregarBotonesBloquesCompuestos() {
+    public void agregarBotonBloque(String url, String nombre, Bloque unBloque){
+        contenido.getChildren().add(
+                BotonSimple.crearBotonSimple(
+                        new ImageView(url),
+                        new Tooltip(nombre),
+                        new BotonAgregarBloqueEventHandler(unBloque, nombre)
+                ));
+    }
+
+    public void agregarBotonesBloquesCompuestos() {
 
         contenido.getChildren().addAll(
 
@@ -57,7 +63,7 @@ public class LayoutBotonesAgregarBloques{
         );
     }
 
-    private static void agregarBotonesBloquesSimples() {
+    private void agregarBotonesBloquesSimples() {
 
         contenido.getChildren().addAll(
 
@@ -106,7 +112,6 @@ public class LayoutBotonesAgregarBloques{
             layoutBloques.getChildren().remove(layoutBloques.getChildren().size()-1);
         }
 
-        LayoutBotonesAgregarBloques.agregarBotonesBloquesCompuestos();
-
+        (new LayoutBloques(1000)).agregarBotonesBloquesCompuestos();
     }
 }
