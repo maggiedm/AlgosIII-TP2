@@ -8,7 +8,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.util.Duration;
@@ -29,8 +29,8 @@ public class LayoutDibujo extends Pane {
     public void graficarMovimientos(Dibujo dib) { //Por ahora no grafica movimientos de lapiz solos
         canvas = new Canvas(this.getMinWidth()*2,this.getMinHeight()*2);
 
-        Circle personaje = new Circle(0, 0, 4, RED); //ROJO == Lapiz esta arriba
-                                                                        // VERDE == Lapiz esta abajo
+        Circle personaje = new Circle(this.getMinWidth()/2, this.getMinHeight()/2, 4, RED); //ROJO == Lapiz esta arriba
+                                                                                                                // VERDE == Lapiz esta abajo
         List<Tramo> tramos = crearTramos(dib);
 
         SequentialTransition secDibujo = new SequentialTransition();
@@ -79,7 +79,9 @@ public class LayoutDibujo extends Pane {
             camino.getElements().add(new LineTo(linea.getDestino().getX()+this.getMinWidth()/2, linea.getDestino().getY()+this.getMinHeight()/2));
             tam++;
         }
-        tramos.add(new Tramo(camino, visibilidad, tam));
+        if(!camino.getElements().isEmpty()) {
+            tramos.add(new Tramo(camino, visibilidad, tam));
+        }
 
         return tramos;
     }
