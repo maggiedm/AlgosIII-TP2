@@ -9,8 +9,6 @@ import java.util.List;
 
 public class BloquePersonalizado implements Bloque {
 
-    private String descripcion = "Algoritmo Personalizado";
-
     private final List<Bloque> bloques;
 
     public BloquePersonalizado(List<Bloque> lBloques){
@@ -26,12 +24,4 @@ public class BloquePersonalizado implements Bloque {
         bloques.forEach(bloque -> aux.add(bloque.invertir()));
         return new BloquePersonalizado(aux);
     }
-
-    @Override
-    public String getDescripcion() {return descripcion;};
-
-    @Override
-    public void mostrar(VBox layout) {
-        new MostradorBloqueSimple(descripcion, layout);
-    } // Chequear
 }

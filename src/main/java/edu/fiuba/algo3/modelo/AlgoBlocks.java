@@ -2,8 +2,10 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import edu.fiuba.algo3.modelo.bloque.BloquePersonalizado;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 
-public class AlgoBlocks {
+public class AlgoBlocks{
     private final Dibujo dibujo = new Dibujo();
     private final Personaje personaje = new Personaje(dibujo);
     private final Algoritmo algoritmo = new Algoritmo();

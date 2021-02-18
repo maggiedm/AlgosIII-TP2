@@ -8,8 +8,4 @@ public interface Bloque {
     void ejecutar(Personaje unPersonaje);
 
     Bloque invertir();
-
-    void mostrar(VBox layout);
-
-    String getDescripcion();
 }

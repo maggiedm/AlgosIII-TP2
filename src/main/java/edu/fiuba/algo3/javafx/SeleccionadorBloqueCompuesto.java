@@ -58,7 +58,7 @@ public class SeleccionadorBloqueCompuesto {
 
         bloquesCompuestos.add(new ContenedorDeBloques((SecuenciaBloques) bloque,descripcion, layoutSecuenciaNueva ));
 
-        bloqueActual.agregarBloqueContenedor(bloque, layoutContenedorNuevo);
+        bloqueActual.agregarBloqueContenedor(bloque,descripcion, layoutContenedorNuevo);
 
         choiceBox.getItems().add(descripcion);
 

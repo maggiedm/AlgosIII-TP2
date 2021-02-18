@@ -21,13 +21,13 @@ public class ContenedorDeBloques {
         return descripcion == unaDescripcion;
     }
 
-    public void agregarBloque(Bloque bloque) {
+    public void agregarBloque(Bloque bloque, String descripcion) {
         bloqueCompuesto.agregarBloque(bloque);
-        bloque.mostrar(layout);
+        new MostradorBloqueSimple(descripcion, layout);
     }
 
-    public void agregarBloqueContenedor(Bloque bloque, HBox layoutContenedor) {
-        this.agregarBloque(bloque);
+    public void agregarBloqueContenedor(Bloque bloque, String descripcion, HBox layoutContenedor) {
+        this.agregarBloque(bloque, descripcion);
         layout.getChildren().add((layout.getChildren().size() - 1), layoutContenedor);//Agregar antes del marcador
     }
     public void reiniciarLayoutAlgoritmo(ChoiceBox<String> choiceBox){
