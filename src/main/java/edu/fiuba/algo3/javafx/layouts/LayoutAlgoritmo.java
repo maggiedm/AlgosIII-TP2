@@ -8,10 +8,9 @@ import javafx.scene.layout.VBox;
 
 public class LayoutAlgoritmo {
 
-    public static VBox crear() {
+    public static VBox crear(AlgoBlocks algoBlocks) {
 
-        Algoritmo algoritmo = new Algoritmo();
-        AlgoBlocks algoBlocks = new AlgoBlocks(algoritmo);//se utilizará en ejecutar y guardarAlgoritmo
+        Algoritmo algoritmo = algoBlocks.getAlgoritmo();
 
         VBox layoutAlgoritmo = new VBox();
 

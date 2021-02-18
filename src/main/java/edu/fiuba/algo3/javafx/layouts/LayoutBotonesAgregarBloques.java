@@ -4,15 +4,15 @@ import edu.fiuba.algo3.javafx.Vista;
 import edu.fiuba.algo3.javafx.botones.BotonSimple;
 import edu.fiuba.algo3.javafx.handlers.BotonAgregarBloqueCompuestoEventHandler;
 import edu.fiuba.algo3.javafx.handlers.BotonAgregarBloqueEventHandler;
-import edu.fiuba.algo3.modelo.bloque.BloqueBajarLapiz;
-import edu.fiuba.algo3.modelo.bloque.BloqueMovimiento;
-import edu.fiuba.algo3.modelo.bloque.BloqueRepeticion;
-import edu.fiuba.algo3.modelo.bloque.BloqueSubirLapiz;
+import edu.fiuba.algo3.modelo.bloque.*;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class LayoutBotonesAgregarBloques {
+
+    static int CANTIDAD_BLOQUES_COMPUESTOS = 3;
+
     public static VBox crear() {
 
         VBox layoutBloques = new VBox();
@@ -32,13 +32,19 @@ public class LayoutBotonesAgregarBloques {
             BotonSimple.crearBotonSimple(
                     new ImageView("https://i.ibb.co/4SKh2L3/BTN-Repetir2.png"),
                     new Tooltip("Repite dos veces la secuencia de bloques ingresada."),
-                    new BotonAgregarBloqueCompuestoEventHandler(BloqueRepeticion.repetirDosVeces())
+                    new BotonAgregarBloqueCompuestoEventHandler(BloqueRepeticion.repetirDosVeces(), layoutBloques)
             ),
 
             BotonSimple.crearBotonSimple(
                     new ImageView("https://i.ibb.co/SyYPRYH/BTN-Repetir3.png"),
                     new Tooltip("Repite tres veces la secuencia de bloques ingresada."),
-                    new BotonAgregarBloqueCompuestoEventHandler(BloqueRepeticion.repetirTresVeces())
+                    new BotonAgregarBloqueCompuestoEventHandler(BloqueRepeticion.repetirTresVeces(), layoutBloques)
+            ),
+
+            BotonSimple.crearBotonSimple(
+                    new ImageView("https://i.ibb.co/wwHw1P2/BTN-Invertir.png"),
+                    new Tooltip("Invierte la secuencia de bloques ingresada."),
+                    new BotonAgregarBloqueCompuestoEventHandler(new BloqueInversion(), layoutBloques)
             )
         );
     }
@@ -87,9 +93,10 @@ public class LayoutBotonesAgregarBloques {
 
 
     public static void reiniciarBloquesCompuestos(VBox layoutBloques) {
-        //Eliminar los 2 botones de BloquesCompuestos y volverlos a iniciar
-        layoutBloques.getChildren().remove(layoutBloques.getChildren().size()-1);
-        layoutBloques.getChildren().remove(layoutBloques.getChildren().size()-1);
+        //Elimina los 3 botones de BloquesCompuestos y los vuelve a iniciar
+        for (int i = 0; i < CANTIDAD_BLOQUES_COMPUESTOS; i++) {
+            layoutBloques.getChildren().remove(layoutBloques.getChildren().size()-1);
+        }
 
         LayoutBotonesAgregarBloques.agregarBotonesBloquesCompuestos(layoutBloques);
 

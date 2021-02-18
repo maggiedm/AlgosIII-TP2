@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class BotonAgregarBloqueEventHandler implements EventHandler<ActionEvent> {
-    protected final Bloque bloque;
+    private final Bloque bloque;
 
     public BotonAgregarBloqueEventHandler(Bloque unBloque){ bloque = unBloque;}
 

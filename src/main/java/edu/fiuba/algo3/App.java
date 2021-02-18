@@ -3,8 +3,7 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.javafx.layouts.LayoutAlgoritmo;
 import edu.fiuba.algo3.javafx.layouts.LayoutBotonesAgregarBloques;
 import edu.fiuba.algo3.javafx.layouts.LayoutDibujo;
-import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReinciar;
-import edu.fiuba.algo3.modelo.Dibujo;
+import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReiniciar;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -26,23 +25,21 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
 
-        Dibujo dibujo = new Dibujo();
-        AlgoBlocks algoBlocks = new AlgoBlocks(dibujo);
-
+        AlgoBlocks algoBlocks = new AlgoBlocks();
 
         // PANEL SUPERIOR: BANNER + BOTONES DE EJECUTAR Y REINICIAR
         HBox panelSuperior = new HBox();
         ImageView banner = new ImageView("https://i.ibb.co/Ht7ysNy/New-Project-2.png");
-        VBox layoutAlgoritmo = LayoutAlgoritmo.crear();
-        HBox layoutEjecutarReinciar = LayoutEjecutarReinciar.crear();
-        layoutEjecutarReinciar.setAlignment(Pos.CENTER_LEFT);
-        panelSuperior.getChildren().addAll(banner, layoutEjecutarReinciar);
+        LayoutDibujo layoutDibujo = new LayoutDibujo(SCREEN_WIDTH/2,SCREEN_HEIGHT);
+        HBox layoutEjecutarReiniciar = LayoutEjecutarReiniciar.crear(algoBlocks, layoutDibujo);
+        layoutEjecutarReiniciar.setAlignment(Pos.CENTER_LEFT);
+        panelSuperior.getChildren().addAll(banner, layoutEjecutarReiniciar);
 
         // PANEL INFERIOR: BLOQUES + ALGORITMO + DIBUJO
         HBox panelInferior = new HBox();
         panelInferior.setSpacing(100);
-        LayoutDibujo layoutDibujo = new LayoutDibujo(SCREEN_WIDTH/2,SCREEN_HEIGHT);
         VBox layoutBotonesAgregarBloques = LayoutBotonesAgregarBloques.crear();
+        VBox layoutAlgoritmo = LayoutAlgoritmo.crear(algoBlocks);
         panelInferior.getChildren().addAll(layoutBotonesAgregarBloques, layoutAlgoritmo, layoutDibujo);
 
         // PANEL PRINCIPAL: CONTIENE A panelInferior Y panelSuperior

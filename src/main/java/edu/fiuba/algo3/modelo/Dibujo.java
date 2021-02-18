@@ -22,4 +22,6 @@ public class Dibujo {
     public boolean lineaEsVisible(int pos){
         return lineas.get(pos).esVisible();
     }
+
+    public void reiniciar(){ lineas.clear(); }
 }

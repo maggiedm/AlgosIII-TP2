@@ -14,4 +14,5 @@ public class Algoritmo extends SecuenciaBloques{
         return new BloquePersonalizado(bloques);
     }
 
+    public void reiniciar(){ bloques.clear(); }
 }

@@ -30,7 +30,6 @@ public class LayoutDibujo extends Pane {
     }
 
     public void graficarMovimientos(Dibujo dib) { //Por ahora no grafica movimientos de lapiz solos
-
         canvas = new Canvas(this.getMinWidth()*2,this.getMinHeight()*2);
 
         Circle personaje = new Circle(0, 0, 4, RED); //ROJO == Lapiz esta arriba
@@ -120,4 +119,5 @@ public class LayoutDibujo extends Pane {
 
         return transicionCamino;
     }
+    public void reiniciar(){  }
 }

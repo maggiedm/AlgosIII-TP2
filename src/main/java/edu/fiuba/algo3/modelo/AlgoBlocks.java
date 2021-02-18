@@ -4,21 +4,15 @@ import edu.fiuba.algo3.modelo.bloque.Bloque;
 import edu.fiuba.algo3.modelo.bloque.BloquePersonalizado;
 
 public class AlgoBlocks {
-    private final Dibujo dibujo;
-    private final Personaje personaje;
-    private final Algoritmo algoritmo;
+    private final Dibujo dibujo = new Dibujo();
+    private final Personaje personaje = new Personaje(dibujo);
+    private final Algoritmo algoritmo = new Algoritmo();
 
     //Solucionar tema de constructores
-    public AlgoBlocks(Dibujo unDibujo){
-        dibujo = unDibujo;
-        personaje = new Personaje(unDibujo);
-        algoritmo = new Algoritmo();
-    }
-    public AlgoBlocks(Algoritmo unAlgoritmo){
-        dibujo = new Dibujo();
-        personaje = new Personaje(dibujo);
-        algoritmo = unAlgoritmo;
-    }
+
+    public Algoritmo getAlgoritmo(){ return algoritmo; }
+
+    public Dibujo getDibujo(){ return dibujo; }
 
     public void ejecutarAlgoritmo(){
         // personaje = new Personaje();
@@ -29,17 +23,16 @@ public class AlgoBlocks {
         algoritmo.agregarBloque(unBloque);
     }
 
-    public BloquePersonalizado guardarAlgoritmo(){
-            return algoritmo.guardar();
-    }
+    public BloquePersonalizado guardarAlgoritmo(){ return algoritmo.guardar(); }
 
-    public Boolean personajeEstaEnPosicion(Posicion unaPosicion){
-        return personaje.estaEnPosicion(unaPosicion);
-    }
+    public Boolean personajeEstaEnPosicion(Posicion unaPosicion){ return personaje.estaEnPosicion(unaPosicion); }
 
     public int cantidadLineasDibujadas() { return dibujo.getCantidadLineas();}
 
-    public int cantidadDeBloquesEnAlgoritmo(){
-        return algoritmo.getCantidadDeBloques();
+    public int cantidadDeBloquesEnAlgoritmo(){ return algoritmo.getCantidadDeBloques(); }
+
+    public void reiniciar(){
+        dibujo.reiniciar();
+        algoritmo.reiniciar();
     }
 }

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.javafx;
 
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -28,5 +29,14 @@ public class ContenedorDeBloques {
     public void agregarBloqueContenedor(Bloque bloque, HBox layoutContenedor) {
         this.agregarBloque(bloque);
         layout.getChildren().add((layout.getChildren().size() - 1), layoutContenedor);//Agregar antes del marcador
+    }
+    public void reiniciarLayoutAlgoritmo(ChoiceBox<String> choiceBox){
+        layout.getChildren().clear();
+
+        Vista.agregarTitulo(layout,"Algoritmo");
+
+        layout.getChildren().add(choiceBox);
+
+        Vista.agregarMarcadorFinal(layout,"Algoritmo");
     }
 }
