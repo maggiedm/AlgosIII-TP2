@@ -8,6 +8,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
@@ -29,8 +31,14 @@ public class LayoutDibujo extends Pane {
     public void graficarMovimientos(Dibujo dib) { //Por ahora no grafica movimientos de lapiz solos
         canvas = new Canvas(this.getMinWidth()*2,this.getMinHeight()*2);
 
-        Circle personaje = new Circle(this.getMinWidth()/2, this.getMinHeight()/2, 4, RED); //ROJO == Lapiz esta arriba
-                                                                                                                // VERDE == Lapiz esta abajo
+        Image imgLapizAbajo = new Image("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.ibb.co%2FFH5Tnyt%2FAvatar.png");
+        Image imgLapizArriba = new Image("https://i.ibb.co/tPh04RJ/Avatar-Lapiz-Alto.png");
+
+        ImageView personaje = new ImageView();
+        personaje.setX(this.getMinWidth()/2);
+        personaje.setY(this.getMinHeight()/2);
+
+        personaje.setImage(imgLapizArriba);
         List<Tramo> tramos = crearTramos(dib);
 
         SequentialTransition secDibujo = new SequentialTransition();
@@ -38,10 +46,10 @@ public class LayoutDibujo extends Pane {
         for (Tramo tramo : tramos) {
             if(tramo.esVisible){
                 secDibujo.getChildren().add(crearAnimacionTramos(tramo.tramo, Duration.seconds(tramo.tamano)));
-                secPersonaje.getChildren().add(new FillTransition(Duration.ONE, personaje, RED, GREEN));
+                secPersonaje.getChildren().add(TransicionLapiz(personaje, imgLapizAbajo));
             }else{
                 secDibujo.getChildren().add(new PauseTransition(Duration.seconds(tramo.tamano)));
-                secPersonaje.getChildren().add(new FillTransition(Duration.ONE, personaje, GREEN, RED));
+                secPersonaje.getChildren().add(TransicionLapiz(personaje, imgLapizArriba));
             }
             secPersonaje.getChildren().add(new PathTransition(Duration.seconds(tramo.tamano), tramo.tramo, personaje));
         }
@@ -89,7 +97,6 @@ public class LayoutDibujo extends Pane {
     private Animation crearAnimacionTramos(Path camino, Duration duration) {
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
-
         Circle lapiz = new Circle(0, 0, 2);
 
         PathTransition transicionCamino = new PathTransition( duration, camino, lapiz);
@@ -120,6 +127,18 @@ public class LayoutDibujo extends Pane {
         });
 
         return transicionCamino;
+    }
+
+    private SequentialTransition TransicionLapiz(ImageView personaje, Image condicionLapiz){
+
+        FadeTransition fadeOut = new FadeTransition(Duration.ONE, personaje);
+        fadeOut.setToValue(0);
+        fadeOut.setOnFinished(event -> personaje.setImage(condicionLapiz));
+
+        FadeTransition fadeIn = new FadeTransition(Duration.ONE, personaje);
+        fadeIn.setToValue(1);
+
+        return new SequentialTransition(fadeOut, fadeIn);
     }
 
     public void reiniciar(){ this.getChildren().clear();}
