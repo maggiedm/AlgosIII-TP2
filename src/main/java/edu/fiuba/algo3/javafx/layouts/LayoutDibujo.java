@@ -109,9 +109,9 @@ public class LayoutDibujo extends Pane {
 
                 if( oldValue == Duration.ZERO)
                     return;
-
-                int x = (int)lapiz.getTranslateX();
-                int y = (int)lapiz.getTranslateY();
+                //sumo para que el trazo se dibuje en la punta del lapiz
+                int x = (int)lapiz.getTranslateX() + 13;
+                int y = (int)lapiz.getTranslateY() + 19;
 
                 if( origen == null) {
                     origen = new Posicion(x, y);
