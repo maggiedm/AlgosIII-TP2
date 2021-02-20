@@ -49,7 +49,7 @@ public class LapizTest {
         lapiz.subir(dibujo, new Posicion());
         lapiz.dibujarLinea(new Posicion(), new Posicion(0, 1), dibujo);
 
-        assertFalse(dibujo.lineaEsVisible(0));
+        assertFalse(dibujo.lineaEsVisible(2));
     }
 
     @Test

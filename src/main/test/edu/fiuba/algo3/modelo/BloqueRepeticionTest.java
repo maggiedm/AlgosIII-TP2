@@ -54,7 +54,7 @@ public class BloqueRepeticionTest {
         bloque.agregarBloque(BloqueMovimiento.bloqueAbajo());
         bloque.ejecutar(personaje);
 
-        assertEquals(6,dibujo.getCantidadLineas());
+        assertEquals(7,dibujo.getCantidadLineas());
     }
 
     @Test

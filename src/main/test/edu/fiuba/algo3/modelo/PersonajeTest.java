@@ -103,7 +103,7 @@ public class PersonajeTest {
         personaje.mover(Direccion.derecha());
         personaje.mover(Direccion.izquierda());
 
-        assertEquals(2, dibujo.getCantidadLineas());
+        assertEquals(3, dibujo.getCantidadLineas());
     }
 
     @Test
@@ -115,7 +115,7 @@ public class PersonajeTest {
         personaje.bajarLapiz();
         personaje.mover(Direccion.arriba());
 
-        assertEquals(2, dibujo.getCantidadLineas());
+        assertEquals(3, dibujo.getCantidadLineas());
     }
 
     @Test
