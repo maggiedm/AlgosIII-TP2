@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.javafx;
 
+import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.scene.control.ChoiceBox;
@@ -39,14 +40,13 @@ public class SeleccionadorBloqueCompuesto {
     }
 
     public static ContenedorDeBloques bloqueActual(){
-        ContenedorDeBloques bloqueCompuesto = bloquesCompuestos.stream()
+        return bloquesCompuestos.stream()
                 .filter(contenedor -> contenedor.tieneDescripcion(choiceBox.getValue()))
                 .findAny()
                 .orElse(null);
-        return bloqueCompuesto;
     }
 
-    public static void agregar (Bloque bloque, VBox layoutBloques) {
+    public static void agregar (Bloque bloque, LayoutBloques layoutBloques) {
         ContenedorDeBloques bloqueActual = SeleccionadorBloqueCompuesto.bloqueActual();
 
         String descripcion = ("Contenedor " + orden++);
@@ -61,7 +61,7 @@ public class SeleccionadorBloqueCompuesto {
 
         choiceBox.getItems().add(descripcion);
 
-        //LayoutBloques.reiniciarBloquesCompuestos(layoutBloques);
+        layoutBloques.reiniciarBloquesCompuestos();
     }
 
 }

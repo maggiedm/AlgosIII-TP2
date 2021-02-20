@@ -46,19 +46,19 @@ public class LayoutBloques extends VBox{
             BotonSimple.crearBotonSimple(
                     new ImageView("https://i.ibb.co/4SKh2L3/BTN-Repetir2.png"),
                     new Tooltip("Repite dos veces la secuencia de bloques ingresada."),
-                    new BotonAgregarBloqueCompuestoEventHandler(BloqueRepeticion.repetirDosVeces(), contenido)
+                    new BotonAgregarBloqueCompuestoEventHandler(BloqueRepeticion.repetirDosVeces(), this)
             ),
 
             BotonSimple.crearBotonSimple(
                     new ImageView("https://i.ibb.co/SyYPRYH/BTN-Repetir3.png"),
                     new Tooltip("Repite tres veces la secuencia de bloques ingresada."),
-                    new BotonAgregarBloqueCompuestoEventHandler(BloqueRepeticion.repetirTresVeces(), contenido)
+                    new BotonAgregarBloqueCompuestoEventHandler(BloqueRepeticion.repetirTresVeces(), this)
             ),
 
             BotonSimple.crearBotonSimple(
                     new ImageView("https://i.ibb.co/wwHw1P2/BTN-Invertir.png"),
                     new Tooltip("Invierte la secuencia de bloques ingresada."),
-                    new BotonAgregarBloqueCompuestoEventHandler(new BloqueInversion(), contenido)
+                    new BotonAgregarBloqueCompuestoEventHandler(new BloqueInversion(), this)
             )
         );
     }
@@ -106,12 +106,12 @@ public class LayoutBloques extends VBox{
     }
 
 
-    public static void reiniciarBloquesCompuestos(VBox layoutBloques) {
+    public  void reiniciarBloquesCompuestos() {
         //Elimina los 3 botones de BloquesCompuestos y los vuelve a iniciar
         for (int i = 0; i < CANTIDAD_BLOQUES_COMPUESTOS; i++) {
-            layoutBloques.getChildren().remove(layoutBloques.getChildren().size()-1);
+            contenido.getChildren().remove(contenido.getChildren().size()-1);
         }
 
-        (new LayoutBloques(1000)).agregarBotonesBloquesCompuestos();
+        this.agregarBotonesBloquesCompuestos();
     }
 }
