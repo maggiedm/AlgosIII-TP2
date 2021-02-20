@@ -7,9 +7,9 @@ public class Linea {
     private final Boolean visibilidad;
 
     public Linea (Posicion inicioLinea, Posicion finLinea, boolean esVisible){
-        if(inicioLinea.esIgualA(finLinea)){
+        /*if(inicioLinea.esIgualA(finLinea)){
             throw new LineaInvalidaException();
-        }
+        }*/
         origen = inicioLinea;
         destino = finLinea;
         visibilidad = esVisible;
@@ -29,5 +29,23 @@ public class Linea {
 
     public boolean esIgual(Linea linea){
         return ((origen.esIgualA(linea.origen) && destino.esIgualA(linea.destino) && visibilidad == linea.esVisible()));
+    }
+
+    public String getDireccion(){
+        int compX = origen.compararX(destino);
+        if(compX == 1){
+            return "Izquierda";
+        }else if(compX == -1){
+            return "Derecha";
+        }else{
+            int compY = origen.compararY(destino);
+            if(compY == 1){
+                return "Arriba";
+            }else if(compY == -1){
+                return "Abajo";
+            }else{
+                return null;
+            }
+        }
     }
 }

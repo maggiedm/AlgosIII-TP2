@@ -23,7 +23,7 @@ public class LapizTest {
         Lapiz lapiz = new Lapiz();
         Dibujo dibujo = new Dibujo();
 
-        lapiz.bajar();
+        lapiz.bajar(dibujo, new Posicion());
         lapiz.dibujarLinea(new Posicion(), new Posicion(0,1), dibujo);
 
         assertTrue(dibujo.lineaEsVisible(0));
@@ -34,7 +34,7 @@ public class LapizTest {
         Lapiz lapiz = new Lapiz();
         Dibujo dibujo = new Dibujo();
 
-        lapiz.subir();
+        lapiz.subir(dibujo, new Posicion());
         lapiz.dibujarLinea(new Posicion(), new Posicion(0,1), dibujo);
 
         assertFalse(dibujo.lineaEsVisible(0));
@@ -45,8 +45,8 @@ public class LapizTest {
         Lapiz lapiz = new Lapiz();
         Dibujo dibujo = new Dibujo();
 
-        lapiz.bajar();
-        lapiz.subir();
+        lapiz.bajar(dibujo, new Posicion());
+        lapiz.subir(dibujo, new Posicion());
         lapiz.dibujarLinea(new Posicion(), new Posicion(0, 1), dibujo);
 
         assertFalse(dibujo.lineaEsVisible(0));
@@ -57,8 +57,8 @@ public class LapizTest {
         Lapiz lapiz = new Lapiz();
         Dibujo dibujo = new Dibujo();
 
-        lapiz.bajar();
-        lapiz.subir();
+        lapiz.bajar(dibujo, new Posicion());
+        lapiz.subir(dibujo, new Posicion());
         lapiz.dibujarLinea(new Posicion(), new Posicion(0, 1), dibujo);
 
         assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(0, 1), false)));
@@ -69,7 +69,7 @@ public class LapizTest {
         Lapiz lapiz = new Lapiz();
         Dibujo dibujo = new Dibujo();
 
-        lapiz.bajar();
+        lapiz.bajar(dibujo, new Posicion());
         lapiz.dibujarLinea(new Posicion(), new Posicion(0, 1), dibujo);
 
         assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(0, 1), true)));

@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 
@@ -22,8 +23,8 @@ import edu.fiuba.algo3.modelo.AlgoBlocks;
  */
 public class App extends Application {
 
-    static double SCREEN_WIDTH = 1000;
-    static double SCREEN_HEIGHT = 1000;
+    static double SCREEN_WIDTH = Screen.getPrimary().getVisualBounds().getWidth()*3/4;
+    static double SCREEN_HEIGHT = Screen.getPrimary().getVisualBounds().getHeight();
 
     @Override
     public void start(Stage stage) {

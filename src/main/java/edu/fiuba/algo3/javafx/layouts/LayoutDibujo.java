@@ -15,43 +15,53 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.util.Duration;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static javafx.scene.paint.Color.*;
 
+
 public class LayoutDibujo extends Pane {
-    Canvas canvas;
+    private Canvas canvas;
+    static final private String DIR_INICIAL = "Derecha";
+    HashMap<String, Image> imgDirLapizArriba;
+    HashMap<String, Image> imgDirLapizAbajo;
 
     public LayoutDibujo(double w, double h){
         super.setMinSize(w, h-30);
         Vista.agregarTitulo(this, "Dibujo");
     }
 
-    public void graficarMovimientos(Dibujo dib) { //Por ahora no grafica movimientos de lapiz solos
+    public void graficarMovimientos(Dibujo dib) {
         canvas = new Canvas(this.getMinWidth()*2,this.getMinHeight()*2);
-
-        Image imgLapizAbajo = new Image("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.ibb.co%2FFH5Tnyt%2FAvatar.png");
-        Image imgLapizArriba = new Image("https://i.ibb.co/tPh04RJ/Avatar-Lapiz-Alto.png");
+        imgDirLapizArriba = imagenesDireccionPersonaje("https://i.ibb.co/5cGnqmn/ArrLarr.png",
+                "https://i.ibb.co/HpgJ4P8/AbLarr.png",
+                "https://i.ibb.co/4ZNQrHW/DerLarr.png" ,
+                "https://i.ibb.co/cQNQczb/IzqLarr.png");
+        imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/hFZcDW6/ArrLab.png",
+                "https://i.ibb.co/6WvbdxD/AbLab.png",
+                "https://i.ibb.co/GspbQb9/DerLab.png",
+                "https://i.ibb.co/b6yCRvp/IzqLab.png");
 
         ImageView personaje = new ImageView();
         personaje.setX(this.getMinWidth()/2);
         personaje.setY(this.getMinHeight()/2);
+        personaje.setImage(imgDirLapizArriba.get(DIR_INICIAL));
 
-        personaje.setImage(imgLapizArriba);
         List<Tramo> tramos = crearTramos(dib);
+        String dirActual = DIR_INICIAL;
+        boolean visibilidadActual = false;
 
-        SequentialTransition secDibujo = new SequentialTransition();
-        SequentialTransition secPersonaje = new SequentialTransition();
+        SequentialTransition secDibujo = new SequentialTransition(new PauseTransition(Duration.seconds(1)));
+        SequentialTransition secPersonaje = new SequentialTransition(new PauseTransition(Duration.seconds(1)));
+
         for (Tramo tramo : tramos) {
-            if(tramo.esVisible){
-                secDibujo.getChildren().add(crearAnimacionTramos(tramo.tramo, Duration.seconds(tramo.tamano)));
-                secPersonaje.getChildren().add(TransicionLapiz(personaje, imgLapizAbajo));
+            if(dirActual.equals(tramo.direccion) && (visibilidadActual != tramo.esVisible)){
+                transicionCondicionLapiz(secDibujo, secPersonaje, tramo, personaje);
+                visibilidadActual = tramo.esVisible;
             }else{
-                secDibujo.getChildren().add(new PauseTransition(Duration.seconds(tramo.tamano)));
-                secPersonaje.getChildren().add(TransicionLapiz(personaje, imgLapizArriba));
+                transicionMovimiento(secDibujo, secPersonaje, tramo, personaje);
+                dirActual = tramo.direccion;
             }
-            secPersonaje.getChildren().add(new PathTransition(Duration.seconds(tramo.tamano), tramo.tramo, personaje));
         }
         this.getChildren().addAll(canvas, personaje);
 
@@ -65,33 +75,78 @@ public class LayoutDibujo extends Pane {
         List<Tramo> tramos = new ArrayList<>();
 
         Path camino = new Path();
-
-        camino.setStroke(RED);
-        camino.setStrokeWidth(5);
+        String direccion = DIR_INICIAL;
         boolean visibilidad = false;
-        if(!dib.getLineas().isEmpty()){
-            visibilidad = dib.lineaEsVisible(0);
-        }
         int tam = 0;
 
+        if(!dib.getLineas().isEmpty()){
+            if(dib.getLineas().get(0).getDireccion() != null){
+                direccion = dib.getLineas().get(0).getDireccion();
+            }
+        }
         for (Linea linea: dib.getLineas()) {
-            if(visibilidad != linea.esVisible()){
-                tramos.add(new Tramo (camino, visibilidad, tam));
-                camino = new Path();
+            if(!Objects.equals(direccion, linea.getDireccion())){ //SI DIRECCION CAMBIA
+                if(!camino.getElements().isEmpty()){    //SI EL CAMINO NO ESTA VACIO
+                    tramos.add(new Tramo(camino, visibilidad, tam, direccion));
+                    camino = new Path();
+                    tam = 0;
+                }
+                if(linea.getDireccion() != null){ //SI NO ES MOVIMIENTO DE LAPIZ
+                    direccion = linea.getDireccion();   //ACTUALIZO DIRECCION TRAMO
+                }
+            }
+            if(linea.getDireccion() != null || visibilidad != linea.esVisible()){   //SI NO ES MOVIMIENTO DE LAPIZ O VISIBILIDAD CAMBIA
+                if(camino.getElements().isEmpty()){ //MUEVO A ORIGEN LINEA
+                    camino.getElements().add(new MoveTo(linea.getOrigen().getX()+this.getMinWidth()/2, linea.getOrigen().getY()+this.getMinHeight()/2));
+                }
+                camino.getElements().add(new LineTo(linea.getDestino().getX()+this.getMinWidth()/2, linea.getDestino().getY()+this.getMinHeight()/2));  //TRAZO UNA LINEA AL DESTINO
+                tam++;
                 visibilidad = linea.esVisible();
-                tam = 0;
+                if(linea.getDireccion() == null){   //SI ES MOVIMIENTO DE LAPIZ
+                    tramos.add(new Tramo(camino, visibilidad, tam, direccion));
+                    camino = new Path();
+                    tam = 0;
+                }
             }
-            if(camino.getElements().isEmpty()){
-                camino.getElements().add(new MoveTo(linea.getOrigen().getX()+this.getMinWidth()/2, linea.getOrigen().getY()+this.getMinHeight()/2));
-            }
-            camino.getElements().add(new LineTo(linea.getDestino().getX()+this.getMinWidth()/2, linea.getDestino().getY()+this.getMinHeight()/2));
-            tam++;
         }
         if(!camino.getElements().isEmpty()) {
-            tramos.add(new Tramo(camino, visibilidad, tam));
+            tramos.add(new Tramo(camino, visibilidad, tam, direccion));
         }
 
         return tramos;
+    }
+
+    private void transicionCondicionLapiz(SequentialTransition secDibujo, SequentialTransition secPersonaje, Tramo tramo, ImageView personaje){
+        if(tramo.esVisible) {
+            secPersonaje.getChildren().add(transicionLapiz(personaje, imgDirLapizAbajo.get(tramo.direccion)));
+        }else{
+            secPersonaje.getChildren().add(transicionLapiz(personaje, imgDirLapizArriba.get(tramo.direccion)));
+        }
+        secPersonaje.getChildren().add(new PauseTransition(Duration.seconds(1)));
+        secDibujo.getChildren().add(new PauseTransition(Duration.seconds(1)));
+    }
+
+    private void transicionMovimiento(SequentialTransition secDibujo, SequentialTransition secPersonaje, Tramo tramo, ImageView personaje){
+        if(tramo.esVisible){
+            secDibujo.getChildren().add(crearAnimacionTramos(tramo.tramo, Duration.seconds(tramo.tam)));
+            secPersonaje.getChildren().add(transicionLapiz(personaje, imgDirLapizAbajo.get(tramo.direccion)));
+        }else{
+            secDibujo.getChildren().add(new PauseTransition(Duration.seconds(tramo.tam)));
+            secPersonaje.getChildren().add(transicionLapiz(personaje, imgDirLapizArriba.get(tramo.direccion)));
+        }
+        secPersonaje.getChildren().add(new PathTransition(Duration.seconds(tramo.tam), tramo.tramo, personaje));
+    }
+
+    private SequentialTransition transicionLapiz(ImageView personaje, Image condicionLapiz){
+
+        FadeTransition fadeOut = new FadeTransition(Duration.ONE, personaje);
+        fadeOut.setToValue(0);
+        fadeOut.setOnFinished(event -> personaje.setImage(condicionLapiz));
+
+        FadeTransition fadeIn = new FadeTransition(Duration.ONE, personaje);
+        fadeIn.setToValue(1);
+
+        return new SequentialTransition(fadeOut, fadeIn);
     }
 
     private Animation crearAnimacionTramos(Path camino, Duration duration) {
@@ -110,8 +165,8 @@ public class LayoutDibujo extends Pane {
                 if( oldValue == Duration.ZERO)
                     return;
                 //sumo para que el trazo se dibuje en la punta del lapiz
-                int x = (int)lapiz.getTranslateX() + 13;
-                int y = (int)lapiz.getTranslateY() + 19;
+                int x = (int)lapiz.getTranslateX();
+                int y = (int)lapiz.getTranslateY() + 23;
 
                 if( origen == null) {
                     origen = new Posicion(x, y);
@@ -129,17 +184,17 @@ public class LayoutDibujo extends Pane {
         return transicionCamino;
     }
 
-    private SequentialTransition TransicionLapiz(ImageView personaje, Image condicionLapiz){
+    private HashMap<String, Image> imagenesDireccionPersonaje(String urlImgArriba, String urlImgAbajo, String urlImgDer, String urlImgIzq){
+        HashMap<String, Image> hash = new HashMap<>();
 
-        FadeTransition fadeOut = new FadeTransition(Duration.ONE, personaje);
-        fadeOut.setToValue(0);
-        fadeOut.setOnFinished(event -> personaje.setImage(condicionLapiz));
+        hash.put("Arriba", new Image(urlImgArriba));
+        hash.put("Abajo", new Image(urlImgAbajo));
+        hash.put("Derecha", new Image(urlImgDer));
+        hash.put("Izquierda", new Image(urlImgIzq));
 
-        FadeTransition fadeIn = new FadeTransition(Duration.ONE, personaje);
-        fadeIn.setToValue(1);
-
-        return new SequentialTransition(fadeOut, fadeIn);
+        return hash;
     }
 
     public void reiniciar(){ this.getChildren().clear();}
+
 }

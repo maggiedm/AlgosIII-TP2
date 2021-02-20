@@ -15,11 +15,11 @@ public class Personaje {
     public Boolean estaEnPosicion(Posicion unaPosicion) { return posicion.esIgualA(unaPosicion); }
 
     public void bajarLapiz() {
-        lapiz.bajar();
+        lapiz.bajar(dibujo, posicion);
     }
 
     public void subirLapiz() {
-        lapiz.subir();
+        lapiz.subir(dibujo, posicion);
     }
 
     public void mover(Direccion unaDireccion) {

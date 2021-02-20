@@ -32,4 +32,22 @@ public class Posicion {
     public boolean esIgualA(Posicion unaPosicion) {
         return ((unaPosicion.x == x) && (unaPosicion.y == y));
     }
+
+    public int compararX(Posicion unaPosicion){
+        if(this.x > unaPosicion.x){
+            return 1;
+        }else if(this.x < unaPosicion.x){
+            return -1;
+        }
+        return 0;
+    }
+
+    public int compararY(Posicion unaPosicion){
+        if(this.y > unaPosicion.y){
+            return 1;
+        }else if(this.y < unaPosicion.y){
+            return -1;
+        }
+        return 0;
+    }
 }

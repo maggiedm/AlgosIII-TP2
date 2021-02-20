@@ -34,8 +34,8 @@ public class LineaTest {
         assertFalse(linea.esIgual(linea2));
     }
 
-    @Test
+    /*@Test
     public void test03LineaConOrigenyDestinoIgualesEsInvalida() {
         assertThrows(LineaInvalidaException.class, () -> new Linea(new Posicion(0, 0), new Posicion(0, 0), true));
-    }
+    }*/
 }

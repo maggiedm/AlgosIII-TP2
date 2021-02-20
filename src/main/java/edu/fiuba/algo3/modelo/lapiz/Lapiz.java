@@ -6,12 +6,14 @@ import edu.fiuba.algo3.modelo.Dibujo;
 public class Lapiz {
     private CondicionLapiz condicion = new LapizArriba();
 
-    public void bajar() {
+    public void bajar(Dibujo dibujo, Posicion posicion) {
         condicion = new LapizAbajo();
+        dibujo.dibujarLinea(posicion, posicion, true);
     }
 
-    public void subir() {
+    public void subir(Dibujo dibujo, Posicion posicion) {
         condicion = new LapizArriba();
+        dibujo.dibujarLinea(posicion, posicion, false);
     }
 
     public void dibujarLinea(Posicion origen, Posicion destino, Dibujo dibujo){

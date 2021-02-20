@@ -5,11 +5,13 @@ import javafx.scene.shape.Path;
 public class Tramo {
     public Path tramo;
     public Boolean esVisible;
-    public int tamano;
+    public int tam;
+    public String direccion;
 
-    public Tramo(Path camino, Boolean visibilidad, int tam){
-        tramo = camino;
-        esVisible = visibilidad;
-        tamano = tam;
+    public Tramo(Path tramo, Boolean visibilidad, int tam, String direccion){
+        this.tramo = tramo;
+        this.esVisible = visibilidad;
+        this.tam = tam;
+        this.direccion = direccion;
     }
 }
