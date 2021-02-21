@@ -27,9 +27,23 @@ public class Direccion {
         return new Direccion(0,PASO);
     }
 
+    public static String direccionDesplazamiento(int dx, int dy){
+        if(dx > 0){
+            return "Izquierda";
+        }else if(dx < 0){
+            return "Derecha";
+        }else if(dy > 0){
+            return "Arriba";
+        }else if(dy < 0){
+            return "Abajo";
+        }
+        return null;
+    }
+
     public Posicion desplazar(Posicion posicion) { return posicion.desplazar(dx, dy); }
 
     public Direccion invertir(){
         return new Direccion(-dx, -dy);
     }
+
 }

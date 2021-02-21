@@ -33,21 +33,11 @@ public class Posicion {
         return ((unaPosicion.x == x) && (unaPosicion.y == y));
     }
 
-    public int compararX(Posicion unaPosicion){
-        if(this.x > unaPosicion.x){
-            return 1;
-        }else if(this.x < unaPosicion.x){
-            return -1;
-        }
-        return 0;
+    public int desplazaminetoEnX(Posicion unaPosicion){
+        return (this.x - unaPosicion.x);
     }
 
-    public int compararY(Posicion unaPosicion){
-        if(this.y > unaPosicion.y){
-            return 1;
-        }else if(this.y < unaPosicion.y){
-            return -1;
-        }
-        return 0;
+    public int desplazamientoEnY(Posicion unaPosicion){
+        return (this.y - unaPosicion.y);
     }
 }

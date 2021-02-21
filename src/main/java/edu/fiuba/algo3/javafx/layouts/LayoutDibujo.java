@@ -23,24 +23,23 @@ import static javafx.scene.paint.Color.*;
 public class LayoutDibujo extends Pane {
     private Canvas canvas;
     static final private String DIR_INICIAL = "Derecha";
-    HashMap<String, Image> imgDirLapizArriba;
-    HashMap<String, Image> imgDirLapizAbajo;
+    HashMap<String, Image> imgDirLapizArriba = imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/hFZcDW6/ArrLab.png",
+            "https://i.ibb.co/6WvbdxD/AbLab.png",
+            "https://i.ibb.co/GspbQb9/DerLab.png",
+            "https://i.ibb.co/b6yCRvp/IzqLab.png");;
+    HashMap<String, Image> imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/hFZcDW6/ArrLab.png",
+            "https://i.ibb.co/6WvbdxD/AbLab.png",
+            "https://i.ibb.co/GspbQb9/DerLab.png",
+            "https://i.ibb.co/b6yCRvp/IzqLab.png");;
 
     public LayoutDibujo(double w, double h){
         super.setMinSize(w, h-30);
         Vista.agregarTitulo(this, "Dibujo");
+
     }
 
     public void graficarMovimientos(Dibujo dib) {
         canvas = new Canvas(this.getMinWidth()*2,this.getMinHeight()*2);
-        imgDirLapizArriba = imagenesDireccionPersonaje("https://i.ibb.co/5cGnqmn/ArrLarr.png",
-                "https://i.ibb.co/HpgJ4P8/AbLarr.png",
-                "https://i.ibb.co/4ZNQrHW/DerLarr.png" ,
-                "https://i.ibb.co/cQNQczb/IzqLarr.png");
-        imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/hFZcDW6/ArrLab.png",
-                "https://i.ibb.co/6WvbdxD/AbLab.png",
-                "https://i.ibb.co/GspbQb9/DerLab.png",
-                "https://i.ibb.co/b6yCRvp/IzqLab.png");
 
         ImageView personaje = new ImageView();
         personaje.setX(this.getMinWidth()/2);

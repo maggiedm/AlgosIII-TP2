@@ -32,20 +32,6 @@ public class Linea {
     }
 
     public String getDireccion(){
-        int compX = origen.compararX(destino);
-        if(compX == 1){
-            return "Izquierda";
-        }else if(compX == -1){
-            return "Derecha";
-        }else{
-            int compY = origen.compararY(destino);
-            if(compY == 1){
-                return "Arriba";
-            }else if(compY == -1){
-                return "Abajo";
-            }else{
-                return null;
-            }
-        }
+        return Direccion.direccionDesplazamiento(origen.desplazaminetoEnX(destino), origen.desplazamientoEnY(destino));
     }
 }
