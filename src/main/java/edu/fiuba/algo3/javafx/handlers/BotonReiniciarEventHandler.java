@@ -23,6 +23,7 @@ public class BotonReiniciarEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         algoBlocks.reiniciar();
         layoutDibujo.reiniciar();
+        layoutDibujo.slider.setDisable(false);
         SeleccionadorBloqueCompuesto.reiniciar();
         botonEjecutar.setDisable(false);
     }

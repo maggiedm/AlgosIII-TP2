@@ -8,6 +8,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -22,24 +23,31 @@ import static javafx.scene.paint.Color.*;
 
 public class LayoutDibujo extends Pane {
     private Canvas canvas;
+    public Slider slider;
+    private HBox hBox;
     static final private String DIR_INICIAL = "Derecha";
-    HashMap<String, Image> imgDirLapizArriba = imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/hFZcDW6/ArrLab.png",
-            "https://i.ibb.co/6WvbdxD/AbLab.png",
-            "https://i.ibb.co/GspbQb9/DerLab.png",
-            "https://i.ibb.co/b6yCRvp/IzqLab.png");;
+    HashMap<String, Image> imgDirLapizArriba = imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/5cGnqmn/ArrLarr.png",
+            "https://i.ibb.co/HpgJ4P8/AbLarr.png",
+            "https://i.ibb.co/4ZNQrHW/DerLarr.png",
+            "https://i.ibb.co/cQNQczb/IzqLarr.png");
     HashMap<String, Image> imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/hFZcDW6/ArrLab.png",
             "https://i.ibb.co/6WvbdxD/AbLab.png",
             "https://i.ibb.co/GspbQb9/DerLab.png",
-            "https://i.ibb.co/b6yCRvp/IzqLab.png");;
+            "https://i.ibb.co/b6yCRvp/IzqLab.png");
 
     public LayoutDibujo(double w, double h){
         super.setMinSize(w, h-30);
-        Vista.agregarTitulo(this, "Dibujo");
-
+        hBox = new HBox();
+        Vista.agregarTitulo(hBox, "Dibujo");
+        this.slider = new Slider(0.25, 3, 1);
+        slider.setValueChanging(true);
+        hBox.setSpacing(w-50);
+        hBox.getChildren().add(slider);
+        this.getChildren().add(hBox);
     }
 
     public void graficarMovimientos(Dibujo dib) {
-        canvas = new Canvas(this.getMinWidth()*2,this.getMinHeight()*2);
+        canvas = new Canvas(this.getMinWidth(),this.getMinHeight());
 
         ImageView personaje = new ImageView();
         personaje.setX(this.getMinWidth()/2);
@@ -66,6 +74,7 @@ public class LayoutDibujo extends Pane {
 
         ParallelTransition pT = new ParallelTransition();
         pT.getChildren().addAll(secDibujo, secPersonaje);
+        pT.rateProperty().bind(slider.valueProperty());
         pT.play();
     }
 
@@ -194,6 +203,7 @@ public class LayoutDibujo extends Pane {
         return hash;
     }
 
-    public void reiniciar(){ this.getChildren().clear();}
+    public void reiniciar(){ this.getChildren().clear();
+    this.getChildren().add(hBox);}
 
 }
