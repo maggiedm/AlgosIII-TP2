@@ -14,18 +14,18 @@ public class BotonSimple extends Button{
 
     public static Button crearBotonSimple(String rutaImagen, String descripcion, EventHandler<ActionEvent> handler){
 
-        Image img = null;
+        Image image = null;
         try {
-            img = new Image(new FileInputStream(rutaImagen));
+            image = new Image(new FileInputStream(rutaImagen));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        ImageView imv = new ImageView(img);
+        ImageView imageView = new ImageView(image);
 
         Button boton = new Button("");
         boton.setTooltip(new Tooltip(descripcion));
         boton.setOnAction(handler);
-        boton.setGraphic(imv);
+        boton.setGraphic(imageView);
 
         return boton;
     }

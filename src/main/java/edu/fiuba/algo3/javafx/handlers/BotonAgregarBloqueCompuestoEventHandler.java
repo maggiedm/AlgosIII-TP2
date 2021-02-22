@@ -10,10 +10,12 @@ import javafx.scene.layout.VBox;
 public class BotonAgregarBloqueCompuestoEventHandler implements EventHandler<ActionEvent> {
     private final Bloque bloque;
     private final LayoutBloques layoutBloques;
+    private final String rutaImagen;
 
-    public BotonAgregarBloqueCompuestoEventHandler(Bloque unBloque, LayoutBloques unLayoutBloques) {
+    public BotonAgregarBloqueCompuestoEventHandler(Bloque unBloque, String unaRutaImagen, LayoutBloques unLayoutBloques) {
         bloque = unBloque;
         layoutBloques = unLayoutBloques;
+        rutaImagen = unaRutaImagen;
     }
     @Override
     public void handle(ActionEvent actionEvent) {

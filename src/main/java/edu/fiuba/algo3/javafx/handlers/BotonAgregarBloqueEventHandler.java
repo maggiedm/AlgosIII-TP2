@@ -7,16 +7,16 @@ import javafx.event.EventHandler;
 
 public class BotonAgregarBloqueEventHandler implements EventHandler<ActionEvent> {
     private final Bloque bloque;
-    private final String descripcion;
+    private final String rutaImagen;
 
-    public BotonAgregarBloqueEventHandler(Bloque unBloque, String unaDescripcion){
+    public BotonAgregarBloqueEventHandler(Bloque unBloque, String unaRutaImagen){
         bloque = unBloque;
-        descripcion = unaDescripcion;
+        rutaImagen = unaRutaImagen;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        SeleccionadorBloqueCompuesto.bloqueActual().agregarBloque(bloque, descripcion);
+        SeleccionadorBloqueCompuesto.bloqueActual().agregarBloque(bloque, rutaImagen);
     }
 }
 

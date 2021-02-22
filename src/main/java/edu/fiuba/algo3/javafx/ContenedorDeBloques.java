@@ -21,9 +21,9 @@ public class ContenedorDeBloques {
         return descripcion == unaDescripcion;
     }
 
-    public void agregarBloque(Bloque bloque, String descripcion) {
+    public void agregarBloque(Bloque bloque, String rutaImagen) {
         bloqueCompuesto.agregarBloque(bloque);
-        new MostradorBloqueSimple(descripcion, layout);
+        new MostradorBloqueSimple(rutaImagen, layout);
     }
 
     public void agregarBloqueContenedor(Bloque bloque, String descripcion, HBox layoutContenedor) {
