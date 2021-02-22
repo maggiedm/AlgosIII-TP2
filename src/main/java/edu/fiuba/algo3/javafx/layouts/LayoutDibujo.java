@@ -24,7 +24,7 @@ import static javafx.scene.paint.Color.*;
 public class LayoutDibujo extends Pane {
     private Canvas canvas;
     public Slider slider;
-    private HBox hBox;
+    private final HBox hBox;
     static final private String DIR_INICIAL = "Derecha";
     HashMap<String, Image> imgDirLapizArriba = imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/5cGnqmn/ArrLarr.png",
             "https://i.ibb.co/HpgJ4P8/AbLarr.png",
@@ -39,14 +39,14 @@ public class LayoutDibujo extends Pane {
         super.setMinSize(w, h-30);
         hBox = new HBox();
         Vista.agregarTitulo(hBox, "Dibujo");
-        this.slider = new Slider(0.25, 3, 1);
-        slider.setValueChanging(true);
+        this.slider = new Slider(0.25, 4, 1);
         hBox.setSpacing(w-50);
         hBox.getChildren().add(slider);
         this.getChildren().add(hBox);
     }
 
     public void graficarMovimientos(Dibujo dib) {
+
         canvas = new Canvas(this.getMinWidth(),this.getMinHeight());
 
         ImageView personaje = new ImageView();
@@ -74,7 +74,8 @@ public class LayoutDibujo extends Pane {
 
         ParallelTransition pT = new ParallelTransition();
         pT.getChildren().addAll(secDibujo, secPersonaje);
-        pT.rateProperty().bind(slider.valueProperty());
+        slider.valueProperty().addListener(
+                (observable, oldValue, newValue) -> pT.setRate((Double) newValue));
         pT.play();
     }
 
