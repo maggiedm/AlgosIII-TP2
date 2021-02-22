@@ -55,7 +55,7 @@ public class App extends Application {
             stage2.show();
             ingresar.setOnAction(internalEvent -> {
                 stage2.close();
-                layoutBloques.agregarBotonBloque("https://i.ibb.co/yV22Q76/BTN-Algo-Guardado.png", nombre.getText(), algoBlocks.guardarAlgoritmo());
+                layoutBloques.agregarBotonBloque("recursos/BloquePersonalizado.png", nombre.getText(), algoBlocks.guardarAlgoritmo());
             });
         });
         VBox aux = new VBox(layoutAlgoritmo, btn);

@@ -10,6 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 public class LayoutEjecutarReiniciar {
+
+    static final String RUTA_IMAGENES = "recursos/";
+
     public static HBox crear(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo){
 
         HBox layoutEjecutarReiniciar = new HBox();
@@ -18,13 +21,13 @@ public class LayoutEjecutarReiniciar {
         BotonEjecutarEventHandler handlerEjecutar = new BotonEjecutarEventHandler(algoBlocks, layoutDibujo);
         BotonReiniciarEventHandler handlerReiniciar = new BotonReiniciarEventHandler(algoBlocks, layoutDibujo);
         Button botonEjecutar = BotonSimple.crearBotonSimple(
-                new ImageView("https://i.ibb.co/Y4SfCB6/BTN-Ejecutar.png"),
-                new Tooltip("Ejecutar el algoritmo."),
+                 RUTA_IMAGENES + "Ejecutar.png",
+                "Ejecutar el algoritmo.",
                 handlerEjecutar
         );
         Button botonReiniciar = BotonSimple.crearBotonSimple(
-                new ImageView("https://i.ibb.co/jb3hrQ9/BTN-Reiniciar.png"),
-                new Tooltip("Reiniciar el algoritmo."),
+                RUTA_IMAGENES + "Reiniciar.png",
+                "Reiniciar el algoritmo.",
                 handlerReiniciar
         );
 
