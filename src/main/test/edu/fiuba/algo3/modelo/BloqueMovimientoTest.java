@@ -28,7 +28,7 @@ public class BloqueMovimientoTest {
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(PASO, 0), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(PASO, 0), true)));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class BloqueMovimientoTest {
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(-PASO, 0), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(-PASO, 0), true)));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class BloqueMovimientoTest {
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, PASO), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, PASO), true)));
     }
 
     @Test
@@ -91,6 +91,6 @@ public class BloqueMovimientoTest {
 
         movimiento.ejecutar(personaje);
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, -PASO), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, -PASO), true)));
     }
 }

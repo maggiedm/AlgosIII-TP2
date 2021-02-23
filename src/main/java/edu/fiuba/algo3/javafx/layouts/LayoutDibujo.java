@@ -17,6 +17,7 @@ public class LayoutDibujo extends Pane {
     public Slider slider;
     private final HBox hBox;
     static final private String DIR_INICIAL = "Derecha";
+    static final private boolean VISIBILIDAD_INICIAL = true;
 
     public LayoutDibujo(double w, double h){
         super.setMinSize(w, h-30);
@@ -30,8 +31,8 @@ public class LayoutDibujo extends Pane {
 
     public void graficarMovimientos(Dibujo dib) {
 
-        AnimacionPersonaje secPersonaje = new AnimacionPersonaje(this.getMinWidth()/2, this.getMinHeight()/2, DIR_INICIAL);
-        AnimacionDibujado secDibujado = new AnimacionDibujado(this.getMinWidth(),this.getMinHeight(), DIR_INICIAL);
+        AnimacionPersonaje secPersonaje = new AnimacionPersonaje(this.getMinWidth()/2, this.getMinHeight()/2, DIR_INICIAL, VISIBILIDAD_INICIAL);
+        AnimacionDibujado secDibujado = new AnimacionDibujado(this.getMinWidth(),this.getMinHeight(), DIR_INICIAL, VISIBILIDAD_INICIAL);
 
         List<Tramo> tramos = crearTramos(dib);
 
@@ -54,7 +55,7 @@ public class LayoutDibujo extends Pane {
 
         Path camino = new Path();
         String direccion = DIR_INICIAL;
-        boolean visibilidad = false;
+        boolean visibilidad = VISIBILIDAD_INICIAL;
         int tam = 0;
 
         for (Linea linea: dib.getLineas()) {

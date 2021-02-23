@@ -25,7 +25,6 @@ public class BotonEjecutarEventHandler implements EventHandler<ActionEvent> {
         algoBlocks.ejecutarAlgoritmo();
         layoutDibujo.reiniciar();
         layoutDibujo.graficarMovimientos(algoBlocks.getDibujo());
-        //layoutDibujo.slider.setDisable(true);
         botonEjecutar.setDisable(true);
     }
 

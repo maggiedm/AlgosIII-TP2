@@ -68,7 +68,7 @@ public class AlgoritmoTest {
         algoritmo.agregarBloque(BloqueMovimiento.bloqueAbajo());
         algoritmo.ejecutar(new Personaje(dibujo));
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, PASO), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, PASO), true)));
     }
 
     @Test
@@ -94,8 +94,8 @@ public class AlgoritmoTest {
         algoritmo.agregarBloque(bloqueRepeticion);
         algoritmo.ejecutar(new Personaje(dibujo));
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, PASO), false)) &&
-                dibujo.tieneLinea(new Linea(new Posicion(0,PASO), new Posicion(0, 2*PASO), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, PASO), true)) &&
+                dibujo.tieneLinea(new Linea(new Posicion(0,PASO), new Posicion(0, 2*PASO), true)));
     }
 
     @Test
@@ -119,12 +119,12 @@ public class AlgoritmoTest {
         Dibujo dibujo = new Dibujo();
 
         bloqueInversion.agregarBloque(BloqueMovimiento.bloqueIzquierda());
-        bloqueInversion.agregarBloque(new BloqueSubirLapiz());
+        bloqueInversion.agregarBloque(new BloqueBajarLapiz());
         algoritmo.agregarBloque(bloqueInversion);
         algoritmo.ejecutar(new Personaje(dibujo));
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(PASO, 0), false)) &&
-                dibujo.tieneLinea(new Linea(new Posicion(PASO,0), new Posicion(PASO, 0), true)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(PASO, 0), true)) &&
+                dibujo.tieneLinea(new Linea(new Posicion(PASO,0), new Posicion(PASO, 0), false)));
     }
 
     @Test

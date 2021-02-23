@@ -7,30 +7,32 @@ import javafx.util.Duration;
 public abstract class Animacion {
     protected String dirActual;
     public SequentialTransition secuencia;
-    protected boolean visibilidadActual = false;
+    protected boolean visibilidadActual;
 
-    protected Animacion(String dirInicial){
+    protected Animacion(String dirInicial, boolean visibilidadInicial){
         dirActual = dirInicial;
+        visibilidadActual = visibilidadInicial;
         secuencia = new SequentialTransition(new PauseTransition(Duration.seconds(1)));
     }
 
     public void cargarMovimiento(Tramo tramo){
-        if(dirActual.equals(tramo.direccion) && (visibilidadActual != tramo.esVisible)){
+        if(dirActual.equals(tramo.getDireccion()) && (visibilidadActual != tramo.esVisible())){
             transicionCondicionLapiz(tramo);
-            visibilidadActual = tramo.esVisible;
+            visibilidadActual = tramo.esVisible();
         }else{
             transicionMovimiento(tramo);
-            dirActual = tramo.direccion;
+            dirActual = tramo.getDireccion();
         }
     }
 
     private void transicionMovimiento(Tramo tramo){
-        if(tramo.esVisible){
+        if(tramo.esVisible()){
             transicionMovimientoVisible(tramo);
         }else{
             transicionMovimientoNoVisible(tramo);
         }
     }
+    
     protected abstract void transicionCondicionLapiz(Tramo tramo);
 
     protected abstract void transicionMovimientoVisible(Tramo tramo);

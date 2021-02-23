@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LapizTest {
 
     @Test
-    public void test01LapizNuevoDibujaLineaInvisible() {
+    public void test01LapizNuevoDibujaLineaVisible() {
         Lapiz lapiz = new Lapiz();
         Dibujo dibujo = new Dibujo();
 
         lapiz.dibujarLinea(new Posicion(), new Posicion(1,0), dibujo);
 
-        assertFalse(dibujo.lineaEsVisible(0));
+        assertTrue(dibujo.lineaEsVisible(0));
     }
 
     @Test

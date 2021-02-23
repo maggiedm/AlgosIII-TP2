@@ -81,14 +81,14 @@ public class AlgoBlocksTest {
     }
 
     @Test
-    public void test09AlgoBlocksEjecutarSecuenciaMoverPersonajeNuevoYBajarLapizDibujaLineaInvisible() {
+    public void test09AlgoBlocksEjecutarSecuenciaMoverPersonajeNuevoYSubirLapizDibujaLineaVisible() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
         algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
-        algoBlocks.agregarBloque(new BloqueBajarLapiz());
+        algoBlocks.agregarBloque(new BloqueSubirLapiz());
         algoBlocks.ejecutarAlgoritmo();
 
-        assertFalse(algoBlocks.getDibujo().lineaEsVisible(0));
+        assertTrue(algoBlocks.getDibujo().lineaEsVisible(0));
     }
 
     @Test
@@ -174,14 +174,14 @@ public class AlgoBlocksTest {
 
         BloqueInversion bI = new BloqueInversion();
         bI.agregarBloque(BloqueMovimiento.bloqueDerecha());
-        bI.agregarBloque(new BloqueSubirLapiz());
+        bI.agregarBloque(new BloqueBajarLapiz());
         bI.agregarBloque(BloqueMovimiento.bloqueAbajo());
 
         algoBlocks.agregarBloque(bI);
         algoBlocks.ejecutarAlgoritmo();
 
-        assertTrue(algoBlocks.getDibujo().tieneLinea(new Linea(new Posicion(0,0), new Posicion(-PASO, 0), false)) &&
-                algoBlocks.getDibujo().tieneLinea(new Linea(new Posicion(-PASO,0), new Posicion(-PASO, -PASO), true)));
+        assertTrue(algoBlocks.getDibujo().tieneLinea(new Linea(new Posicion(0,0), new Posicion(-PASO, 0), true)) &&
+                algoBlocks.getDibujo().tieneLinea(new Linea(new Posicion(-PASO,0), new Posicion(-PASO, -PASO), false)));
     }
 
     @Test
@@ -210,7 +210,7 @@ public class AlgoBlocksTest {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
         algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
-        algoBlocks.agregarBloque(new BloqueBajarLapiz());
+        algoBlocks.agregarBloque(new BloqueSubirLapiz());
         algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
 
         BloquePersonalizado bP = algoBlocks.guardarAlgoritmo();
@@ -218,8 +218,8 @@ public class AlgoBlocksTest {
         algoBlocks.agregarBloque(bP);
         algoBlocks.ejecutarAlgoritmo();
 
-        assertTrue(algoBlocks.getDibujo().tieneLinea(new Linea(new Posicion(0,0), new Posicion(PASO, 0), false)) &&
-                algoBlocks.getDibujo().tieneLinea(new Linea(new Posicion(PASO,0), new Posicion(PASO, PASO), true)));
+        assertTrue(algoBlocks.getDibujo().tieneLinea(new Linea(new Posicion(0,0), new Posicion(PASO, 0), true)) &&
+                algoBlocks.getDibujo().tieneLinea(new Linea(new Posicion(PASO,0), new Posicion(PASO, PASO), false)));
     }
 
     @Test

@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Posicion;
 import edu.fiuba.algo3.modelo.Dibujo;
 
 public class Lapiz {
-    private CondicionLapiz condicion = new LapizArriba();
+    private CondicionLapiz condicion = new LapizAbajo();
 
     public void bajar(Dibujo dibujo, Posicion posicion) {
         condicion = new LapizAbajo();

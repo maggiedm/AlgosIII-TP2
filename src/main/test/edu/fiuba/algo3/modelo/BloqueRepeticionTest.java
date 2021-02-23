@@ -64,11 +64,11 @@ public class BloqueRepeticionTest {
         BloqueRepeticion bloque = BloqueRepeticion.repetirDosVeces();
 
         bloque.agregarBloque(BloqueMovimiento.bloqueDerecha());
-        bloque.agregarBloque(new BloqueBajarLapiz());
+        bloque.agregarBloque(new BloqueSubirLapiz());
         bloque.ejecutar(personaje);
 
-        assertTrue(dibujo.tieneLinea( new Linea(new Posicion(0, 0), new Posicion(PASO, 0), false)) &&
-                dibujo.tieneLinea(new Linea(new Posicion(PASO, 0), new Posicion(2 * PASO, 0), true)));
+        assertTrue(dibujo.tieneLinea( new Linea(new Posicion(0, 0), new Posicion(PASO, 0), true)) &&
+                dibujo.tieneLinea(new Linea(new Posicion(PASO, 0), new Posicion(2 * PASO, 0), false)));
     }
 
     @Test

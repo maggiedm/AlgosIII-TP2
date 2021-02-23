@@ -17,10 +17,10 @@ import javafx.util.Duration;
 import static javafx.scene.paint.Color.LIGHTSLATEGREY;
 
 public class AnimacionDibujado extends Animacion {
-    Canvas canvas;
+    private final Canvas canvas;
 
-    public AnimacionDibujado(double w, double h, /*Canvas canvas,*/ String dirInicial){
-        super(dirInicial);
+    public AnimacionDibujado(double w, double h, String dirInicial, boolean visibilidadInicial){
+        super(dirInicial, visibilidadInicial);
         this.canvas = new Canvas(w,h);
     }
 
@@ -29,11 +29,11 @@ public class AnimacionDibujado extends Animacion {
     }
 
     protected void transicionMovimientoVisible(Tramo tramo){
-        secuencia.getChildren().add(crearAnimacionTramos(tramo.tramo, Duration.seconds(tramo.tam)));
+        secuencia.getChildren().add(crearAnimacionTramos(tramo.getCamino(), Duration.seconds(tramo.getTam())));
     }
 
     protected void transicionMovimientoNoVisible(Tramo tramo){
-        secuencia.getChildren().add(new PauseTransition(Duration.seconds(tramo.tam)));
+        secuencia.getChildren().add(new PauseTransition(Duration.seconds(tramo.getTam())));
     }
 
     private Animation crearAnimacionTramos(Path camino, Duration duration) {

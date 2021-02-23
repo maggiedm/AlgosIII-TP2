@@ -41,7 +41,7 @@ public class BloqueInversionTest {
         b1.agregarBloque(BloqueMovimiento.bloqueDerecha());
         b1.ejecutar(personaje);
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(-PASO, 0), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(-PASO, 0), true)));
     }
 
     @Test
@@ -133,12 +133,12 @@ public class BloqueInversionTest {
         BloqueRepeticion bR = BloqueRepeticion.repetirDosVeces();
         Personaje personaje = new Personaje(dibujo);
 
-        bR.agregarBloque(new BloqueSubirLapiz());
+        bR.agregarBloque(new BloqueBajarLapiz());
         bR.agregarBloque(BloqueMovimiento.bloqueDerecha());
         bI.agregarBloque(bR);
         bI.ejecutar(personaje);
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0, 0), new Posicion(-PASO, 0), false)) &&
-                dibujo.tieneLinea(new Linea(new Posicion(-PASO, 0), new Posicion(-PASO*2, 0), true)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0, 0), new Posicion(-PASO, 0), true)) &&
+                dibujo.tieneLinea(new Linea(new Posicion(-PASO, 0), new Posicion(-PASO*2, 0), false)));
     }
 
     @Test
@@ -164,13 +164,13 @@ public class BloqueInversionTest {
         List<Bloque> lista = new ArrayList<>();
 
         lista.add(BloqueMovimiento.bloqueDerecha());
-        lista.add(new BloqueSubirLapiz());
+        lista.add(new BloqueBajarLapiz());
         lista.add(BloqueMovimiento.bloqueArriba());
         BloquePersonalizado bP = new BloquePersonalizado(lista);
         bI.agregarBloque(bP);
         bI.ejecutar(personaje);
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0, 0), new Posicion(-PASO, 0), false)) &&
-                dibujo.tieneLinea(new Linea(new Posicion(-PASO, 0), new Posicion(-PASO, PASO), true)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0, 0), new Posicion(-PASO, 0), true)) &&
+                dibujo.tieneLinea(new Linea(new Posicion(-PASO, 0), new Posicion(-PASO, PASO), false)));
     }
 }

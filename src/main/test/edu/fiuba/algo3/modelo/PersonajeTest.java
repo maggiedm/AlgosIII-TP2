@@ -74,13 +74,13 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test09MoverADerechaAUnPersonajeNuevoAgregaLineaNoVisibleAlDibujo() {
+    public void test09MoverADerechaAUnPersonajeNuevoAgregaLineaVisibleAlDibujo() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 
         personaje.mover(Direccion.derecha());
 
-        assertFalse(dibujo.lineaEsVisible(0));
+        assertTrue(dibujo.lineaEsVisible(0));
     }
 
     @Test
@@ -136,9 +136,8 @@ public class PersonajeTest {
         Personaje personaje = new Personaje(dibujo);
 
         personaje.mover(Direccion.derecha());
-        Linea linea = new Linea(new Posicion(0,0), new Posicion(PASO,0) , false);
 
-        assertTrue(dibujo.tieneLinea(linea));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(PASO,0) , true)));
     }
 
     @Test
@@ -171,7 +170,7 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test18ReiniciarPersonajeYMoverDibujaLineaInvisible() {
+    public void test18ReiniciarPersonajeYMoverDibujaLineaVisible() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 
@@ -180,6 +179,6 @@ public class PersonajeTest {
         personaje.reiniciar();
         personaje.mover(Direccion.derecha());
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(PASO, 0), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(PASO, 0), true)));
     }
 }

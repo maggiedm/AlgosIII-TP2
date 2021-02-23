@@ -95,12 +95,12 @@ public class BloquePersonalizadoTest {
         BloquePersonalizado bP = new BloquePersonalizado(lista);
         bP.ejecutar(personaje);
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0, 0), new Posicion(PASO, 0), false)) &&
-                dibujo.tieneLinea(new Linea(new Posicion(PASO, 0), new Posicion(2*PASO, 0), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0, 0), new Posicion(PASO, 0), true)) &&
+                dibujo.tieneLinea(new Linea(new Posicion(PASO, 0), new Posicion(2*PASO, 0), true)));
     }
 
     @Test
-    public void test06EjecutarBloquePersonalizadoConBloqueInversionPosicionCorrecta(){
+    public void test07EjecutarBloquePersonalizadoConBloqueInversionPosicionCorrecta(){
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
         BloqueInversion bI = new BloqueInversion();
@@ -115,7 +115,7 @@ public class BloquePersonalizadoTest {
     }
 
     @Test
-    public void test06EjecutarAlgoritmoPersonalizadoConBloqueInversionTieneLineaCorrecta(){
+    public void test08EjecutarAlgoritmoPersonalizadoConBloqueInversionTieneLineaCorrecta(){
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
         BloqueInversion bI = new BloqueInversion();
@@ -126,6 +126,6 @@ public class BloquePersonalizadoTest {
         BloquePersonalizado bP = new BloquePersonalizado(lista);
         bP.ejecutar(personaje);
 
-        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0, 0), new Posicion(-PASO, 0), false)));
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0, 0), new Posicion(-PASO, 0), true)));
     }
 }
