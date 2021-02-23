@@ -9,6 +9,7 @@ import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReiniciar;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -45,7 +46,7 @@ public class App extends Application {
 
     private HBox crearPanelSuperior(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo) {
         HBox panelSuperior = new HBox();
-        ImageView banner = new ImageView("https://i.ibb.co/Ht7ysNy/New-Project-2.png");
+        ImageView banner = new ImageView("file:recursos/Banner.png");
         HBox layoutEjecutarReiniciar = LayoutEjecutarReiniciar.crear(algoBlocks, layoutDibujo);
         layoutEjecutarReiniciar.setAlignment(Pos.CENTER_LEFT);
         panelSuperior.getChildren().addAll(banner, layoutEjecutarReiniciar);
@@ -76,6 +77,8 @@ public class App extends Application {
 
     private void configurarEscenario(Stage stage, VBox panelPrincipal) {
         Scene scene = new Scene(panelPrincipal);
+        stage.setTitle("AlgoBlocks v1.0");
+        stage.getIcons().add(new Image("file:recursos/Logo.png"));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setHeight(SCREEN_HEIGHT);
@@ -85,6 +88,6 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-    
+
 }
 

@@ -26,14 +26,16 @@ public class LayoutDibujo extends Pane {
     public Slider slider;
     private final HBox hBox;
     static final private String DIR_INICIAL = "Derecha";
-    HashMap<String, Image> imgDirLapizArriba = imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/5cGnqmn/ArrLarr.png",
-            "https://i.ibb.co/HpgJ4P8/AbLarr.png",
-            "https://i.ibb.co/4ZNQrHW/DerLarr.png",
-            "https://i.ibb.co/cQNQczb/IzqLarr.png");
-    HashMap<String, Image> imgDirLapizAbajo = imagenesDireccionPersonaje("https://i.ibb.co/hFZcDW6/ArrLab.png",
-            "https://i.ibb.co/6WvbdxD/AbLab.png",
-            "https://i.ibb.co/GspbQb9/DerLab.png",
-            "https://i.ibb.co/b6yCRvp/IzqLab.png");
+    HashMap<String, Image> imgDirLapizArriba = imgDirLapizAbajo = imagenesDireccionPersonaje(
+            "file:recursos/personaje/ArrLarr.png",
+            "file:recursos/personaje/AbLarr.png",
+            "file:recursos/personaje/DerLarr.png",
+            "file:recursos/personaje/IzqLarr.png");
+    HashMap<String, Image> imgDirLapizAbajo = imagenesDireccionPersonaje(
+            "file:recursos/personaje/ArrLab.png",
+            "file:recursos/personaje/AbLab.png",
+            "file:recursos/personaje/DerLab.png",
+            "file:recursos/personaje/IzqLab.png");
 
     public LayoutDibujo(double w, double h){
         super.setMinSize(w, h-30);
