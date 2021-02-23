@@ -35,13 +35,13 @@ public class DibujoTest {
 
         assertEquals(2, dibujo.getCantidadLineas());
     }
-
-    /*@Test
-    public void test04ExcepcionDibujarLineaConInicioYFinIguales(){
+    @Test
+    public void test04DibujarLineaConMismoOrigenYFinDibujoAgregaLinea(){
         Dibujo dibujo = new Dibujo();
+        dibujo.dibujarLinea(new Posicion(), new Posicion(), true);
 
-        assertThrows(LineaInvalidaException.class, () -> dibujo.dibujarLinea(new Posicion(0, 0), new Posicion(0, 0), true));
-    }*/
+        assertEquals(1, dibujo.getCantidadLineas());
+    }
 
     @Test
     public void test05DibujoUnaLineaYElDibujoLaTiene(){

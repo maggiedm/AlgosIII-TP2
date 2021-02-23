@@ -27,17 +27,19 @@ public class Direccion {
         return new Direccion(0,PASO);
     }
 
-    public static String direccionDesplazamiento(int dx, int dy){
-        if(dx > 0){
-            return "Izquierda";
-        }else if(dx < 0){
+    public static String direccionDesplazamiento(int dx, int dy) throws DireccionInvalidaException{
+        if(dx > 0 && dy == 0){
             return "Derecha";
-        }else if(dy > 0){
-            return "Arriba";
-        }else if(dy < 0){
+        }else if(dx < 0 && dy == 0){
+            return "Izquierda";
+        }else if(dx == 0 && dy > 0){
             return "Abajo";
+        }else if(dx == 0 && dy < 0){
+            return "Arriba";
+        }else if(dx == 0){
+            return null;
         }
-        return null;
+       throw new DireccionInvalidaException();
     }
 
     public Posicion desplazar(Posicion posicion) { return posicion.desplazar(dx, dy); }

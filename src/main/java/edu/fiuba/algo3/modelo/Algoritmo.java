@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Algoritmo extends SecuenciaBloques implements Observable {
 
-    private ArrayList<Observer> observers = new ArrayList();
+    private final ArrayList<Observer> observers = new ArrayList<>();
 
     public int getCantidadDeBloques() { return bloques.size(); }
 
@@ -36,6 +36,6 @@ public class Algoritmo extends SecuenciaBloques implements Observable {
 
     @Override
     public void notifyObservers() {
-        observers.stream().forEach(observer -> observer.change(this));
+        observers.forEach(observer -> observer.change(this));
     }
 }

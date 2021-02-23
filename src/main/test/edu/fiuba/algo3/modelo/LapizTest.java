@@ -74,4 +74,24 @@ public class LapizTest {
 
         assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(0, 1), true)));
     }
+
+    @Test
+    public void test07BajarLapizAgregaLineaVisible() {
+        Lapiz lapiz = new Lapiz();
+        Dibujo dibujo = new Dibujo();
+
+        lapiz.bajar(dibujo, new Posicion());
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(), true)));
+    }
+
+    @Test
+    public void test08SubirLapizAgregaLineaInvisible() {
+        Lapiz lapiz = new Lapiz();
+        Dibujo dibujo = new Dibujo();
+
+        lapiz.subir(dibujo, new Posicion());
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(), false)));
+    }
 }

@@ -7,9 +7,6 @@ public class Linea {
     private final Boolean visibilidad;
 
     public Linea (Posicion inicioLinea, Posicion finLinea, boolean esVisible){
-        /*if(inicioLinea.esIgualA(finLinea)){
-            throw new LineaInvalidaException();
-        }*/
         origen = inicioLinea;
         destino = finLinea;
         visibilidad = esVisible;
@@ -31,7 +28,7 @@ public class Linea {
         return ((origen.esIgualA(linea.origen) && destino.esIgualA(linea.destino) && visibilidad == linea.esVisible()));
     }
 
-    public String getDireccion(){
-        return Direccion.direccionDesplazamiento(origen.desplazaminetoEnX(destino), origen.desplazamientoEnY(destino));
+    public String getDireccion() throws DireccionInvalidaException{
+        return Direccion.direccionDesplazamiento(destino.desplazaminetoEnX(origen), destino.desplazamientoEnY(origen));
     }
 }

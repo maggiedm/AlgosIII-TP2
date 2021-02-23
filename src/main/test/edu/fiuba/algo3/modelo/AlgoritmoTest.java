@@ -3,8 +3,8 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.bloque.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static edu.fiuba.algo3.modelo.Direccion.PASO;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AlgoritmoTest {
 
@@ -26,7 +26,7 @@ public class AlgoritmoTest {
     }
 
     @Test
-    public void test03DTrasEjecutarAlgoritmoCon2BloquesAlgoritmoTiene2Bloques() {
+    public void test03TrasEjecutarAlgoritmoCon2BloquesAlgoritmoTiene2Bloques() {
         Algoritmo algoritmo = new Algoritmo();
 
         algoritmo.agregarBloque(BloqueMovimiento.bloqueArriba());
@@ -37,13 +37,104 @@ public class AlgoritmoTest {
     }
 
     @Test
-    public void test04NoSePuedeGuardarUnAlgoritmoVacio() {
+    public void test04TrasEjecutarAlgoritmoPosicionPersonajeSeActualiza() {
+        Algoritmo algoritmo = new Algoritmo();
+        Personaje personaje = new Personaje(new Dibujo());
+
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueArriba());
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueIzquierda());
+        algoritmo.ejecutar(personaje);
+
+        assertTrue(personaje.estaEnPosicion(new Posicion(-PASO,-PASO)));
+    }
+
+    @Test
+    public void test05TrasEjecutarAlgoritmoDibujoTieneCantidadCorrectaDeLineas() {
+        Algoritmo algoritmo = new Algoritmo();
+        Dibujo dibujo = new Dibujo();
+
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueArriba());
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueIzquierda());
+        algoritmo.ejecutar(new Personaje(dibujo));
+
+        assertEquals(2, dibujo.getCantidadLineas());
+    }
+
+    @Test
+    public void test06TrasEjecutarAlgoritmoDibujoTieneLineaCorrecta() {
+        Algoritmo algoritmo = new Algoritmo();
+        Dibujo dibujo = new Dibujo();
+
+        algoritmo.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoritmo.ejecutar(new Personaje(dibujo));
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, PASO), false)));
+    }
+
+    @Test
+    public void test07TrasEjecutarAlgoritmoConBloqueRepeticionDibujoTieneCantidadCorrectaDeLineas() {
+        Algoritmo algoritmo = new Algoritmo();
+        BloqueRepeticion bloqueRepeticion = BloqueRepeticion.repetirTresVeces();
+        Dibujo dibujo = new Dibujo();
+
+        bloqueRepeticion.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoritmo.agregarBloque(bloqueRepeticion);
+        algoritmo.ejecutar(new Personaje(dibujo));
+
+        assertEquals(3, dibujo.getCantidadLineas());
+    }
+
+    @Test
+    public void test08TrasEjecutarAlgoritmoConBloqueRepeticionDibujoTieneLineasCorrectas() {
+        Algoritmo algoritmo = new Algoritmo();
+        BloqueRepeticion bloqueRepeticion = BloqueRepeticion.repetirDosVeces();
+        Dibujo dibujo = new Dibujo();
+
+        bloqueRepeticion.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoritmo.agregarBloque(bloqueRepeticion);
+        algoritmo.ejecutar(new Personaje(dibujo));
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(0, PASO), false)) &&
+                dibujo.tieneLinea(new Linea(new Posicion(0,PASO), new Posicion(0, 2*PASO), false)));
+    }
+
+    @Test
+    public void test09TrasEjecutarAlgoritmoConBloqueInversionDibujoTieneCantidadCorrectaDeLineas() {
+        Algoritmo algoritmo = new Algoritmo();
+        BloqueInversion bloqueInversion = new BloqueInversion();
+        Dibujo dibujo = new Dibujo();
+
+        bloqueInversion.agregarBloque(BloqueMovimiento.bloqueIzquierda());
+        bloqueInversion.agregarBloque(BloqueMovimiento.bloqueArriba());
+        algoritmo.agregarBloque(bloqueInversion);
+        algoritmo.ejecutar(new Personaje(dibujo));
+
+        assertEquals(2, dibujo.getCantidadLineas());
+    }
+
+    @Test
+    public void test10TrasEjecutarAlgoritmoConBloqueInversionDibujoTieneLineasCorrectas() {
+        Algoritmo algoritmo = new Algoritmo();
+        BloqueInversion bloqueInversion = new BloqueInversion();
+        Dibujo dibujo = new Dibujo();
+
+        bloqueInversion.agregarBloque(BloqueMovimiento.bloqueIzquierda());
+        bloqueInversion.agregarBloque(new BloqueSubirLapiz());
+        algoritmo.agregarBloque(bloqueInversion);
+        algoritmo.ejecutar(new Personaje(dibujo));
+
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0,0), new Posicion(PASO, 0), false)) &&
+                dibujo.tieneLinea(new Linea(new Posicion(PASO,0), new Posicion(PASO, 0), true)));
+    }
+
+    @Test
+    public void test11NoSePuedeGuardarUnAlgoritmoVacio() {
 
         assertThrows(GuardarAlgoritmoVacioException.class, () -> new Algoritmo().guardar());
     }
 
     @Test
-    public void test05ReiniciarAlgoritmoAlgoritmoEstaVacio() {
+    public void test12ReiniciarAlgoritmoAlgoritmoEstaVacio() {
 
         Algoritmo algoritmo = new Algoritmo();
 
@@ -53,6 +144,4 @@ public class AlgoritmoTest {
 
         assertEquals(0, algoritmo.getCantidadDeBloques());
     }
-
-    //Ver de agregar tests tieneLinea,agregar distintos Bloques y ejecutar
 }

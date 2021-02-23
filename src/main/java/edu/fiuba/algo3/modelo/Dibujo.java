@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dibujo {
-    private List<Linea> lineas = new ArrayList<>();
+    private final List<Linea> lineas = new ArrayList<>();
 
     public void dibujarLinea(Posicion origen, Posicion destino, boolean esVisible) {
         Linea linea = new Linea(origen, destino, esVisible);

@@ -142,7 +142,25 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test15ReiniciarPersonajePosicionInicial() {
+    public void test15BajarLapizDibujoTieneEsaLinea(){
+        Dibujo dibujo = new Dibujo();
+        Personaje personaje = new Personaje(dibujo);
+
+        personaje.bajarLapiz();
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(), true)));
+    }
+
+    @Test
+    public void test16SubirLapizDibujoTieneEsaLinea(){
+        Dibujo dibujo = new Dibujo();
+        Personaje personaje = new Personaje(dibujo);
+
+        personaje.subirLapiz();
+        assertTrue(dibujo.tieneLinea(new Linea(new Posicion(), new Posicion(), false)));
+    }
+
+    @Test
+    public void test17ReiniciarPersonajePosicionInicial() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 
@@ -153,7 +171,7 @@ public class PersonajeTest {
     }
 
     @Test
-    public void test16ReiniciarPersonajeYMoverDibujaLineaInvisible() {
+    public void test18ReiniciarPersonajeYMoverDibujaLineaInvisible() {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
 

@@ -34,8 +34,33 @@ public class LineaTest {
         assertFalse(linea.esIgual(linea2));
     }
 
-    /*@Test
-    public void test03LineaConOrigenyDestinoIgualesEsInvalida() {
-        assertThrows(LineaInvalidaException.class, () -> new Linea(new Posicion(0, 0), new Posicion(0, 0), true));
-    }*/
+    @Test
+    public void test05UnaLineaConEjeXMayorEnDestinoTieneDireccionDerecha(){
+        assertEquals(new Linea(new Posicion(), new Posicion(1, 0), true).getDireccion(), "Derecha");
+    }
+
+    @Test
+    public void test06UnaLineaConEjeXMenorEnDestinoTieneDireccionIzquierda(){
+        assertEquals(new Linea(new Posicion(), new Posicion(-1, 0), true).getDireccion(), "Izquierda");
+    }
+
+    @Test
+    public void test08UnaLineaConEjeYMenorEnDestinoTieneDireccionArriba(){
+        assertEquals(new Linea(new Posicion(), new Posicion(0, -1), true).getDireccion(), "Arriba");
+    }
+
+    @Test
+    public void test09UnaLineaConEjeYMayorEnDestinoTieneDireccionAbajo(){
+        assertEquals(new Linea(new Posicion(), new Posicion(0, 1), true).getDireccion(), "Abajo");
+    }
+
+    @Test
+    public void test10UnaLineaConDestinoYOrigenIgualesTieneDireccionNull(){
+        assertNull(new Linea(new Posicion(), new Posicion(), true).getDireccion());
+    }
+
+    @Test
+    public void test11UnaLineaConDesplazamientoEnEjeXEYLanzaExcepcion(){
+        assertThrows(DireccionInvalidaException.class, () -> new Linea(new Posicion(), new Posicion(1, 1), true).getDireccion());
+    }
 }

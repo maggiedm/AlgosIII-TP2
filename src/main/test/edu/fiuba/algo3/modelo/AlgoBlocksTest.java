@@ -248,17 +248,4 @@ public class AlgoBlocksTest {
         assertEquals(0, algoBlocks.cantidadDeBloquesEnAlgoritmo());
     }
 
-    @Test
-    public void test19AlgoBlocksReiniciarDibujoEstaVacio() {
-        AlgoBlocks algoBlocks = new AlgoBlocks();
-
-        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
-        algoBlocks.agregarBloque(new BloqueBajarLapiz());
-        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
-        algoBlocks.ejecutarAlgoritmo();
-        algoBlocks.reiniciar();
-
-        assertEquals(0, algoBlocks.cantidadLineasDibujadas());
-    }
-
 }
