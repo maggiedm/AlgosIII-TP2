@@ -62,8 +62,8 @@ public class App extends Application {
         algoBlocks.getAlgoritmo().addObserver(botonGuardarAlgoritmo);
         VBox layoutAlgoritmo = LayoutAlgoritmo.crear(algoBlocks, SCREEN_HEIGHT);
 
-        VBox aux = new VBox(layoutAlgoritmo, botonGuardarAlgoritmo);
-        panelInferior.getChildren().addAll(layoutBloques, aux, layoutDibujo);
+        VBox layoutAlgoritmoGuardar = new VBox(layoutAlgoritmo, botonGuardarAlgoritmo);
+        panelInferior.getChildren().addAll(layoutBloques, layoutAlgoritmoGuardar, layoutDibujo);
         return panelInferior;
     }
 
