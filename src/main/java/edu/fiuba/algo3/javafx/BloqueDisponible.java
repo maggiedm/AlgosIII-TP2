@@ -3,10 +3,10 @@ package edu.fiuba.algo3.javafx;
 import edu.fiuba.algo3.javafx.botones.BotonSimple;
 import edu.fiuba.algo3.javafx.handlers.BotonAgregarBloqueCompuestoEventHandler;
 import edu.fiuba.algo3.javafx.handlers.BotonAgregarBloqueEventHandler;
-import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.layout.VBox;
 
 public class BloqueDisponible {
 
@@ -23,23 +23,23 @@ public class BloqueDisponible {
         esSimple = esBloqueSimple;
     }
 
-    public void agregarBoton(LayoutBloques layoutBloques) {
+    public void agregarBoton(VBox layout) {
 
         EventHandler<ActionEvent> handler;
         if (esSimple){
             handler = new BotonAgregarBloqueEventHandler(bloque, rutaImagen);
         }
         else{
-            handler = new BotonAgregarBloqueCompuestoEventHandler(bloque, rutaImagen, layoutBloques);
+            handler = new BotonAgregarBloqueCompuestoEventHandler(bloque, rutaImagen, layout);
         }
-        layoutBloques.getChildren().add(
+        layout.getChildren().add(
         BotonSimple.crearBotonSimple(rutaImagen, descripcion, handler )
         );
     }
 
-    public void agregarBotonBloqueCompuesto(LayoutBloques layoutBloques) {
+    public void agregarBotonBloqueCompuesto(VBox layout) {
         if (! esSimple){
-            agregarBoton(layoutBloques);
+            agregarBoton(layout);
         }
     }
 }

@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.javafx.layouts;
 
+import edu.fiuba.algo3.javafx.BloquesDisponibles;
 import edu.fiuba.algo3.javafx.SeleccionadorBloqueCompuesto;
 import edu.fiuba.algo3.javafx.Vista;
+import edu.fiuba.algo3.javafx.botones.BotonGuardarAlgoritmo;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.Algoritmo;
 import javafx.scene.control.ScrollPane;
@@ -25,6 +27,7 @@ public class LayoutAlgoritmo {
 
 
         Vista.agregarMarcadorFinal(contenido,"Algoritmo");//Puntero final de Algoritmo
+
 
         return layoutAlgoritmo;
     }

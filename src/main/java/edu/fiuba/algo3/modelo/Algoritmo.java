@@ -1,10 +1,21 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.bloque.Bloque;
 import edu.fiuba.algo3.modelo.bloque.BloquePersonalizado;
 
-public class Algoritmo extends SecuenciaBloques{
+import java.util.ArrayList;
+
+public class Algoritmo extends SecuenciaBloques implements Observable {
+
+    private ArrayList<Observer> observers = new ArrayList();
 
     public int getCantidadDeBloques() { return bloques.size(); }
+
+    @Override
+    public void agregarBloque(Bloque unBloque){
+        super.agregarBloque(unBloque);
+        notifyObservers();
+    }
 
     public BloquePersonalizado guardar() throws GuardarAlgoritmoVacioException{
         if(bloques.isEmpty()){
@@ -13,5 +24,18 @@ public class Algoritmo extends SecuenciaBloques{
         return new BloquePersonalizado(bloques);
     }
 
-    public void reiniciar(){ bloques.clear(); }
+    public void reiniciar(){
+        bloques.clear();
+        notifyObservers();
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        observers.stream().forEach(observer -> observer.change(this));
+    }
 }

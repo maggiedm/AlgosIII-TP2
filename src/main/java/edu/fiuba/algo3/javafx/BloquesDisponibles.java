@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.javafx;
 
 import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
+import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.bloque.*;
+import javafx.scene.layout.VBox;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +12,7 @@ public class BloquesDisponibles {
 
     private List<BloqueDisponible> bloques = new ArrayList<>();
     static final String RUTA_IMAGENES = "recursos/";
+
 
     public BloquesDisponibles() {
         bloques.add(new BloqueDisponible(BloqueMovimiento.bloqueArriba(),
@@ -57,12 +61,36 @@ public class BloquesDisponibles {
                 false));
     }
 
-    public void agregarBotones(LayoutBloques layoutBloques) {
+    public void agregarBotones(VBox layoutBloques) {
         bloques.forEach(bloque -> bloque.agregarBoton(layoutBloques));
     }
 
-    public void agregarBotonesBloquesCompuestos(LayoutBloques layoutBloques) {
+    private void agregarBotonesBloquesCompuestos(VBox layoutBloques) {
         bloques.forEach(bloque -> bloque.agregarBotonBloqueCompuesto(layoutBloques));
+    }
+
+    public void agregarBloquePersonalizado(String nombre, AlgoBlocks algoBlocks, VBox layoutBloques) {
+        BloqueDisponible bloque = new BloqueDisponible(algoBlocks.guardarAlgoritmo(),
+                nombre,
+                RUTA_IMAGENES + "BloquePersonalizado.png",
+                true
+                );
+
+        bloque.agregarBoton(layoutBloques);
+    }
+
+    public void reiniciarBloquesCompuestos(VBox layout) {
+
+        int cantidadBloquesCompuestos = 3; //Si dejamos este metedo, este numero lo tendria que conseguir de otra forma
+
+        //Elimina los botones de BloquesCompuestos y los vuelve a iniciar
+        for (int i = 0; i < cantidadBloquesCompuestos; i++) {
+            layout.getChildren().remove(layout.getChildren().size()-1);
+        }
+
+        //Hay que crear una instancia nueva para que se creen de nuevo los bloques
+        BloquesDisponibles bloquesDisponibles = new BloquesDisponibles();
+        bloquesDisponibles.agregarBotonesBloquesCompuestos(layout);
     }
 }
 

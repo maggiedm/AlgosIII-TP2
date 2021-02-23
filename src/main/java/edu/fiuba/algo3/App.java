@@ -1,9 +1,12 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.javafx.BloquesDisponibles;
+import edu.fiuba.algo3.javafx.botones.BotonGuardarAlgoritmo;
 import edu.fiuba.algo3.javafx.layouts.LayoutAlgoritmo;
 import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.javafx.layouts.LayoutDibujo;
 import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReiniciar;
+import edu.fiuba.algo3.modelo.Algoritmo;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -28,7 +31,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
         // PANEL SUPERIOR: BANNER + BOTONES DE EJECUTAR Y REINICIAR
@@ -42,23 +44,13 @@ public class App extends Application {
         // PANEL INFERIOR: BLOQUES + ALGORITMO + DIBUJO
         HBox panelInferior = new HBox();
         panelInferior.setSpacing(10);
-        LayoutBloques layoutBloques = new LayoutBloques(SCREEN_HEIGHT);
+        BloquesDisponibles bloquesDisponibles = new BloquesDisponibles();
+        LayoutBloques layoutBloques = new LayoutBloques(SCREEN_HEIGHT, bloquesDisponibles);
+        BotonGuardarAlgoritmo botonGuardarAlgoritmo = new BotonGuardarAlgoritmo(bloquesDisponibles, algoBlocks, layoutBloques );
+        algoBlocks.getAlgoritmo().addObserver(botonGuardarAlgoritmo);
         VBox layoutAlgoritmo = LayoutAlgoritmo.crear(algoBlocks, SCREEN_HEIGHT);
-        //Esto habría que sacarlo de aca. Además hay que manejar la desaparición del boton cuando está vacío el algoritmo
-        Button btn = new Button("Guardar");
-        btn.setOnAction(event -> {
-            TextField nombre = new TextField();
-            Label nombreAlgoritmo = new Label("Guardar como:");
-            Button ingresar = new Button("Ingresar");
-            Stage stage2 = new Stage();
-            stage2.setScene(new Scene(new VBox(new HBox(nombreAlgoritmo, nombre), ingresar)));
-            stage2.show();
-            ingresar.setOnAction(internalEvent -> {
-                stage2.close();
-                layoutBloques.agregarBotonBloque("recursos/BloquePersonalizado.png", nombre.getText(), algoBlocks.guardarAlgoritmo());
-            });
-        });
-        VBox aux = new VBox(layoutAlgoritmo, btn);
+
+        VBox aux = new VBox(layoutAlgoritmo, botonGuardarAlgoritmo);
         panelInferior.getChildren().addAll(layoutBloques, aux, layoutDibujo);
 
 

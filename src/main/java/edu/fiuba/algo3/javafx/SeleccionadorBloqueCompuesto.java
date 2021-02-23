@@ -46,7 +46,7 @@ public class SeleccionadorBloqueCompuesto {
                 .orElse(null);
     }
 
-    public static void agregar (Bloque bloque, LayoutBloques layoutBloques) {
+    public static void agregar (Bloque bloque, VBox layoutBloques) {
         ContenedorDeBloques bloqueActual = SeleccionadorBloqueCompuesto.bloqueActual();
 
         String descripcion = ("Contenedor " + orden++);
@@ -61,7 +61,8 @@ public class SeleccionadorBloqueCompuesto {
 
         choiceBox.getItems().add(descripcion);
 
-        layoutBloques.reiniciarBloquesCompuestos();
+        BloquesDisponibles bloquesDisponibles = new BloquesDisponibles();
+        bloquesDisponibles.reiniciarBloquesCompuestos(layoutBloques);
     }
 
 }
