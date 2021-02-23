@@ -52,7 +52,7 @@ public class BloquesDisponibles {
 
         bloques.add(new BloqueDisponible(BloqueRepeticion.repetirTresVeces(),
                 "Repite tres veces la secuencia de bloques ingresada.",
-                RUTA_IMAGENES + "Repetir2.png",
+                RUTA_IMAGENES + "Repetir3.png",
                 false));
 
         bloques.add(new BloqueDisponible(new BloqueInversion(),
