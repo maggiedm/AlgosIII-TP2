@@ -15,15 +15,8 @@ import java.io.FileNotFoundException;
 
 public class MostradorBloqueSimple {
     public MostradorBloqueSimple(String rutaImagen, VBox layout){
+        ImageView imagen = new ImageView("file:" + rutaImagen);
 
-        Image image = null;
-        try {
-            image = new Image(new FileInputStream(rutaImagen));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ImageView imageView = new ImageView(image);
-
-        layout.getChildren().add((layout.getChildren().size() - 1), imageView); //Agregar antes del marcador y checkbox
+        layout.getChildren().add((layout.getChildren().size() - 1), imagen); //Agregar antes del marcador y checkbox
     }
 }
