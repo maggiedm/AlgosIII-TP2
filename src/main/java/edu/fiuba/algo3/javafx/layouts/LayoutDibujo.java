@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.javafx.layouts;
 
-import edu.fiuba.algo3.javafx.AnimacionDibujado;
-import edu.fiuba.algo3.javafx.AnimacionPersonaje;
+import edu.fiuba.algo3.javafx.AnimacionCaminoDibujado;
+import edu.fiuba.algo3.javafx.AnimacionCaminoPersonaje;
 import edu.fiuba.algo3.javafx.Tramo;
 import edu.fiuba.algo3.javafx.Vista;
 import edu.fiuba.algo3.modelo.*;
@@ -31,8 +31,8 @@ public class LayoutDibujo extends Pane {
 
     public void graficarMovimientos(Dibujo dib) {
 
-        AnimacionPersonaje secPersonaje = new AnimacionPersonaje(this.getMinWidth()/2, this.getMinHeight()/2, DIR_INICIAL, VISIBILIDAD_INICIAL);
-        AnimacionDibujado secDibujado = new AnimacionDibujado(this.getMinWidth(),this.getMinHeight(), DIR_INICIAL, VISIBILIDAD_INICIAL);
+        AnimacionCaminoPersonaje secPersonaje = new AnimacionCaminoPersonaje(this.getMinWidth()/2, this.getMinHeight()/2, DIR_INICIAL, VISIBILIDAD_INICIAL);
+        AnimacionCaminoDibujado secDibujado = new AnimacionCaminoDibujado(this.getMinWidth(),this.getMinHeight(), DIR_INICIAL, VISIBILIDAD_INICIAL);
 
         List<Tramo> tramos = crearTramos(dib);
 
