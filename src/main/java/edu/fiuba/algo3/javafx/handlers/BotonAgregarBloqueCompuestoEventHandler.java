@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.javafx.handlers;
 
 import edu.fiuba.algo3.javafx.SeleccionadorBloqueCompuesto;
-import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.layout.VBox;
 
-public class BotonAgregarBloqueCompuestoEventHandler implements EventHandler<ActionEvent> {
+public class BotonAgregarBloqueCompuestoEventHandler extends BotonHandler{
     private final Bloque bloque;
     private final VBox layout;
     private final String rutaImagen;
@@ -19,6 +17,7 @@ public class BotonAgregarBloqueCompuestoEventHandler implements EventHandler<Act
     }
     @Override
     public void handle(ActionEvent actionEvent) {
+        super.handle(actionEvent);
         SeleccionadorBloqueCompuesto.agregar(bloque, layout);
     }
 }

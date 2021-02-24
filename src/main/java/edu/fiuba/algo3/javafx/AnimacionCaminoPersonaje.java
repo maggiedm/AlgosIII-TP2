@@ -11,7 +11,7 @@ import javafx.util.Duration;
 
 import java.util.HashMap;
 
-public class AnimacionPersonaje extends Animacion {
+public class AnimacionCaminoPersonaje extends AnimacionCamino {
 
     private final ImageView personaje = new ImageView();
     static final String RUTA_IMAGENES = "recursos/personaje/";
@@ -21,7 +21,7 @@ public class AnimacionPersonaje extends Animacion {
             "Lab");
 
 
-    public AnimacionPersonaje(double posX, double posY, String dirInicial, boolean visibilidadInicial){
+    public AnimacionCaminoPersonaje(double posX, double posY, String dirInicial, boolean visibilidadInicial){
         super(dirInicial, visibilidadInicial);
         personaje.setX(posX);
         personaje.setY(posY);

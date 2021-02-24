@@ -4,10 +4,9 @@ import edu.fiuba.algo3.javafx.SeleccionadorBloqueCompuesto;
 import edu.fiuba.algo3.javafx.layouts.LayoutDibujo;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
-public class BotonReiniciarEventHandler implements EventHandler<ActionEvent> {
+public class BotonReiniciarEventHandler extends BotonHandler{
     private final AlgoBlocks algoBlocks;
     private final LayoutDibujo layoutDibujo;
     Button botonEjecutar;
@@ -21,6 +20,7 @@ public class BotonReiniciarEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        super.handle(actionEvent);
         algoBlocks.reiniciar();
         layoutDibujo.reiniciar();
         SeleccionadorBloqueCompuesto.reiniciar();

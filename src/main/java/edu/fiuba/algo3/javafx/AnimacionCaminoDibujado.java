@@ -16,10 +16,10 @@ import javafx.util.Duration;
 
 import static javafx.scene.paint.Color.LIGHTSLATEGREY;
 
-public class AnimacionDibujado extends Animacion {
+public class AnimacionCaminoDibujado extends AnimacionCamino {
     private final Canvas canvas;
 
-    public AnimacionDibujado(double w, double h, String dirInicial, boolean visibilidadInicial){
+    public AnimacionCaminoDibujado(double w, double h, String dirInicial, boolean visibilidadInicial){
         super(dirInicial, visibilidadInicial);
         this.canvas = new Canvas(w,h);
     }

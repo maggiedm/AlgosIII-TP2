@@ -4,12 +4,12 @@ import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.util.Duration;
 
-public abstract class Animacion {
+public abstract class AnimacionCamino {
     protected String dirActual;
     public SequentialTransition secuencia;
     protected boolean visibilidadActual;
 
-    protected Animacion(String dirInicial, boolean visibilidadInicial){
+    protected AnimacionCamino(String dirInicial, boolean visibilidadInicial){
         dirActual = dirInicial;
         visibilidadActual = visibilidadInicial;
         secuencia = new SequentialTransition(new PauseTransition(Duration.seconds(1)));
@@ -32,7 +32,7 @@ public abstract class Animacion {
             transicionMovimientoNoVisible(tramo);
         }
     }
-    
+
     protected abstract void transicionCondicionLapiz(Tramo tramo);
 
     protected abstract void transicionMovimientoVisible(Tramo tramo);

@@ -4,7 +4,6 @@ import edu.fiuba.algo3.javafx.BloquesDisponibles;
 import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BotonGuardarAlgoritmoEventHandler implements EventHandler<ActionEvent> {
+public class BotonGuardarAlgoritmoEventHandler extends BotonHandler {
 
     private final BloquesDisponibles bloquesDisponibles;
     private final AlgoBlocks algoBlocks;
@@ -27,6 +26,7 @@ public class BotonGuardarAlgoritmoEventHandler implements EventHandler<ActionEve
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        super.handle(actionEvent);
         TextField nombre = new TextField();
         Label nombreAlgoritmo = new Label("Guardar como:");
         Button botonIngresar = new Button("Ingresar");
@@ -35,6 +35,7 @@ public class BotonGuardarAlgoritmoEventHandler implements EventHandler<ActionEve
         stage2.show();
 
         botonIngresar.setOnAction(internalEvent -> {
+            super.handle(actionEvent);
             stage2.close();
             bloquesDisponibles.agregarBloquePersonalizado(nombre.getText(), algoBlocks, layoutBloques);
         });
