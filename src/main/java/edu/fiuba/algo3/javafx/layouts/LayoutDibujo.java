@@ -6,33 +6,48 @@ import edu.fiuba.algo3.javafx.Tramo;
 import edu.fiuba.algo3.javafx.Vista;
 import edu.fiuba.algo3.modelo.*;
 import javafx.animation.*;
+import javafx.geometry.Insets;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 
 import java.util.*;
 
 
-public class LayoutDibujo extends Pane {
-    public Slider slider;
-    private final HBox hBox;
+public class LayoutDibujo extends StackPane {
+    private final Pane pane = new Pane();
+    public Slider velocidad;
     static final private String DIR_INICIAL = "Derecha";
     static final private boolean VISIBILIDAD_INICIAL = true;
 
     public LayoutDibujo(double w, double h){
-        super.setMinSize(w, h-30);
-        hBox = new HBox();
-        Vista.agregarTitulo(hBox, "Dibujo");
-        this.slider = new Slider(0.25, 4, 1);
-        hBox.setSpacing(w-50);
-        hBox.getChildren().add(slider);
-        this.getChildren().add(hBox);
+        HBox layoutTitulo = new HBox();
+        layoutTitulo.setPadding(new Insets(10,10,10,10));
+        Vista.agregarTitulo(layoutTitulo, "Dibujo");
+        layoutTitulo.setStyle("-fx-background-color: lightgray");
+        //LAYOUT SLIDER
+        BorderPane layoutSlider = new BorderPane();
+        layoutSlider.setPadding(new Insets(10,10,10,10));
+        this.velocidad = new Slider(0.25, 4, 1);
+        layoutSlider.setRight(velocidad);
+        layoutSlider.setStyle("-fx-background-color: lightgray");
+        //PANEL DELANTERO
+        BorderPane panelDelantero = new BorderPane();
+        panelDelantero.setTop(layoutTitulo);
+        panelDelantero.setCenter(pane);
+        panelDelantero.setBottom(layoutSlider);
+        //THIS
+        pane.setMinSize(w-20, h-40);
+        this.getChildren().addAll(pane, panelDelantero);
     }
 
     public void graficarMovimientos(Dibujo dib) {
 
-        AnimacionCaminoPersonaje secPersonaje = new AnimacionCaminoPersonaje(this.getMinWidth()/2, this.getMinHeight()/2, DIR_INICIAL, VISIBILIDAD_INICIAL);
-        AnimacionCaminoDibujado secDibujado = new AnimacionCaminoDibujado(this.getMinWidth(),this.getMinHeight(), DIR_INICIAL, VISIBILIDAD_INICIAL);
+        AnimacionCaminoPersonaje secPersonaje = new AnimacionCaminoPersonaje(pane.getMinWidth()/2, pane.getMinHeight()/2, DIR_INICIAL, VISIBILIDAD_INICIAL);
+        AnimacionCaminoDibujado secDibujado = new AnimacionCaminoDibujado(pane.getMinWidth()*2,pane.getMinHeight()*2, DIR_INICIAL, VISIBILIDAD_INICIAL);
 
         List<Tramo> tramos = crearTramos(dib);
 
@@ -40,13 +55,12 @@ public class LayoutDibujo extends Pane {
             secPersonaje.cargarMovimiento(tramo);
             secDibujado.cargarMovimiento(tramo);
         }
-        secDibujado.agregarAlLayout(this);
-        secPersonaje.agregarAlLayout(this);
+        secDibujado.agregarAlLayout(pane);
+        secPersonaje.agregarAlLayout(pane);
 
         ParallelTransition pT = new ParallelTransition();
         pT.getChildren().addAll(secDibujado.secuencia, secPersonaje.secuencia);
-        slider.valueProperty().addListener(
-                (observable, oldValue, newValue) -> pT.setRate((Double) newValue));
+        pT.rateProperty().bind(velocidad.valueProperty());
         pT.play();
     }
 
@@ -71,9 +85,9 @@ public class LayoutDibujo extends Pane {
             }
             if(!esMovimientoDeLapiz(linea) || visibilidad != linea.esVisible()){
                 if(camino.getElements().isEmpty()){ //MUEVO A ORIGEN LINEA
-                    camino.getElements().add(new MoveTo(linea.getOrigen().getX()+this.getMinWidth()/2, linea.getOrigen().getY()+this.getMinHeight()/2));
+                    camino.getElements().add(new MoveTo(linea.getOrigen().getX()+pane.getMinWidth()/2, linea.getOrigen().getY()+pane.getMinHeight()/2));
                 }
-                camino.getElements().add(new LineTo(linea.getDestino().getX()+this.getMinWidth()/2, linea.getDestino().getY()+this.getMinHeight()/2));  //TRAZO UNA LINEA AL DESTINO
+                camino.getElements().add(new LineTo(linea.getDestino().getX()+pane.getMinWidth()/2, linea.getDestino().getY()+pane.getMinHeight()/2));  //TRAZO UNA LINEA AL DESTINO
                 tam++;
                 visibilidad = linea.esVisible();
                 if(esMovimientoDeLapiz(linea)){
@@ -94,7 +108,8 @@ public class LayoutDibujo extends Pane {
         return linea.getDireccion() == null;
     }
 
-    public void reiniciar(){ this.getChildren().clear();
-    this.getChildren().add(hBox);}
+    public void reiniciar(){
+        pane.getChildren().clear();
+    }
 
 }

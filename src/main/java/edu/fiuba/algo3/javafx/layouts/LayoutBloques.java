@@ -15,7 +15,7 @@ public class LayoutBloques extends VBox{
 
         contenido = new VBox(10);
         ScrollPane sP = new ScrollPane(contenido);
-        sP.setPrefViewportHeight(altura*11/14);
+        sP.setPrefViewportHeight(altura-30);
         sP.setMinViewportWidth(150);
 
         Vista.agregarTitulo(this, "Bloques");
