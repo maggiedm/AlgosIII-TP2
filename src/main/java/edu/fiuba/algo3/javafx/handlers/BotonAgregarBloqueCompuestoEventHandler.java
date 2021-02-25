@@ -18,6 +18,6 @@ public class BotonAgregarBloqueCompuestoEventHandler extends BotonHandler{
     @Override
     public void handle(ActionEvent actionEvent) {
         super.handle(actionEvent);
-        SeleccionadorBloqueCompuesto.agregar(bloque, layout);
+        SeleccionadorBloqueCompuesto.agregar(bloque, layout, rutaImagen);
     }
 }

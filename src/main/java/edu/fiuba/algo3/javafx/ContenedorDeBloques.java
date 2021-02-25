@@ -3,13 +3,12 @@ package edu.fiuba.algo3.javafx;
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class ContenedorDeBloques {
-    private SecuenciaBloques bloqueCompuesto;
-    private String descripcion;
-    private VBox layout;
+    private final SecuenciaBloques bloqueCompuesto;
+    private final String descripcion;
+    private final VBox layout;
 
     public ContenedorDeBloques(SecuenciaBloques unBloqueCompuesto, String unaDescripcion, VBox unLayout){
         bloqueCompuesto = unBloqueCompuesto;
@@ -18,7 +17,7 @@ public class ContenedorDeBloques {
     }
 
     public boolean tieneDescripcion(String unaDescripcion) {
-        return descripcion == unaDescripcion;
+        return descripcion.equals(unaDescripcion);
     }
 
     public void agregarBloque(Bloque bloque, String rutaImagen) {
@@ -26,17 +25,12 @@ public class ContenedorDeBloques {
         new MostradorBloqueSimple(rutaImagen, layout);
     }
 
-    public void agregarBloqueContenedor(Bloque bloque, String descripcion, HBox layoutContenedor) {
+    public void agregarBloqueContenedor(Bloque bloque, String descripcion, VBox layoutContenedor) {
         this.agregarBloque(bloque, descripcion);
-        layout.getChildren().add((layout.getChildren().size() - 1), layoutContenedor);//Agregar antes del marcador
+        layout.getChildren().add(layoutContenedor);//Agregar antes del marcador
     }
     public void reiniciarLayoutAlgoritmo(ChoiceBox<String> choiceBox){
         layout.getChildren().clear();
-
-        Vista.agregarTitulo(layout,"Algoritmo");
-
         layout.getChildren().add(choiceBox);
-
-        Vista.agregarMarcadorFinal(layout,"Algoritmo");
     }
 }

@@ -8,6 +8,7 @@ public class BotonHandler implements EventHandler<ActionEvent>  {
     private final AudioClip click = new AudioClip("file:recursos/click.mp3");
 
     public void handle(ActionEvent actionEvent){
+        click.setVolume(0.5);
         click.play();
     }
 }

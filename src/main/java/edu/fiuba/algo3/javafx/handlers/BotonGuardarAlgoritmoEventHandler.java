@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.javafx.handlers;
 
-import edu.fiuba.algo3.javafx.BloquesDisponibles;
 import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
@@ -14,12 +13,10 @@ import javafx.stage.Stage;
 
 public class BotonGuardarAlgoritmoEventHandler extends BotonHandler {
 
-    private final BloquesDisponibles bloquesDisponibles;
     private final AlgoBlocks algoBlocks;
     private final LayoutBloques layoutBloques;
 
-    public BotonGuardarAlgoritmoEventHandler(BloquesDisponibles losBloquesDisponibles, AlgoBlocks unAlgoBlocks, LayoutBloques unLayoutBloques) {
-        bloquesDisponibles = losBloquesDisponibles;
+    public BotonGuardarAlgoritmoEventHandler(AlgoBlocks unAlgoBlocks, LayoutBloques unLayoutBloques) {
         algoBlocks = unAlgoBlocks;
         layoutBloques = unLayoutBloques;
     }
@@ -37,7 +34,7 @@ public class BotonGuardarAlgoritmoEventHandler extends BotonHandler {
         botonIngresar.setOnAction(internalEvent -> {
             super.handle(actionEvent);
             stage2.close();
-            bloquesDisponibles.agregarBloquePersonalizado(nombre.getText(), algoBlocks, layoutBloques);
+            layoutBloques.agregarBloquePersonalizado(nombre.getText(), algoBlocks);
         });
 
     }
