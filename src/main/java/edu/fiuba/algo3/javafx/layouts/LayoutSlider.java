@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.javafx;
+package edu.fiuba.algo3.javafx.layouts;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Slider;

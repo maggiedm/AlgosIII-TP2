@@ -5,17 +5,13 @@ import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.Algoritmo;
 import edu.fiuba.algo3.modelo.Observer;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 
-public class BotonGuardarAlgoritmo  extends Button implements Observer{
+public class BotonGuardarAlgoritmo  extends BotonSimple implements Observer{
 
     public BotonGuardarAlgoritmo(AlgoBlocks algoBlocks, LayoutBloques layoutBloques){
+        super("recursos/boton-guardar.jpg", "Guardar", new BotonGuardarAlgoritmoEventHandler(algoBlocks, layoutBloques));
         this.setVisible(false);
-        this.setGraphic(new ImageView(new Image("file:recursos/boton-guardar.jpg")));
-        this.setOnAction(new BotonGuardarAlgoritmoEventHandler(algoBlocks, layoutBloques));
     }
 
     @Override
