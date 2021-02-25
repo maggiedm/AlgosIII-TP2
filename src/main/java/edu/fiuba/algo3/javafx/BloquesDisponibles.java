@@ -36,7 +36,7 @@ public class BloquesDisponibles {
                 RUTA_IMAGENES + "LapizBajar.png"));
 
         bloques.add(new BloqueSimpleDisponible(new BloqueSubirLapiz(),
-                "Sube el lapiz para que el personaje dibuje.",
+                "Sube el lapiz para que el personaje no dibuje.",
                 RUTA_IMAGENES + "LapizSubir.png"));
 
         bloques.add(new BloqueRepetirDosVecesDisponible("Repite dos veces la secuencia de bloques ingresada.",

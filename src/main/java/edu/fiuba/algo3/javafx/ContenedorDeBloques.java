@@ -29,8 +29,8 @@ public class ContenedorDeBloques {
         this.agregarBloque(bloque, descripcion);
         layout.getChildren().add(layoutContenedor);//Agregar antes del marcador
     }
-    public void reiniciarLayoutAlgoritmo(ChoiceBox<String> choiceBox){
+    public void reiniciarLayoutAlgoritmo(SeleccionadorBloqueCompuestoVista seleccionadorBloqueCompuestoVista){
         layout.getChildren().clear();
-        layout.getChildren().add(choiceBox);
+        layout.getChildren().add(seleccionadorBloqueCompuestoVista);
     }
 }

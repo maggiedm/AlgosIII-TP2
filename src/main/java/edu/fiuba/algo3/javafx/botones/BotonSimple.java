@@ -12,15 +12,12 @@ import java.io.FileNotFoundException;
 
 public class BotonSimple extends Button{
 
-    public static Button crearBotonSimple(String rutaImagen, String descripcion, EventHandler<ActionEvent> handler){
-
-        Button boton = new Button("");
-        boton.setTooltip(new Tooltip(descripcion));
-        boton.setOnAction(handler);
+    public BotonSimple(String rutaImagen, String descripcion, EventHandler<ActionEvent> handler){
+        super();
+        this.setTooltip(new Tooltip(descripcion));
+        this.setOnAction(handler);
 
         ImageView imagen = new ImageView("file:" + rutaImagen);
-        boton.setGraphic(imagen);
-
-        return boton;
+        this.setGraphic(imagen);
     }
 }

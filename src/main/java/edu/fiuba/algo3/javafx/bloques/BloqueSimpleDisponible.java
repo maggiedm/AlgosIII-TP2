@@ -20,7 +20,7 @@ public class BloqueSimpleDisponible  implements BloqueDisponible {
 
     public void agregarBoton(VBox layout) {
         layout.getChildren().add(
-                BotonSimple.crearBotonSimple(rutaImagen, descripcion, new BotonAgregarBloqueEventHandler(bloque, rutaImagen))
+                new BotonSimple(rutaImagen, descripcion, new BotonAgregarBloqueEventHandler(bloque, rutaImagen))
         );
     }
 }

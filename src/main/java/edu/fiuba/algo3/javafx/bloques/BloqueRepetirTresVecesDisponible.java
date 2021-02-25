@@ -17,7 +17,7 @@ public class BloqueRepetirTresVecesDisponible implements BloqueDisponible {
 
     public void agregarBoton(VBox layout) {
         layout.getChildren().add(
-                BotonSimple.crearBotonSimple(rutaImagen, descripcion, new BotonAgregarBloqueRepeticionTresVecesEventHandler(rutaImagen))
+                new BotonSimple(rutaImagen, descripcion, new BotonAgregarBloqueRepeticionTresVecesEventHandler(rutaImagen))
         );
     }
 }

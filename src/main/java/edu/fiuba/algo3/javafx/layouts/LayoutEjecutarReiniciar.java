@@ -9,23 +9,22 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class LayoutEjecutarReiniciar {
+public class LayoutEjecutarReiniciar extends HBox {
 
     static final String RUTA_IMAGENES = "recursos/";
 
-    public static HBox crear(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo){
-
-        HBox layoutEjecutarReiniciar = new HBox();
-        layoutEjecutarReiniciar.setSpacing(10);
+    public LayoutEjecutarReiniciar(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo){
+        super();
+        this.setSpacing(10);
 
         BotonEjecutarEventHandler handlerEjecutar = new BotonEjecutarEventHandler(algoBlocks, layoutDibujo);
         BotonReiniciarEventHandler handlerReiniciar = new BotonReiniciarEventHandler(algoBlocks, layoutDibujo);
-        Button botonEjecutar = BotonSimple.crearBotonSimple(
+        Button botonEjecutar = new BotonSimple(
                  RUTA_IMAGENES + "Ejecutar.png",
                 "Ejecutar el algoritmo.",
                 handlerEjecutar
         );
-        Button botonReiniciar = BotonSimple.crearBotonSimple(
+        Button botonReiniciar = new BotonSimple(
                 RUTA_IMAGENES + "Reiniciar.png",
                 "Reiniciar el algoritmo.",
                 handlerReiniciar
@@ -34,7 +33,6 @@ public class LayoutEjecutarReiniciar {
         handlerEjecutar.desactivarBoton(botonEjecutar);
         handlerReiniciar.activarBoton(botonEjecutar);
 
-        layoutEjecutarReiniciar.getChildren().addAll(botonEjecutar, botonReiniciar);
-        return layoutEjecutarReiniciar;
+        this.getChildren().addAll(botonEjecutar, botonReiniciar);
     }
 }

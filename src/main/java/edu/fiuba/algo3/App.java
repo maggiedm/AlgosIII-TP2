@@ -47,7 +47,7 @@ public class App extends Application {
     private BorderPane crearPanelSuperior(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo) {
         BorderPane panelSuperior = new BorderPane();
         panelSuperior.setMaxWidth(SCREEN_WIDTH - 50);
-        HBox layoutEjecutarReiniciar = LayoutEjecutarReiniciar.crear(algoBlocks, layoutDibujo);
+        HBox layoutEjecutarReiniciar = new LayoutEjecutarReiniciar(algoBlocks, layoutDibujo);
         panelSuperior.setLeft(new ImageView("file:recursos/Banner.png"));
         panelSuperior.setRight(layoutEjecutarReiniciar);
         layoutEjecutarReiniciar.setAlignment(Pos.CENTER_RIGHT);
@@ -60,7 +60,7 @@ public class App extends Application {
         LayoutBloques layoutBloques = new LayoutBloques(SCREEN_HEIGHT);
         BotonGuardarAlgoritmo botonGuardarAlgoritmo = new BotonGuardarAlgoritmo(algoBlocks, layoutBloques);
         algoBlocks.getAlgoritmo().addObserver(botonGuardarAlgoritmo);
-        VBox layoutAlgoritmo = LayoutAlgoritmo.crear(algoBlocks, SCREEN_HEIGHT);
+        VBox layoutAlgoritmo = new LayoutAlgoritmo(algoBlocks, SCREEN_HEIGHT);
 
         VBox layoutAlgoritmoGuardar = new VBox(layoutAlgoritmo, botonGuardarAlgoritmo);
         panelInferior.getChildren().addAll(layoutBloques, layoutAlgoritmoGuardar, layoutDibujo);

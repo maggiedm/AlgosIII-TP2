@@ -12,18 +12,15 @@ import java.util.List;
 
 public class SeleccionadorBloqueCompuesto {
     private static final List<ContenedorDeBloques> bloquesCompuestos = new ArrayList<>();
-    private static ChoiceBox<String> choiceBox;
+    private static SeleccionadorBloqueCompuestoVista seleccionadorBloqueCompuestoVista = new SeleccionadorBloqueCompuestoVista("Algoritmo");
     private static final HashMap<String, Integer> cantMismoBloqueCompuesto= new HashMap<>();
 
 
     public SeleccionadorBloqueCompuesto(SecuenciaBloques algoritmo, VBox layoutAlgoritmo){
         bloquesCompuestos.add(new ContenedorDeBloques(algoritmo,"Algoritmo", layoutAlgoritmo));//Guardar Algoritmo como BloqueCompuesto
 
-        choiceBox = new ChoiceBox();    //esto debería estar fuera del scrollPane
-        choiceBox.getItems().add("Algoritmo");
-        choiceBox.setValue("Algoritmo");
         cargarDiccionarioBloquesCompuestos();
-        layoutAlgoritmo.getChildren().add(choiceBox);
+        layoutAlgoritmo.getChildren().add(seleccionadorBloqueCompuestoVista);
     }
 
     public static void reiniciar(){
@@ -31,18 +28,16 @@ public class SeleccionadorBloqueCompuesto {
         bloquesCompuestos.clear();
         bloquesCompuestos.add(algoritmo);
 
-        choiceBox.getItems().clear();
-        choiceBox.getItems().add("Algoritmo");
-        choiceBox.setValue("Algoritmo");
+        seleccionadorBloqueCompuestoVista = new SeleccionadorBloqueCompuestoVista("Algoritmo");
 
-        algoritmo.reiniciarLayoutAlgoritmo(choiceBox);
+        algoritmo.reiniciarLayoutAlgoritmo(seleccionadorBloqueCompuestoVista);
 
         cantMismoBloqueCompuesto.forEach((s, integer) -> cantMismoBloqueCompuesto.replace(s, 0));
     }
 
     public static ContenedorDeBloques bloqueActual(){
         return bloquesCompuestos.stream()
-                .filter(contenedor -> contenedor.tieneDescripcion(choiceBox.getValue()))
+                .filter(contenedor -> contenedor.tieneDescripcion(seleccionadorBloqueCompuestoVista.getActual()))
                 .findAny()
                 .orElse(null);
     }
@@ -64,7 +59,7 @@ public class SeleccionadorBloqueCompuesto {
 
         bloqueActual.agregarBloqueContenedor(bloque,descripcion, layoutContenedorNuevo);
 
-        choiceBox.getItems().add(descripcion);
+       seleccionadorBloqueCompuestoVista.agregar(descripcion);
     }
 
     private void cargarDiccionarioBloquesCompuestos(){
