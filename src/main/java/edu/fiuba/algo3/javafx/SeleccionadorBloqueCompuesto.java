@@ -47,7 +47,7 @@ public class SeleccionadorBloqueCompuesto {
                 .orElse(null);
     }
 
-    public static void agregar (Bloque bloque, VBox layoutBloques, String rutaImagen) {
+    public static void agregar (Bloque bloque, String rutaImagen) {
         ContenedorDeBloques bloqueActual = SeleccionadorBloqueCompuesto.bloqueActual();
 
         String aux = rutaImagen.substring(0, rutaImagen.length() - 4);
@@ -65,9 +65,6 @@ public class SeleccionadorBloqueCompuesto {
         bloqueActual.agregarBloqueContenedor(bloque,descripcion, layoutContenedorNuevo);
 
         choiceBox.getItems().add(descripcion);
-
-        BloquesDisponibles bloquesDisponibles = new BloquesDisponibles();
-        bloquesDisponibles.reiniciarBloquesCompuestos(layoutBloques);
     }
 
     private void cargarDiccionarioBloquesCompuestos(){

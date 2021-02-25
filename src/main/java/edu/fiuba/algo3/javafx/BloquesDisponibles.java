@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.javafx;
 
-import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
+import edu.fiuba.algo3.javafx.bloques.*;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.bloque.*;
 import javafx.scene.layout.VBox;
@@ -10,87 +10,55 @@ import java.util.List;
 
 public class BloquesDisponibles {
 
-    private List<BloqueDisponible> bloques = new ArrayList<>();
+    private final List<BloqueDisponible> bloques = new ArrayList<>();
     static final String RUTA_IMAGENES = "recursos/";
 
 
     public BloquesDisponibles() {
-        bloques.add(new BloqueDisponible(BloqueMovimiento.bloqueArriba(),
+        bloques.add(new BloqueSimpleDisponible(BloqueMovimiento.bloqueArriba(),
                 "Mueve al personaje hacia arriba.",
-                RUTA_IMAGENES + "Arriba.png",
-                true));
+                RUTA_IMAGENES + "Arriba.png"));
 
-        bloques.add(new BloqueDisponible(BloqueMovimiento.bloqueAbajo(),
+        bloques.add(new BloqueSimpleDisponible(BloqueMovimiento.bloqueAbajo(),
                 "Mueve al personaje hacia abajo.",
-                RUTA_IMAGENES + "Abajo.png",
-                true));
+                RUTA_IMAGENES + "Abajo.png"));
 
-        bloques.add(new BloqueDisponible(BloqueMovimiento.bloqueIzquierda(),
+        bloques.add(new BloqueSimpleDisponible(BloqueMovimiento.bloqueIzquierda(),
                 "Mueve al personaje hacia Izquierda.",
-                RUTA_IMAGENES + "Izquierda.png",
-                true));
+                RUTA_IMAGENES + "Izquierda.png"));
 
-        bloques.add(new BloqueDisponible(BloqueMovimiento.bloqueDerecha(),
+        bloques.add(new BloqueSimpleDisponible(BloqueMovimiento.bloqueDerecha(),
                 "Mueve al personaje hacia derecha.",
-                RUTA_IMAGENES + "Derecha.png",
-                true));
+                RUTA_IMAGENES + "Derecha.png"));
 
-        bloques.add(new BloqueDisponible(new BloqueBajarLapiz(),
+        bloques.add(new BloqueSimpleDisponible(new BloqueBajarLapiz(),
                 "Baja el lapiz para que el personaje dibuje.",
-                RUTA_IMAGENES + "LapizBajar.png",
-                true));
+                RUTA_IMAGENES + "LapizBajar.png"));
 
-        bloques.add(new BloqueDisponible(new BloqueSubirLapiz(),
+        bloques.add(new BloqueSimpleDisponible(new BloqueSubirLapiz(),
                 "Sube el lapiz para que el personaje dibuje.",
-                RUTA_IMAGENES + "LapizSubir.png",
-                true));
+                RUTA_IMAGENES + "LapizSubir.png"));
 
-        bloques.add(new BloqueDisponible(BloqueRepeticion.repetirDosVeces(),
-                "Repite dos veces la secuencia de bloques ingresada.",
-                RUTA_IMAGENES + "Repetir2.png",
-                false));
+        bloques.add(new BloqueRepetirDosVecesDisponible("Repite dos veces la secuencia de bloques ingresada.",
+                RUTA_IMAGENES + "Repetir2.png"));
 
-        bloques.add(new BloqueDisponible(BloqueRepeticion.repetirTresVeces(),
-                "Repite tres veces la secuencia de bloques ingresada.",
-                RUTA_IMAGENES + "Repetir3.png",
-                false));
+        bloques.add(new BloqueRepetirTresVecesDisponible("Repite tres veces la secuencia de bloques ingresada.",
+                RUTA_IMAGENES + "Repetir3.png"));
 
-        bloques.add(new BloqueDisponible(new BloqueInversion(),
-                "Invierte la secuencia de bloques ingresada.",
-                RUTA_IMAGENES + "Invertir.png",
-                false));
+        bloques.add(new BloqueInvertirDisponible("Invierte la secuencia de bloques ingresada.",
+                RUTA_IMAGENES + "Invertir.png"));
     }
 
     public void agregarBotones(VBox layoutBloques) {
         bloques.forEach(bloque -> bloque.agregarBoton(layoutBloques));
     }
 
-    private void agregarBotonesBloquesCompuestos(VBox layoutBloques) {
-        bloques.forEach(bloque -> bloque.agregarBotonBloqueCompuesto(layoutBloques));
-    }
-
     public void agregarBloquePersonalizado(String nombre, AlgoBlocks algoBlocks, VBox layoutBloques) {
-        BloqueDisponible bloque = new BloqueDisponible(algoBlocks.guardarAlgoritmo(),
+        BloqueSimpleDisponible bloque = new BloqueSimpleDisponible(algoBlocks.guardarAlgoritmo(),
                 nombre,
-                RUTA_IMAGENES + "BloquePersonalizado.png",
-                true
-                );
+                RUTA_IMAGENES + "BloquePersonalizado.png");
 
         bloque.agregarBoton(layoutBloques);
-    }
-
-    public void reiniciarBloquesCompuestos(VBox layout) {
-
-        int cantidadBloquesCompuestos = 3; //Si dejamos este metedo, este numero lo tendria que conseguir de otra forma
-
-        //Elimina los botones de BloquesCompuestos y los vuelve a iniciar
-        for (int i = 0; i < cantidadBloquesCompuestos; i++) {
-            layout.getChildren().remove(layout.getChildren().size()-1);
-        }
-
-        //Hay que crear una instancia nueva para que se creen de nuevo los bloques
-        BloquesDisponibles bloquesDisponibles = new BloquesDisponibles();
-        bloquesDisponibles.agregarBotonesBloquesCompuestos(layout);
     }
 }
 
