@@ -9,18 +9,25 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
+import java.io.File;
+
 import static javafx.scene.paint.Color.LIGHTSLATEGREY;
 
 public class AnimacionCaminoDibujado extends AnimacionCamino {
     private final Canvas canvas;
+    private final MediaPlayer sonidoLapiz = new MediaPlayer(new Media(new File("recursos/sonidos/sonidoLapiz.mp3").toURI().toString()));
 
     public AnimacionCaminoDibujado(double w, double h, String dirInicial, boolean visibilidadInicial){
         super(dirInicial, visibilidadInicial);
+        sonidoLapiz.setCycleCount(MediaPlayer.INDEFINITE);
+        sonidoLapiz.setVolume(0.5);
         this.canvas = new Canvas(w,h);
     }
 
@@ -29,7 +36,11 @@ public class AnimacionCaminoDibujado extends AnimacionCamino {
     }
 
     protected void transicionMovimientoVisible(Tramo tramo){
-        secuencia.getChildren().add(crearAnimacionTramos(tramo.getCamino(), Duration.seconds(tramo.getTam())));
+        PauseTransition pauseTransition = new PauseTransition(Duration.ZERO);
+        pauseTransition.setOnFinished(event -> sonidoLapiz.play());
+        Animation animacionTramos = crearAnimacionTramos(tramo.getCamino(), Duration.seconds(tramo.getTam()));
+        animacionTramos.setOnFinished(event -> sonidoLapiz.stop());
+        secuencia.getChildren().addAll(pauseTransition, animacionTramos);
     }
 
     protected void transicionMovimientoNoVisible(Tramo tramo){

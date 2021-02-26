@@ -46,7 +46,7 @@ public class App extends Application {
         panelSuperior.setPadding(new Insets(0, 25, 0, 0));
         panelSuperior.setStyle("-fx-background-color: rgb(0, 176, 189)");
         HBox layoutEjecutarReiniciar = new LayoutEjecutarReiniciar(algoBlocks, layoutDibujo);
-        panelSuperior.setLeft(new ImageView("file:recursos/Banner.png"));
+        panelSuperior.setLeft(new ImageView("file:recursos/imagenes/Banner.png"));
         panelSuperior.setRight(layoutEjecutarReiniciar);
         layoutEjecutarReiniciar.setAlignment(Pos.CENTER_RIGHT);
         return panelSuperior;

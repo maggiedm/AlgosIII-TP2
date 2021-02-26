@@ -9,7 +9,7 @@ public class EscenarioVista{
 
     public EscenarioVista(Stage unEscenario,Pane unLayout, String unTitulo){
         unEscenario.setTitle(unTitulo);
-        unEscenario.getIcons().add(new Image("file:recursos/Logo.png"));
+        unEscenario.getIcons().add(new Image("file:recursos/imagenes/Logo.png"));
         unEscenario.setScene(new Scene(unLayout));
         unEscenario.setResizable(false);
     }

@@ -3,9 +3,7 @@ package edu.fiuba.algo3.javafx;
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.geometry.Insets;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,8 +43,7 @@ public class SeleccionadorBloqueCompuesto {
     public static void agregar (Bloque bloque, String rutaImagen) {
         ContenedorDeBloques bloqueActual = SeleccionadorBloqueCompuesto.bloqueActual();
 
-        String aux = rutaImagen.substring(0, rutaImagen.length() - 4);
-        aux = aux.substring(9);
+        String aux = nombreBloque(rutaImagen);
         String descripcion = ("Bloque" + aux + " - " + cantMismoBloqueCompuesto.get(aux));
         cantMismoBloqueCompuesto.replace(aux, cantMismoBloqueCompuesto.get(aux) + 1);
 
@@ -66,6 +63,16 @@ public class SeleccionadorBloqueCompuesto {
         cantMismoBloqueCompuesto.put("Repetir2", 0);
         cantMismoBloqueCompuesto.put("Repetir3", 0);
         cantMismoBloqueCompuesto.put("Invertir", 0);
+    }
+
+    private static String nombreBloque(String rutaImagen){
+        for (String key:cantMismoBloqueCompuesto.keySet()
+             ) {
+            if(rutaImagen.contains(key)){
+                return key;
+            }
+        }
+        return null;
     }
 
 }
