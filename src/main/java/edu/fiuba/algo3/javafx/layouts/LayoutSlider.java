@@ -7,8 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-import java.security.SecureRandom;
-
 public class LayoutSlider extends BorderPane {
     private final Slider slider = new Slider(0.25, 4, 1);
 

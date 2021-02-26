@@ -36,11 +36,10 @@ public class AnimacionCaminoDibujado extends AnimacionCamino {
     }
 
     protected void transicionMovimientoVisible(Tramo tramo){
-        PauseTransition pauseTransition = new PauseTransition(Duration.ZERO);
-        pauseTransition.setOnFinished(event -> sonidoLapiz.play());
+        secuencia.getChildren().get(secuencia.getChildren().size() - 1).setOnFinished(event -> sonidoLapiz.play());
         Animation animacionTramos = crearAnimacionTramos(tramo.getCamino(), Duration.seconds(tramo.getTam()));
         animacionTramos.setOnFinished(event -> sonidoLapiz.stop());
-        secuencia.getChildren().addAll(pauseTransition, animacionTramos);
+        secuencia.getChildren().add(animacionTramos);
     }
 
     protected void transicionMovimientoNoVisible(Tramo tramo){

@@ -5,12 +5,7 @@ import edu.fiuba.algo3.modelo.*;
 import javafx.animation.*;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.scene.shape.*;
-
-import java.io.File;
 import java.util.*;
 
 

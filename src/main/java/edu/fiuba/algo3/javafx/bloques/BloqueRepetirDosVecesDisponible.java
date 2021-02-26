@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.javafx.bloques;
 
-import edu.fiuba.algo3.javafx.bloques.BloqueDisponible;
 import edu.fiuba.algo3.javafx.botones.BotonSimple;
 import edu.fiuba.algo3.javafx.handlers.BotonAgregarBloqueRepeticionDosVecesEventHandler;
 import javafx.scene.layout.VBox;

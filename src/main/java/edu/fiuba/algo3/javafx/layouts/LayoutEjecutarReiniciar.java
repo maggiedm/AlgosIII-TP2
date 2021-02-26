@@ -5,8 +5,6 @@ import edu.fiuba.algo3.javafx.handlers.BotonEjecutarEventHandler;
 import edu.fiuba.algo3.javafx.handlers.BotonReiniciarEventHandler;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 public class LayoutEjecutarReiniciar extends HBox {

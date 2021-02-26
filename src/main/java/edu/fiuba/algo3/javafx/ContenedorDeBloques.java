@@ -2,7 +2,6 @@ package edu.fiuba.algo3.javafx;
 
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
 
 public class ContenedorDeBloques {
