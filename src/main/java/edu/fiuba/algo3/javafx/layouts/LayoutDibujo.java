@@ -10,7 +10,7 @@ import javafx.scene.shape.*;
 import java.util.*;
 
 
-public class LayoutDibujo extends StackPane {
+public class LayoutDibujo extends BorderPane {
     private final Pane hoja = new Pane();
     public Slider velocidad;
     static final private String DIR_INICIAL = "Derecha";
@@ -21,20 +21,17 @@ public class LayoutDibujo extends StackPane {
         //LAYOUT SLIDER
         LayoutSlider layoutSlider = new LayoutSlider();
         velocidad = layoutSlider.getSlider();
-        //PANEL DELANTERO
-        BorderPane panelDelantero = new BorderPane();
-        panelDelantero.setTop(layoutTitulo);
-        panelDelantero.setCenter(hoja);
-        panelDelantero.setBottom(layoutSlider);
         //THIS
-        hoja.setMinSize(w-20, h-40);
-        this.getChildren().addAll(hoja, panelDelantero);
+        this.setCenter(hoja);
+        this.setTop(layoutTitulo);
+        this.setBottom(layoutSlider);
+        hoja.setMinSize(w-20, h-105);
     }
 
     public void graficarMovimientos(Dibujo dib) {
 
         AnimacionCaminoPersonaje secPersonaje = new AnimacionCaminoPersonaje(hoja.getMinWidth()/2, hoja.getMinHeight()/2, DIR_INICIAL, VISIBILIDAD_INICIAL);
-        AnimacionCaminoDibujado secDibujado = new AnimacionCaminoDibujado(hoja.getMinWidth()*2, hoja.getMinHeight()*2, DIR_INICIAL, VISIBILIDAD_INICIAL);
+        AnimacionCaminoDibujado secDibujado = new AnimacionCaminoDibujado(hoja.getMinWidth(), hoja.getMinHeight(), DIR_INICIAL, VISIBILIDAD_INICIAL);
 
         List<Tramo> tramos = crearTramos(dib);
 

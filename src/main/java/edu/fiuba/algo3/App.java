@@ -7,11 +7,8 @@ import edu.fiuba.algo3.javafx.layouts.LayoutDibujo;
 import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReiniciar;
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Separator;
-import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -38,14 +35,9 @@ public class App extends Application {
         AlgoBlocks algoBlocks = new AlgoBlocks();
         LayoutDibujo layoutDibujo = new LayoutDibujo(max(SCREEN_WIDTH, MIN_SCREEN_WIDHT)-410,max(SCREEN_HEIGHT-150, MIN_SCREEN_HEIGHT-150));
 
-        // PANEL SUPERIOR: BANNER + BOTONES DE EJECUTAR Y REINICIAR
-        BorderPane panelSuperior = this.crearPanelSuperior(algoBlocks, layoutDibujo);
 
-        // PANEL INFERIOR: BLOQUES + ALGORITMO + DIBUJO
-        SplitPane panelInferior = this.crearPanelInferior(algoBlocks, layoutDibujo);
-
-        // PANEL PRINCIPAL: CONTIENE A panelInferior Y panelSuperior
-        VBox panelPrincipal = this.crearPanelPrincipal(panelSuperior, panelInferior);
+        // PANEL PRINCIPAL: CONTIENE A panelSuperior, layoutBloques, layoutAlgoritmo y layoutDibujo
+        BorderPane panelPrincipal = this.crearPanelPrincipal(algoBlocks, layoutDibujo);
 
         // ESCENARIO
         this.configurarEscenario(stage, panelPrincipal);
@@ -63,29 +55,24 @@ public class App extends Application {
         return panelSuperior;
     }
 
-    private SplitPane crearPanelInferior(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo) {
-        HBox panelInferior = new HBox();
-        SplitPane aux = new SplitPane();
+    private BorderPane crearPanelPrincipal(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo) {
+        BorderPane panelPrincipal = new BorderPane();
         LayoutBloques layoutBloques = new LayoutBloques(max(SCREEN_HEIGHT-150, MIN_SCREEN_HEIGHT-150));
         BotonGuardarAlgoritmo botonGuardarAlgoritmo = new BotonGuardarAlgoritmo(algoBlocks, layoutBloques );
         algoBlocks.getAlgoritmo().addObserver(botonGuardarAlgoritmo);
-        VBox layoutAlgoritmo = new LayoutAlgoritmo(algoBlocks, max(SCREEN_HEIGHT-150, MIN_SCREEN_HEIGHT-150));
-
+        LayoutAlgoritmo layoutAlgoritmo = new LayoutAlgoritmo(algoBlocks, max(SCREEN_HEIGHT-150, MIN_SCREEN_HEIGHT-150));
         VBox layoutAlgoritmoGuardar = new VBox(layoutAlgoritmo, botonGuardarAlgoritmo);
 
-        panelInferior.getChildren().addAll(layoutBloques, new Separator(Orientation.VERTICAL), layoutAlgoritmoGuardar);
-        aux.getItems().addAll(panelInferior, layoutDibujo);
-        panelInferior.setPrefWidth(340);
-        return aux;
-    }
+        panelPrincipal.setRight(layoutDibujo);
+        panelPrincipal.setLeft(layoutBloques);
+        panelPrincipal.setCenter(layoutAlgoritmoGuardar);
+        panelPrincipal.setTop(this.crearPanelSuperior(algoBlocks, layoutDibujo));
 
-    private VBox crearPanelPrincipal(BorderPane panelSuperior, SplitPane panelInferior) {
-        VBox panelPrincipal = new VBox();
-        panelPrincipal.getChildren().addAll(panelSuperior, panelInferior);
         return panelPrincipal;
     }
 
-    private void configurarEscenario(Stage stage, VBox panelPrincipal) {
+
+    private void configurarEscenario(Stage stage, BorderPane panelPrincipal) {
         Scene scene = new Scene(panelPrincipal);
         stage.setTitle("AlgoBlocks v2.0");
         stage.getIcons().add(new Image("file:recursos/Logo.png"));

@@ -25,15 +25,16 @@ public class BotonGuardarAlgoritmoEventHandler extends BotonHandler {
     public void handle(ActionEvent actionEvent) {
         super.handle(actionEvent);
         TextField nombre = new TextField();
-        Label nombreAlgoritmo = new Label("Guardar como:");
+        Label nombreAlgoritmo = new Label("NombreBloque:");
         Button botonIngresar = new Button("Ingresar");
-        Stage stage2 = new Stage();
-        stage2.setScene(new Scene(new VBox(new HBox(nombreAlgoritmo, nombre), botonIngresar)));
-        stage2.show();
+        Stage stageGuardar = new Stage();
+        stageGuardar.setTitle("Guardar como:");
+        stageGuardar.setScene(new Scene(new VBox(new HBox(nombreAlgoritmo, nombre), botonIngresar)));
+        stageGuardar.show();
 
         botonIngresar.setOnAction(internalEvent -> {
             super.handle(actionEvent);
-            stage2.close();
+            stageGuardar.close();
             layoutBloques.agregarBloquePersonalizado(nombre.getText(), algoBlocks);
         });
 
