@@ -4,10 +4,10 @@ import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.scene.layout.VBox;
 
-public class ContenedorDeBloquesPrincipal extends ContenedorDeBloques{
+public class BloqueCompuestoPrincipal extends BloqueCompuesto {
     private final AlgoBlocks contendorPrincipal;
 
-    public ContenedorDeBloquesPrincipal(AlgoBlocks unAlgoblocks, String unaDescripcion, VBox unLayout){
+    public BloqueCompuestoPrincipal(AlgoBlocks unAlgoblocks, String unaDescripcion, VBox unLayout){
         super(unaDescripcion, unLayout);
         contendorPrincipal = unAlgoblocks;
     }

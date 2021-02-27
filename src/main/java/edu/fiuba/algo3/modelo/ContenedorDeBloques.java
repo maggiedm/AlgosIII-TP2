@@ -5,9 +5,9 @@ import edu.fiuba.algo3.modelo.bloque.Bloque;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class SecuenciaBloques {
+public abstract class ContenedorDeBloques {
 
-    protected final List<Bloque> bloques = new ArrayList();
+    protected List<Bloque> bloques = new ArrayList<>();
 
     public void agregarBloque(Bloque unBloque) { bloques.add(unBloque); }
 

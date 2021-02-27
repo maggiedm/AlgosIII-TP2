@@ -4,11 +4,9 @@ import edu.fiuba.algo3.modelo.bloque.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static edu.fiuba.algo3.modelo.Direccion.PASO;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BloqueRepeticionTest {
 
@@ -117,7 +115,7 @@ public class BloqueRepeticionTest {
         Dibujo dibujo = new Dibujo();
         Personaje personaje = new Personaje(dibujo);
         BloqueRepeticion bloque = BloqueRepeticion.repetirDosVeces();
-        List<Bloque> lista = new ArrayList<>();
+        ArrayList<Bloque> lista = new ArrayList<>();
 
         lista.add(BloqueMovimiento.bloqueDerecha());
         lista.add(BloqueMovimiento.bloqueAbajo());
@@ -127,5 +125,19 @@ public class BloqueRepeticionTest {
         bloque.ejecutar(personaje);
 
         assertTrue(personaje.estaEnPosicion((new Posicion(PASO*2,PASO*2))));
+    }
+
+    @Test
+    public void test10CopiaBloqueRepeticionNoSeActualizaConOriginal(){
+        BloqueRepeticion bR = BloqueRepeticion.repetirDosVeces();
+        Personaje personaje = new Personaje(new Dibujo());
+
+        bR.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        bR.agregarBloque(BloqueMovimiento.bloqueArriba());
+        BloqueRepeticion copia= bR.clone();
+        bR.agregarBloque(BloqueMovimiento.bloqueArriba());
+        copia.ejecutar(personaje);
+
+        assertTrue(personaje.estaEnPosicion(new Posicion(2*PASO, -2*PASO)));
     }
 }

@@ -3,10 +3,8 @@ package edu.fiuba.algo3.javafx;
 import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.javafx.layouts.LayoutBotonesGuardarCancelar;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class GuardarBloqueVista {

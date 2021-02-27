@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.bloque.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static edu.fiuba.algo3.modelo.Direccion.PASO;
 import static org.junit.jupiter.api.Assertions.*;
@@ -145,7 +144,7 @@ public class BloqueInversionTest {
     public void test11BloqueInversionConBloquePersonalizadoTienePosicionCorrecta(){
         BloqueInversion bI = new BloqueInversion();
         Personaje personaje = new Personaje(new Dibujo());
-        List<Bloque> lista = new ArrayList<>();
+        ArrayList<Bloque> lista = new ArrayList<>();
 
         lista.add(BloqueMovimiento.bloqueDerecha());
         lista.add(BloqueMovimiento.bloqueArriba());
@@ -161,7 +160,7 @@ public class BloqueInversionTest {
         Dibujo dibujo = new Dibujo();
         BloqueInversion bI = new BloqueInversion();
         Personaje personaje = new Personaje(dibujo);
-        List<Bloque> lista = new ArrayList<>();
+        ArrayList<Bloque> lista = new ArrayList<>();
 
         lista.add(BloqueMovimiento.bloqueDerecha());
         lista.add(new BloqueBajarLapiz());
@@ -172,5 +171,19 @@ public class BloqueInversionTest {
 
         assertTrue(dibujo.tieneLinea(new Linea(new Posicion(0, 0), new Posicion(-PASO, 0), true)) &&
                 dibujo.tieneLinea(new Linea(new Posicion(-PASO, 0), new Posicion(-PASO, PASO), false)));
+    }
+
+    @Test
+    public void test13CopiaBloqueInversionNoSeActualizaConOriginal(){
+        BloqueInversion bI = new BloqueInversion();
+        Personaje personaje = new Personaje(new Dibujo());
+
+        bI.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        bI.agregarBloque(BloqueMovimiento.bloqueArriba());
+        BloqueInversion copia= bI.clone();
+        bI.agregarBloque(BloqueMovimiento.bloqueArriba());
+        copia.ejecutar(personaje);
+
+        assertTrue(personaje.estaEnPosicion(new Posicion(-PASO, PASO)));
     }
 }

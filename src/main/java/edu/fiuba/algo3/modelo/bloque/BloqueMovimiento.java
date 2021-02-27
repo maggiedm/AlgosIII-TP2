@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.bloque;
 import edu.fiuba.algo3.modelo.Direccion;
 import edu.fiuba.algo3.modelo.Personaje;
 
-public class BloqueMovimiento implements Bloque {
+public class BloqueMovimiento extends BloqueSimple {
 
         private final Direccion direccion;
 
@@ -32,4 +32,5 @@ public class BloqueMovimiento implements Bloque {
         public Bloque invertir(){
                 return new BloqueMovimiento(direccion.invertir());
         }
+
 }

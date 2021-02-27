@@ -2,7 +2,6 @@ package edu.fiuba.algo3.javafx;
 
 import javafx.scene.control.ChoiceBox;
 
-
 public class SeleccionadorBloqueCompuestoVista extends ChoiceBox<String> {
 
     public SeleccionadorBloqueCompuestoVista(String nombre){

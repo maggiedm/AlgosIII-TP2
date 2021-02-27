@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.javafx;
 
 import edu.fiuba.algo3.modelo.AlgoBlocks;
-import edu.fiuba.algo3.modelo.SecuenciaBloques;
+import edu.fiuba.algo3.modelo.ContenedorDeBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.geometry.Insets;
 import javafx.scene.layout.VBox;
@@ -10,20 +10,20 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SeleccionadorBloqueCompuesto {
-    private static final List<ContenedorDeBloques> bloquesCompuestos = new ArrayList<>();
+    private static final List<BloqueCompuesto> bloquesCompuestos = new ArrayList<>();
     private static SeleccionadorBloqueCompuestoVista seleccionadorBloqueCompuestoVista = new SeleccionadorBloqueCompuestoVista("Algoritmo");
     private static final HashMap<String, Integer> cantMismoBloqueCompuesto= new HashMap<>();
 
 
     public SeleccionadorBloqueCompuesto(AlgoBlocks algoBlocks, VBox layoutAlgoritmo){
-        bloquesCompuestos.add(new ContenedorDeBloquesPrincipal(algoBlocks,"Algoritmo", layoutAlgoritmo));//Guardar Algoritmo como BloqueCompuesto
+        bloquesCompuestos.add(new BloqueCompuestoPrincipal(algoBlocks,"Algoritmo", layoutAlgoritmo));//Guardar Algoritmo como BloqueCompuesto
 
         cargarDiccionarioBloquesCompuestos();
         layoutAlgoritmo.getChildren().add(seleccionadorBloqueCompuestoVista);
     }
 
     public static void reiniciar(){
-        ContenedorDeBloquesPrincipal algoblocks = (ContenedorDeBloquesPrincipal) bloquesCompuestos.get(0);
+        BloqueCompuestoPrincipal algoblocks = (BloqueCompuestoPrincipal) bloquesCompuestos.get(0);
         bloquesCompuestos.clear();
         bloquesCompuestos.add(algoblocks);
 
@@ -34,7 +34,7 @@ public class SeleccionadorBloqueCompuesto {
         cantMismoBloqueCompuesto.forEach((s, integer) -> cantMismoBloqueCompuesto.replace(s, 0));
     }
 
-    public static ContenedorDeBloques bloqueActual(){
+    public static BloqueCompuesto bloqueActual(){
         return bloquesCompuestos.stream()
                 .filter(contenedor -> contenedor.tieneDescripcion(seleccionadorBloqueCompuestoVista.getActual()))
                 .findAny()
@@ -42,7 +42,7 @@ public class SeleccionadorBloqueCompuesto {
     }
 
     public static void agregar (Bloque bloque, String rutaImagen) {
-        ContenedorDeBloques bloqueActual = SeleccionadorBloqueCompuesto.bloqueActual();
+        BloqueCompuesto bloqueActual = SeleccionadorBloqueCompuesto.bloqueActual();
 
         String aux = nombreBloque(rutaImagen);
         String descripcion = ("Bloque" + aux + " - " + cantMismoBloqueCompuesto.get(aux));
@@ -53,7 +53,7 @@ public class SeleccionadorBloqueCompuesto {
         VBox layoutContenedorNuevo = Vista.crearLayoutContenedorDeBloques(layoutSecuenciaNueva,rutaImagen);
         Vista.agregarMarcadorFinal(layoutContenedorNuevo,descripcion);
 
-        bloquesCompuestos.add(new ContenedorDeBloques((SecuenciaBloques) bloque,descripcion,layoutSecuenciaNueva));
+        bloquesCompuestos.add(new BloqueCompuesto((ContenedorDeBloques) bloque,descripcion,layoutSecuenciaNueva));
 
         bloqueActual.agregarBloqueContenedor(bloque,descripcion, layoutContenedorNuevo);
 

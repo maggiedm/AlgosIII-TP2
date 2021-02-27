@@ -39,13 +39,13 @@ public class BloquesDisponibles {
                 "Sube el lapiz para que el personaje no dibuje.",
                 RUTA_IMAGENES + "LapizSubir.png"));
 
-        bloques.add(new BloqueRepetirDosVecesDisponible("Repite dos veces la secuencia de bloques ingresada.",
+        bloques.add(new BloqueContenedorDisponible(BloqueRepeticion.repetirDosVeces(), "Repite dos veces la secuencia de bloques ingresada.",
                 RUTA_IMAGENES + "Repetir2.png"));
 
-        bloques.add(new BloqueRepetirTresVecesDisponible("Repite tres veces la secuencia de bloques ingresada.",
+        bloques.add(new BloqueContenedorDisponible(BloqueRepeticion.repetirTresVeces(), "Repite tres veces la secuencia de bloques ingresada.",
                 RUTA_IMAGENES + "Repetir3.png"));
 
-        bloques.add(new BloqueInvertirDisponible("Invierte la secuencia de bloques ingresada.",
+        bloques.add(new BloqueContenedorDisponible(new BloqueInversion(), "Invierte la secuencia de bloques ingresada.",
                 RUTA_IMAGENES + "Invertir.png"));
     }
 

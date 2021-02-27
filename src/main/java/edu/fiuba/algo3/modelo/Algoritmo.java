@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.bloque.BloquePersonalizado;
 
-public class Algoritmo extends SecuenciaBloques{
+public class Algoritmo extends ContenedorDeBloques {
 
     public int getCantidadDeBloques() { return bloques.size(); }
 

@@ -1,14 +1,9 @@
 package edu.fiuba.algo3.javafx;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.PathTransition;
-import javafx.animation.PauseTransition;
-import javafx.animation.SequentialTransition;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.animation.*;
+import javafx.scene.image.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-
 import java.util.HashMap;
 
 public class AnimacionCaminoPersonaje extends AnimacionCamino {

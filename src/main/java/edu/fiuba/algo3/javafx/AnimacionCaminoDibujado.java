@@ -1,19 +1,13 @@
 package edu.fiuba.algo3.javafx;
 
 import edu.fiuba.algo3.modelo.Posicion;
-import javafx.animation.Animation;
-import javafx.animation.PathTransition;
-import javafx.animation.PauseTransition;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
+import javafx.animation.*;
+import javafx.beans.value.*;
+import javafx.scene.canvas.*;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Path;
+import javafx.scene.shape.*;
 import javafx.util.Duration;
 
 import java.io.File;

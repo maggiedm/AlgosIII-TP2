@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.modelo.bloque;
 
 import edu.fiuba.algo3.modelo.Personaje;
-import edu.fiuba.algo3.modelo.SecuenciaBloques;
 
-public class BloqueRepeticion extends SecuenciaBloques implements Bloque{
+public class BloqueRepeticion extends BloqueContenedor{
     private final int cantidad;
 
     private BloqueRepeticion(int cant){
@@ -25,11 +24,16 @@ public class BloqueRepeticion extends SecuenciaBloques implements Bloque{
         }
     }
 
-    public Bloque invertir(){
+    public BloqueRepeticion invertir(){
         BloqueRepeticion nBloque = new BloqueRepeticion(cantidad);
         for (int i = bloques.size() - 1; i >= 0 ; i--) {
             nBloque.agregarBloque(bloques.get(i).invertir());
         }
         return nBloque;
+    }
+
+    @Override
+    public BloqueRepeticion clone(){
+        return (BloqueRepeticion) super.clone();
     }
 }
