@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Personaje;
 
 public class BloqueBajarLapiz implements Bloque {
 
-
     public void ejecutar(Personaje unPersonaje) { unPersonaje.bajarLapiz(); }
 
     public Bloque invertir(){

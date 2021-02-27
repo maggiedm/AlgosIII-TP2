@@ -56,7 +56,7 @@ public class App extends Application {
         BorderPane panelPrincipal = new BorderPane();
         LayoutBloques layoutBloques = new LayoutBloques(SCREEN_HEIGHT - 150);
         BotonGuardarAlgoritmo botonGuardarAlgoritmo = new BotonGuardarAlgoritmo(algoBlocks, layoutBloques );
-        algoBlocks.getAlgoritmo().addObserver(botonGuardarAlgoritmo);
+        algoBlocks.addObserver(botonGuardarAlgoritmo);
         LayoutAlgoritmo layoutAlgoritmo = new LayoutAlgoritmo(algoBlocks, SCREEN_HEIGHT - 150);
         VBox layoutAlgoritmoGuardar = new VBox(layoutAlgoritmo, botonGuardarAlgoritmo);
 

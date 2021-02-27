@@ -28,7 +28,7 @@ public class Linea {
         return ((origen.esIgualA(linea.origen) && destino.esIgualA(linea.destino) && visibilidad == linea.esVisible()));
     }
 
-    public String getDireccion() throws DireccionInvalidaException{
+    public String getDireccion() throws DireccionDesplazamientoInvalidaException {
         return Direccion.direccionDesplazamiento(destino.desplazaminetoEnX(origen), destino.desplazamientoEnY(origen));
     }
 }

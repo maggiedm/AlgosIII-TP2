@@ -5,12 +5,17 @@ import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.scene.layout.VBox;
 
 public class ContenedorDeBloques {
-    private final SecuenciaBloques bloqueCompuesto;
-    private final String descripcion;
-    private final VBox layout;
+    private SecuenciaBloques bloqueCompuesto = null;
+    protected final String descripcion;
+    protected final VBox layout;
 
     public ContenedorDeBloques(SecuenciaBloques unBloqueCompuesto, String unaDescripcion, VBox unLayout){
         bloqueCompuesto = unBloqueCompuesto;
+        descripcion = unaDescripcion;
+        layout = unLayout;
+    }
+
+    protected ContenedorDeBloques(String unaDescripcion, VBox unLayout){
         descripcion = unaDescripcion;
         layout = unLayout;
     }
@@ -26,7 +31,7 @@ public class ContenedorDeBloques {
 
     public void agregarBloqueContenedor(Bloque bloque, String descripcion, VBox layoutContenedor) {
         this.agregarBloque(bloque, descripcion);
-        layout.getChildren().add(layoutContenedor);//Agregar antes del marcador
+        layout.getChildren().add(layoutContenedor);
     }
     public void reiniciarLayoutAlgoritmo(SeleccionadorBloqueCompuestoVista seleccionadorBloqueCompuestoVista){
         layout.getChildren().clear();

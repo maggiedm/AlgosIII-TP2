@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.SecuenciaBloques;
 
 public class BloqueInversion extends SecuenciaBloques implements Bloque{
 
+    @Override
     public void ejecutar(Personaje unPersonaje){
         bloques.forEach(bloque -> bloque.invertir().ejecutar(unPersonaje));
     }

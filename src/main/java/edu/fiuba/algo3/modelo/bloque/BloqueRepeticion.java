@@ -18,6 +18,7 @@ public class BloqueRepeticion extends SecuenciaBloques implements Bloque{
         return new BloqueRepeticion(3);
     }
 
+    @Override
     public void ejecutar(Personaje unPersonaje){
         for (int i = 0; i < cantidad; i++){
             super.ejecutar(unPersonaje);

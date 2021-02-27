@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.javafx;
 
+import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.SecuenciaBloques;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.geometry.Insets;
@@ -14,8 +15,8 @@ public class SeleccionadorBloqueCompuesto {
     private static final HashMap<String, Integer> cantMismoBloqueCompuesto= new HashMap<>();
 
 
-    public SeleccionadorBloqueCompuesto(SecuenciaBloques algoritmo, VBox layoutAlgoritmo){
-        bloquesCompuestos.add(new ContenedorDeBloques(algoritmo,"Algoritmo", layoutAlgoritmo));//Guardar Algoritmo como BloqueCompuesto
+    public SeleccionadorBloqueCompuesto(AlgoBlocks algoBlocks, VBox layoutAlgoritmo){
+        bloquesCompuestos.add(new ContenedorDeBloquesPrincipal(algoBlocks,"Algoritmo", layoutAlgoritmo));//Guardar Algoritmo como BloqueCompuesto
 
         cargarDiccionarioBloquesCompuestos();
         layoutAlgoritmo.getChildren().add(seleccionadorBloqueCompuestoVista);

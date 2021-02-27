@@ -10,5 +10,4 @@ public class BloqueSubirLapiz implements Bloque {
         return new BloqueBajarLapiz();
     }
 
-
 }

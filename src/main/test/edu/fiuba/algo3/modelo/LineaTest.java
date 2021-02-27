@@ -61,6 +61,6 @@ public class LineaTest {
 
     @Test
     public void test11UnaLineaConDesplazamientoEnEjeXEYLanzaExcepcion(){
-        assertThrows(DireccionInvalidaException.class, () -> new Linea(new Posicion(), new Posicion(1, 1), true).getDireccion());
+        assertThrows(DireccionDesplazamientoInvalidaException.class, () -> new Linea(new Posicion(), new Posicion(1, 1), true).getDireccion());
     }
 }

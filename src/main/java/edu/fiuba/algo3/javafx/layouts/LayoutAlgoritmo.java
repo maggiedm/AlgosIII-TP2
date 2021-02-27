@@ -20,7 +20,7 @@ public class LayoutAlgoritmo extends VBox {
 
         VBox contenido = new VBox(10);
         contenedor.getChildren().add(contenido);
-        new SeleccionadorBloqueCompuesto(algoBlocks.getAlgoritmo(), contenido);
+        new SeleccionadorBloqueCompuesto(algoBlocks, contenido);
 
 
         Vista.agregarMarcadorFinal(contenedor,"Algoritmo");//Puntero final de Algoritmo

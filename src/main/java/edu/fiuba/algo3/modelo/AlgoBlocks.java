@@ -3,16 +3,15 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import edu.fiuba.algo3.modelo.bloque.BloquePersonalizado;
 
+import java.util.ArrayList;
 
-public class AlgoBlocks {
+
+public class AlgoBlocks implements Observable{
     private final Dibujo dibujo = new Dibujo();
     private final Personaje personaje = new Personaje(dibujo);
     private final Algoritmo algoritmo = new Algoritmo();
+    private final ArrayList<Observer> observers = new ArrayList<>();
 
-
-    public Algoritmo getAlgoritmo() {
-        return algoritmo;
-    }
 
     public Dibujo getDibujo() {
         return dibujo;
@@ -24,6 +23,7 @@ public class AlgoBlocks {
 
     public void agregarBloque(Bloque unBloque) {
         algoritmo.agregarBloque(unBloque);
+        notifyObservers();
     }
 
     public BloquePersonalizado guardarAlgoritmo() {
@@ -46,7 +46,17 @@ public class AlgoBlocks {
         dibujo.reiniciar();
         algoritmo.reiniciar();
         personaje.reiniciar();
+        notifyObservers();
     }
 
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        observers.forEach(observer -> observer.change(this));
+    }
 
 }

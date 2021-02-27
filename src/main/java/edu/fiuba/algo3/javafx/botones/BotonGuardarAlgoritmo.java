@@ -3,7 +3,6 @@ package edu.fiuba.algo3.javafx.botones;
 import edu.fiuba.algo3.javafx.handlers.BotonGuardarAlgoritmoEventHandler;
 import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
-import edu.fiuba.algo3.modelo.Algoritmo;
 import edu.fiuba.algo3.modelo.Observer;
 
 
@@ -17,8 +16,8 @@ public class BotonGuardarAlgoritmo  extends BotonSimple implements Observer{
 
     @Override
     public void change(Object obj) {
-        Algoritmo algoBlocks = (Algoritmo) obj;
+        AlgoBlocks algoBlocks = (AlgoBlocks) obj;
 
-        this.setVisible(algoBlocks.getCantidadDeBloques() != 0);
+        this.setVisible(algoBlocks.cantidadDeBloquesEnAlgoritmo() != 0);
     }
 }

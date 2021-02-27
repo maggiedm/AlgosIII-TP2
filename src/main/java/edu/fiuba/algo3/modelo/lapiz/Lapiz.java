@@ -8,12 +8,12 @@ public class Lapiz {
 
     public void bajar(Dibujo dibujo, Posicion posicion) {
         condicion = new LapizAbajo();
-        dibujo.dibujarLinea(posicion, posicion, true);
+        this.dibujarLinea(posicion, posicion, dibujo);
     }
 
     public void subir(Dibujo dibujo, Posicion posicion) {
         condicion = new LapizArriba();
-        dibujo.dibujarLinea(posicion, posicion, false);
+        this.dibujarLinea(posicion, posicion, dibujo);
     }
 
     public void dibujarLinea(Posicion origen, Posicion destino, Dibujo dibujo){
