@@ -33,8 +33,4 @@ public class ContenedorDeBloques {
         this.agregarBloque(bloque, descripcion);
         layout.getChildren().add(layoutContenedor);
     }
-    public void reiniciarLayoutAlgoritmo(SeleccionadorBloqueCompuestoVista seleccionadorBloqueCompuestoVista){
-        layout.getChildren().clear();
-        layout.getChildren().add(seleccionadorBloqueCompuestoVista);
-    }
 }

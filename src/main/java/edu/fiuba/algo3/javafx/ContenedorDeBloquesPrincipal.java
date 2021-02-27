@@ -17,4 +17,9 @@ public class ContenedorDeBloquesPrincipal extends ContenedorDeBloques{
         contendorPrincipal.agregarBloque(bloque);
         new MostradorBloqueSimple(rutaImagen, layout);
     }
+
+    public void reiniciarLayoutAlgoritmo(SeleccionadorBloqueCompuestoVista seleccionadorBloqueCompuestoVista){
+        layout.getChildren().clear();
+        layout.getChildren().add(seleccionadorBloqueCompuestoVista);
+    }
 }

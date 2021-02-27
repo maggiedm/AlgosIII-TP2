@@ -23,13 +23,13 @@ public class SeleccionadorBloqueCompuesto {
     }
 
     public static void reiniciar(){
-        ContenedorDeBloques algoritmo = bloquesCompuestos.get(0);
+        ContenedorDeBloquesPrincipal algoblocks = (ContenedorDeBloquesPrincipal) bloquesCompuestos.get(0);
         bloquesCompuestos.clear();
-        bloquesCompuestos.add(algoritmo);
+        bloquesCompuestos.add(algoblocks);
 
         seleccionadorBloqueCompuestoVista = new SeleccionadorBloqueCompuestoVista("Algoritmo");
 
-        algoritmo.reiniciarLayoutAlgoritmo(seleccionadorBloqueCompuestoVista);
+        algoblocks.reiniciarLayoutAlgoritmo(seleccionadorBloqueCompuestoVista);
 
         cantMismoBloqueCompuesto.forEach((s, integer) -> cantMismoBloqueCompuesto.replace(s, 0));
     }
