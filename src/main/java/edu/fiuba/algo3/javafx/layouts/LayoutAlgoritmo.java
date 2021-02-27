@@ -14,9 +14,9 @@ public class LayoutAlgoritmo extends VBox {
         VBox contenedor = new VBox(10);
         ScrollPane sP = new ScrollPane(contenedor);
         sP.setMinViewportWidth(200);
-        sP.setPrefViewportHeight(altura-30);
-        Vista.agregarTitulo(this,"Algoritmo");
-        this.getChildren().add(sP);
+        sP.setPrefViewportHeight(altura-50);
+        this.getChildren().addAll(new LayoutTitulo("Algoritmo"), sP);
+        this.setStyle("-fx-background-color: lightgray;" + "-fx-border-width: 2px;" + "-fx-border-color: lightgray");
 
         VBox contenido = new VBox(10);
         contenedor.getChildren().add(contenido);

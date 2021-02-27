@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.javafx;
 
-import edu.fiuba.algo3.javafx.bloques.*;
+import edu.fiuba.algo3.javafx.bloquesDisponibles.*;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.bloque.*;
 import javafx.scene.layout.VBox;

@@ -30,7 +30,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         AlgoBlocks algoBlocks = new AlgoBlocks();
-        LayoutDibujo layoutDibujo = new LayoutDibujo(SCREEN_WIDTH-410,SCREEN_HEIGHT-150);
+        LayoutDibujo layoutDibujo = new LayoutDibujo(SCREEN_WIDTH-420,SCREEN_HEIGHT-150);
 
 
         // PANEL PRINCIPAL: CONTIENE A panelSuperior, layoutBloques, layoutAlgoritmo y layoutDibujo
@@ -56,9 +56,9 @@ public class App extends Application {
         BorderPane panelPrincipal = new BorderPane();
         LayoutBloques layoutBloques = new LayoutBloques(SCREEN_HEIGHT - 150);
         BotonGuardarAlgoritmo botonGuardarAlgoritmo = new BotonGuardarAlgoritmo(algoBlocks, layoutBloques );
-        algoBlocks.addObserver(botonGuardarAlgoritmo);
         LayoutAlgoritmo layoutAlgoritmo = new LayoutAlgoritmo(algoBlocks, SCREEN_HEIGHT - 150);
         VBox layoutAlgoritmoGuardar = new VBox(layoutAlgoritmo, botonGuardarAlgoritmo);
+        layoutAlgoritmoGuardar.setStyle("-fx-background-color: lightgray");
 
         panelPrincipal.setRight(layoutDibujo);
         panelPrincipal.setLeft(layoutBloques);

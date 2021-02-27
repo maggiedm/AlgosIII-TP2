@@ -7,18 +7,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 public class Vista {
-    public static void agregarTitulo(Pane layout, String descripcion){
-
-        Label etiqueta = new Label(descripcion);
-        etiqueta.setFont(Font.font(20));
-        etiqueta.setStyle(
-            "-fx-font-size: 20px;" +
-            "-fx-font-weight: bold;" +
-            "-fx-text-fill: #333333;" +
-            "-fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );" +
-            "-fx-alignment: center");
-        layout.getChildren().add(etiqueta);
-    }
     public static void agregarMarcadorFinal(VBox layout, String descripcion) {
 
         Label etiqueta = new Label(descripcion);

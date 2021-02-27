@@ -24,6 +24,7 @@ public class LayoutDibujo extends BorderPane {
         this.setCenter(hoja);
         this.setTop(layoutTitulo);
         this.setBottom(layoutSlider);
+        this.setStyle("-fx-border-width: 2px;" + "-fx-border-color: lightgray");
         hoja.setMinSize(w-20, h-105);
     }
 

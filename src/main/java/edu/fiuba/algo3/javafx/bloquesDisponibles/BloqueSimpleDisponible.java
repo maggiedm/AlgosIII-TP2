@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.javafx.bloques;
+package edu.fiuba.algo3.javafx.bloquesDisponibles;
 
 import edu.fiuba.algo3.javafx.botones.BotonSimple;
 import edu.fiuba.algo3.javafx.handlers.BotonAgregarBloqueEventHandler;
