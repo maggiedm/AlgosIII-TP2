@@ -8,10 +8,8 @@ import edu.fiuba.algo3.javafx.layouts.LayoutDibujo;
 import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReiniciar;
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -43,19 +41,19 @@ public class App extends Application {
 
     private BorderPane crearPanelSuperior(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo) {
         BorderPane panelSuperior = new BorderPane();
+
         panelSuperior.setPadding(new Insets(0, 25, 0, 0));
         panelSuperior.setStyle("-fx-background-color: rgb(0, 176, 189)");
-        HBox layoutEjecutarReiniciar = new LayoutEjecutarReiniciar(algoBlocks, layoutDibujo);
         panelSuperior.setLeft(new ImageView("file:recursos/imagenes/Banner.png"));
-        panelSuperior.setRight(layoutEjecutarReiniciar);
-        layoutEjecutarReiniciar.setAlignment(Pos.CENTER_RIGHT);
+        panelSuperior.setRight(new LayoutEjecutarReiniciar(algoBlocks, layoutDibujo));
+
         return panelSuperior;
     }
 
     private BorderPane crearPanelPrincipal(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo) {
         BorderPane panelPrincipal = new BorderPane();
         LayoutBloques layoutBloques = new LayoutBloques(SCREEN_HEIGHT - 150);
-        BotonGuardarAlgoritmo botonGuardarAlgoritmo = new BotonGuardarAlgoritmo(algoBlocks, layoutBloques );
+        BotonGuardarAlgoritmo botonGuardarAlgoritmo = new BotonGuardarAlgoritmo(algoBlocks, layoutBloques);
         LayoutAlgoritmo layoutAlgoritmo = new LayoutAlgoritmo(algoBlocks, SCREEN_HEIGHT - 150);
         VBox layoutAlgoritmoGuardar = new VBox(layoutAlgoritmo, botonGuardarAlgoritmo);
         layoutAlgoritmoGuardar.setStyle("-fx-background-color: lightgray");

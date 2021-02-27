@@ -42,7 +42,7 @@ public class SeleccionadorBloqueCompuesto {
     }
 
     public static void agregar (Bloque bloque, String rutaImagen) {
-        BloqueCompuesto bloqueActual = SeleccionadorBloqueCompuesto.bloqueActual();
+        BloqueCompuesto bloqueActual = bloqueActual();
 
         String aux = nombreBloque(rutaImagen);
         String descripcion = ("Bloque" + aux + " - " + cantMismoBloqueCompuesto.get(aux));

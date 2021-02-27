@@ -12,8 +12,8 @@ public class LayoutBotonesGuardarCancelar extends HBox {
 
     public LayoutBotonesGuardarCancelar(AlgoBlocks algoBlocks, LayoutBloques layoutBloques, String nombreBloque, Stage escenarioGuardar){
         Button botonIngresar = new Button("Guardar");
-        Button botonCancelar = new Button("Cancelar");
         botonIngresar.setOnAction(new BotonIngresarHandler(escenarioGuardar, nombreBloque, algoBlocks, layoutBloques));
+        Button botonCancelar = new Button("Cancelar");
         botonCancelar.setOnAction(new BotonCancelarHandler(escenarioGuardar));
         this.setWidth(250);
         this.setAlignment(Pos.TOP_RIGHT);

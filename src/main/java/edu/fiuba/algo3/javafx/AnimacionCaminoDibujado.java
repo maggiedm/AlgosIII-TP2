@@ -6,7 +6,6 @@ import javafx.beans.value.*;
 import javafx.scene.canvas.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.*;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.util.Duration;
 
@@ -41,13 +40,11 @@ public class AnimacionCaminoDibujado extends AnimacionCamino {
     }
 
     private Animation crearAnimacionTramos(Path camino, Duration duration) {
-
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+        GraphicsContext contenido = canvas.getGraphicsContext2D();
         Circle lapiz = new Circle(0, 0, 2);
 
         PathTransition transicionCamino = new PathTransition( duration, camino, lapiz);
         transicionCamino.currentTimeProperty().addListener( new ChangeListener<>() {
-
             Posicion origen = null;
 
             @Override
@@ -63,10 +60,9 @@ public class AnimacionCaminoDibujado extends AnimacionCamino {
                     origen = new Posicion(x, y);
                     return;
                 }
-                gc.setStroke(LIGHTSLATEGREY);
-                gc.setFill(Color.BLUE);
-                gc.setLineWidth(2);
-                gc.strokeLine(origen.getX(), origen.getY(), x, y);
+                contenido.setStroke(LIGHTSLATEGREY);
+                contenido.setLineWidth(2);
+                contenido.strokeLine(origen.getX(), origen.getY(), x, y);
 
                 origen = new Posicion(x, y);
             }

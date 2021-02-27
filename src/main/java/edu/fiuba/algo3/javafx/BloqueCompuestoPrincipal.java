@@ -18,7 +18,7 @@ public class BloqueCompuestoPrincipal extends BloqueCompuesto {
         new MostradorBloqueSimple(rutaImagen, layout);
     }
 
-    public void reiniciarLayoutAlgoritmo(SeleccionadorBloqueCompuestoVista seleccionadorBloqueCompuestoVista){
+    public void reiniciarLayoutAlgoritmo(SeleccionadorBloqueCompuestoVista seleccionadorBloqueCompuestoVista){ //ChoiceBox no debería estar adentro del ScrollPane
         layout.getChildren().clear();
         layout.getChildren().add(seleccionadorBloqueCompuestoVista);
     }

@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class Vista {
-    public static void agregarMarcadorFinal(VBox layout, String descripcion) {
+    public static void agregarMarcadorFinal(VBox layout, String descripcion) {      //parte de SeleccionadorBloqueCompuesto(Vista) ?
 
         Label etiqueta = new Label(descripcion);
         etiqueta.setStyle(
@@ -21,7 +21,7 @@ public class Vista {
         layout.getChildren().add(etiqueta);
     }
 
-    public static VBox crearLayoutContenedorDeBloques(VBox layoutSecuenciaNueva, String rutaImagen) {
+    public static VBox crearLayoutContenedorDeBloques(VBox layoutSecuenciaNueva, String rutaImagen) {   //Clase LayoutContenedorDeBloques
         VBox layoutContenedor = new VBox();
 
         layoutContenedor.getChildren().addAll(new ImageView("file:" + rutaImagen), layoutSecuenciaNueva);
