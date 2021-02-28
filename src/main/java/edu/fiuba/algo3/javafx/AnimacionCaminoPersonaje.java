@@ -8,8 +8,8 @@ import java.util.HashMap;
 
 public class AnimacionCaminoPersonaje extends AnimacionCamino {
 
-    private final ImageView personaje = new ImageView();
     static final String RUTA_IMAGENES = "recursos/imagenes/personaje/";
+    private final ImageView personaje = new ImageView();
     private final HashMap<String, Image> imgDirLapizArriba = imagenesDireccionPersonaje(
             "lArr");
     private final HashMap<String, Image> imgDirLapizAbajo = imagenesDireccionPersonaje(

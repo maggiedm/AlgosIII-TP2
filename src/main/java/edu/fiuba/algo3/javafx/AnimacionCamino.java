@@ -6,7 +6,7 @@ import javafx.util.Duration;
 
 public abstract class AnimacionCamino {
     protected String dirActual;
-    public SequentialTransition secuencia;
+    protected SequentialTransition secuencia;
     protected boolean visibilidadActual;
 
     protected AnimacionCamino(String dirInicial, boolean visibilidadInicial){
@@ -23,6 +23,10 @@ public abstract class AnimacionCamino {
             transicionMovimiento(tramo);
             dirActual = tramo.getDireccion();
         }
+    }
+
+    public SequentialTransition getSecuencia(){
+        return secuencia;
     }
 
     private void transicionMovimiento(Tramo tramo){

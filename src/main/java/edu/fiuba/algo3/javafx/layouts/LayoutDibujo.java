@@ -9,8 +9,8 @@ import java.util.*;
 
 
 public class LayoutDibujo extends BorderPane {
+    private final Slider velocidad;
     private final Pane hoja = new Pane();
-    public Slider velocidad;
     static final private String DIR_INICIAL = "Derecha";
     static final private boolean VISIBILIDAD_INICIAL = true;
 
@@ -42,7 +42,7 @@ public class LayoutDibujo extends BorderPane {
         secPersonaje.agregarAlLayout(hoja);
 
         ParallelTransition pT = new ParallelTransition();
-        pT.getChildren().addAll(secDibujado.secuencia, secPersonaje.secuencia);
+        pT.getChildren().addAll(secDibujado.getSecuencia(), secPersonaje.getSecuencia());
         pT.rateProperty().bind(velocidad.valueProperty());
         pT.play();
     }
