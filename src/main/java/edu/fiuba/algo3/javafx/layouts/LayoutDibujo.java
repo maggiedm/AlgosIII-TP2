@@ -55,7 +55,7 @@ public class LayoutDibujo extends BorderPane {
             if(!Objects.equals(tramo.getDireccion(), linea.getDireccion())){ //SI DIRECCION CAMBIA
                 if(tramo.getTam() != 0){
                     tramos.add(tramo);
-                    tramo = new Tramo(linea.esVisible(), linea.getDireccion());
+                    tramo = new Tramo(tramo.esVisible(), tramo.getDireccion());
                 }
                 if(!esMovimientoDeLapiz(linea)){
                     tramo.actualizarDireccion(linea.getDireccion());
@@ -67,7 +67,7 @@ public class LayoutDibujo extends BorderPane {
                 tramo.actualizarVisibilidad(linea.esVisible());
                 if(esMovimientoDeLapiz(linea)){
                     tramos.add(tramo);
-                    tramo = new Tramo(linea.esVisible(), tramo.getDireccion());
+                    tramo = new Tramo(tramo.esVisible(), tramo.getDireccion());
                 }
             }
         }
