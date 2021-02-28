@@ -14,9 +14,4 @@ public class BloqueInversion extends BloqueContenedor{
         bloques.forEach(bloque -> unBloque.agregarBloque(bloque.invertir()));
         return unBloque;
     }
-
-    @Override
-    public BloqueInversion clone() {
-        return (BloqueInversion) super.clone();
-    }
 }

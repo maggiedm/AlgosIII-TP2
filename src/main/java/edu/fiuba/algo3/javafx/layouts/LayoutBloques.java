@@ -23,7 +23,4 @@ public class LayoutBloques extends VBox{
     public void agregarBloquePersonalizado(String nombre, AlgoBlocks algoBlocks){
         bloquesDisponibles.agregarBloquePersonalizado(nombre, algoBlocks, contenido);
     }
-
-
-
 }

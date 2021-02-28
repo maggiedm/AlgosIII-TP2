@@ -25,12 +25,12 @@ public class BloqueCompuesto {
     }
 
     public void agregarBloque(Bloque bloque, String rutaImagen) {
-        bloqueCompuesto.agregarBloque(bloque);
-        new MostradorBloqueSimple(rutaImagen, layout);
+        bloqueCompuesto.agregarBloque(bloque);  //esto es controlador
+        new MostradorBloqueSimple(rutaImagen, layout); //esto es vista
     }
 
     public void agregarBloqueContenedor(Bloque bloque, String descripcion, VBox layoutContenedor) {
         this.agregarBloque(bloque, descripcion);
-        layout.getChildren().add(layoutContenedor);
+        layout.getChildren().add(layoutContenedor); //vista
     }
 }

@@ -134,7 +134,7 @@ public class BloqueRepeticionTest {
 
         bR.agregarBloque(BloqueMovimiento.bloqueDerecha());
         bR.agregarBloque(BloqueMovimiento.bloqueArriba());
-        BloqueRepeticion copia= bR.clone();
+        BloqueRepeticion copia = (BloqueRepeticion) bR.clone();
         bR.agregarBloque(BloqueMovimiento.bloqueArriba());
         copia.ejecutar(personaje);
 

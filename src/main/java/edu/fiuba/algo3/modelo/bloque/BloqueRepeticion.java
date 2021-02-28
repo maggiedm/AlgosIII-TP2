@@ -31,9 +31,4 @@ public class BloqueRepeticion extends BloqueContenedor{
         }
         return nBloque;
     }
-
-    @Override
-    public BloqueRepeticion clone(){
-        return (BloqueRepeticion) super.clone();
-    }
 }

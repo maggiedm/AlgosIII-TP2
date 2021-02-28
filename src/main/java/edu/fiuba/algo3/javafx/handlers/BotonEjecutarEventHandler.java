@@ -23,7 +23,6 @@ public class BotonEjecutarEventHandler extends BotonHandler{
     public void handle(ActionEvent actionEvent) {
         super.handle(actionEvent);
         algoBlocks.ejecutarAlgoritmo();
-        layoutDibujo.reiniciar();
         layoutDibujo.graficarMovimientos(algoBlocks.getDibujo());
         botonEjecutar.setDisable(true);
     }

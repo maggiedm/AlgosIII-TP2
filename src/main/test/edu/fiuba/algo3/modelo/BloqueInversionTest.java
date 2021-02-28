@@ -180,7 +180,7 @@ public class BloqueInversionTest {
 
         bI.agregarBloque(BloqueMovimiento.bloqueDerecha());
         bI.agregarBloque(BloqueMovimiento.bloqueArriba());
-        BloqueInversion copia= bI.clone();
+        BloqueInversion copia = (BloqueInversion) bI.clone();
         bI.agregarBloque(BloqueMovimiento.bloqueArriba());
         copia.ejecutar(personaje);
 

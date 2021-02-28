@@ -14,8 +14,8 @@ public class BloqueCompuestoPrincipal extends BloqueCompuesto {
 
     @Override
     public void agregarBloque(Bloque bloque, String rutaImagen) {
-        contendorPrincipal.agregarBloque(bloque);
-        new MostradorBloqueSimple(rutaImagen, layout);
+        contendorPrincipal.agregarBloque(bloque); //controlador
+        new MostradorBloqueSimple(rutaImagen, layout); //vista
     }
 
     public void reiniciarLayoutAlgoritmo(SeleccionadorBloqueCompuestoVista seleccionadorBloqueCompuestoVista){ //ChoiceBox no debería estar adentro del ScrollPane
