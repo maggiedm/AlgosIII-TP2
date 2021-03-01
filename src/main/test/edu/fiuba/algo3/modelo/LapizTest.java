@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.dibujo.Dibujo;
+import edu.fiuba.algo3.modelo.dibujo.Linea;
 import edu.fiuba.algo3.modelo.lapiz.Lapiz;
 import org.junit.jupiter.api.Test;
 

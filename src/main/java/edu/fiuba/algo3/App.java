@@ -1,11 +1,11 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.javafx.EscenarioVista;
-import edu.fiuba.algo3.javafx.botones.BotonGuardarAlgoritmo;
-import edu.fiuba.algo3.javafx.layouts.LayoutAlgoritmo;
-import edu.fiuba.algo3.javafx.layouts.LayoutBloques;
-import edu.fiuba.algo3.javafx.layouts.LayoutDibujo;
-import edu.fiuba.algo3.javafx.layouts.LayoutEjecutarReiniciar;
+import edu.fiuba.algo3.vista.EscenarioVista;
+import edu.fiuba.algo3.vista.algoritmo.BotonGuardarAlgoritmo;
+import edu.fiuba.algo3.vista.algoritmo.LayoutAlgoritmo;
+import edu.fiuba.algo3.vista.bloques.LayoutBloques;
+import edu.fiuba.algo3.vista.dibujo.LayoutDibujo;
+import edu.fiuba.algo3.vista.LayoutEjecutarReiniciar;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.image.ImageView;

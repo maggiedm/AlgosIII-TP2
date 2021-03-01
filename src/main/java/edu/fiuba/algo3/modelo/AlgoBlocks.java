@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import edu.fiuba.algo3.modelo.bloque.BloquePersonalizado;
+import edu.fiuba.algo3.modelo.dibujo.Dibujo;
 
 import java.util.ArrayList;
 
