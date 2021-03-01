@@ -7,7 +7,7 @@ public abstract class BotonAgregarBloqueEventHandler extends BotonHandler{
     protected final Bloque bloque;
     protected final String rutaImagen;
 
-    public BotonAgregarBloqueEventHandler(Bloque unBloque, String unaRutaImagen){
+    protected BotonAgregarBloqueEventHandler(Bloque unBloque, String unaRutaImagen){
         bloque = unBloque;
         rutaImagen = unaRutaImagen;
     }
