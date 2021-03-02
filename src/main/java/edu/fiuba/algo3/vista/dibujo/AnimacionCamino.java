@@ -20,7 +20,7 @@ public abstract class AnimacionCamino {
             transicionCondicionLapiz(tramo);
             visibilidadActual = tramo.esVisible();
         }else{
-            transicionMovimiento(tramo);
+            transicionDesplazamiento(tramo);
             dirActual = tramo.getDireccion();
         }
     }
@@ -29,17 +29,17 @@ public abstract class AnimacionCamino {
         return secuencia;
     }
 
-    private void transicionMovimiento(Tramo tramo){
+    private void transicionDesplazamiento(Tramo tramo){
         if(tramo.esVisible()){
-            transicionMovimientoVisible(tramo);
+            transicionDesplazamientoVisible(tramo);
         }else{
-            transicionMovimientoNoVisible(tramo);
+            transicionDesplazamientoNoVisible(tramo);
         }
     }
 
     protected abstract void transicionCondicionLapiz(Tramo tramo);
 
-    protected abstract void transicionMovimientoVisible(Tramo tramo);
+    protected abstract void transicionDesplazamientoVisible(Tramo tramo);
 
-    protected abstract void transicionMovimientoNoVisible(Tramo tramo);
+    protected abstract void transicionDesplazamientoNoVisible(Tramo tramo);
 }

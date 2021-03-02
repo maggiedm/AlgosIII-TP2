@@ -22,8 +22,8 @@ import static java.lang.Integer.max;
  */
 public class App extends Application {
 
-    static int SCREEN_WIDTH = max ((int) Screen.getPrimary().getVisualBounds().getWidth()*3/4, 1150);
-    static int SCREEN_HEIGHT = max((int) Screen.getPrimary().getVisualBounds().getHeight()/4, 950);
+    static int SCREEN_WIDTH = max ((int) Screen.getPrimary().getVisualBounds().getWidth()/4, 1150);
+    static int SCREEN_HEIGHT = max((int) Screen.getPrimary().getVisualBounds().getHeight()/4, 600);
 
     @Override
     public void start(Stage stage) {

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.controlador.handlers;
 
-import edu.fiuba.algo3.javafx.SeleccionadorContenedorBloques;
+import edu.fiuba.algo3.vista.algoritmo.LayoutAlgoritmo;
 import edu.fiuba.algo3.vista.dibujo.LayoutDibujo;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
@@ -23,7 +23,7 @@ public class BotonReiniciarEventHandler extends BotonHandler{
         super.handle(actionEvent);
         algoBlocks.reiniciar();
         layoutDibujo.reiniciar();
-        SeleccionadorContenedorBloques.reiniciar();
+        LayoutAlgoritmo.reiniciar();
         botonEjecutar.setDisable(false);
     }
 

@@ -46,5 +46,4 @@ public class Direccion {
     public Direccion invertir(){
         return new Direccion(-dx, -dy);
     }
-
 }

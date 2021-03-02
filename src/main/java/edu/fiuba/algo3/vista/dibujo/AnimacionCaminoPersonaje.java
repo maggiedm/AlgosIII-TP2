@@ -34,12 +34,12 @@ public class AnimacionCaminoPersonaje extends AnimacionCamino {
         secuencia.getChildren().add(new PauseTransition(Duration.seconds(1)));
     }
 
-    protected void transicionMovimientoVisible(Tramo tramo){
+    protected void transicionDesplazamientoVisible(Tramo tramo){
         secuencia.getChildren().add(transicionImagenCondicionLapiz(imgDirLapizAbajo.get(tramo.getDireccion())));
         secuencia.getChildren().add(new PathTransition(Duration.seconds(tramo.getTam()), tramo.getCamino(), personaje));
     }
 
-    protected void transicionMovimientoNoVisible(Tramo tramo){
+    protected void transicionDesplazamientoNoVisible(Tramo tramo){
         secuencia.getChildren().add(transicionImagenCondicionLapiz(imgDirLapizArriba.get(tramo.getDireccion())));
         secuencia.getChildren().add(new PathTransition(Duration.seconds(tramo.getTam()), tramo.getCamino(), personaje));
     }

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista.algoritmo;
 
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Tooltip;
 
 public class SeleccionadorContenedorBloquesVista extends ChoiceBox<String> {
 
@@ -8,6 +9,9 @@ public class SeleccionadorContenedorBloquesVista extends ChoiceBox<String> {
         super();
         agregar(nombre);
         this.setValue(nombre);
+        this.setTooltip(new Tooltip("Elige destino de bloques"));
+        this.setMaxWidth(130);
+        this.setStyle("-fx-border-color: slategray;" +"-fx-border-radius: 2;" + "-fx-background-radius: 2");
     }
 
     public void agregar(String nombre){
@@ -16,5 +20,12 @@ public class SeleccionadorContenedorBloquesVista extends ChoiceBox<String> {
 
     public String getActual() {
         return this.getValue();
+    }
+
+    public void reiniciar(){
+        String principal = this.getItems().get(0);
+        this.getItems().clear();
+        this.agregar(principal);
+        this.setValue(principal);
     }
 }

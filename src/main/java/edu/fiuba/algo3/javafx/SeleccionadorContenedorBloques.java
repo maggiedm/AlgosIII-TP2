@@ -1,64 +1,53 @@
 package edu.fiuba.algo3.javafx;
 
+import edu.fiuba.algo3.controlador.ControladorContenedorPrincipalDeBloques;
+import edu.fiuba.algo3.controlador.ControladorContenedorInternoDeBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
-import edu.fiuba.algo3.modelo.ContenedorDeBloques;
-import edu.fiuba.algo3.modelo.bloque.Bloque;
-import edu.fiuba.algo3.vista.Vista;
-import edu.fiuba.algo3.vista.algoritmo.SeleccionadorContenedorBloquesVista;
-import javafx.geometry.Insets;
-import javafx.scene.layout.VBox;
+import edu.fiuba.algo3.modelo.bloque.BloqueContenedor;
+import edu.fiuba.algo3.vista.ScrollPaneVista;
+import edu.fiuba.algo3.vista.algoritmo.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class SeleccionadorContenedorBloques {
-    private static final List<ContenedorBloques> contenedoresDeBloques = new ArrayList<>();
-    private static SeleccionadorContenedorBloquesVista seleccionadorContenedorBloquesVista = new SeleccionadorContenedorBloquesVista("Algoritmo");
+    private static final List<LayoutContenedorDeBloques> layoutContenedorDeBloques = new ArrayList<>();
+    private static SeleccionadorContenedorBloquesVista seleccionadorContenedorBloquesVista;
     private static final HashMap<String, Integer> cantMismoBloqueCompuesto= new HashMap<>();
 
 
-    public SeleccionadorContenedorBloques(AlgoBlocks algoBlocks, VBox layoutAlgoritmo){
-        contenedoresDeBloques.add(new ContenedorBloquesPrincipal(algoBlocks,"Algoritmo", layoutAlgoritmo));
-
+    public SeleccionadorContenedorBloques(AlgoBlocks algoBlocks, ScrollPaneVista layoutAlgoritmo, SeleccionadorContenedorBloquesVista unSeleccionador){
+        layoutContenedorDeBloques.add(new LayoutContenedorPrincipalDeBloques("Algoritmo", new ControladorContenedorPrincipalDeBloques(algoBlocks)));
+        seleccionadorContenedorBloquesVista = unSeleccionador;
         cargarDiccionarioBloquesCompuestos();
-        layoutAlgoritmo.getChildren().add(seleccionadorContenedorBloquesVista);
+        layoutAlgoritmo.setContent(layoutContenedorDeBloques.get(0));
     }
 
     public static void reiniciar(){
-        ContenedorBloquesPrincipal algoblocks = (ContenedorBloquesPrincipal) contenedoresDeBloques.get(0);
-        contenedoresDeBloques.clear();
-        contenedoresDeBloques.add(algoblocks);
-
-        seleccionadorContenedorBloquesVista = new SeleccionadorContenedorBloquesVista("Algoritmo");
-
-        algoblocks.reiniciarLayoutAlgoritmo(seleccionadorContenedorBloquesVista);
+        LayoutContenedorPrincipalDeBloques layoutAlgoblocks = (LayoutContenedorPrincipalDeBloques)layoutContenedorDeBloques.get(0);
+        layoutContenedorDeBloques.clear();
+        layoutAlgoblocks.reiniciarLayout();
+        layoutContenedorDeBloques.add(layoutAlgoblocks);
 
         cantMismoBloqueCompuesto.forEach((s, integer) -> cantMismoBloqueCompuesto.replace(s, 0));
     }
 
-    public static ContenedorBloques bloqueActual(){
-        return contenedoresDeBloques.stream()
+    public static LayoutContenedorDeBloques bloqueActual(){
+        return layoutContenedorDeBloques.stream()
                 .filter(contenedor -> contenedor.tieneDescripcion(seleccionadorContenedorBloquesVista.getActual()))
                 .findAny()
                 .orElse(null);
     }
 
-    public static void agregar (Bloque bloque, String rutaImagen) {
-        ContenedorBloques bloqueActual = bloqueActual();
-
+    public static void agregar (BloqueContenedor bloque, String rutaImagen) {
         String aux = nombreBloque(rutaImagen);
         String descripcion = ("Bloque" + aux + " - " + cantMismoBloqueCompuesto.get(aux));
         cantMismoBloqueCompuesto.replace(aux, cantMismoBloqueCompuesto.get(aux) + 1);
 
-        VBox layoutSecuenciaNueva = new VBox();
-        layoutSecuenciaNueva.setPadding(new Insets(0,0,0,20));
-        VBox layoutContenedorNuevo = Vista.crearLayoutContenedorDeBloques(layoutSecuenciaNueva,rutaImagen);
-        Vista.agregarMarcadorFinal(layoutContenedorNuevo,descripcion);
-
-        contenedoresDeBloques.add(new ContenedorBloques((ContenedorDeBloques) bloque,descripcion,layoutSecuenciaNueva));
-
-        bloqueActual.agregarBloqueContenedor(bloque,descripcion, layoutContenedorNuevo);
-
+        LayoutContenedorInternoDeBloques layoutContenedorNuevo =
+                new LayoutContenedorInternoDeBloques(descripcion,new ControladorContenedorInternoDeBloques(bloque), rutaImagen);
+        layoutContenedorDeBloques.add(layoutContenedorNuevo);
+        bloqueActual().agregarBloqueContenedor(bloque, descripcion, layoutContenedorNuevo);
        seleccionadorContenedorBloquesVista.agregar(descripcion);
     }
 
@@ -77,5 +66,4 @@ public class SeleccionadorContenedorBloques {
         }
         return null;
     }
-
 }

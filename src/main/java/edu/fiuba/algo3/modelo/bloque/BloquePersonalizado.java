@@ -24,5 +24,4 @@ public class BloquePersonalizado extends BloqueSimple {
         bloques.forEach(bloque -> aux.add(bloque.invertir()));
         return new BloquePersonalizado(aux);
     }
-
 }

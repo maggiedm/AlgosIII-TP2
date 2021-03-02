@@ -32,5 +32,4 @@ public class BloqueMovimiento extends BloqueSimple {
         public Bloque invertir(){
                 return new BloqueMovimiento(direccion.invertir());
         }
-
 }

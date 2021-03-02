@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.dibujo.Dibujo;
 
 import java.util.ArrayList;
 
-
 public class AlgoBlocks implements Observable{
     private final Dibujo dibujo = new Dibujo();
     private final Personaje personaje = new Personaje(dibujo);

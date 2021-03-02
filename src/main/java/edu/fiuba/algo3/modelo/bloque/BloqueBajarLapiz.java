@@ -9,5 +9,4 @@ public class BloqueBajarLapiz extends BloqueSimple {
     public Bloque invertir(){
         return new BloqueSubirLapiz();
     }
-
 }
