@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 
 public class LayoutEjecutarReiniciar extends HBox {
 
-    static final String RUTA_IMAGENES = "recursos/imagenes/botones/";
+    static final String RUTA_IMAGENES = "src/main/recursos/imagenes/botones/";
 
     public LayoutEjecutarReiniciar(AlgoBlocks algoBlocks, LayoutDibujo layoutDibujo){
         super(10);

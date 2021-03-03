@@ -11,7 +11,7 @@ import java.util.List;
 public class BloquesDisponibles {
 
     private final List<BloqueDisponible> bloques = new ArrayList<>();
-    static final String RUTA_IMAGENES = "recursos/imagenes/botones/bloques/";
+    static final String RUTA_IMAGENES = "src/main/recursos/imagenes/botones/bloques/";
 
 
     public BloquesDisponibles() {

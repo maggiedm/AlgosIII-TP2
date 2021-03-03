@@ -44,7 +44,7 @@ public class App extends Application {
 
         panelSuperior.setPadding(new Insets(0, 25, 0, 0));
         panelSuperior.setStyle("-fx-background-color: rgb(0, 176, 189)");
-        panelSuperior.setLeft(new ImageView("file:recursos/imagenes/Banner.png"));
+        panelSuperior.setLeft(new ImageView("file:src/main/recursos/imagenes/Banner.png"));
         panelSuperior.setRight(new LayoutEjecutarReiniciar(algoBlocks, layoutDibujo));
 
         return panelSuperior;

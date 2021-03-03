@@ -10,7 +10,7 @@ import edu.fiuba.algo3.vista.bloques.BotonSimple;
 public class BotonGuardarAlgoritmo  extends BotonSimple implements Observer{
 
     public BotonGuardarAlgoritmo(AlgoBlocks algoBlocks, LayoutBloques layoutBloques){
-        super("recursos/imagenes/botones/boton-guardar.png", "Guarda el algoritmo ingresado.",
+        super("src/main/recursos/imagenes/botones/boton-guardar.png", "Guarda el algoritmo ingresado.",
                 new BotonGuardarAlgoritmoEventHandler(algoBlocks, layoutBloques));
         algoBlocks.addObserver(this);
         this.setPrefHeight(63);

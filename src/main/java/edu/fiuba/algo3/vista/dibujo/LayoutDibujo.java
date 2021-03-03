@@ -16,13 +16,12 @@ public class LayoutDibujo extends BorderPane {
     static final private boolean VISIBILIDAD_INICIAL = true;
 
     public LayoutDibujo(double w, double h){
-        LayoutTitulo layoutTitulo = new LayoutTitulo("Dibujo");
         //LAYOUT SLIDER
         LayoutSlider layoutSlider = new LayoutSlider();
         velocidad = layoutSlider.getSlider();
         //THIS
         this.setCenter(hoja);
-        this.setTop(layoutTitulo);
+        this.setTop(new LayoutTitulo("Dibujo"));
         this.setBottom(layoutSlider);
         this.setStyle("-fx-border-width: 2px;" + "-fx-border-color: lightgray");
         hoja.setMinSize(w-20, h-105);

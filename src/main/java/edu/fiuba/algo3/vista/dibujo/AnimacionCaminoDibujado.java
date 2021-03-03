@@ -15,7 +15,7 @@ import static javafx.scene.paint.Color.LIGHTSLATEGREY;
 
 public class AnimacionCaminoDibujado extends AnimacionCamino {
     private final Canvas canvas;
-    private final MediaPlayer sonidoLapiz = new MediaPlayer(new Media(new File("recursos/sonidos/sonidoLapiz.mp3").toURI().toString()));
+    private final MediaPlayer sonidoLapiz = new MediaPlayer(new Media(new File("src/main/recursos/sonidos/sonidoLapiz.mp3").toURI().toString()));
 
     public AnimacionCaminoDibujado(double w, double h, String dirInicial, boolean visibilidadInicial){
         super(dirInicial, visibilidadInicial);

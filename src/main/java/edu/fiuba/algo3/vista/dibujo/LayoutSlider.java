@@ -15,7 +15,7 @@ public class LayoutSlider extends BorderPane {
         this.setStyle("-fx-background-color: lightgray");
 
         BorderPane imgsSlider = new BorderPane();
-        String RUTA_IMAGENES = "recursos/imagenes/";
+        String RUTA_IMAGENES = "src/main/recursos/imagenes/";
         imgsSlider.setLeft(new ImageView(new Image("file:" + RUTA_IMAGENES + "lento.png")));
         imgsSlider.setRight(new ImageView(new Image("file:" + RUTA_IMAGENES + "rapido.png")));
         this.setRight(new VBox(imgsSlider, slider));
