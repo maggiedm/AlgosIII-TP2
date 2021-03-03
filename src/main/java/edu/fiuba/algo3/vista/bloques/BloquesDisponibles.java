@@ -24,11 +24,11 @@ public class BloquesDisponibles {
                 RUTA_IMAGENES + "Abajo.png"));
 
         bloques.add(new BloqueSimpleDisponible(BloqueMovimiento.bloqueIzquierda(),
-                "Mueve al personaje hacia Izquierda.",
+                "Mueve al personaje hacia la izquierda.",
                 RUTA_IMAGENES + "Izquierda.png"));
 
         bloques.add(new BloqueSimpleDisponible(BloqueMovimiento.bloqueDerecha(),
-                "Mueve al personaje hacia derecha.",
+                "Mueve al personaje hacia la derecha.",
                 RUTA_IMAGENES + "Derecha.png"));
 
         bloques.add(new BloqueSimpleDisponible(new BloqueBajarLapiz(),
