@@ -8,15 +8,15 @@ import edu.fiuba.algo3.vista.VistaScrollPane;
 import edu.fiuba.algo3.vista.algoritmo.*;
 import java.util.HashMap;
 
-public class SeleccionadorContenedorBloques {
+public class AdministradorContenedoresDeBloques {
     private static final HashMap<String, LayoutContenedorDeBloques>  layoutsContenedoresDeBloques = new HashMap<>();
-    private static SelectorContenedorDeBloquesActual selectorContenedorDeBloquesActual;
+    private static SelectorContenedorDeBloquesParaAgregar selectorContenedorDeBloquesParaAgregar;
     private static final HashMap<String, Integer> cantMismoBloqueCompuesto = new HashMap<>();
     private static final String descripcionAlgoritmo = "Algoritmo";
 
-    public SeleccionadorContenedorBloques(AlgoBlocks algoBlocks, VistaScrollPane layoutAlgoritmo, SelectorContenedorDeBloquesActual unSelector){
+    public AdministradorContenedoresDeBloques(AlgoBlocks algoBlocks, VistaScrollPane layoutAlgoritmo, SelectorContenedorDeBloquesParaAgregar unSelector){
         layoutsContenedoresDeBloques.put(descripcionAlgoritmo, new LayoutContenedorPrincipalDeBloques(descripcionAlgoritmo, new ControladorContenedorPrincipalDeBloques(algoBlocks)));
-        selectorContenedorDeBloquesActual = unSelector;
+        selectorContenedorDeBloquesParaAgregar = unSelector;
         cargarDiccionarioBloquesCompuestos();
         layoutAlgoritmo.setContent(layoutsContenedoresDeBloques.get(descripcionAlgoritmo));
     }
@@ -31,7 +31,7 @@ public class SeleccionadorContenedorBloques {
     }
 
     public static LayoutContenedorDeBloques layoutContenedorBloqueActual(){
-        return layoutsContenedoresDeBloques.get(selectorContenedorDeBloquesActual.getActual());
+        return layoutsContenedoresDeBloques.get(selectorContenedorDeBloquesParaAgregar.getActual());
     }
 
     public static void agregar (BloqueContenedor bloque, String rutaImagen) {
@@ -43,7 +43,7 @@ public class SeleccionadorContenedorBloques {
                 new LayoutContenedorInternoDeBloques(descripcion,new ControladorContenedorInternoDeBloques(bloque), rutaImagen);
         layoutsContenedoresDeBloques.put(descripcion, layoutContenedorNuevo);
         layoutContenedorBloqueActual().agregarBloqueContenedor(bloque, descripcion, layoutContenedorNuevo);
-       selectorContenedorDeBloquesActual.agregar(descripcion);
+       selectorContenedorDeBloquesParaAgregar.agregar(descripcion);
     }
 
     private void cargarDiccionarioBloquesCompuestos(){
