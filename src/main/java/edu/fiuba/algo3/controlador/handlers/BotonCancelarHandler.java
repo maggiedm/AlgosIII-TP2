@@ -3,7 +3,7 @@ package edu.fiuba.algo3.controlador.handlers;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
-public class BotonCancelarHandler extends BotonHandler{
+public class BotonCancelarHandler extends BotonConSonidoHandler {
     Stage escenario;
 
     public BotonCancelarHandler(Stage unEscenario){

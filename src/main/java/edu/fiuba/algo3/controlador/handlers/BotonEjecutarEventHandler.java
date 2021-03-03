@@ -5,17 +5,17 @@ import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
-public class BotonEjecutarEventHandler extends BotonHandler{
+public class BotonEjecutarEventHandler extends BotonConSonidoHandler {
     private final AlgoBlocks algoBlocks;
     private final LayoutDibujo layoutDibujo;
-    Button botonEjecutar;
+    private Button botonEjecutar;
 
     public BotonEjecutarEventHandler(AlgoBlocks unAlgoBlocks, LayoutDibujo unLayoutDibujo){
         algoBlocks = unAlgoBlocks;
         layoutDibujo = unLayoutDibujo;
     }
 
-    public void desactivarBoton(Button unBotonEjecutar) {
+    public void agregarBoton(Button unBotonEjecutar) {
         botonEjecutar = unBotonEjecutar;
     }
 

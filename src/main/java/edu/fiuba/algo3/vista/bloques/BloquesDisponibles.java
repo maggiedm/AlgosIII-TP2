@@ -39,14 +39,18 @@ public class BloquesDisponibles {
                 "Sube el lapiz para que el personaje no dibuje.",
                 RUTA_IMAGENES + "LapizSubir.png"));
 
-        bloques.add(new BloqueContenedorDisponible(BloqueRepeticion.repetirDosVeces(), "Repite dos veces la secuencia de bloques ingresada.",
-                RUTA_IMAGENES + "Repetir2.png"));
+        bloques.add(new BloqueContenedorDisponible(BloqueRepeticion.repetirDosVeces(),
+                "Repite dos veces la secuencia de bloques ingresada.",
+                RUTA_IMAGENES + "Repetir2.png",
+                "Repetir 2"));
 
         bloques.add(new BloqueContenedorDisponible(BloqueRepeticion.repetirTresVeces(), "Repite tres veces la secuencia de bloques ingresada.",
-                RUTA_IMAGENES + "Repetir3.png"));
+                RUTA_IMAGENES + "Repetir3.png",
+                "Repetir 3"));
 
         bloques.add(new BloqueContenedorDisponible(new BloqueInversion(), "Invierte la secuencia de bloques ingresada.",
-                RUTA_IMAGENES + "Invertir.png"));
+                RUTA_IMAGENES + "Invertir.png",
+                "Invertir"));
     }
 
     public void agregarBotones(VBox layoutBloques) {

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.vista.bloques.LayoutBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
 
-public class BotonGuardarAlgoritmoEventHandler extends BotonHandler {
+public class BotonGuardarAlgoritmoEventHandler extends BotonConSonidoHandler {
 
     private final AlgoBlocks algoBlocks;
     private final LayoutBloques layoutBloques;

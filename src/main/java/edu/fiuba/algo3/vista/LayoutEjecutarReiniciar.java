@@ -18,20 +18,19 @@ public class LayoutEjecutarReiniciar extends HBox {
         this.setAlignment(Pos.CENTER_RIGHT);
 
         BotonEjecutarEventHandler handlerEjecutar = new BotonEjecutarEventHandler(algoBlocks, layoutDibujo);
-        BotonReiniciarEventHandler handlerReiniciar = new BotonReiniciarEventHandler(algoBlocks, layoutDibujo);
         Button botonEjecutar = new BotonSimple(
                  RUTA_IMAGENES + "Ejecutar.png",
                 "Ejecutar el algoritmo.",
                 handlerEjecutar
         );
+        handlerEjecutar.agregarBoton(botonEjecutar);
+
+        BotonReiniciarEventHandler handlerReiniciar = new BotonReiniciarEventHandler(algoBlocks, layoutDibujo, botonEjecutar);
         Button botonReiniciar = new BotonSimple(
                 RUTA_IMAGENES + "Reiniciar.png",
                 "Reiniciar el algoritmo.",
                 handlerReiniciar
         );
-
-        handlerEjecutar.desactivarBoton(botonEjecutar);
-        handlerReiniciar.activarBoton(botonEjecutar);
 
         this.getChildren().addAll(botonEjecutar, botonReiniciar);
     }

@@ -3,7 +3,7 @@ package edu.fiuba.algo3.controlador.handlers;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.event.ActionEvent;
 
-public abstract class BotonAgregarBloqueEventHandler extends BotonHandler{
+public abstract class BotonAgregarBloqueEventHandler extends BotonConSonidoHandler {
     protected final Bloque bloque;
     protected final String rutaImagen;
 

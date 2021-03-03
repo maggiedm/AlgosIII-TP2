@@ -33,7 +33,7 @@ public abstract class LayoutContenedorDeBloques extends VBox{
         etiqueta.setStyle(
                 "-fx-padding: 10;" +
                         "-fx-pref-height: 30;" +
-                        "-fx-pref-width: 150;" +
+                        "-fx-pref-width: 190;" +
                         "-fx-background-radius: 5;" +
                         "-fx-font-weight: bold;" +
                         "-fx-text-fill: #333333;" +

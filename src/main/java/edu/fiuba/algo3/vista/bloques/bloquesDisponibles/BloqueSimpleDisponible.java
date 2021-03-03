@@ -5,6 +5,8 @@ import edu.fiuba.algo3.controlador.handlers.BotonAgregarBloqueSimpleEventHandler
 import edu.fiuba.algo3.modelo.bloque.BloqueSimple;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+
 public class BloqueSimpleDisponible  extends BloqueDisponible {
 
     public BloqueSimpleDisponible(BloqueSimple unBloque, String unaDescripcion, String unaRutaImagen){

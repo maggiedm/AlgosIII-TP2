@@ -5,14 +5,19 @@ import edu.fiuba.algo3.controlador.handlers.BotonAgregarBloqueCompuestoEventHand
 import edu.fiuba.algo3.modelo.bloque.BloqueContenedor;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+
 public class BloqueContenedorDisponible extends BloqueDisponible{
 
-    public BloqueContenedorDisponible(BloqueContenedor unBloque, String unaDescripcion, String unaRutaImagen) {
+    private final String nombreBloque;
+
+    public BloqueContenedorDisponible(BloqueContenedor unBloque, String unaDescripcion, String unaRutaImagen, String unNombreBloque) {
         super(unBloque, unaDescripcion, unaRutaImagen);
+        nombreBloque = unNombreBloque;
     }
 
     public void agregarBoton(VBox layout) {
         layout.getChildren().add(
-                new BotonSimple(rutaImagen, descripcion, new BotonAgregarBloqueCompuestoEventHandler(bloque, rutaImagen)));
+                new BotonSimple(rutaImagen, descripcion, new BotonAgregarBloqueCompuestoEventHandler(bloque, rutaImagen, nombreBloque)));
     }
 }

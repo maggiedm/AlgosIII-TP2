@@ -6,17 +6,16 @@ import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
-public class BotonReiniciarEventHandler extends BotonHandler{
+public class BotonReiniciarEventHandler extends BotonConSonidoHandler {
     private final AlgoBlocks algoBlocks;
     private final LayoutDibujo layoutDibujo;
-    Button botonEjecutar;
+    private final Button botonEjecutar;
 
-    public BotonReiniciarEventHandler(AlgoBlocks unAlgoBlocks, LayoutDibujo unLayoutDibujo){
+    public BotonReiniciarEventHandler(AlgoBlocks unAlgoBlocks, LayoutDibujo unLayoutDibujo, Button unBotonEjecutar){
         algoBlocks = unAlgoBlocks;
         layoutDibujo = unLayoutDibujo;
+        botonEjecutar = unBotonEjecutar;
     }
-
-    public void activarBoton(Button unBotonEjecutar) { botonEjecutar = unBotonEjecutar; }
 
     @Override
     public void handle(ActionEvent actionEvent) {

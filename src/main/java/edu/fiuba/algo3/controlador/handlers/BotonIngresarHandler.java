@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
-public class BotonIngresarHandler extends BotonHandler{
+public class BotonIngresarHandler extends BotonConSonidoHandler {
     Stage escenarioGuardar;
     String nombreBloque;
     AlgoBlocks algoBlocks;
