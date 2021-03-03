@@ -4,39 +4,34 @@ import edu.fiuba.algo3.controlador.ControladorContenedorPrincipalDeBloques;
 import edu.fiuba.algo3.controlador.ControladorContenedorInternoDeBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.bloque.BloqueContenedor;
-import edu.fiuba.algo3.vista.ScrollPaneVista;
+import edu.fiuba.algo3.vista.VistaScrollPane;
 import edu.fiuba.algo3.vista.algoritmo.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class SeleccionadorContenedorBloques {
-    private static final List<LayoutContenedorDeBloques> layoutContenedorDeBloques = new ArrayList<>();
-    private static SeleccionadorContenedorBloquesVista seleccionadorContenedorBloquesVista;
-    private static final HashMap<String, Integer> cantMismoBloqueCompuesto= new HashMap<>();
+    private static final HashMap<String, LayoutContenedorDeBloques>  layoutsContenedoresDeBloques = new HashMap<>();
+    private static SelectorContenedorDeBloquesActual selectorContenedorDeBloquesActual;
+    private static final HashMap<String, Integer> cantMismoBloqueCompuesto = new HashMap<>();
+    private static final String descripcionAlgoritmo = "Algoritmo";
 
-
-    public SeleccionadorContenedorBloques(AlgoBlocks algoBlocks, ScrollPaneVista layoutAlgoritmo, SeleccionadorContenedorBloquesVista unSeleccionador){
-        layoutContenedorDeBloques.add(new LayoutContenedorPrincipalDeBloques("Algoritmo", new ControladorContenedorPrincipalDeBloques(algoBlocks)));
-        seleccionadorContenedorBloquesVista = unSeleccionador;
+    public SeleccionadorContenedorBloques(AlgoBlocks algoBlocks, VistaScrollPane layoutAlgoritmo, SelectorContenedorDeBloquesActual unSelector){
+        layoutsContenedoresDeBloques.put(descripcionAlgoritmo, new LayoutContenedorPrincipalDeBloques(descripcionAlgoritmo, new ControladorContenedorPrincipalDeBloques(algoBlocks)));
+        selectorContenedorDeBloquesActual = unSelector;
         cargarDiccionarioBloquesCompuestos();
-        layoutAlgoritmo.setContent(layoutContenedorDeBloques.get(0));
+        layoutAlgoritmo.setContent(layoutsContenedoresDeBloques.get(descripcionAlgoritmo));
     }
 
     public static void reiniciar(){
-        LayoutContenedorPrincipalDeBloques layoutAlgoblocks = (LayoutContenedorPrincipalDeBloques)layoutContenedorDeBloques.get(0);
-        layoutContenedorDeBloques.clear();
+        LayoutContenedorPrincipalDeBloques layoutAlgoblocks = (LayoutContenedorPrincipalDeBloques)layoutsContenedoresDeBloques.get(descripcionAlgoritmo);
+        layoutsContenedoresDeBloques.clear();
         layoutAlgoblocks.reiniciarLayout();
-        layoutContenedorDeBloques.add(layoutAlgoblocks);
+        layoutsContenedoresDeBloques.put(descripcionAlgoritmo, layoutAlgoblocks);
 
         cantMismoBloqueCompuesto.forEach((s, integer) -> cantMismoBloqueCompuesto.replace(s, 0));
     }
 
-    public static LayoutContenedorDeBloques bloqueActual(){
-        return layoutContenedorDeBloques.stream()
-                .filter(contenedor -> contenedor.tieneDescripcion(seleccionadorContenedorBloquesVista.getActual()))
-                .findAny()
-                .orElse(null);
+    public static LayoutContenedorDeBloques layoutContenedorBloqueActual(){
+        return layoutsContenedoresDeBloques.get(selectorContenedorDeBloquesActual.getActual());
     }
 
     public static void agregar (BloqueContenedor bloque, String rutaImagen) {
@@ -46,9 +41,9 @@ public class SeleccionadorContenedorBloques {
 
         LayoutContenedorInternoDeBloques layoutContenedorNuevo =
                 new LayoutContenedorInternoDeBloques(descripcion,new ControladorContenedorInternoDeBloques(bloque), rutaImagen);
-        layoutContenedorDeBloques.add(layoutContenedorNuevo);
-        bloqueActual().agregarBloqueContenedor(bloque, descripcion, layoutContenedorNuevo);
-       seleccionadorContenedorBloquesVista.agregar(descripcion);
+        layoutsContenedoresDeBloques.put(descripcion, layoutContenedorNuevo);
+        layoutContenedorBloqueActual().agregarBloqueContenedor(bloque, descripcion, layoutContenedorNuevo);
+       selectorContenedorDeBloquesActual.agregar(descripcion);
     }
 
     private void cargarDiccionarioBloquesCompuestos(){

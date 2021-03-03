@@ -1,6 +1,6 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.vista.EscenarioVista;
+import edu.fiuba.algo3.vista.VistaEscenario;
 import edu.fiuba.algo3.vista.algoritmo.BotonGuardarAlgoritmo;
 import edu.fiuba.algo3.vista.algoritmo.LayoutAlgoritmo;
 import edu.fiuba.algo3.vista.bloques.LayoutBloques;
@@ -22,8 +22,8 @@ import static java.lang.Integer.max;
  */
 public class App extends Application {
 
-    static int SCREEN_WIDTH = max ((int) Screen.getPrimary().getVisualBounds().getWidth()/4, 1150);
-    static int SCREEN_HEIGHT = max((int) Screen.getPrimary().getVisualBounds().getHeight()/4, 600);
+    static int SCREEN_WIDTH = max ((int) Screen.getPrimary().getVisualBounds().getWidth()*3/4, 1150);
+    static int SCREEN_HEIGHT = max((int) Screen.getPrimary().getVisualBounds().getHeight()*3/4, 600);
 
     @Override
     public void start(Stage stage) {
@@ -35,7 +35,7 @@ public class App extends Application {
         BorderPane panelPrincipal = this.crearPanelPrincipal(algoBlocks, layoutDibujo);
 
         // ESCENARIO
-        new EscenarioVista(stage, panelPrincipal, "AlgoBlocks v2.0");
+        new VistaEscenario(stage, panelPrincipal, "AlgoBlocks v2.0");
         stage.show();
     }
 

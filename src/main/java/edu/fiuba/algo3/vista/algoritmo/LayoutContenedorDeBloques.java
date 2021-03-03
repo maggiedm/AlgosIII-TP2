@@ -8,15 +8,13 @@ import javafx.scene.layout.VBox;
 
 public abstract class LayoutContenedorDeBloques extends VBox{
     protected VBox secuenciaDeBloques = new VBox(10);
-    protected final String descripcion;
     protected final ControladorContenedorDeBloques controlador;
 
     public LayoutContenedorDeBloques(String unaDescripcion, ControladorContenedorDeBloques unControlador){
         super();
-        descripcion = unaDescripcion;
         controlador = unControlador;
         this.getChildren().add(secuenciaDeBloques);
-        this.agregarMarcadorFinal();
+        this.agregarMarcadorFinal(unaDescripcion);
     }
 
     public void agregarBloque(Bloque unBloque, String rutaImagen){
@@ -29,11 +27,7 @@ public abstract class LayoutContenedorDeBloques extends VBox{
         secuenciaDeBloques.getChildren().add(layoutContenedor);
     }
 
-    public boolean tieneDescripcion(String unaDescripcion) {
-        return descripcion.equals(unaDescripcion);
-    }
-
-    private void agregarMarcadorFinal() {
+    private void agregarMarcadorFinal(String descripcion) {
 
         Label etiqueta = new Label(descripcion);
         etiqueta.setStyle(

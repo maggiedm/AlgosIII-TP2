@@ -13,7 +13,7 @@ public class BotonAgregarBloqueSimpleEventHandler extends BotonAgregarBloqueEven
     @Override
     public void handle(ActionEvent actionEvent) {
         super.handle(actionEvent);
-        SeleccionadorContenedorBloques.bloqueActual().agregarBloque(bloque, rutaImagen);
+        SeleccionadorContenedorBloques.layoutContenedorBloqueActual().agregarBloque(bloque, rutaImagen);
     }
 }
 

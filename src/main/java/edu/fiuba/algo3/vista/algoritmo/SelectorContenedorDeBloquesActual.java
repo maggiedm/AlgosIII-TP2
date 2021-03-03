@@ -3,9 +3,9 @@ package edu.fiuba.algo3.vista.algoritmo;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Tooltip;
 
-public class SeleccionadorContenedorBloquesVista extends ChoiceBox<String> {
+public class SelectorContenedorDeBloquesActual extends ChoiceBox<String> {
 
-    public SeleccionadorContenedorBloquesVista(String nombre){
+    public SelectorContenedorDeBloquesActual(String nombre){
         super();
         agregar(nombre);
         this.setValue(nombre);

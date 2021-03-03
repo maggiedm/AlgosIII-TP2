@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.controlador.handlers;
 
-import edu.fiuba.algo3.vista.algoritmo.GuardarBloqueVista;
+import edu.fiuba.algo3.vista.algoritmo.VistaGuardarBloque;
 import edu.fiuba.algo3.vista.bloques.LayoutBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import javafx.event.ActionEvent;
@@ -18,6 +18,6 @@ public class BotonGuardarAlgoritmoEventHandler extends BotonHandler {
     @Override
     public void handle(ActionEvent actionEvent) {
         super.handle(actionEvent);
-        new GuardarBloqueVista(algoBlocks, layoutBloques);
+        new VistaGuardarBloque(algoBlocks, layoutBloques);
     }
 }

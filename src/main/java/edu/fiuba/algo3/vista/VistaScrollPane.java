@@ -3,9 +3,9 @@ package edu.fiuba.algo3.vista;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 
-public class ScrollPaneVista extends ScrollPane {
+public class VistaScrollPane extends ScrollPane {
 
-    public ScrollPaneVista(int altura, int ancho, Pane unContenido){
+    public VistaScrollPane(int altura, int ancho, Pane unContenido){
         super(unContenido);
         this.setMinViewportWidth(ancho);
         this.setPrefViewportHeight(altura);
