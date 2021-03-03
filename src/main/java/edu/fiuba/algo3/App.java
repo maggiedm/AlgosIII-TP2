@@ -28,7 +28,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         AlgoBlocks algoBlocks = new AlgoBlocks();
-        LayoutDibujo layoutDibujo = new LayoutDibujo(SCREEN_WIDTH-420,SCREEN_HEIGHT-150);
+        LayoutDibujo layoutDibujo = new LayoutDibujo(SCREEN_WIDTH-450,SCREEN_HEIGHT-150);
 
 
         // PANEL PRINCIPAL: CONTIENE A panelSuperior, layoutBloques, layoutAlgoritmo y layoutDibujo

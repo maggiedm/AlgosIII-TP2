@@ -10,7 +10,7 @@ public class SelectorContenedorDeBloquesParaAgregar extends ChoiceBox<String> {
         agregar(nombre);
         this.setValue(nombre);
         this.setTooltip(new Tooltip("Elige destino de bloques"));
-        this.setMaxWidth(130);
+        this.setMaxWidth(140);
         this.setStyle("-fx-border-color: slategray;" +"-fx-border-radius: 2;" + "-fx-background-radius: 2");
     }
 
