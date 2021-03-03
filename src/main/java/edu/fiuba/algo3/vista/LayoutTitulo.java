@@ -13,7 +13,7 @@ public class LayoutTitulo extends HBox {
         this.setStyle("-fx-background-color: lightgray");
     }
 
-    private static void agregarTitulo(Pane layout, String descripcion){
+    private void agregarTitulo(Pane layout, String descripcion){
         Label etiqueta = new Label(descripcion);
         etiqueta.setFont(Font.font(20));
         etiqueta.setStyle(
