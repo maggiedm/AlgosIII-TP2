@@ -1,5 +1,4 @@
-package edu.fiuba.algo3.javafx;
-
+package edu.fiuba.algo3.vista.algoritmo;
 
 import java.util.HashMap;
 

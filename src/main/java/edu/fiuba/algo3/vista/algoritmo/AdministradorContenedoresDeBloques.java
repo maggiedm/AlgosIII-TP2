@@ -1,12 +1,10 @@
-package edu.fiuba.algo3.javafx;
+package edu.fiuba.algo3.vista.algoritmo;
 
 import edu.fiuba.algo3.controlador.ControladorContenedorPrincipalDeBloques;
 import edu.fiuba.algo3.controlador.ControladorContenedorInternoDeBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.bloque.BloqueContenedor;
 import edu.fiuba.algo3.vista.VistaScrollPane;
-import edu.fiuba.algo3.vista.algoritmo.*;
-import edu.fiuba.algo3.vista.bloques.BloquesDisponibles;
 
 import java.util.HashMap;
 
@@ -25,7 +23,7 @@ public class AdministradorContenedoresDeBloques {
     public static void reiniciar(){
         LayoutContenedorPrincipalDeBloques layoutAlgoblocks = (LayoutContenedorPrincipalDeBloques)layoutsContenedoresDeBloques.get(descripcionAlgoritmo);
         layoutsContenedoresDeBloques.clear();
-        layoutAlgoblocks.reiniciarLayout();
+        layoutAlgoblocks.reiniciar();
         layoutsContenedoresDeBloques.put(descripcionAlgoritmo, layoutAlgoblocks);
 
         contadorBloquesCompuestos.reiniciar();

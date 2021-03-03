@@ -8,7 +8,7 @@ public class LayoutContenedorPrincipalDeBloques extends LayoutContenedorDeBloque
         super(unaDescripcion, unControlador);
     }
 
-    public void reiniciarLayout(){
+    public void reiniciar(){
         secuenciaDeBloques.getChildren().clear();
     }
 }

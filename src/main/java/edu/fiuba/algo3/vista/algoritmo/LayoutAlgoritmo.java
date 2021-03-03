@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.vista.algoritmo;
 
-import edu.fiuba.algo3.javafx.AdministradorContenedoresDeBloques;
 import edu.fiuba.algo3.vista.VistaScrollPane;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.vista.LayoutTitulo;
