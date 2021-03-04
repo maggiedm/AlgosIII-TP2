@@ -71,7 +71,7 @@ public class AlgoBlocksTest {
     }
 
     @Test
-    public void test08AlgoBlocksEjecutarSecuenciaBajarLapizYMoverPersonajeDibujaLinea() {
+    public void test08AlgoBlocksEjecutarSecuenciaBajarLapizYMoverPersonajeDibujaLineas() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
         algoBlocks.agregarBloque(new BloqueBajarLapiz());
@@ -128,7 +128,7 @@ public class AlgoBlocksTest {
     }
 
     @Test
-    public void test13AlgoBlocksEjecutarSecuenciaDe3BloquesConLapizAbajoDibuja2Lineas() {
+    public void test13AlgoBlocksEjecutarSecuenciaDe3BloquesConLapizAbajoDibuja3Lineas() {
         AlgoBlocks algoBlocks = new AlgoBlocks();
 
         algoBlocks.agregarBloque(new BloqueBajarLapiz());
@@ -249,4 +249,37 @@ public class AlgoBlocksTest {
         assertEquals(0, algoBlocks.cantidadDeBloquesEnAlgoritmo());
     }
 
+    @Test
+    public void test22AlgoBlocksTrasEjecutarAlgoritmoNoEstaVacio() {
+        AlgoBlocks algoBlocks = new AlgoBlocks();
+
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.agregarBloque(new BloqueBajarLapiz());
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueAbajo());
+        algoBlocks.ejecutarAlgoritmo();
+
+        assertEquals(3, algoBlocks.cantidadDeBloquesEnAlgoritmo());
+    }
+
+    @Test
+    public void test23AlgoBlocksEjecutarDosVecesUnAlgoritmoPosicionPersonajeEsAcumulativa() {
+        AlgoBlocks algoBlocks = new AlgoBlocks();
+
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.ejecutarAlgoritmo();
+        algoBlocks.ejecutarAlgoritmo();
+
+        assertTrue(algoBlocks.personajeEstaEnPosicion(new Posicion(2*PASO, 0)));
+    }
+
+    @Test
+    public void test24AlgoBlocksEjecutarDosVecesUnAlgoritmoDibujoTieneElDobleDeLineasQueEjecutarloUna() {
+        AlgoBlocks algoBlocks = new AlgoBlocks();
+
+        algoBlocks.agregarBloque(BloqueMovimiento.bloqueDerecha());
+        algoBlocks.ejecutarAlgoritmo();
+        algoBlocks.ejecutarAlgoritmo();
+
+        assertEquals(2, algoBlocks.cantidadLineasDibujadas());
+    }
 }

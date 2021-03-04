@@ -26,5 +26,4 @@ public class BotonEjecutarEventHandler extends BotonConSonidoHandler {
         layoutDibujo.graficarMovimientos(algoBlocks.getDibujo());
         botonEjecutar.setDisable(true);
     }
-
 }
