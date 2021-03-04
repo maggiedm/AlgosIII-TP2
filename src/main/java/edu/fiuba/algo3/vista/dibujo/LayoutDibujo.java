@@ -25,7 +25,7 @@ public class LayoutDibujo extends BorderPane {
         this.setTop(new LayoutTitulo("Dibujo"));
         this.setBottom(layoutSlider);
         this.setStyle("-fx-border-width: 2px;" + "-fx-border-color: lightgray");
-        hoja.setMinSize(w-20, h-105);
+        hoja.setMinSize(w-20, h-30);
     }
 
     public void graficarMovimientos(Dibujo dib) {
