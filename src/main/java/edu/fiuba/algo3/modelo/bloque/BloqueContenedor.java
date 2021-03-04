@@ -15,8 +15,7 @@ public abstract class BloqueContenedor extends ContenedorDeBloques implements Bl
             throw new InternalError(e);
         }
         List<Bloque> aux = new ArrayList<>();
-        for (Bloque bloque:bloques
-        ) {
+        for (Bloque bloque:bloques) {
             aux.add(bloque.clone());
         }
         copia.bloques = aux;

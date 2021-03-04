@@ -8,39 +8,27 @@ import java.util.HashMap;
 
 public class AnimacionCaminoPersonaje extends AnimacionCamino {
 
-    static final String RUTA_IMAGENES = "src/main/recursos/imagenes/personaje/";
+    private final ImagenesPersonaje imagenesPersonaje = new ImagenesPersonaje();
     private final ImageView personaje = new ImageView();
-    private final HashMap<String, Image> imgDirLapizArriba = imagenesDireccionPersonaje(
-            "lArr");
-    private final HashMap<String, Image> imgDirLapizAbajo = imagenesDireccionPersonaje(
-            "Lab");
 
 
     public AnimacionCaminoPersonaje(double posX, double posY, String dirInicial, boolean visibilidadInicial){
         super(dirInicial, visibilidadInicial);
         personaje.setX(posX);
         personaje.setY(posY);
-        personaje.setImage(imgDirLapizAbajo.get(dirInicial));
+        personaje.setImage(imagenesPersonaje.getImagenLapizAbajo(dirInicial));
     }
 
     public void agregarAlLayout(Pane unLayout){unLayout.getChildren().add(personaje);}
 
     protected void transicionCondicionLapiz(Tramo tramo){
-        if(tramo.esVisible()) {
-            secuencia.getChildren().add(transicionImagenCondicionLapiz(imgDirLapizAbajo.get(tramo.getDireccion())));
-        }else{
-            secuencia.getChildren().add(transicionImagenCondicionLapiz(imgDirLapizArriba.get(tramo.getDireccion())));
-        }
+        secuencia.getChildren().add(transicionImagenCondicionLapiz(imagenesPersonaje.getImagen(tramo)));
+
         secuencia.getChildren().add(new PauseTransition(Duration.seconds(1)));
     }
 
-    protected void transicionDesplazamientoVisible(Tramo tramo){
-        secuencia.getChildren().add(transicionImagenCondicionLapiz(imgDirLapizAbajo.get(tramo.getDireccion())));
-        secuencia.getChildren().add(new PathTransition(Duration.seconds(tramo.getTam()), tramo.getCamino(), personaje));
-    }
-
-    protected void transicionDesplazamientoNoVisible(Tramo tramo){
-        secuencia.getChildren().add(transicionImagenCondicionLapiz(imgDirLapizArriba.get(tramo.getDireccion())));
+    protected void transicionDesplazamiento(Tramo tramo){
+        secuencia.getChildren().add(transicionImagenCondicionLapiz(imagenesPersonaje.getImagen(tramo)));
         secuencia.getChildren().add(new PathTransition(Duration.seconds(tramo.getTam()), tramo.getCamino(), personaje));
     }
 
@@ -55,14 +43,5 @@ public class AnimacionCaminoPersonaje extends AnimacionCamino {
         return new SequentialTransition(fadeOut, fadeIn);
     }
 
-    private HashMap<String, Image> imagenesDireccionPersonaje(String condicionLapiz){
-        HashMap<String, Image> hash = new HashMap<>();
 
-        hash.put("Arriba", new Image("file:" + RUTA_IMAGENES + "Arr" + condicionLapiz + ".png"));
-        hash.put("Abajo", new Image("file:" + RUTA_IMAGENES + "Ab" + condicionLapiz + ".png"));
-        hash.put("Derecha", new Image("file:" + RUTA_IMAGENES + "Der" + condicionLapiz + ".png"));
-        hash.put("Izquierda", new Image("file:" + RUTA_IMAGENES + "Izq" + condicionLapiz + ".png"));
-
-        return hash;
-    }
 }

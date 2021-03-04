@@ -29,17 +29,7 @@ public abstract class AnimacionCamino {
         return secuencia;
     }
 
-    private void transicionDesplazamiento(Tramo tramo){
-        if(tramo.esVisible()){
-            transicionDesplazamientoVisible(tramo);
-        }else{
-            transicionDesplazamientoNoVisible(tramo);
-        }
-    }
-
     protected abstract void transicionCondicionLapiz(Tramo tramo);
 
-    protected abstract void transicionDesplazamientoVisible(Tramo tramo);
-
-    protected abstract void transicionDesplazamientoNoVisible(Tramo tramo);
+    protected abstract void transicionDesplazamiento(Tramo tramo);
 }

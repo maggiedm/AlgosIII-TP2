@@ -28,6 +28,16 @@ public class AnimacionCaminoDibujado extends AnimacionCamino {
         secuencia.getChildren().add(new PauseTransition(Duration.seconds(1)));
     }
 
+    @Override
+    protected void transicionDesplazamiento(Tramo tramo) {
+        if (tramo.esVisible()){
+            transicionDesplazamientoVisible(tramo);
+        }
+        else{
+            transicionDesplazamientoNoVisible(tramo);
+        }
+    }
+
     protected void transicionDesplazamientoVisible(Tramo tramo){
         secuencia.getChildren().get(secuencia.getChildren().size() - 1).setOnFinished(event -> sonidoLapiz.play());
         Animation animacionTramos = crearAnimacionTramos(tramo.getCamino(), Duration.seconds(tramo.getTam()));
