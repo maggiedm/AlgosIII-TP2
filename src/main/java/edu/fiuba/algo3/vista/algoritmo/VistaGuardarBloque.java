@@ -13,7 +13,7 @@ public class VistaGuardarBloque {
         Stage escenarioGuardar = new Stage();
 
         TextField ingresoNombre = new TextField();
-        Label nombreAlgoritmo = new Label("NombreBloque:");
+        Label nombreAlgoritmo = new Label("Nombre del bloque:");
         nombreAlgoritmo.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 14px");
         new VistaEscenario(escenarioGuardar, new VBox(new HBox(10, nombreAlgoritmo, ingresoNombre),
                 new LayoutBotonesGuardarCancelar(unAlgoblocks, unLayoutBloques, ingresoNombre.getText(), escenarioGuardar)), "Guardar como");
