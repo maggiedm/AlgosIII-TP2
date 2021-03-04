@@ -6,10 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
 public class BotonIngresarHandler extends BotonConSonidoHandler {
-    Stage escenarioGuardar;
-    String nombreBloque;
-    AlgoBlocks algoBlocks;
-    LayoutBloques layoutBloques;
+    private final Stage escenarioGuardar;
+    private final String nombreBloque;
+    private final AlgoBlocks algoBlocks;
+    private final LayoutBloques layoutBloques;
 
     public BotonIngresarHandler(Stage unEscenario, String unNombre, AlgoBlocks unAlgoblocks, LayoutBloques unLayoutBloques){
         escenarioGuardar = unEscenario;

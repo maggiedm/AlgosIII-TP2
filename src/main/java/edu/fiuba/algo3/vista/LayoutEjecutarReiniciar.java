@@ -30,7 +30,6 @@ public class LayoutEjecutarReiniciar extends HBox {
                 "Reiniciar el algoritmo.",
                 handlerReiniciar
         );
-
         this.getChildren().addAll(botonEjecutar, botonReiniciar);
     }
 }

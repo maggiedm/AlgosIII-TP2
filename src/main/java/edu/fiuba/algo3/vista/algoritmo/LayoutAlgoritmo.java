@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista.algoritmo;
 
+import edu.fiuba.algo3.modelo.Observer;
 import edu.fiuba.algo3.vista.VistaScrollPane;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.vista.LayoutTitulo;
@@ -7,8 +8,10 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class LayoutAlgoritmo extends VBox {
-    private static final SelectorContenedorDeBloquesParaAgregar selectorContenedorDeBloquesParaAgregar = new SelectorContenedorDeBloquesParaAgregar("Algoritmo");
+public class LayoutAlgoritmo extends VBox implements Observer{
+    private final SelectorContenedorDeBloquesParaAgregar selectorContenedorDeBloquesParaAgregar =
+            new SelectorContenedorDeBloquesParaAgregar("Algoritmo");
+    private final AdministradorContenedoresDeBloques administradorContenedoresDeBloques;
 
     public LayoutAlgoritmo(AlgoBlocks algoBlocks, int altura) {
         VistaScrollPane vistaScrollPane = new VistaScrollPane(altura - 50, 250, null);
@@ -16,12 +19,22 @@ public class LayoutAlgoritmo extends VBox {
         layoutTituloYSeleccionador.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(layoutTituloYSeleccionador, vistaScrollPane);
         this.setStyle("-fx-background-color: lightgray;" + "-fx-border-width: 2px;" + "-fx-border-color: lightgray");
+        algoBlocks.addObserver(this);
 
-        new AdministradorContenedoresDeBloques(algoBlocks, vistaScrollPane, selectorContenedorDeBloquesParaAgregar);
+        administradorContenedoresDeBloques = new AdministradorContenedoresDeBloques(algoBlocks, vistaScrollPane, selectorContenedorDeBloquesParaAgregar);
     }
 
-    public static void reiniciar(){
+    private void reiniciar(){
         selectorContenedorDeBloquesParaAgregar.reiniciar();
-        AdministradorContenedoresDeBloques.reiniciar();
+        administradorContenedoresDeBloques.reiniciar();
+    }
+
+    @Override
+    public void change(Object obj) {
+        AlgoBlocks algoBlocks = (AlgoBlocks) obj;
+
+        if (algoBlocks.cantidadDeBloquesEnAlgoritmo() == 0) {
+            this.reiniciar();
+        }
     }
 }

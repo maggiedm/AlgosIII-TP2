@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.bloque.BloqueContenedor;
 import javafx.scene.layout.VBox;
 
 public class BloqueContenedorDisponible extends BloqueDisponible{
-
     private final String nombreBloque;
 
     public BloqueContenedorDisponible(BloqueContenedor unBloque, String unaDescripcion, String unaRutaImagen, String unNombreBloque) {

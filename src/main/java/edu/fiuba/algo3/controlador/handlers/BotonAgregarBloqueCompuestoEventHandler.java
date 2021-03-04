@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.bloque.BloqueContenedor;
 import javafx.event.ActionEvent;
 
 public class BotonAgregarBloqueCompuestoEventHandler extends BotonAgregarBloqueEventHandler {
-
     private final String nombreBloque;
 
     public BotonAgregarBloqueCompuestoEventHandler(Bloque unBloque, String unaRutaImagen, String unNombreBloque) {
@@ -17,6 +16,6 @@ public class BotonAgregarBloqueCompuestoEventHandler extends BotonAgregarBloqueE
     @Override
     public void handle(ActionEvent actionEvent) {
         super.handle(actionEvent);
-        AdministradorContenedoresDeBloques.agregar((BloqueContenedor) bloque.clone(), rutaImagen, nombreBloque);
+        AdministradorContenedoresDeBloques.getInstancia().agregar((BloqueContenedor) bloque.clone(), rutaImagen, nombreBloque);
     }
 }

@@ -4,7 +4,6 @@ import javafx.animation.*;
 import javafx.scene.image.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import java.util.HashMap;
 
 public class AnimacionCaminoPersonaje extends AnimacionCamino {
 
@@ -16,7 +15,7 @@ public class AnimacionCaminoPersonaje extends AnimacionCamino {
         super(dirInicial, visibilidadInicial);
         personaje.setX(posX);
         personaje.setY(posY);
-        personaje.setImage(imagenesPersonaje.getImagenLapizAbajo(dirInicial));
+        personaje.setImage(imagenesPersonaje.getImagenInicial(dirInicial, visibilidadInicial));
     }
 
     public void agregarAlLayout(Pane unLayout){unLayout.getChildren().add(personaje);}

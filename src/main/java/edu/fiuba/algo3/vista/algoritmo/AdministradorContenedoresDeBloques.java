@@ -3,24 +3,27 @@ package edu.fiuba.algo3.vista.algoritmo;
 import edu.fiuba.algo3.controlador.ControladorContenedorPrincipalDeBloques;
 import edu.fiuba.algo3.controlador.ControladorContenedorInternoDeBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
+import edu.fiuba.algo3.modelo.bloque.Bloque;
 import edu.fiuba.algo3.modelo.bloque.BloqueContenedor;
 import edu.fiuba.algo3.vista.VistaScrollPane;
 
 import java.util.HashMap;
 
-public class AdministradorContenedoresDeBloques {
-    private static final HashMap<String, LayoutContenedorDeBloques>  layoutsContenedoresDeBloques = new HashMap<>();
-    private static SelectorContenedorDeBloquesParaAgregar selectorContenedorDeBloquesParaAgregar;
-    private static final ContadorBloquesCompuestos contadorBloquesCompuestos = new ContadorBloquesCompuestos();
-    private static final String descripcionAlgoritmo = "Algoritmo";
+public class AdministradorContenedoresDeBloques{
+    private static AdministradorContenedoresDeBloques instancia;
+    private final HashMap<String, LayoutContenedorDeBloques>  layoutsContenedoresDeBloques = new HashMap<>();
+    private final SelectorContenedorDeBloquesParaAgregar selectorContenedorDeBloquesParaAgregar;
+    private final ContadorBloquesCompuestos contadorBloquesCompuestos = new ContadorBloquesCompuestos();
+    private final String descripcionAlgoritmo = "Algoritmo";
 
     public AdministradorContenedoresDeBloques(AlgoBlocks algoBlocks, VistaScrollPane layoutAlgoritmo, SelectorContenedorDeBloquesParaAgregar unSelector){
         layoutsContenedoresDeBloques.put(descripcionAlgoritmo, new LayoutContenedorPrincipalDeBloques(descripcionAlgoritmo, new ControladorContenedorPrincipalDeBloques(algoBlocks)));
         selectorContenedorDeBloquesParaAgregar = unSelector;
         layoutAlgoritmo.setContent(layoutsContenedoresDeBloques.get(descripcionAlgoritmo));
+        instancia = this;
     }
 
-    public static void reiniciar(){
+    public void reiniciar(){
         LayoutContenedorPrincipalDeBloques layoutAlgoblocks = (LayoutContenedorPrincipalDeBloques)layoutsContenedoresDeBloques.get(descripcionAlgoritmo);
         layoutsContenedoresDeBloques.clear();
         layoutAlgoblocks.reiniciar();
@@ -29,11 +32,11 @@ public class AdministradorContenedoresDeBloques {
         contadorBloquesCompuestos.reiniciar();
     }
 
-    public static LayoutContenedorDeBloques layoutContenedorBloqueActual(){
+    private LayoutContenedorDeBloques layoutContenedorBloqueActual(){
         return layoutsContenedoresDeBloques.get(selectorContenedorDeBloquesParaAgregar.getActual());
     }
 
-    public static void agregar (BloqueContenedor bloque, String rutaImagen, String nombreBloque) {
+    public void agregar(BloqueContenedor bloque, String rutaImagen, String nombreBloque) {
         contadorBloquesCompuestos.agregar(nombreBloque);
         String descripcion = ("Bloque" + nombreBloque + " - " + contadorBloquesCompuestos.getCantidad(nombreBloque));
 
@@ -42,5 +45,13 @@ public class AdministradorContenedoresDeBloques {
         layoutsContenedoresDeBloques.put(descripcion, layoutContenedorNuevo);
         layoutContenedorBloqueActual().agregarBloqueContenedor(bloque, descripcion, layoutContenedorNuevo);
        selectorContenedorDeBloquesParaAgregar.agregar(descripcion);
+    }
+
+    public void agregar(Bloque bloque, String rutaImagen) {
+        layoutContenedorBloqueActual().agregarBloque(bloque, rutaImagen);
+    }
+
+    public static AdministradorContenedoresDeBloques getInstancia(){
+        return instancia;
     }
 }

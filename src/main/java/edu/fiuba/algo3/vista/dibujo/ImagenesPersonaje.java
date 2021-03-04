@@ -26,15 +26,19 @@ public class ImagenesPersonaje {
     }
 
     public Image getImagen(Tramo tramo) {
-        if (tramo.esVisible()){
-            return imgDirLapizAbajo.get(tramo.getDireccion());
-        }
-        else{
-            return imgDirLapizArriba.get(tramo.getDireccion());
-        }
+        return getImagenCorrespondiente(tramo.getDireccion(), tramo.esVisible());
     }
 
-    public Image getImagenLapizAbajo(String direccion) {
-        return imgDirLapizAbajo.get(direccion);
+    public Image getImagenInicial(String direccion, boolean visibilidad) {
+        return getImagenCorrespondiente(direccion, visibilidad);
+    }
+
+    private Image getImagenCorrespondiente(String direccion, boolean visibilidad){
+        if (visibilidad){
+            return imgDirLapizAbajo.get(direccion);
+        }
+        else{
+            return imgDirLapizArriba.get(direccion);
+        }
     }
 }
