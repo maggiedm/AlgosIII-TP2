@@ -3,8 +3,6 @@ package edu.fiuba.algo3.vista.bloques.bloquesDisponibles;
 import edu.fiuba.algo3.modelo.bloque.Bloque;
 import javafx.scene.layout.VBox;
 
-import java.util.ArrayList;
-
 public abstract class BloqueDisponible {
     protected final String descripcion;
     protected final Bloque bloque;
