@@ -4,7 +4,7 @@ import edu.fiuba.algo3.controlador.handlers.BotonGuardarAlgoritmoEventHandler;
 import edu.fiuba.algo3.vista.bloques.LayoutBloques;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
 import edu.fiuba.algo3.modelo.Observer;
-import edu.fiuba.algo3.vista.bloques.BotonSimple;
+import edu.fiuba.algo3.vista.BotonSimple;
 
 
 public class BotonGuardarAlgoritmo  extends BotonSimple implements Observer{

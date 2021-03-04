@@ -25,5 +25,4 @@ public class BotonReiniciarEventHandler extends BotonConSonidoHandler {
         LayoutAlgoritmo.reiniciar();
         botonEjecutar.setDisable(false);
     }
-
 }

@@ -12,8 +12,9 @@ import java.util.*;
 public class LayoutDibujo extends BorderPane {
     private final Slider velocidad;
     private final Pane hoja = new Pane();
-    static final private String DIR_INICIAL = "Derecha";
-    static final private boolean VISIBILIDAD_INICIAL = true;
+    final private String DIR_INICIAL = "Derecha";
+    final private boolean VISIBILIDAD_INICIAL = true;
+
 
     public LayoutDibujo(double w, double h){
         //LAYOUT SLIDER
@@ -83,6 +84,6 @@ public class LayoutDibujo extends BorderPane {
 
     public void reiniciar(){
         hoja.getChildren().clear();
+        AnimacionCaminoDibujado.pararAnimacion();
     }
-
 }

@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.vista.bloques.bloquesDisponibles;
 
-import edu.fiuba.algo3.vista.bloques.BotonSimple;
+import edu.fiuba.algo3.vista.BotonSimple;
 import edu.fiuba.algo3.controlador.handlers.BotonAgregarBloqueCompuestoEventHandler;
 import edu.fiuba.algo3.modelo.bloque.BloqueContenedor;
 import javafx.scene.layout.VBox;
-
-import java.util.ArrayList;
 
 public class BloqueContenedorDisponible extends BloqueDisponible{
 

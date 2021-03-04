@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.vista.bloques.BotonSimple;
 import edu.fiuba.algo3.controlador.handlers.BotonEjecutarEventHandler;
 import edu.fiuba.algo3.controlador.handlers.BotonReiniciarEventHandler;
 import edu.fiuba.algo3.modelo.AlgoBlocks;
