@@ -11,9 +11,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Nahuel Delgado** - [NDelgado](https://github.com/nahuel-delgado)
 * **Magdalena de Montmollin** - [MdeMontmollin](https://github.com/maggiedm)
 
-Corrector: **Martin Picco**
-
-## [Informe Overleaf](https://www.overleaf.com/2546196393jwjhnnbyqqhk)  
+Corrector: **Martin Picco** 
 
 ### Pre-requisitos
 
