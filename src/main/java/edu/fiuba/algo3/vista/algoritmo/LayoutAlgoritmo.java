@@ -14,7 +14,7 @@ public class LayoutAlgoritmo extends VBox implements Observer{
     private final AdministradorContenedoresDeBloques administradorContenedoresDeBloques;
 
     public LayoutAlgoritmo(AlgoBlocks algoBlocks, int altura) {
-        VistaScrollPane vistaScrollPane = new VistaScrollPane(altura - 50, 250, null);
+        VistaScrollPane vistaScrollPane = new VistaScrollPane(altura - 40, 250, null);
         HBox layoutTituloYSeleccionador = new HBox(10, new LayoutTitulo("Algoritmo"), selectorContenedorDeBloquesParaAgregar);
         layoutTituloYSeleccionador.setAlignment(Pos.CENTER_LEFT);
         this.getChildren().addAll(layoutTituloYSeleccionador, vistaScrollPane);

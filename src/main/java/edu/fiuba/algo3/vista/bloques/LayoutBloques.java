@@ -13,7 +13,7 @@ public class LayoutBloques extends VBox{
     public LayoutBloques(int altura) {
 
         contenido = new VBox(10);
-        this.getChildren().addAll(new LayoutTitulo("Bloques"), new VistaScrollPane(altura - 50, 150, contenido));
+        this.getChildren().addAll(new LayoutTitulo("Bloques"), new VistaScrollPane(altura - 40, 150, contenido));
         this.setStyle("-fx-background-color: lightgray;" + "-fx-border-width: 2px;" + "-fx-border-color: lightgray");
 
         this.bloquesDisponibles = new BloquesDisponibles();
